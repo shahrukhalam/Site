@@ -7,7 +7,9 @@
 
 import HTMLDSL
 
-let commonDivider: some HTMLBodyContentView = Divider()
-    .backgroundColor(isDarkMode ? Color.Dark.NavBarDividerColor : Color.Light.NavBarDividerColor)
-    .size(height: .pixel(1))
-    .border(width: .pixel(0))
+var commonDivider: some HTMLBodyContentView {
+    Divider()
+        .backgroundColor(isDarkMode ? Color.Dark.NavBarDividerColor : Color.Light.NavBarDividerColor)
+        .size(height: .pixel(1))
+        .border(width: .pixel(0))
+}
