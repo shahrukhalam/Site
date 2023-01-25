@@ -8,9 +8,10 @@
 import HTMLDSL
 
 func markdownContainerStyle(_ mediaType: MediaStyle.DeviceType) -> CSSStyle {
-    ClassStyle(forClass: .markdownContainer)
+    let style = ClassStyle(forClass: .markdownContainer)
         .size(width: mediaType == .wide ? .percentage(60) : .percentage(90))
         .margin(left: .auto, right: .auto)
+    return MediaStyle(for: mediaType, with: style)
 }
 
 public struct MarkdownStyle: CSSStyle {
