@@ -20,7 +20,11 @@ let package = Package(
         // 📂 An easy replacement of FileManager
         .package(url: "https://github.com/kylef/PathKit.git", from: "1.0.1"),
         // 📃 A HTML page renderer for shahrukh's article website
-        .package(url: "https://github.com/shahrukhalam/HTMLDSL", revision: "8d8b2dba01b599659218c11b3f2f6894e42f59a6"),
+        .package(path: "../HTMLDSL"),
+//        .package(
+//            url: "https://github.com/shahrukhalam/HTMLDSL",
+//            revision: "8d8b2dba01b599659218c11b3f2f6894e42f59a6"
+//        ),
         // 🔖 Parsing nebulous data into well-structured data
         .package(url: "https://github.com/pointfreeco/swift-parsing", exact: "0.10.0")
     ],

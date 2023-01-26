@@ -37,14 +37,6 @@
       }
     },
     {
-      "identity" : "htmldsl",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/shahrukhalam/HTMLDSL",
-      "state" : {
-        "revision" : "8d8b2dba01b599659218c11b3f2f6894e42f59a6"
-      }
-    },
-    {
       "identity" : "multipart-kit",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/vapor/multipart-kit.git",
