@@ -22,7 +22,7 @@ extension Color {
         static var IndexSectionHeaderBackground: Color { .rgba(red: 20, green: 20, blue: 21, alpha: 1.0) }
         static var IndexGridBackground: Color { .html(.Black) }
         
-        static var ArticleBackground: Color { .rgba(red: 20, green: 20, blue: 21, alpha: 1.0) }
+        static var ArticleBackground: Color { .rgba(red: 29, green: 29, blue: 31, alpha: 1.0) }
         static var ArticleImageBorder: Color { .rgba(red: 76, green: 76, blue: 76, alpha: 1.0) }
 
         static var Background: Color { .html(.Black) }
@@ -33,18 +33,18 @@ extension Color {
     }
     
     enum Light {
-        static var NavBarColor: Color { .rgba(red: 240, green: 240, blue: 240, alpha: 0.8) } // #F0F0F0
+        static var NavBarColor: Color { .rgba(red: 250, green: 250, blue: 250, alpha: 0.8) }
         static var ActiveNavBarItem: Color { .html(.Black) }
         static var InactiveNavBarItem: Color { .rgba(red: 60, green: 60, blue: 60, alpha: 1.0) } // #3C3C3C
         static var HoverNavBarItem: Color { .html(.Black) }
-        static var NavBarDividerColor: Color { .rgba(red: 139, green: 139, blue: 139, alpha: 1.0) }
+        static var NavBarDividerColor: Color { .rgba(red: 230, green: 230, blue: 230, alpha: 1.0) }
         
         static var IndexBackground: Color { .html(.White) }
         static var IndexForeground: Color { .html(.Black) }
         static var IndexSectionHeaderBackground: Color { .rgba(red: 250, green: 250, blue: 250, alpha: 1.0) }
         static var IndexGridBackground: Color { .html(.White) }
         
-        static var ArticleBackground: Color { .rgba(red: 250, green: 250, blue: 250, alpha: 1.0) } // #FAFAFA
+        static var ArticleBackground: Color { .html(.White) }
         static var ArticleImageBorder: Color { .rgba(red: 139, green: 139, blue: 139, alpha: 1.0) }
 
         static var Background: Color { .html(.White) }
