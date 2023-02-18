@@ -1,7 +1,7 @@
 import Modeling
 import HTMLDSL
 
-public func indexPage(tabs: [LinkDescription], selectedIndex: Int, header: SectionHeader, meta: MetaDetail) -> some View {
+public func indexPage(tabs: [LinkDescription], selectedIndex: Int, header: SectionHeader, meta: MetaDetail, analyticsID: String) -> some View {
     Document {
         HTML {
             Head {
@@ -9,6 +9,7 @@ public func indexPage(tabs: [LinkDescription], selectedIndex: Int, header: Secti
                 commonCSSLinks
                 commonCSS
                 indexPageCSS
+                AnalyticsScript(id: analyticsID)
             }
             
             Body {
