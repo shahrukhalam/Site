@@ -8,7 +8,7 @@
 import Modeling
 import HTMLDSL
 
-public func articlePage(tabs: [LinkDescription], selectedIndex: Int, article: Article, meta: MetaDetail, listImage: String) -> some View {
+public func articlePage(tabs: [LinkDescription], selectedIndex: Int, article: Article, meta: MetaDetail, listImage: String, analyticsID: String) -> some View {
     Document {
         HTML {
             Head {
@@ -16,7 +16,7 @@ public func articlePage(tabs: [LinkDescription], selectedIndex: Int, article: Ar
                 commonCSSLinks
                 commonCSS
                 articlePageCSS(listImage: listImage)
-                AnalyticsScript()
+                AnalyticsScript(id: analyticsID)
                 CSSLink(path: "/css/prism-\(isDarkMode ? "dark" : "light").css")
                 CSSLink(path: "/css/prism-override-\(isDarkMode ? "dark" : "light").css")
             }
