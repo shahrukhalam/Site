@@ -9,7 +9,7 @@ import HTMLDSL
 
 private let gridContainerOwnStyle = ClassStyle(forClass: .gridContainer)
     .display(.grid)
-    .gridNumberOfColumnsWithWidth([.auto, .auto])
+    .gridNumberOfColumns(2)
     .gridColumn(gap: 12)
 private let gridContainerLinkStyle = ClassStyle(.gridItem, cssTag: .hover, tag: .enclosing(.link))
     .textDecoration(.underline)
@@ -17,6 +17,6 @@ public let gridContainerStyle: [CSSStyle] = [gridContainerOwnStyle, gridContaine
 
 private let gridContainerSmallOwnStyle = ClassStyle(forClass: .gridContainer)
     .display(.grid)
-    .gridNumberOfColumnsWithWidth([.auto])
+    .gridNumberOfColumns(1)
     .gridRow(gap: 12)
 public let gridContainerSmallStyle: [CSSStyle] = [gridContainerSmallOwnStyle, gridContainerLinkStyle]
