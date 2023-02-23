@@ -26,7 +26,9 @@ struct Grid: HTMLBodyContentView {
                     .position(.absolute, left: .pixel(0), top: .pixel(0), right: .pixel(0), bottom: .pixel(0))
 
                 Image(detail.image.url, alternateText: detail.image.description)
+                    .backgroundColor(isDarkMode ? .Dark.IndexGridImageBackground : .Light.IndexGridImageBackground)
                     .size(width: .percentage(100))
+                    .aspectRatio(width: 484, height: 218)
                     .cornerRadius([.pixel(16), .pixel(16), .pixel(0), .pixel(0)])
                 
                 Div {
