@@ -11,6 +11,7 @@ import HTMLDSL
 func sectionHeaderHero(with model: Detail, color: Color = .html(.White)) -> some HTMLBodyContentView {
     Div {
         Link(text: .empty, url: model.link.url)
+            .accessibility(model.image.description)
             .position(.absolute, left: .pixel(0), top: .pixel(0), right: .pixel(0), bottom: .pixel(0))
         
         Div {

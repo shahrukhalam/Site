@@ -24,6 +24,7 @@ struct Grid: HTMLBodyContentView {
             let gridView = Div {
                 Link(text: .empty, url: detail.link.url)
                     .position(.absolute, left: .pixel(0), top: .pixel(0), right: .pixel(0), bottom: .pixel(0))
+                    .accessibility(detail.image.description)
 
                 Image(detail.image.url, alternateText: detail.image.description)
                     .backgroundColor(isDarkMode ? .Dark.IndexGridImageBackground : .Light.IndexGridImageBackground)
