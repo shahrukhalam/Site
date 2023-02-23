@@ -28,7 +28,9 @@ func sectionHeaderHero(with model: Detail, color: Color = .html(.White)) -> some
         .position(.absolute, left: .percentage(60), top: .percentage(40), right: .percentage(10))
 
         Image(model.image.url, alternateText: model.image.description)
+            .backgroundColor(isDarkMode ? .Dark.IndexGridImageBackground : .Light.IndexGridImageBackground)
             .size(width: .percentage(100))
+            .aspectRatio(width: 980, height: 435)
             .cornerRadius(.pixel(16))
     }
     .padding(top: .pixel(30))

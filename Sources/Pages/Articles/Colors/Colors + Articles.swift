@@ -21,6 +21,7 @@ extension Color {
         static var IndexForeground: Color { .html(.White) }
         static var IndexSectionHeaderBackground: Color { .rgba(red: 20, green: 20, blue: 21, alpha: 1.0) }
         static var IndexGridBackground: Color { .html(.Black) }
+        static var IndexGridImageBackground: Color { .rgba(red: 25, green: 25, blue: 25, alpha: 1.0) }
         
         static var ArticleBackground: Color { .rgba(red: 29, green: 29, blue: 31, alpha: 1.0) }
         static var ArticleImageBorder: Color { .rgba(red: 76, green: 76, blue: 76, alpha: 1.0) }
@@ -43,6 +44,7 @@ extension Color {
         static var IndexForeground: Color { .html(.Black) }
         static var IndexSectionHeaderBackground: Color { .rgba(red: 250, green: 250, blue: 250, alpha: 1.0) }
         static var IndexGridBackground: Color { .html(.White) }
+        static var IndexGridImageBackground: Color { .rgba(red: 245, green: 245, blue: 245, alpha: 1.0) }
         
         static var ArticleBackground: Color { .html(.White) }
         static var ArticleImageBorder: Color { .rgba(red: 139, green: 139, blue: 139, alpha: 1.0) }
