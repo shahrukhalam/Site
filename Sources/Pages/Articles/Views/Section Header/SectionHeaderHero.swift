@@ -7,9 +7,19 @@
 
 import Modeling
 import HTMLDSL
+import PathKit
+import AppKit
 
 func sectionHeaderHero(with model: Detail, color: Color = .html(.White)) -> some HTMLBodyContentView {
-    Div {
+    let aspectRatio: (width: Int, height: Int)
+    let imagePath: Path = .current + .init("Public" + model.image.url)
+    if let imageData = try? imagePath.read(), let image = NSImage(data: imageData) {
+        aspectRatio = (Int(image.size.width), Int(image.size.height))
+    } else {
+        aspectRatio = (980, 435)
+    }
+
+    return Div {
         Link(text: .empty, url: model.link.url)
             .accessibility(model.image.description)
             .position(.absolute, left: .pixel(0), top: .pixel(0), right: .pixel(0), bottom: .pixel(0))
@@ -31,7 +41,7 @@ func sectionHeaderHero(with model: Detail, color: Color = .html(.White)) -> some
         Image(model.image.url, alternateText: model.image.description)
             .backgroundColor(isDarkMode ? .Dark.IndexGridImageBackground : .Light.IndexGridImageBackground)
             .size(width: .percentage(100))
-            .aspectRatio(width: 980, height: 435)
+            .aspectRatio(width: aspectRatio.width, height: aspectRatio.height)
             .cornerRadius(.pixel(16))
     }
     .padding(top: .pixel(30))

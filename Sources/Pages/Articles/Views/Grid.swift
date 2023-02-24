@@ -7,6 +7,8 @@
 
 import Modeling
 import HTMLDSL
+import PathKit
+import AppKit
 
 struct Grid: HTMLBodyContentView {
     var tag: Tag = .empty
@@ -21,6 +23,15 @@ struct Grid: HTMLBodyContentView {
     var body: some HTMLBodyContentView {
         let gridViews = model.map { (detail, isHiddenInDesktop) -> AnyView in
             let classes: [CSSClass] = isHiddenInDesktop ? [.gridItem, .desktopHidden] : [.gridItem]
+
+            let aspectRatio: (width: Int, height: Int)
+            let imagePath: Path = .current + .init("Public" + detail.image.url)
+            if let imageData = try? imagePath.read(), let image = NSImage(data: imageData) {
+                aspectRatio = (Int(image.size.width), Int(image.size.height))
+            } else {
+                aspectRatio = (484, 218)
+            }
+
             let gridView = Div {
                 Link(text: .empty, url: detail.link.url)
                     .position(.absolute, left: .pixel(0), top: .pixel(0), right: .pixel(0), bottom: .pixel(0))
@@ -29,7 +40,7 @@ struct Grid: HTMLBodyContentView {
                 Image(detail.image.url, alternateText: detail.image.description)
                     .backgroundColor(isDarkMode ? .Dark.IndexGridImageBackground : .Light.IndexGridImageBackground)
                     .size(width: .percentage(100))
-                    .aspectRatio(width: 484, height: 218)
+                    .aspectRatio(width: aspectRatio.width, height: aspectRatio.height)
                     .cornerRadius([.pixel(16), .pixel(16), .pixel(0), .pixel(0)])
                 
                 Div {
