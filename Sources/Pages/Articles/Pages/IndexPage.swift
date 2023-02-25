@@ -10,8 +10,8 @@ public func indexPage(tabs: [LinkDescription], selectedIndex: Int, header: Secti
                 commonCSS
                 indexPageCSS
 
-                CSSLink(preloadImage: header.grids.first?.detail.image.url ?? "")
                 AnalyticsScript(id: analyticsID)
+                CSSLink(preloadImage: header.grids.first?.detail.image.url ?? "")
             }
             
             Body {
