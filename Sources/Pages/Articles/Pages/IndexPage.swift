@@ -9,6 +9,8 @@ public func indexPage(tabs: [LinkDescription], selectedIndex: Int, header: Secti
                 commonCSSLinks
                 commonCSS
                 indexPageCSS
+
+                CSSLink(preloadImage: header.grids.first?.detail.image.url ?? "")
                 AnalyticsScript(id: analyticsID)
             }
             
