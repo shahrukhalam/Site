@@ -20,8 +20,8 @@ struct AnalyticsScript: HTMLHeadContentView {
     var body: String {
         """
         <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-\(id)"></script>
-        <script>
+        <script defer src="https://www.googletagmanager.com/gtag/js?id=G-\(id)"></script>
+        <script defer>
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
