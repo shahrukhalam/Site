@@ -10,7 +10,7 @@ public extension Response {
 
         response.headers.contentType = .html
         if request.application.isLive {
-            response.headers.cacheControl = .init(isPublic: true, maxAge: 604800) // A week
+            response.headers.cacheControl = .init(isPublic: true, maxAge: 31536000) // A year
         }
 
         response.body = .init(string: content.element)
