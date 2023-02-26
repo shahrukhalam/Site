@@ -12,14 +12,14 @@ public func indexPage(tabs: [LinkDescription], selectedIndex: Int, header: Secti
 
 //                AnalyticsScript(id: analyticsID)
 //                Script(url: "https://unpkg.com/vue@3/dist/vue.global.prod.js")
-                CSSLink(preloadImage: header.grids.first?.detail.image.url ?? "")
+//                CSSLink(preloadImage: header.grids.first?.detail.image.url ?? "")
             }
             
             Body {
                 NavView(tabs: tabs, selectedIndex: selectedIndex)
                 sectionHeader(with: header)
-                Div("").identifyBy(id: "app")
-                AnalyticsScript(id: analyticsID)
+//                Div("").identifyBy(id: "app")
+//                AnalyticsScript(id: analyticsID)
             }
         }
     }

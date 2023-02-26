@@ -34,7 +34,7 @@ struct AnalyticsScript: HTMLHeadContentView {
     var body: String {
         """
         <script type="module">
-        import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.prod.js'
+        import { createApp } from 'https://unpkg.com/petite-vue@0.2.2/dist/petite-vue.es.js'
 
         createApp({
             methods: {
