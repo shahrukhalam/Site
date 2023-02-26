@@ -17,16 +17,37 @@ struct AnalyticsScript: HTMLHeadContentView {
         self.id = id
     }
     
+//    var body: String {
+//        """
+//        <!-- Google tag (gtag.js) -->
+//        <script defer src="https://www.googletagmanager.com/gtag/js?id=G-\(id)"></script>
+//        <script defer>
+//          window.dataLayer = window.dataLayer || [];
+//          function gtag(){dataLayer.push(arguments);}
+//          gtag('js', new Date());
+//
+//          gtag('config', 'G-\(id)');
+//        </script>
+//        """
+//    }
+
     var body: String {
         """
-        <!-- Google tag (gtag.js) -->
-        <script defer src="https://www.googletagmanager.com/gtag/js?id=G-\(id)"></script>
-        <script defer>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
+        <script>
+        const { createApp } = Vue
 
-          gtag('config', 'G-\(id)');
+        createApp({
+            methods: {
+                async fetchData() {
+                    const response = await fetch("https://api.zippopotam.us/in/600028")
+                    const data = await response.json()
+                }
+            },
+            mounted() {
+                this.fetchData()
+            }
+        })
+        .mount('#app')
         </script>
         """
     }
