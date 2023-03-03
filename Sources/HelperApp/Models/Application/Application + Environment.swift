@@ -10,13 +10,12 @@ extension Application {
         }
     }
 
-    func baseURL(live host: String) -> String {
-        switch isLive {
-        case true:
-            return host
-        case false:
-            return "http://127.0.0.1:8080"
-        }
+    var baseURL: String {
+        let configuration = http.server.configuration
+        let scheme = configuration.tlsConfiguration == nil ? "http" : "https"
+        let host = configuration.hostname
+        let port = configuration.port
+        return isLive ? "\(scheme)://\(host)" : "\(scheme)://\(host):\(port)"
     }
 
     var contentsPath: String {

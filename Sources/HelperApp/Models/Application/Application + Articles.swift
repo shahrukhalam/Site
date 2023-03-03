@@ -3,7 +3,7 @@ import PathKit
 import Modeling
 
 public extension Application {
-    func articles(tagged tags: [String], live host: String) throws -> [Article] {
+    func articles(tagged tags: [String]) throws -> [Article] {
         let articlesPath: PathKit.Path = .init(contentsPath) + "articles"
         var articles: [Article] = []
         for tagFolder in try articlesPath.children() {
@@ -17,7 +17,7 @@ public extension Application {
                 let name = markdownPath.lastComponentWithoutExtension
                 let markdown: String = try markdownPath.read()
                 let (title, intro, (_, bannerSource)) = try markdownParser.parse(markdown)
-                let url = [baseURL(live: host), "articles", tag, name].joined(separator: "/")
+                let url = [baseURL, "articles", tag, name].joined(separator: "/")
                 let article: Article = .init(markdown: markdown,
                                              title: String(title),
                                              intro: String(intro),
