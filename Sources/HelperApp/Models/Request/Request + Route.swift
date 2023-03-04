@@ -18,11 +18,13 @@ public extension Request {
 
     var baseURL: String {
         get throws {
-            guard let host = Environment.get(.DOMAIN_HOST) else {
+            guard let fallbackHost = Environment.get(.DOMAIN_HOST) else {
                 throw RequestError.domainHostNotAvailable
             }
 
-            return headers.first(name: .host) ?? headers.first(name: ":authority") ?? host
+            let scheme = application.http.server.configuration.tlsConfiguration == nil ? "http" : "https"
+            let host = headers.first(name: .host) ?? headers.first(name: ":authority") ?? fallbackHost
+            return scheme + "://" + host
         }
     }
     
