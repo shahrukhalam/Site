@@ -17,7 +17,7 @@ public extension Application {
                 let name = markdownPath.lastComponentWithoutExtension
                 let markdown: String = try markdownPath.read()
                 let (title, intro, (_, bannerSource)) = try markdownParser.parse(markdown)
-                let url = [baseURL, "articles", tag, name].joined(separator: "/")
+                let url = ["/articles", tag, name].joined(separator: "/")
                 let article: Article = .init(markdown: markdown,
                                              title: String(title),
                                              intro: String(intro),

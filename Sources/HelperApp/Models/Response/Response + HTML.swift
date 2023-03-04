@@ -9,7 +9,7 @@ public extension Response {
         let response = Response()
 
         response.headers.contentType = .html
-        if request.application.isLive {
+        try! request.application.liveRun {
             response.headers.cacheControl = .init(isPublic: true, maxAge: 31536000) // A year
         }
 
@@ -22,7 +22,7 @@ public extension Response {
         let path: PathKit.Path = .init("\(request.application.contentsPath)\(request.url.path).md")
         let markdown: String = try path.read()
         let (title, intro, (_, bannerSource)) = try markdownParser.parse(markdown)
-        let article: Article = .init(markdown: markdown, title: String(title), intro: String(intro), banner: String(bannerSource), url: request.urlRoute)
+        let article: Article = .init(markdown: markdown, title: String(title), intro: String(intro), banner: String(bannerSource), url: try request.urlRoute)
 
         return .html(for: request, with: articlePage(tabs: tabs, selectedIndex: 1, article: article, meta: meta, listImage: listImage, analyticsID: analyticsID))
     }
