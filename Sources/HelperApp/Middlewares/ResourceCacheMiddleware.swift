@@ -5,9 +5,10 @@ public struct ResourceCacheMiddleware: AsyncMiddleware {
 
     public func respond(to request: Request, chainingTo next: AsyncResponder) async throws -> Response {
         let response = try await next.respond(to: request)
-        if request.application.isLive {
+        try! request.application.liveRun {
             response.headers.cacheControl = .init(isPublic: true, maxAge: 31536000) // A year
         }
+
         return response
     }
 }
