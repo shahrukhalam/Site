@@ -1,7 +1,19 @@
 import Vapor
 
-public extension String {
+private extension String {
     static var DOMAIN_HOST: Self { #function }
+}
+
+private extension HTTPHeaders.Name {
+    /// HTTP or HTTPS Fly Forwarded Header.
+    static let flyForwardedProto = Self("fly-forwarded-proto")
+    /// HTTP or HTTPS Fly Forwarded Header.
+    /// `on` or `off`
+    static let flyForwardedSSL = Self("fly-forwarded-ssl")
+
+    /// HTTP or HTTPS Browser Forwarded Header.
+    /// `on` or `off`
+    static let xForwardedSSL = Self("x-forwarded-ssl")
 }
 
 public extension Request {
@@ -22,7 +34,7 @@ public extension Request {
                 throw RequestError.domainHostNotAvailable
             }
 
-            let scheme = application.http.server.configuration.tlsConfiguration == nil ? "http" : "https"
+            let scheme = isSecure ? "https" : "http"
             let host = headers.first(name: .host) ?? headers.first(name: ":authority") ?? fallbackHost
             return scheme + "://" + host
         }
@@ -33,5 +45,19 @@ public extension Request {
             let baseURL = try baseURL
             return baseURL + url.path
         }
+    }
+
+    private var isSecure: Bool {
+        let proto = headers.first(name: .flyForwardedProto) ?? headers.first(name: .xForwardedProto)
+        if let proto = proto {
+            return proto == "https"
+        }
+
+        let ssl = headers.first(name: .flyForwardedSSL) ?? headers.first(name: .xForwardedSSL)
+        if let ssl = ssl {
+            return ssl == "on"
+        }
+
+        return false
     }
 }
