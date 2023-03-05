@@ -16,8 +16,8 @@ let package = Package(
     ],
     dependencies: [
         // 💧 A server-side Swift web framework.
-        .package(url: "https://github.com/vapor/vapor.git", from: "4.0.0"),
-        .package(url: "https://github.com/vapor-community/Imperial.git", from: "1.0.0"),
+        .package(url: "https://github.com/vapor/vapor.git", from: "4.70.0"),
+        .package(url: "https://github.com/vapor-community/Imperial.git", from: "1.1.0"),
         // 📂 An easy replacement of FileManager
         .package(url: "https://github.com/kylef/PathKit.git", from: "1.0.1"),
         // 📃 A HTML page renderer for shahrukh's article website
@@ -27,7 +27,7 @@ let package = Package(
             revision: "ee2158d2f98d54be1076622aeec0a48365905b28"
         ),
         // 🔖 Parsing nebulous data into well-structured data
-        .package(url: "https://github.com/pointfreeco/swift-parsing", exact: "0.10.0")
+        .package(url: "https://github.com/pointfreeco/swift-parsing", from: "0.11.0")
     ],
     targets: [
         .target(name: "Modeling"),
