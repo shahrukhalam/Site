@@ -7,7 +7,7 @@
 
 import HTMLDSL
 
-public struct IndexBodyStyle: CSSStyle {
+public struct CommonBodyStyle: CSSStyle {
     public let key: CustomStringConvertible = Tag.empty.description
     public let styles = [Style]()
 
@@ -18,11 +18,7 @@ public struct IndexBodyStyle: CSSStyle {
             .padding(top: .pixel(57))
             .backgroundColor(isDarkMode ? Color.Dark.IndexBackground : Color.Light.IndexBackground)
             .foregroundColor(isDarkMode ? Color.Dark.IndexForeground : Color.Light.IndexForeground)
-            .font(family: .sansSerif([.SFProDisplay,
-                                      .SFProIcons,
-                                      .HelveticaNeue,
-                                      .Helvetica,
-                                      .Arial]))
+            .font(family: .sansSerif([.Poppins, .sansSerif]))
 
         self.element = bodyStyle.element
     }
