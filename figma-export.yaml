@@ -14,7 +14,7 @@ ios:
   # Is Assets.xcassets located in the main bundle?
   xcassetsInMainBundle: false
   # [optional] Path to the Stencil templates used to generate code
-  templatesPath: "./Stencil/Templates"
+  templatesPath: "./Stencil/Figma"
 
   # [optional] Parameters for exporting colors
   colors:
