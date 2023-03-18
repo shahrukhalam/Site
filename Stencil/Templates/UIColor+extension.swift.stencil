@@ -1,0 +1,5 @@
+public extension Color {
+    {% for color in colors %}
+    static var {{ color.name }}: Color { .rgba(red: {{ color.red }}, green: {{ color.green }}, blue: {{ color.blue }}, alpha: {{ color.alpha }}) }
+    {% endfor %}
+}

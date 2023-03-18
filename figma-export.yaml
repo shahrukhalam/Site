@@ -1,0 +1,28 @@
+---
+figma:
+  # Identifier of the file containing light color palette, icons and light images. To obtain a file id, open the file in the browser. The file id will be present in the URL after the word file and before the file name.
+  lightFileId: JWM0UfqaBJfxOgIGXSi2OD
+
+# iOS export parameters
+ios:
+  # Path to xcodeproj
+  xcodeprojPath: "N/A"
+  # Xcode Target containing resources and corresponding swift code
+  target: "N/A"
+  # Absolute or relative path to the Assets.xcassets directory
+  xcassetsPath: "N/A"
+  # Is Assets.xcassets located in the main bundle?
+  xcassetsInMainBundle: false
+  # [optional] Path to the Stencil templates used to generate code
+  templatesPath: "./Stencil/Templates"
+
+  # [optional] Parameters for exporting colors
+  colors:
+    # How to export colors? Use .xcassets and UIColor extension (useColorAssets = true) or extension only (useColorAssets = false)
+    useColorAssets: false
+    # Color name style: camelCase or snake_case
+    nameStyle: camelCase
+    # [optional] If true and a color style name contains symbol "/" then "/" symbol indicates grouping by folders, and each folder will have the "Provides Namespace" property enabled. Defaults to `false`.
+    groupUsingNamespace: true
+    # [optional] Absolute or relative path to swift file where to export UIKit colors (UIColor) for accessing from the code (e.g. UIColor.backgroundPrimary)
+    colorSwift: "Sources/Pages/Articles/Colors/Color+Site.swift"
