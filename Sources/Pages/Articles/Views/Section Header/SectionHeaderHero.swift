@@ -23,10 +23,11 @@ func sectionHeaderHero(with model: Detail, color: Color = .html(.White)) -> some
                 .identifyBy(cssClass: .callout)
             Link(text: model.link.text, url: model.link.url)
                 .identifyBy(cssClass: .link)
+                .foregroundColor(.html(.Aqua))
                 .display(.inlineBlock)
                 .margin(top: .pixel(11))
         }
-        .position(.absolute, left: .percentage(60), top: .percentage(40), right: .percentage(10))
+        .position(.absolute, left: .percentage(68), top: .percentage(40), right: .percentage(4))
 
         Image(model.image.url, alternateText: model.image.description)
             .backgroundColor(isDarkMode ? .Dark.IndexGridImageBackground : .Light.IndexGridImageBackground)
