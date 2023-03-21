@@ -30,13 +30,17 @@ public extension Request {
 
     var baseURL: String {
         get throws {
+            let scheme = isSecure ? "https" : "http"
+            let host = headers.first(name: .host) ?? headers.first(name: ":authority")
+            guard host == nil else {
+                return scheme + "://" + host!
+            }
+            
             guard let fallbackHost = Environment.get(.DOMAIN_HOST) else {
                 throw RequestError.domainHostNotAvailable
             }
-
-            let scheme = isSecure ? "https" : "http"
-            let host = headers.first(name: .host) ?? headers.first(name: ":authority") ?? fallbackHost
-            return scheme + "://" + host
+            
+            return scheme + "://" + fallbackHost
         }
     }
     
