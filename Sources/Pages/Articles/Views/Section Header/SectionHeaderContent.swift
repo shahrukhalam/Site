@@ -8,11 +8,11 @@
 import Modeling
 import HTMLDSL
 
-func sectionHeaderContent(with model: SectionHeader) -> some HTMLBodyContentView {
+func sectionHeaderContent(with model: Section) -> some HTMLBodyContentView {
     Div {
         sectionHeaderDescription(with: model.description)
-        sectionHeaderHero(with: model.hero)
-        Grid(model: model.grids)
+//        sectionHeaderHero(with: model.hero)
+//        Grid(model: model.grids)
     }
     .identifyBy(cssClass: .sectionHeaderContent)
 }

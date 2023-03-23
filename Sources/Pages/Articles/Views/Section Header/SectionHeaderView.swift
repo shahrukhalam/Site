@@ -8,7 +8,7 @@
 import Modeling
 import HTMLDSL
 
-func sectionHeader(with model: SectionHeader) -> some HTMLBodyContentView {
+func sectionHeader(with model: Section) -> some HTMLBodyContentView {
     Div {
         sectionHeaderContent(with: model)
     }
