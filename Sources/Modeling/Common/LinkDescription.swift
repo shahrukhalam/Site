@@ -1,4 +1,4 @@
-public struct LinkDescription {
+public struct LinkDescription: Codable {
     public let url: String
     public let text: String
 

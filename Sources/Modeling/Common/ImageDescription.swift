@@ -1,11 +1,21 @@
-public struct ImageDescription {
+public struct ImageDescription: Codable {
     public let url: String
     public let description: String
-    public let aspectRatio: (width: Int, height: Int)
+    public let aspectRatio: AspectRatio
 
-    public init(url: String, description: String, aspectRatio: (width: Int, height: Int)) {
+    public init(url: String, description: String, aspectRatio: AspectRatio) {
         self.url = url
         self.description = description
         self.aspectRatio = aspectRatio
+    }
+}
+
+public struct AspectRatio: Codable {
+    public let width: Int
+    public let height: Int
+
+    public init(width: Int, height: Int) {
+        self.width = width
+        self.height = height
     }
 }
