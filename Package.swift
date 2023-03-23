@@ -24,7 +24,7 @@ let package = Package(
 //        .package(path: "../HTMLDSL"),
         .package(
             url: "https://github.com/shahrukhalam/HTMLDSL",
-            revision: "89c9b402e0a257c812a120fc89bae40197919964"
+            revision: "3c3e9a47f41df3feae966d7c629b33fdadddccfa"
         ),
         // 🔖 Parsing nebulous data into well-structured data
         .package(url: "https://github.com/pointfreeco/swift-parsing", from: "0.11.0")
