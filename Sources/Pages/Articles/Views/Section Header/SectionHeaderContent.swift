@@ -11,8 +11,7 @@ import HTMLDSL
 func sectionHeaderContent(with model: Section) -> some HTMLBodyContentView {
     Div {
         sectionHeaderDescription(with: model.description)
-//        sectionHeaderHero(with: model.hero)
-//        Grid(model: model.grids)
+        Grid(model: model.subsections)
     }
     .identifyBy(cssClass: .sectionHeaderContent)
 }

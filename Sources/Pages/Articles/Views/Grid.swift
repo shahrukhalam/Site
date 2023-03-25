@@ -12,50 +12,91 @@ struct Grid: HTMLBodyContentView {
     var tag: Tag = .empty
     var attributes: [Attribute] = []
     
-    private let model: [(Detail, isHiddenInDesktop: Bool)]
+    private let subsections: [Subsection]
     
-    init(model: [(Detail, isHiddenInDesktop: Bool)]) {
-        self.model = model
+    init(model: [Subsection]) {
+        self.subsections = model
     }
     
     var body: some HTMLBodyContentView {
-        let gridViews = model.map { (detail, isHiddenInDesktop) -> AnyView in
-            let classes: [CSSClass] = isHiddenInDesktop ? [.gridItem, .desktopHidden] : [.gridItem]
-
-            let gridView = Div {
-                Link(text: .empty, url: detail.link.url)
-                    .position(.absolute, left: .pixel(0), top: .pixel(0), right: .pixel(0), bottom: .pixel(0))
-                    .accessibility(detail.image.description)
-
-                Image(detail.image.url, alternateText: detail.image.description)
-                    .backgroundColor(isDarkMode ? .Dark.IndexGridImageBackground : .Light.IndexGridImageBackground)
-                    .size(width: .percentage(100))
-                    .aspectRatio(width: detail.image.aspectRatio.width,
-                                 height: detail.image.aspectRatio.height)
-                    .cornerRadius([.pixel(16), .pixel(16), .pixel(0), .pixel(0)])
-                
-                Div {
-                    Headings(detail.description.title, type: .h2)
-                        .identifyBy(cssClass: .headline)
-                    Headings(detail.description.subtitle, type: .h3)
-                        .identifyBy(cssClass: .subheadline)
-                    Link(text: detail.link.text, url: detail.link.url)
-                        .identifyBy(cssClass: .link)
-                        .display(.inlineBlock)
-                        .margin(top: .pixel(16))
-                }
-                .margin(uniform: .pixel(16))
+        let gridViews = subsections.map { subsection in
+            var classes: [CSSClass] = [.gridItem]
+            switch subsection.device {
+            case .small:
+                classes += [.desktopHidden]
+            case .wide:
+                classes += [.mobileHidden]
+            case .all:
+                break
             }
-                .position(.relative)
-                .backgroundColor(isDarkMode ? Color.Dark.IndexGridBackground : Color.Light.IndexGridBackground)
-                .cornerRadius(.pixel(16))
-                .identifyBy(cssClasses: classes)
+            switch subsection.layout {
+            case .highlighted:
+                classes += [.gridItemHero]
+            case .compact:
+                break
+            }
             
-            return AnyView(gridView)
+            let gridItemViewErased: AnyView
+            switch subsection.layout {
+            case .highlighted:
+                let gridItemView = sectionHeaderHero(with: subsection.detail)
+                    .position(.relative)
+                    .backgroundColor(isDarkMode ? Color.Dark.IndexGridBackground : Color.Light.IndexGridBackground)
+                    .cornerRadius(.pixel(16))
+                    .identifyBy(cssClasses: classes)
+                gridItemViewErased = AnyView(gridItemView)
+            case .compact:
+                let gridItemView = GridView(model: subsection.detail)
+                    .position(.relative)
+                    .backgroundColor(isDarkMode ? Color.Dark.IndexGridBackground : Color.Light.IndexGridBackground)
+                    .cornerRadius(.pixel(16))
+                    .identifyBy(cssClasses: classes)
+                gridItemViewErased = AnyView(gridItemView)
+            }
+            
+            return gridItemViewErased
         }
         
         return Div(AnyView(gridViews))
             .identifyBy(cssClass: .gridContainer)
-            .margin(top: .pixel(12))
+            .margin(top: .pixel(40))
+    }
+}
+
+struct GridView: HTMLBodyContentView {
+    let tag: Tag = .enclosing(.div)
+    var attributes: [Attribute] = []
+    
+    private let detail: Detail
+    
+    init(model: Detail) {
+        self.detail = model
+    }
+    
+    var body: some HTMLBodyContentView {
+        Div {
+            Link(text: .empty, url: detail.link.url)
+                .position(.absolute, left: .pixel(0), top: .pixel(0), right: .pixel(0), bottom: .pixel(0))
+                .accessibility(detail.image.description)
+
+            Image(detail.image.url, alternateText: detail.image.description)
+                .backgroundColor(isDarkMode ? .Dark.IndexGridImageBackground : .Light.IndexGridImageBackground)
+                .size(width: .percentage(100))
+                .aspectRatio(width: detail.image.aspectRatio.width,
+                             height: detail.image.aspectRatio.height)
+                .cornerRadius([.pixel(16), .pixel(16), .pixel(0), .pixel(0)])
+            
+            Div {
+                Headings(detail.description.title, type: .h2)
+                    .identifyBy(cssClass: .headline)
+                Headings(detail.description.subtitle, type: .h3)
+                    .identifyBy(cssClass: .subheadline)
+                Link(text: detail.link.text, url: detail.link.url)
+                    .identifyBy(cssClass: .link)
+                    .display(.inlineBlock)
+                    .margin(top: .pixel(16))
+            }
+            .margin(uniform: .pixel(16))
+        }
     }
 }

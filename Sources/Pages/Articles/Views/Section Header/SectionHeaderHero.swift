@@ -35,7 +35,6 @@ func sectionHeaderHero(with model: Detail, color: Color = .html(.White)) -> some
             .aspectRatio(width: model.image.aspectRatio.width, height: model.image.aspectRatio.height)
             .cornerRadius(.pixel(16))
     }
-    .padding(top: .pixel(30))
     .position(.relative)
     .identifyBy(cssClass: .sectionHeaderHero)
 }
