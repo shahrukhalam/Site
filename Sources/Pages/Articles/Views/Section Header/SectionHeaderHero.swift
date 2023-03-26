@@ -30,6 +30,7 @@ func sectionHeaderHero(with model: Detail, color: Color = .html(.White)) -> some
         .position(.absolute, left: .percentage(68), top: .percentage(40), right: .percentage(4))
 
         Image(model.image.url, alternateText: model.image.description)
+            .display(.block)
             .backgroundColor(isDarkMode ? .Dark.IndexGridImageBackground : .Light.IndexGridImageBackground)
             .size(width: .percentage(100))
             .aspectRatio(width: model.image.aspectRatio.width, height: model.image.aspectRatio.height)
