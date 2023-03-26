@@ -6,17 +6,25 @@
 //
 
 public struct Article {
-    public let markdown: String
-    public let title: String
-    public let intro: String
-    public let banner: String
-    public let url: String
+    public struct Detail {
+        public let title: String
+        public let intro: String
+        public let banner: String
+        public let url: String
+        
+        public init(title: String, intro: String, banner: String, url: String) {
+            self.title = title
+            self.intro = intro
+            self.banner = banner
+            self.url = url
+        }
+    }
     
-    public init(markdown: String, title: String, intro: String, banner: String, url: String) {
+    public let detail: Detail
+    public let markdown: String
+    
+    public init(detail: Detail, markdown: String) {
         self.markdown = markdown
-        self.title = title
-        self.intro = intro
-        self.banner = banner
-        self.url = url
+        self.detail = detail
     }
 }

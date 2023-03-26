@@ -22,14 +22,25 @@ public extension Response {
         let path: PathKit.Path = .init("\(request.application.contentsPath)\(request.url.path).md")
         let markdown: String = try path.read()
         let (title, intro, (_, bannerSource)) = try markdownParser.parse(markdown)
-        let article: Article = .init(markdown: markdown, title: String(title), intro: String(intro), banner: String(bannerSource), url: try request.urlRoute)
+        let article: Article = .init(
+            detail: .init(title: String(title), intro: String(intro), banner: String(bannerSource), url: try request.urlRoute),
+            markdown: markdown
+        )
 
+        return .html(for: request, with: articlePage(tabs: tabs, selectedIndex: 1, article: article, meta: meta, listImage: listImage, analyticsID: analyticsID))
+    }
+    
+    static func article(for request: Request, article: Article, with meta: MetaDetail, tabs: [LinkDescription], listImage: String, analyticsID: String) throws -> Response {
         return .html(for: request, with: articlePage(tabs: tabs, selectedIndex: 1, article: article, meta: meta, listImage: listImage, analyticsID: analyticsID))
     }
 
     static func articles(for request: Request, with meta: MetaDetail, tagged tags: [String], tabs: [LinkDescription], analyticsID: String) throws -> Response {
         let articles = try request.application.articles(tagged: tags)
 
+        return .html(for: request, with: articleListPage(tabs: tabs, selectedIndex: 1, articles: articles, meta: meta, analyticsID: analyticsID))
+    }
+    
+    static func articles(for request: Request, articles: [Article], with meta: MetaDetail, tagged tags: [String], tabs: [LinkDescription], analyticsID: String) throws -> Response {
         return .html(for: request, with: articleListPage(tabs: tabs, selectedIndex: 1, articles: articles, meta: meta, analyticsID: analyticsID))
     }
 }

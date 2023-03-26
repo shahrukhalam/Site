@@ -20,14 +20,14 @@ struct ArticleListCell: HTMLBodyContentView {
 
     var body: some View {
         Div {
-            Link(text: article.title, url: article.url)
+            Link(text: article.detail.title, url: article.detail.url)
                 .identifyBy(cssClasses: [.title2, .link])
                 .margin(top: .pixel(60), bottom: .pixel(20))
                 .display(.block)
-            Image(article.banner, alternateText: "Swift logo")
+            Image(article.detail.banner, alternateText: "Swift logo")
                 .size(width: .percentage(100))
                 .cornerRadius(.pixel(4))
-            Headings(article.intro, type: .h4)
+            Headings(article.detail.intro, type: .h4)
                 .identifyBy(cssClass: .callout)
                 .padding(top: .pixel(10), bottom: .pixel(60))
         }

@@ -18,11 +18,10 @@ public extension Application {
                 let markdown: String = try markdownPath.read()
                 let (title, intro, (_, bannerSource)) = try markdownParser.parse(markdown)
                 let url = ["/articles", tag, name].joined(separator: "/")
-                let article: Article = .init(markdown: markdown,
-                                             title: String(title),
-                                             intro: String(intro),
-                                             banner: String(bannerSource),
-                                             url: url)
+                let article: Article = .init(
+                    detail: .init(title: String(title), intro: String(intro), banner: String(bannerSource), url: url),
+                    markdown: markdown
+                )
                 articles.append(article)
             }
         }
