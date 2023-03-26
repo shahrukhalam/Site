@@ -27,7 +27,9 @@ func sectionHeaderHero(with model: Detail, color: Color = .html(.White)) -> some
                 .display(.inlineBlock)
                 .margin(top: .pixel(11))
         }
-        .position(.absolute, left: .percentage(68), top: .percentage(40), right: .percentage(4))
+        .size(height: .percentage(100))
+        .identifyBy(cssClass: .centerDivContainerY)
+        .position(.absolute, left: .percentage(68), right: .pixel(32))
 
         Image(model.image.url, alternateText: model.image.description)
             .display(.block)

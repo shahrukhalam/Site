@@ -16,7 +16,9 @@ private let centerDivContainerXStyle = ClassStyle(forClass: .centerDivContainerX
 
 private let centerDivContainerYStyle = ClassStyle(forClass: .centerDivContainerY)
     .display(.flex)
-    .flexDistribute(.center)
+    .flexDirection(.vertical)
+    .flexAlign(.center)
+    .flexDistribute(.flexStart)
 
 private let centerDivContainerStyle = ClassStyle(forClass: .centerDivContainer)
     .display(.flex)

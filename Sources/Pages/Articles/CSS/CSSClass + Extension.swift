@@ -21,6 +21,7 @@ extension CSSClass {
 
     static var centerText: Self { .init(stringLiteral: #function) }
     static var centerDivContainerX: Self { .init(stringLiteral: #function) }
+    /// Puts `Div` in a vertical stack, `center` aligned in Y, `left` distributed in X
     static var centerDivContainerY: Self { .init(stringLiteral: #function) }
     static var centerDivContainer: Self { .init(stringLiteral: #function) }
     static var imageFullWidth: Self { .init(stringLiteral: #function) }
