@@ -20,7 +20,7 @@ struct ArticleListCell: HTMLBodyContentView {
 
     var body: some View {
         Div {
-            Link(text: article.detail.title, url: article.detail.relativeURL)
+            Link(text: article.detail.title, url: article.relativeURL)
                 .identifyBy(cssClasses: [.title2, .link])
                 .margin(top: .pixel(60), bottom: .pixel(20))
                 .display(.block)
