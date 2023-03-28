@@ -23,7 +23,7 @@ struct ArticleView: HTMLBodyContentView {
             Div {
                 Markdown(article.markdown)
                     .identifyBy(cssClass: .markdown)
-                share(title: article.detail.title, url: article.detail.url)
+                share(title: article.detail.title, url: article.detail.absoluteURL)
             }
             .identifyBy(cssClass: .markdownContainer)
         }

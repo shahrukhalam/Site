@@ -19,11 +19,11 @@ public extension Response {
     }
     
     static func article(for request: Request, with meta: MetaDetail, tabs: [LinkDescription], listImage: String, analyticsID: String) throws -> Response {
-        let path: PathKit.Path = .init("\(request.application.contentsPath)\(request.url.path).md")
+        let path: PathKit.Path = .init("\(request.application.contentsPath)\(request.relativeURL).md")
         let markdown: String = try path.read()
         let (title, intro, (_, bannerSource)) = try markdownParser.parse(markdown)
         let article: Article = .init(
-            detail: .init(title: String(title), intro: String(intro), banner: String(bannerSource), url: try request.urlRoute),
+            detail: .init(title: String(title), intro: String(intro), banner: String(bannerSource), relativeURL: request.relativeURL, absoluteURL: try request.absoluteURL),
             markdown: markdown
         )
 

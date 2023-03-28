@@ -44,12 +44,14 @@ public extension Request {
         }
     }
     
-    var urlRoute: String {
+    var absoluteURL: String {
         get throws {
             let baseURL = try baseURL
-            return baseURL + url.path
+            return baseURL + relativeURL
         }
     }
+    
+    var relativeURL: String { url.path }
 
     private var isSecure: Bool {
         let proto = headers.first(name: .flyForwardedProto) ?? headers.first(name: .xForwardedProto)
