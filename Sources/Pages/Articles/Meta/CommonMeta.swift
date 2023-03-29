@@ -19,7 +19,7 @@ func commonMeta(_ meta: MetaDetail) -> some HTMLHeadContentView {
     ])
 }
 
-private func htmlMeta(description: String, keywords: [String]) -> some HTMLHeadContentView {
+private func htmlMeta(description: String, keywords: Set<String>) -> some HTMLHeadContentView {
     AnyView([
         Meta(.characterSet(.utf8)),
         Meta(.name(.author, content: "Shahrukh Alam")),
