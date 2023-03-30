@@ -14,8 +14,8 @@ func commonMeta(_ meta: MetaDetail) -> some HTMLHeadContentView {
         AnyView(htmlMeta(description: meta.description, keywords: meta.keywords)),
         AnyView(socialMeta(title: meta.title,
                            description: meta.description,
-                           image: meta.socialImage,
-                           url: meta.url))
+                           image: meta.absoluteSocialImage,
+                           url: meta.absoluteURL))
     ])
 }
 
