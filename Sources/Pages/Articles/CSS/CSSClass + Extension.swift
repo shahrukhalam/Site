@@ -46,6 +46,7 @@ extension CSSClass {
     static var markdown: Self { .init(stringLiteral: #function) }
     static var intro: Self { .init(stringLiteral: #function) }
     static var imageCredits: Self { .init(stringLiteral: #function) }
+    static var dialogue: Self { .init(stringLiteral: #function) }
     static var share: Self { .init(stringLiteral: #function) }
 
     // MARK: Article List

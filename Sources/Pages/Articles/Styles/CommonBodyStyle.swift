@@ -18,7 +18,7 @@ public struct CommonBodyStyle: CSSStyle {
             .padding(top: .pixel(57))
             .backgroundColor(isDarkMode ? Color.Dark.IndexBackground : Color.Light.IndexBackground)
             .foregroundColor(isDarkMode ? Color.Dark.IndexForeground : Color.Light.IndexForeground)
-            .font(family: .sansSerif([.Poppins, .sansSerif]))
+            .font(family: .apple([.SFProRounded]))
 
         self.element = bodyStyle.element
     }
