@@ -33,9 +33,11 @@ struct ArticleView: HTMLBodyContentView {
 
 var shareStyle: CSSStyle {
     let pStyle = ClassStyle(forClass: .share, withTag: .enclosing(.paragraph))
-        .padding(top: .pixel(10), bottom: .pixel(10))
-        .font(size: .percentage(125))
-        .lineHeight(.percentage(160))
+        .margin(top: .pixel(30), bottom: .pixel(30))
+        .lineHeight(.percentage(180))
+        .font(size: .pixel(17))
+        .font(weight: .normal)
+
     let linkStyle = ClassStyle(forClass: .share, withTag: .enclosing(.link))
         .foregroundColor(isDarkMode ? Color.Dark.LinkNormalForeground : Color.Light.LinkNormalForeground)
         .textDecoration(.none)
@@ -49,21 +51,29 @@ private func share(title: String, url: String) -> some HTMLBodyContentView {
     Div {
         Paragraphs("Thanks for reading 🚀" + .lineBreak + "If you liked this article, please share it with your friends and fellow iOS Developers 🙏")
 
-        ImageLink(url: "https://twitter.com/intent/tweet?text=I recommend \(title) by Shahrukh Alam \(url)", content: {
-            Image("/images/articles/twitter.png", alternateText: "twitter icon")
-            Paragraphs("Share this article on Twitter")
-                .display(.inline)
-        })
-        .display(.block)
-        .target(.newWindowOrTab)
+        Div {
+            ImageLink(url: "https://twitter.com/intent/tweet?text=I recommend \(title) by Shahrukh Alam \(url)", content: {
+                Image("/images/articles/twitter.png", alternateText: "twitter icon")
+                // TODO: This is a hack, make it work with `flex` + `inlineBlock`
+                    .margin(bottom: .pixel(-2))
+                Paragraphs("Share this article on Twitter")
+                    .display(.inline)
+            })
+            .display(.inlineBlock)
+            .target(.newWindowOrTab)
+        }
 
-        ImageLink(url: "https://www.linkedin.com/sharing/share-offsite/?url=\(url)", content: {
-            Image("/images/articles/linkedin.png", alternateText: "linkedin icon")
-            Paragraphs("Share this article on Linkedin")
-                .display(.inline)
-        })
-        .display(.block)
-        .target(.newWindowOrTab)
+        Div {
+            ImageLink(url: "https://www.linkedin.com/sharing/share-offsite/?url=\(url)", content: {
+                Image("/images/articles/linkedin.png", alternateText: "linkedin icon")
+                // TODO: This is a hack, make it work with `flex` + `inlineBlock`
+                    .margin(bottom: .pixel(-2))
+                Paragraphs("Share this article on Linkedin")
+                    .display(.inline)
+            })
+            .display(.inlineBlock)
+            .target(.newWindowOrTab)
+        }
     }
     .identifyBy(cssClass: .share)
 }
