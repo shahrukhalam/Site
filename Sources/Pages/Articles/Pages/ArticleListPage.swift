@@ -32,7 +32,7 @@ public func articleListPage(tabs: [LinkDescription], selectedIndex: Int, article
             }
 
             Body {
-                NavView(tabs: tabs, selectedIndex: selectedIndex)
+//                NavView(tabs: tabs, selectedIndex: selectedIndex)
                 list
             }
         }

@@ -15,7 +15,7 @@ public struct CommonBodyStyle: CSSStyle {
 
     public init() {
         let bodyStyle = TagStyle(for: .enclosing(.body))
-            .padding(top: .pixel(57))
+//            .padding(top: .pixel(57))
             .backgroundColor(isDarkMode ? Color.Dark.IndexBackground : Color.Light.IndexBackground)
             .foregroundColor(isDarkMode ? Color.Dark.IndexForeground : Color.Light.IndexForeground)
             .font(family: .apple([.SFProRounded]))

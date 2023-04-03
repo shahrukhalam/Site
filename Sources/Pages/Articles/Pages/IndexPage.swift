@@ -17,7 +17,7 @@ public func indexPage(tabs: [LinkDescription], selectedIndex: Int, section: Sect
             }
             
             Body {
-                NavView(tabs: tabs, selectedIndex: selectedIndex)
+//                NavView(tabs: tabs, selectedIndex: selectedIndex)
                 /// `Swift` section of https://developer.apple.com/documentation/
                 sectionHeader(with: section)
 
