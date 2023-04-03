@@ -21,11 +21,11 @@ let package = Package(
         // 📂 An easy replacement of FileManager
         .package(url: "https://github.com/kylef/PathKit.git", from: "1.0.1"),
         // 📃 A HTML page renderer for shahrukh's article website
-        .package(path: "../HTMLDSL"),
-//        .package(
-//            url: "https://github.com/shahrukhalam/HTMLDSL",
-//            revision: "ae26fa8c81d1df6abc52b1fde7eec856bd2faa6d"
-//        ),
+//        .package(path: "../HTMLDSL"),
+        .package(
+            url: "https://github.com/shahrukhalam/HTMLDSL",
+            revision: "5e295f9e999ee98077810af448c97f03d74a7966"
+        ),
         // 🔖 Parsing nebulous data into well-structured data
         .package(url: "https://github.com/pointfreeco/swift-parsing", from: "0.11.0")
     ],
