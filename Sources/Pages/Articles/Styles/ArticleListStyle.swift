@@ -16,8 +16,8 @@ struct ArticleListStyle: CSSStyle {
     init(_ mediaType: MediaStyle.DeviceType) {
         self.key = Tag.empty.description
         let containerStyle = ClassStyle(forClass: .articleList)
-            .size(width: mediaType == .wide ? .percentage(48) : .percentage(90))
-            .margin(left: .auto, right: .auto)
+            .size(width: mediaType == .wide ? .percentage(50) : .percentage(90))
+            .margin(left: .auto, top: .pixel(40), right: .auto)
         let listStyle = MediaStyle(for: mediaType, with: containerStyle)
 
         let linkStyle = ClassStyle(forClass: .articleList, withTag: .enclosing(.link))

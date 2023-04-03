@@ -12,7 +12,7 @@ public func articleListPage(tabs: [LinkDescription], selectedIndex: Int, article
     let cells = articles.enumerated().map { (index, article) in
         (index == articles.count - 1) ? AnyView(ArticleListCell(article: article)) : AnyView([
             AnyView(ArticleListCell(article: article)),
-            AnyView(commonDivider)
+//            AnyView(commonDivider)
         ])
     }
 
