@@ -1,4 +1,4 @@
-public struct Description: Codable {
+public struct Description: Codable, Equatable {
     public let title: String
     public let subtitle: String
 

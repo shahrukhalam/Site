@@ -1,4 +1,4 @@
-public enum Layout: String, Codable {
+public enum Layout: String, Codable, Equatable {
     case compact
     case highlighted
 }

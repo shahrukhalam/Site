@@ -1,4 +1,4 @@
-public struct Subsection: Codable {
+public struct Subsection: Codable, Equatable {
     public let detail: Detail
     public let layout: Layout
     public let device: DeviceType

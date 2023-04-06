@@ -1,4 +1,4 @@
-public struct Section: Codable {
+public struct Section: Codable, Equatable {
     public let description: Description
     public let subsections: [Subsection]
 
