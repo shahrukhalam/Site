@@ -5,6 +5,7 @@
 //  Created by Shahrukh Alam on 09/08/22.
 //
 
+import Foundation
 import HTMLDSL
 
 func markdownContainerStyle(_ mediaType: MediaStyle.DeviceType) -> CSSStyle {
@@ -12,6 +13,31 @@ func markdownContainerStyle(_ mediaType: MediaStyle.DeviceType) -> CSSStyle {
         .size(width: mediaType == .wide ? .percentage(50) : .percentage(90))
         .margin(left: .auto, right: .auto)
     return MediaStyle(for: mediaType, with: style)
+}
+
+enum Typography {
+    enum Global {
+        static let lineHeight: Float = 1.75
+    }
+
+    enum Font {
+        enum Size {
+            static private let scale: Float = 1.25
+
+            static let body: Float = 1
+            static let largeTitle: Float = pow(scale, 4)
+            static let title1: Float = pow(scale, 3)
+            static let title2: Float = pow(scale, 2)
+        }
+    }
+
+    enum Margin {
+        static private let scale: Float = 2
+
+        static let small: Float = 1 / scale
+        static let medium: Float = 1
+        static let large: Float = 1 * scale
+    }
 }
 
 public struct MarkdownStyle: CSSStyle {
@@ -23,26 +49,23 @@ public struct MarkdownStyle: CSSStyle {
     init(listImage: String) {
         self.key = Tag.empty.description
 
+        let commonStyle = ClassStyle(elementsInClass: .markdown)
+            .margin(bottom: .length(.relativeToRoot(Typography.Margin.medium)))
+
         let h1Style = ClassStyle(forClass: .markdown, withTag: .enclosing(.headings(.h1)))
-            .margin(top: .pixel(30), bottom: .pixel(30))
-//            .font(size: .pixel(34))
-//            .font(weight: .normal)
-            .align(.center)
+            .font(size: .relativeToRootFontSize(Typography.Font.Size.largeTitle))
+            .font(weight: .normal)
+
         let h2Style = ClassStyle(forClass: .markdown, withTag: .enclosing(.headings(.h2)))
-            .margin(top: .pixel(20), bottom: .pixel(10))
-//            .font(size: .pixel(28))
-//            .font(size: .percentage(250))
+            .font(size: .relativeToRootFontSize(Typography.Font.Size.title1))
+            .font(weight: .normal)
+
         let h3Style = ClassStyle(forClass: .markdown, withTag: .enclosing(.headings(.h3)))
-            .margin(top: .pixel(10), bottom: .pixel(10))
-//            .font(size: .percentage(200))
-//            .font(size: .pixel(22))
+            .font(size: .relativeToRootFontSize(Typography.Font.Size.title2))
+            .font(weight: .normal)
+
         let pStyle = ClassStyle(forClass: .markdown, withTag: .enclosing(.paragraph))
-            .margin(top: .pixel(30), bottom: .pixel(30))
-//            .font(size: .percentage(125))
-            .lineHeight(.percentage(180))
-//            .lineHeight(.percentage(145))
-//            .font(size: .pixel(17))
-//            .font(weight: .normal)
+            .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
 
         let introStyle = ClassStyle(forClass: .markdown, withClass: .intro)
             .margin(top: .pixel(10), bottom: .pixel(10))
@@ -104,7 +127,7 @@ public struct MarkdownStyle: CSSStyle {
         let linkHoverStyle = ClassStyle(.markdown, tag: .enclosing(.link), cssTag: .hover)
             .foregroundColor(isDarkMode ? Color.Dark.LinkNormalForeground : Color.Light.LinkNormalForeground)
             .textDecoration(.underline)
-        let styles = [h1Style, h2Style, h3Style, pStyle, introStyle, imageStyle, imageCreditsStyle, ulStyle, olStyle, liStyle, dialogueStyle, blockquoteStyle, paragraphInBlockquoteStyle, linkStyle, linkHoverStyle]
+        let styles = [commonStyle, h1Style, h2Style, h3Style, pStyle, introStyle, imageStyle, imageCreditsStyle, ulStyle, olStyle, liStyle, dialogueStyle, blockquoteStyle, paragraphInBlockquoteStyle, linkStyle, linkHoverStyle]
         self.element = styles.map { $0.element }.joined(separator: "\n")
     }
 }
