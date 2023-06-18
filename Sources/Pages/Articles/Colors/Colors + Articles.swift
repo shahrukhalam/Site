@@ -48,6 +48,9 @@ extension Color {
         
         static var ArticleBackground: Color { .html(.White) }
         static var ArticleImageBorder: Color { .rgba(red: 139, green: 139, blue: 139, alpha: 1.0) }
+        /// `Note` section of https://developer.apple.com/documentation/swift/swift-standard-library
+        static var ArticleNoteBackground: Color { .rgba(red: 245, green: 245, blue: 247, alpha: 1.0) }
+        static var ArticleNoteBorder: Color { .rgba(red: 105, green: 105, blue: 105, alpha: 1.0) }
 
         static var Background: Color { .html(.White) }
         static var Foreground: Color { .html(.Black) }

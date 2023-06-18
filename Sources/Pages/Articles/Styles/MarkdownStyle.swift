@@ -75,6 +75,11 @@ public struct MarkdownStyle: CSSStyle {
             .font(size: .relativeToRootFontSize(Typography.Font.Size.title3))
             .font(weight: .number(300))
         
+        let noteStyle = ClassStyle(forClass: .markdown, withClass: .note)
+            .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
+            .font(weight: .number(400))
+            .foregroundColor(.Light.ArticleNoteBorder)
+        
         let imageStyle = ClassStyle(forClass: .markdown, withTag: .selfClosing(.image))
             .sizeFull()
             .cornerRadius(uniform: .pixel(8))
@@ -89,7 +94,8 @@ public struct MarkdownStyle: CSSStyle {
             .margin(top: .length(.relativeToRoot(Typography.Margin.xLarge)),
                     bottom: .length(.relativeToRoot(Typography.Margin.xLarge)))
             .padding(left: .pixel(40), top: .pixel(20), right: .pixel(20), bottom: .pixel(20))
-            .backgroundColor(.Light.IndexSectionHeaderBackground)
+            .backgroundColor(.Light.ArticleNoteBackground)
+            .border(width: .pixel(1), color: .Light.ArticleNoteBorder)
             .cornerRadius(uniform: .pixel(20))
 
         let linkStyle = ClassStyle(forClass: .markdown, withTag: .enclosing(.link))
@@ -105,6 +111,7 @@ public struct MarkdownStyle: CSSStyle {
             h3Style,
             pStyle,
             introStyle,
+            noteStyle,
             imageStyle,
             imageCreditsStyle,
             dialogueStyle,
