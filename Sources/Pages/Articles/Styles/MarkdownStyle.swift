@@ -58,11 +58,14 @@ public struct MarkdownStyle: CSSStyle {
         let h1Style = ClassStyle(forClass: .markdown, withTag: .enclosing(.headings(.h1)))
             .font(size: .relativeToRootFontSize(Typography.Font.Size.largeTitle))
             .font(weight: .normal)
-            .margin(top: .length(.relativeToRoot(Typography.Margin.large)))
+            .margin(top: .length(.relativeToRoot(Typography.Margin.large)),
+                    bottom: .length(.relativeToRoot(Typography.Margin.medium)))
 
         let h2Style = ClassStyle(forClass: .markdown, withTag: .enclosing(.headings(.h2)))
             .font(size: .relativeToRootFontSize(Typography.Font.Size.title1))
             .font(weight: .normal)
+            .margin(top: .length(.relativeToRoot(Typography.Margin.large)),
+                    bottom: .length(.relativeToRoot(Typography.Margin.medium)))
 
         let h3Style = ClassStyle(forClass: .markdown, withTag: .enclosing(.headings(.h3)))
             .font(size: .relativeToRootFontSize(Typography.Font.Size.title2))
@@ -83,11 +86,12 @@ public struct MarkdownStyle: CSSStyle {
         let imageStyle = ClassStyle(forClass: .markdown, withTag: .selfClosing(.image))
             .sizeFull()
             .cornerRadius(uniform: .pixel(8))
-            .margin(top: .length(.relativeToRoot(Typography.Margin.large)))
+            .margin(top: .length(.relativeToRoot(Typography.Margin.large)),
+                    bottom: .length(.relativeToRoot(Typography.Margin.large)))
         let imageCreditsStyle = ClassStyle(forClass: .markdown, withClass: .imageCredits)
             .foregroundColor(Color.Dark.ActiveNavBarItem)
             .align(.center)
-            .margin(top: .length(.relativeToRoot(-Typography.Margin.medium)),
+            .margin(top: .length(.relativeToRoot(-Typography.Margin.large)),
                     bottom: .length(.relativeToRoot(Typography.Margin.large)))
         
         let dialogueStyle = ClassStyle(forClass: .dialogue)
