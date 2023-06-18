@@ -22,7 +22,7 @@ public func articlePage(tabs: [LinkDescription], selectedIndex: Int, article: Ar
             }
             
             Body {
-//                NavView(tabs: tabs, selectedIndex: selectedIndex)
+                NavView(tabs: tabs, selectedIndex: selectedIndex)
                 ArticleView(article)
                 Script(url: "/js/prism-\(isDarkMode ? "dark" : "light").js")
             }

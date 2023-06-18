@@ -39,6 +39,7 @@ extension CSSClass {
     static var sectionHeaderContent: Self { .init(stringLiteral: #function) }
     static var sectionHeaderHero: Self { .init(stringLiteral: #function) }
     static var link: Self { .init(stringLiteral: #function) }
+    static var pillLink: Self { .init(stringLiteral: #function) }
 
     // MARK: Article
     static var article: Self { .init(stringLiteral: #function) }
@@ -56,4 +57,8 @@ extension CSSClass {
     static var gridContainer: Self { .init(stringLiteral: #function) }
     static var gridItem: Self { .init(stringLiteral: #function) }
     static var gridItemHero: Self { .init(stringLiteral: #function) }
+    
+    // Flex
+    static var flexContainer: Self { .init(stringLiteral: #function) }
+    static var flexItem: Self { .init(stringLiteral: #function) }
 }

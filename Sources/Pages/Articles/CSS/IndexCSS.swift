@@ -13,5 +13,7 @@ var indexPageCSS: some HTMLHeadContentView {
 
         MediaStyle(for: .wide, with: gridContainerStyle)
         MediaStyle(for: .small, with: gridContainerSmallStyle)
+        
+        MediaStyle(for: .wide, with: flexContainerStyle)
     }
 }
