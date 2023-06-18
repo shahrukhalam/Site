@@ -19,7 +19,6 @@ public struct CommonBodyStyle: CSSStyle {
             .backgroundColor(isDarkMode ? Color.Dark.IndexBackground : Color.Light.IndexBackground)
             .foregroundColor(isDarkMode ? Color.Dark.IndexForeground : Color.Light.IndexForeground)
             .font(family: .sansSerif([.SFProDisplay, .SFProIcons, .HelveticaNeue]))
-//            .lineHeight(.number(Typography.Global.lineHeight))
 
         self.element = bodyStyle.element
     }
