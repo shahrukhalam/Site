@@ -23,7 +23,8 @@ extension Color {
         static var IndexGridBackground: Color { .html(.Black) }
         static var IndexGridImageBackground: Color { .rgba(red: 25, green: 25, blue: 25, alpha: 1.0) }
         
-        static var ArticleBackground: Color { .rgba(red: 29, green: 29, blue: 31, alpha: 1.0) }
+//        static var ArticleBackground: Color { .rgba(red: 29, green: 29, blue: 31, alpha: 1.0) }
+        static var ArticleBackground: Color { .html(.Black) }
         static var ArticleImageBorder: Color { .rgba(red: 76, green: 76, blue: 76, alpha: 1.0) }
 
         static var Background: Color { .html(.Black) }
