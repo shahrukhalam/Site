@@ -29,6 +29,8 @@ struct ArticleListStyle: CSSStyle {
         let gridItem2By3 = ClassStyle(forClass: .gridItem2By3)
             .gridColumn(location: 2, size: 4)
             .lineHeight(.number(Typography.LineHeight.small))
+        let descriptionStyle = ClassStyle(forClass: .gridItem2By3, withTag: .enclosing(.headings(.h4)))
+            .noOfLines(3)
 
         let linkStyle = ClassStyle(forClass: .articleList, withTag: .enclosing(.link))
             .foregroundColor(isDarkMode ? Color.Dark.Foreground : Color.Light.Foreground)
@@ -36,7 +38,7 @@ struct ArticleListStyle: CSSStyle {
         let linkHoverStyle = ClassStyle(.articleList, tag: .enclosing(.link), cssTag: .hover)
             .foregroundColor(isDarkMode ? Color.Dark.Foreground : Color.Light.Foreground)
             .textDecoration(.underline)
-        let cellStyle = [gridStyle, gridItem1By3, gridItem2By3, linkStyle, linkHoverStyle]
+        let cellStyle = [gridStyle, gridItem1By3, gridItem2By3, descriptionStyle, linkStyle, linkHoverStyle]
 
         let styles: [CSSStyle] = [listStyle] + cellStyle
         self.element = styles.map { $0.element }.joined(separator: "\n")
