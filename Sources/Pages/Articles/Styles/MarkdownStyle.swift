@@ -10,7 +10,7 @@ import HTMLDSL
 
 func markdownContainerStyle(_ mediaType: MediaStyle.DeviceType) -> CSSStyle {
     let style = ClassStyle(forClass: .markdownContainer)
-        .size(width: mediaType == .wide ? .percentage(50) : .percentage(90))
+        .size(width: mediaType == .wide ? .percentage(60) : .percentage(90))
         .margin(left: .auto, right: .auto)
     return MediaStyle(for: mediaType, with: style)
 }
@@ -98,7 +98,9 @@ public struct MarkdownStyle: CSSStyle {
         let dialogueStyle = ClassStyle(forClass: .dialogue)
             .margin(top: .length(.relativeToRoot(Typography.Margin.xLarge)),
                     bottom: .length(.relativeToRoot(Typography.Margin.xLarge)))
-            .padding(left: .pixel(40), top: .pixel(20), right: .pixel(20), bottom: .pixel(20))
+            .padding(left: .length(.relativeToRoot(Typography.Margin.large)),
+                     top: .length(.relativeToRoot(Typography.Margin.medium)),
+                     right: .length(.relativeToRoot(Typography.Margin.medium)))
             .backgroundColor(.Light.ArticleNoteBackground)
             .border(width: .pixel(1), color: .Light.ArticleNoteBorder)
             .cornerRadius(uniform: .pixel(20))
