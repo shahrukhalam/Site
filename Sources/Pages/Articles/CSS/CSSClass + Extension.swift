@@ -57,6 +57,8 @@ extension CSSClass {
     // Grid
     static var gridContainer: Self { .init(stringLiteral: #function) }
     static var gridItem: Self { .init(stringLiteral: #function) }
+    static var gridItem1By3: Self { .init(stringLiteral: #function) }
+    static var gridItem2By3: Self { .init(stringLiteral: #function) }
     static var gridItemHero: Self { .init(stringLiteral: #function) }
     
     // Flex

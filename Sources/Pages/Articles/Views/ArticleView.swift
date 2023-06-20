@@ -35,7 +35,7 @@ struct ArticleView: HTMLBodyContentView {
 var shareStyle: CSSStyle {
     let pStyle = ClassStyle(forClass: .share, withTag: .enclosing(.paragraph))
         .margin(bottom: .length(.relativeToRoot(Typography.Margin.medium)))
-        .lineHeight(.number(Typography.Global.lineHeight))
+        .lineHeight(.number(Typography.LineHeight.medium))
         .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
 
     let linkStyle = ClassStyle(forClass: .share, withTag: .enclosing(.link))

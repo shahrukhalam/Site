@@ -16,8 +16,9 @@ func markdownContainerStyle(_ mediaType: MediaStyle.DeviceType) -> CSSStyle {
 }
 
 enum Typography {
-    enum Global {
-        static let lineHeight: Float = 1.75
+    enum LineHeight {
+        static let small: Float = 1.40
+        static let medium: Float = 1.75
     }
 
     enum Font {
@@ -53,7 +54,7 @@ public struct MarkdownStyle: CSSStyle {
 
         let commonStyle = ClassStyle(elementsInClass: .markdown)
             .margin(bottom: .length(.relativeToRoot(Typography.Margin.medium)))
-            .lineHeight(.number(Typography.Global.lineHeight))
+            .lineHeight(.number(Typography.LineHeight.medium))
 
         let h1Style = ClassStyle(forClass: .markdown, withTag: .enclosing(.headings(.h1)))
             .font(size: .relativeToRootFontSize(Typography.Font.Size.largeTitle))
@@ -80,7 +81,7 @@ public struct MarkdownStyle: CSSStyle {
         
         let noteStyle = ClassStyle(forClass: .markdown, withClass: .note)
             .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
-            .font(weight: .number(400))
+            .font(weight: .normal)
             .foregroundColor(.Light.ArticleNoteBorder)
         
         let imageStyle = ClassStyle(forClass: .markdown, withTag: .selfClosing(.image))
