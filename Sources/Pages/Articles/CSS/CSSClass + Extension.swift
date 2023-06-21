@@ -50,6 +50,8 @@ extension CSSClass {
     static var imageCredits: Self { .init(stringLiteral: #function) }
     static var dialogue: Self { .init(stringLiteral: #function) }
     static var share: Self { .init(stringLiteral: #function) }
+    static var warning: Self { .init(stringLiteral: #function) }
+    static var warningContainer: Self { .init(stringLiteral: #function) }
 
     // MARK: Article List
     static var articleList: Self { .init(stringLiteral: #function) }

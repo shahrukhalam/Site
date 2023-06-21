@@ -52,7 +52,9 @@ extension Color {
         /// `Note` section of https://developer.apple.com/documentation/swift/swift-standard-library
         static var ArticleNoteBackground: Color { .rgba(red: 245, green: 245, blue: 247, alpha: 1.0) }
         static var ArticleNoteBorder: Color { .rgba(red: 105, green: 105, blue: 105, alpha: 1.0) }
-
+        static var ArticleWarningBackground: Color { .hexWithHash("#FCF1F5") }
+        static var ArticleWarningBorder: Color { .hexWithHash("#EA3422") }
+        
         static var Background: Color { .html(.White) }
         static var Foreground: Color { .html(.Black) }
         static var LinkNormalForeground: Color { .rgba(red: 0, green: 102, blue: 204, alpha: 1.0) }

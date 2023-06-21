@@ -79,11 +79,6 @@ public struct MarkdownStyle: CSSStyle {
             .font(size: .relativeToRootFontSize(Typography.Font.Size.title3))
             .font(weight: .number(300))
         
-        let noteStyle = ClassStyle(forClass: .markdown, withClass: .note)
-            .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
-            .font(weight: .normal)
-            .foregroundColor(.Light.ArticleNoteBorder)
-        
         let imageStyle = ClassStyle(forClass: .markdown, withTag: .selfClosing(.image))
             .sizeFull()
             .cornerRadius(uniform: .pixel(8))
@@ -104,6 +99,24 @@ public struct MarkdownStyle: CSSStyle {
             .backgroundColor(.Light.ArticleNoteBackground)
             .border(width: .pixel(1), color: .Light.ArticleNoteBorder)
             .cornerRadius(uniform: .pixel(20))
+        let noteStyle = ClassStyle(forClass: .markdown, withClass: .note)
+            .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
+            .font(weight: .normal)
+            .foregroundColor(.Light.ArticleNoteBorder)
+        
+        let warningContainerStyle = ClassStyle(forClass: .warningContainer)
+            .margin(top: .length(.relativeToRoot(Typography.Margin.xLarge)),
+                    bottom: .length(.relativeToRoot(Typography.Margin.xLarge)))
+            .padding(left: .length(.relativeToRoot(Typography.Margin.large)),
+                     top: .length(.relativeToRoot(Typography.Margin.medium)),
+                     right: .length(.relativeToRoot(Typography.Margin.medium)))
+            .backgroundColor(.Light.ArticleWarningBackground)
+            .border(width: .pixel(1), color: .Light.ArticleWarningBorder)
+            .cornerRadius(uniform: .pixel(20))
+        let warningStyle = ClassStyle(forClass: .markdown, withClass: .warning)
+            .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
+            .font(weight: .normal)
+            .foregroundColor(.Light.ArticleWarningBorder)
 
         let linkStyle = ClassStyle(forClass: .markdown, withTag: .enclosing(.link))
             .foregroundColor(isDarkMode ? Color.Dark.LinkNormalForeground : Color.Light.LinkNormalForeground)
@@ -123,7 +136,9 @@ public struct MarkdownStyle: CSSStyle {
             imageCreditsStyle,
             dialogueStyle,
             linkStyle,
-            linkHoverStyle
+            linkHoverStyle,
+            warningStyle,
+            warningContainerStyle
         ]
         self.element = styles.map { $0.element }.joined(separator: "\n")
     }
