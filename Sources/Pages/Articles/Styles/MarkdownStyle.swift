@@ -117,6 +117,20 @@ public struct MarkdownStyle: CSSStyle {
             .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
             .font(weight: .normal)
             .foregroundColor(.Light.ArticleWarningBorder)
+        
+        let importantContainerStyle = ClassStyle(forClass: .importantContainer)
+            .margin(top: .length(.relativeToRoot(Typography.Margin.xLarge)),
+                    bottom: .length(.relativeToRoot(Typography.Margin.xLarge)))
+            .padding(left: .length(.relativeToRoot(Typography.Margin.large)),
+                     top: .length(.relativeToRoot(Typography.Margin.medium)),
+                     right: .length(.relativeToRoot(Typography.Margin.medium)))
+            .backgroundColor(.Light.ArticleImportantBackground)
+            .border(width: .pixel(1), color: .Light.ArticleImportantBorder)
+            .cornerRadius(uniform: .pixel(20))
+        let importantStyle = ClassStyle(forClass: .markdown, withClass: .important)
+            .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
+            .font(weight: .normal)
+            .foregroundColor(.Light.ArticleImportantBorder)
 
         let linkStyle = ClassStyle(forClass: .markdown, withTag: .enclosing(.link))
             .foregroundColor(isDarkMode ? Color.Dark.LinkNormalForeground : Color.Light.LinkNormalForeground)
@@ -138,7 +152,9 @@ public struct MarkdownStyle: CSSStyle {
             linkStyle,
             linkHoverStyle,
             warningStyle,
-            warningContainerStyle
+            warningContainerStyle,
+            importantStyle,
+            importantContainerStyle
         ]
         self.element = styles.map { $0.element }.joined(separator: "\n")
     }
