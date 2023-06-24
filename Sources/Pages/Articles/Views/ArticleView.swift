@@ -34,9 +34,9 @@ struct ArticleView: HTMLBodyContentView {
 
 var shareStyle: CSSStyle {
     let pStyle = ClassStyle(forClass: .share, withTag: .enclosing(.paragraph))
-        .margin(bottom: .length(.relativeToRoot(Typography.Margin.title2Top)))
-        .lineHeight(.number(Typography.LineHeight.body))
         .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
+        .lineHeight(.number(Typography.LineHeight.body))
+        .margin(bottom: .length(.relativeToRoot(Typography.Margin.body)))
 
     let linkStyle = ClassStyle(forClass: .share, withTag: .enclosing(.link))
         .foregroundColor(isDarkMode ? Color.Dark.LinkNormalForeground : Color.Light.LinkNormalForeground)
@@ -50,6 +50,7 @@ var shareStyle: CSSStyle {
 private func share(title: String, url: String) -> some HTMLBodyContentView {
     Div {
         Paragraphs("Thanks for reading 🚀" + .lineBreak + "If you liked this article, please share it with your friends and fellow iOS Developers 🙏")
+            .foregroundColor(.Light.ArticleText)
 
         Div {
             ImageLink(url: "https://twitter.com/intent/tweet?text=I recommend \(title) by Shahrukh Alam \(url)", content: {

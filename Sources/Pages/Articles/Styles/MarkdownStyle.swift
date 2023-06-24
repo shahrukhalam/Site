@@ -60,9 +60,9 @@ public struct MarkdownStyle: CSSStyle {
         self.key = Tag.empty.description
 
         let commonStyle = ClassStyle(elementsInClass: .markdown)
-            .margin(bottom: .length(.relativeToRoot(Typography.Margin.body)))
             .lineHeight(.number(Typography.LineHeight.body))
             .foregroundColor(.Light.ArticleText)
+            .margin(bottom: .length(.relativeToRoot(Typography.Margin.body)))
 
         let h1Style = ClassStyle(forClass: .markdown, withTag: .enclosing(.headings(.h1)))
             .font(size: .relativeToRootFontSize(Typography.Font.Size.title1))
@@ -81,7 +81,6 @@ public struct MarkdownStyle: CSSStyle {
 
         let pStyle = ClassStyle(forClass: .markdown, withTag: .enclosing(.paragraph))
             .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
-            .lineHeight(.number(Typography.LineHeight.body))
 
         let introStyle = ClassStyle(forClass: .markdown, withClass: .intro)
             .font(size: .relativeToRootFontSize(Typography.Font.Size.title5))
@@ -129,17 +128,17 @@ public struct MarkdownStyle: CSSStyle {
             .foregroundColor(.Light.ArticleWarningBorder)
         
         let importantContainerStyle = ClassStyle(forClass: .importantContainer)
-            .margin(top: .length(.relativeToRoot(Typography.Margin.xLargeContainer)),
-                    bottom: .length(.relativeToRoot(Typography.Margin.xLargeContainer)))
-            .padding(left: .length(.relativeToRoot(Typography.Margin.largeTitleTop)),
+            .margin(top: .length(.relativeToRoot(Typography.Margin.largeTitleTop)),
+                    bottom: .length(.relativeToRoot(Typography.Margin.largeTitleTop)))
+            .padding(left: .length(.relativeToRoot(Typography.Margin.title1Top)),
                      top: .length(.relativeToRoot(Typography.Margin.title2Top)),
-                     right: .length(.relativeToRoot(Typography.Margin.title2Top)))
+                     right: .length(.relativeToRoot(Typography.Margin.title2Top)),
+                     bottom: .length(.relativeToRoot(Typography.Margin.title2Top)))
             .backgroundColor(.Light.ArticleImportantBackground)
             .border(width: .pixel(1), color: .Light.ArticleImportantBorder)
             .cornerRadius(uniform: .pixel(20))
         let importantStyle = ClassStyle(forClass: .markdown, withClass: .important)
             .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
-            .font(weight: .normal)
             .foregroundColor(.Light.ArticleImportantBorder)
 
         let linkStyle = ClassStyle(forClass: .markdown, withTag: .enclosing(.link))
@@ -150,9 +149,11 @@ public struct MarkdownStyle: CSSStyle {
             .textDecoration(.underline)
 
         let ulStyle = ClassStyle(forClass: .markdown, withTag: .enclosing(.unorderedList))
-                    .margin(left: .length(.relativeToRoot(Typography.Margin.title1Top)))
+            .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
+            .margin(left: .length(.relativeToRoot(Typography.Margin.title1Top)))
         let olStyle = ClassStyle(forClass: .markdown, withTag: .enclosing(.orderedList))
-                    .margin(left: .length(.relativeToRoot(Typography.Margin.title1Top)))
+            .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
+            .margin(left: .length(.relativeToRoot(Typography.Margin.title1Top)))
 
         let codeStyle = ClassStyle(forClass: .markdown, withTag: .enclosing(.code))
             .padding(left: .pixel(6), top: .pixel(3), right: .pixel(6), bottom: .pixel(3))
