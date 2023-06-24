@@ -40,6 +40,8 @@ enum Typography {
     enum Margin {
         static private let scale: Float = 2
 
+        static let xxSmallContainer: Float = 1 / (3 * scale)
+        static let xSmallContainer: Float = 1 / (2 * scale)
         static let body: Float = 1 / scale
         static let title2Top: Float = 2 / scale
         static let title1Top: Float = 3 / scale
@@ -146,6 +148,18 @@ public struct MarkdownStyle: CSSStyle {
         let linkHoverStyle = ClassStyle(.markdown, tag: .enclosing(.link), cssTag: .hover)
             .foregroundColor(isDarkMode ? Color.Dark.LinkNormalForeground : Color.Light.LinkNormalForeground)
             .textDecoration(.underline)
+
+        let ulStyle = ClassStyle(forClass: .markdown, withTag: .enclosing(.unorderedList))
+                    .margin(left: .length(.relativeToRoot(Typography.Margin.title1Top)))
+        let olStyle = ClassStyle(forClass: .markdown, withTag: .enclosing(.orderedList))
+                    .margin(left: .length(.relativeToRoot(Typography.Margin.title1Top)))
+
+        let codeStyle = ClassStyle(forClass: .markdown, withTag: .enclosing(.code))
+            .padding(left: .pixel(6), top: .pixel(3), right: .pixel(6), bottom: .pixel(3))
+            .backgroundColor(.Light.ArticleNoteBackground)
+            .foregroundColor(.Light.ArticleWarningBorder)
+            .cornerRadius(uniform: .pixel(3))
+
         let styles = [
             commonStyle,
             h1Style,
@@ -162,7 +176,10 @@ public struct MarkdownStyle: CSSStyle {
             warningStyle,
             warningContainerStyle,
             importantStyle,
-            importantContainerStyle
+            importantContainerStyle,
+            ulStyle,
+            olStyle,
+            codeStyle
         ]
         self.element = styles.map { $0.element }.joined(separator: "\n")
     }
