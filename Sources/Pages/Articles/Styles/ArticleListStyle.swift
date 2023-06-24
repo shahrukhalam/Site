@@ -28,7 +28,7 @@ struct ArticleListStyle: CSSStyle {
             .gridColumn(location: 1, size: 2)
         let gridItem2By3 = ClassStyle(forClass: .gridItem2By3)
             .gridColumn(location: 2, size: 4)
-            .lineHeight(.number(Typography.LineHeight.small))
+            .lineHeight(.number(Typography.LineHeight.body))
         let descriptionStyle = ClassStyle(forClass: .gridItem2By3, withTag: .enclosing(.headings(.h4)))
             .noOfLines(3)
 

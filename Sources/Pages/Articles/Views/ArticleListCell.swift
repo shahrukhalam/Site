@@ -39,8 +39,8 @@ struct ArticleListCell: HTMLBodyContentView {
                         .font(size: .relativeToRootFontSize(Typography.Font.Size.title3))
                         .font(weight: .number(500))
                 }
-                .margin(top: .length(.relativeToRoot(Typography.Margin.small)),
-                        bottom: .length(.relativeToRoot(Typography.Margin.small)))
+                .margin(top: .length(.relativeToRoot(Typography.Margin.body)),
+                        bottom: .length(.relativeToRoot(Typography.Margin.body)))
                 
                 Headings(article.detail.intro, type: .h4)
                     .foregroundColor(.textSecondary)
