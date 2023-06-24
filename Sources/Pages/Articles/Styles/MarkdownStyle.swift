@@ -67,7 +67,8 @@ public struct MarkdownStyle: CSSStyle {
         let h1Style = ClassStyle(forClass: .markdown, withTag: .enclosing(.headings(.h1)))
             .font(size: .relativeToRootFontSize(Typography.Font.Size.title1))
             .lineHeight(.number(Typography.LineHeight.title1))
-            .margin(top: .length(.relativeToRoot(Typography.Margin.xLargeContainer)))
+            .margin(top: .length(.relativeToRoot(Typography.Margin.xLargeContainer)),
+                    bottom: .length(.relativeToRoot(Typography.Margin.body)))
 
         let h2Style = ClassStyle(forClass: .markdown, withTag: .enclosing(.headings(.h2)))
             .font(size: .relativeToRootFontSize(Typography.Font.Size.title2))
@@ -77,6 +78,11 @@ public struct MarkdownStyle: CSSStyle {
         let h3Style = ClassStyle(forClass: .markdown, withTag: .enclosing(.headings(.h3)))
             .font(size: .relativeToRootFontSize(Typography.Font.Size.title3))
             .lineHeight(.number(Typography.LineHeight.title2))
+            .margin(top: .length(.relativeToRoot(Typography.Margin.body)))
+
+        let h4Style = ClassStyle(forClass: .markdown, withTag: .enclosing(.headings(.h4)))
+            .font(size: .relativeToRootFontSize(Typography.Font.Size.title4))
+            .lineHeight(.number(Typography.LineHeight.body))
             .margin(top: .length(.relativeToRoot(Typography.Margin.body)))
 
         let pStyle = ClassStyle(forClass: .markdown, withTag: .enclosing(.paragraph))
@@ -166,6 +172,7 @@ public struct MarkdownStyle: CSSStyle {
             h1Style,
             h2Style,
             h3Style,
+            h4Style,
             pStyle,
             introStyle,
             noteStyle,
