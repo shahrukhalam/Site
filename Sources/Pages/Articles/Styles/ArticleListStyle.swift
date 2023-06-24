@@ -30,13 +30,20 @@ struct ArticleListStyle: CSSStyle {
             .gridColumn(location: 2, size: 4)
             .lineHeight(.number(Typography.LineHeight.body))
         let descriptionStyle = ClassStyle(forClass: .gridItem2By3, withTag: .enclosing(.headings(.h4)))
+            .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
+            .font(weight: .normal)
+            .lineHeight(.number(Typography.LineHeight.title2))
+            .foregroundColor(.Light.ArticleText)
             .noOfLines(3)
 
         let linkStyle = ClassStyle(forClass: .articleList, withTag: .enclosing(.link))
-            .foregroundColor(isDarkMode ? Color.Dark.Foreground : Color.Light.Foreground)
+            .font(size: .relativeToRootFontSize(Typography.Font.Size.title3))
+            .font(weight: .bold)
+            .lineHeight(.number(Typography.LineHeight.title1))
+            .foregroundColor(.Light.ArticleText)
             .textDecoration(.none)
         let linkHoverStyle = ClassStyle(.articleList, tag: .enclosing(.link), cssTag: .hover)
-            .foregroundColor(isDarkMode ? Color.Dark.Foreground : Color.Light.Foreground)
+            .foregroundColor(.Light.ArticleText)
             .textDecoration(.underline)
         let cellStyle = [gridStyle, gridItem1By3, gridItem2By3, descriptionStyle, linkStyle, linkHoverStyle]
 

@@ -34,18 +34,12 @@ struct ArticleListCell: HTMLBodyContentView {
             Div {
                 Div {
                     Link(text: article.detail.title, url: article.relativeURL)
-                        .identifyBy(cssClasses: [.link, .headline])
-                        .foregroundColor(.textPrimary)
-                        .font(size: .relativeToRootFontSize(Typography.Font.Size.title3))
-                        .font(weight: .number(500))
+                        .identifyBy(cssClasses: [.link])
                 }
                 .margin(top: .length(.relativeToRoot(Typography.Margin.body)),
                         bottom: .length(.relativeToRoot(Typography.Margin.body)))
                 
                 Headings(article.detail.intro, type: .h4)
-                    .foregroundColor(.textSecondary)
-                    .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
-                    .font(weight: .normal)
             }
                 .identifyBy(cssClass: .gridItem2By3)
         )
