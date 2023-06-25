@@ -166,6 +166,10 @@ public struct MarkdownStyle: CSSStyle {
             .backgroundColor(.Light.ArticleNoteBackground)
             .foregroundColor(.Light.ArticleWarningBorder)
             .cornerRadius(uniform: .pixel(3))
+        let codeStyle2 = ClassStyle(forClass: .dialogue, withTag: .enclosing(.code))
+            .backgroundColor(.Light.NavBarDividerColor)
+        let codeStyle3 = ClassStyle(forClass: .warningContainer, withTag: .enclosing(.code))
+            .backgroundColor(.Light.NavBarDividerColor)
 
         let styles = [
             commonStyle,
@@ -187,7 +191,9 @@ public struct MarkdownStyle: CSSStyle {
             importantContainerStyle,
             ulStyle,
             olStyle,
-            codeStyle
+            codeStyle,
+            codeStyle2,
+            codeStyle3
         ]
         self.element = styles.map { $0.element }.joined(separator: "\n")
     }
