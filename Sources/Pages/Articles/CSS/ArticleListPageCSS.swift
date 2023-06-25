@@ -9,7 +9,7 @@ import HTMLDSL
 
 func articleListPageCSS() -> some HTMLHeadContentView {
     HeadStyle {
-        ArticleListStyle(.small)
-        ArticleListStyle(.wide)
+        MediaStyle(for: .wide, with: ArticleListStyle(.wide))
+        MediaStyle(for: .small, with: ArticleListStyle(.small))
     }
 }

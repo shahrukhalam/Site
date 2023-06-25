@@ -62,34 +62,33 @@ public struct MarkdownStyle: CSSStyle {
         let commonStyle = ClassStyle(elementsInClass: .markdown)
             .lineHeight(.number(Typography.LineHeight.body))
             .foregroundColor(.Light.ArticleText)
-            .margin(bottom: .length(.relativeToRoot(Typography.Margin.body)))
+            .margin(bottom: .length(.relativeToParent(Typography.Margin.body)))
 
         let h1Style = ClassStyle(forClass: .markdown, withTag: .enclosing(.headings(.h1)))
-            .font(size: .relativeToRootFontSize(Typography.Font.Size.title1))
+            .font(size: .relativeToParentFontSize(Typography.Font.Size.title1))
             .lineHeight(.number(Typography.LineHeight.title1))
-            .margin(top: .length(.relativeToRoot(Typography.Margin.xLargeContainer)),
-                    bottom: .length(.relativeToRoot(Typography.Margin.body)))
+            .margin(top: .length(.relativeToParent(Typography.Margin.title1Top)))
 
         let h2Style = ClassStyle(forClass: .markdown, withTag: .enclosing(.headings(.h2)))
-            .font(size: .relativeToRootFontSize(Typography.Font.Size.title2))
+            .font(size: .relativeToParentFontSize(Typography.Font.Size.title2))
             .lineHeight(.number(Typography.LineHeight.title2))
-            .margin(top: .length(.relativeToRoot(Typography.Margin.title2Top)))
+            .margin(top: .length(.relativeToParent(Typography.Margin.title2Top)))
 
         let h3Style = ClassStyle(forClass: .markdown, withTag: .enclosing(.headings(.h3)))
-            .font(size: .relativeToRootFontSize(Typography.Font.Size.title3))
+            .font(size: .relativeToParentFontSize(Typography.Font.Size.title3))
             .lineHeight(.number(Typography.LineHeight.title2))
-            .margin(top: .length(.relativeToRoot(Typography.Margin.body)))
+            .margin(top: .length(.relativeToParent(Typography.Margin.body)))
 
         let h4Style = ClassStyle(forClass: .markdown, withTag: .enclosing(.headings(.h4)))
-            .font(size: .relativeToRootFontSize(Typography.Font.Size.title4))
+            .font(size: .relativeToParentFontSize(Typography.Font.Size.title4))
             .lineHeight(.number(Typography.LineHeight.body))
-            .margin(top: .length(.relativeToRoot(Typography.Margin.body)))
+            .margin(top: .length(.relativeToParent(Typography.Margin.body)))
 
         let pStyle = ClassStyle(forClass: .markdown, withTag: .enclosing(.paragraph))
-            .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
+            .font(size: .relativeToParentFontSize(Typography.Font.Size.body))
 
         let introStyle = ClassStyle(forClass: .markdown, withClass: .intro)
-            .font(size: .relativeToRootFontSize(Typography.Font.Size.title5))
+            .font(size: .relativeToParentFontSize(Typography.Font.Size.title5))
             .font(weight: .number(300))
             .lineHeight(.number(Typography.LineHeight.title1))
             .foregroundColor(.Light.ArticleNoteBorder)
@@ -97,54 +96,54 @@ public struct MarkdownStyle: CSSStyle {
         let imageStyle = ClassStyle(forClass: .markdown, withTag: .selfClosing(.image))
             .sizeFull()
             .cornerRadius(uniform: .pixel(8))
-            .margin(top: .length(.relativeToRoot(Typography.Margin.title1Top)),
-                    bottom: .length(.relativeToRoot(Typography.Margin.title1Top)))
+            .margin(top: .length(.relativeToParent(Typography.Margin.title1Top)),
+                    bottom: .length(.relativeToParent(Typography.Margin.title1Top)))
         let imageCreditsStyle = ClassStyle(forClass: .markdown, withClass: .imageCredits)
             .foregroundColor(Color.Dark.ActiveNavBarItem)
             .align(.center)
-            .margin(top: .length(.relativeToRoot(-Typography.Margin.largeTitleTop)),
-                    bottom: .length(.relativeToRoot(Typography.Margin.title1Top)))
+            .margin(top: .length(.relativeToParent(-Typography.Margin.largeTitleTop)),
+                    bottom: .length(.relativeToParent(Typography.Margin.title1Top)))
         
         let dialogueStyle = ClassStyle(forClass: .dialogue)
-            .margin(top: .length(.relativeToRoot(Typography.Margin.largeTitleTop)),
-                    bottom: .length(.relativeToRoot(Typography.Margin.largeTitleTop)))
-            .padding(left: .length(.relativeToRoot(Typography.Margin.title1Top)),
-                     top: .length(.relativeToRoot(Typography.Margin.title2Top)),
-                     right: .length(.relativeToRoot(Typography.Margin.title2Top)),
-                     bottom: .length(.relativeToRoot(Typography.Margin.title2Top)))
+            .margin(top: .length(.relativeToParent(Typography.Margin.largeTitleTop)),
+                    bottom: .length(.relativeToParent(Typography.Margin.largeTitleTop)))
+            .padding(left: .length(.relativeToParent(Typography.Margin.title1Top)),
+                     top: .length(.relativeToParent(Typography.Margin.title2Top)),
+                     right: .length(.relativeToParent(Typography.Margin.title2Top)),
+                     bottom: .length(.relativeToParent(Typography.Margin.title2Top)))
             .backgroundColor(.Light.ArticleNoteBackground)
             .border(width: .pixel(1), color: .Light.ArticleNoteBorder)
             .cornerRadius(uniform: .pixel(20))
         let noteStyle = ClassStyle(forClass: .markdown, withClass: .note)
-            .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
+            .font(size: .relativeToParentFontSize(Typography.Font.Size.body))
             .foregroundColor(.Light.ArticleNoteBorder)
         
         let warningContainerStyle = ClassStyle(forClass: .warningContainer)
-            .margin(top: .length(.relativeToRoot(Typography.Margin.largeTitleTop)),
-                    bottom: .length(.relativeToRoot(Typography.Margin.largeTitleTop)))
-            .padding(left: .length(.relativeToRoot(Typography.Margin.title1Top)),
-                     top: .length(.relativeToRoot(Typography.Margin.title2Top)),
-                     right: .length(.relativeToRoot(Typography.Margin.title2Top)),
-                     bottom: .length(.relativeToRoot(Typography.Margin.title2Top)))
+            .margin(top: .length(.relativeToParent(Typography.Margin.largeTitleTop)),
+                    bottom: .length(.relativeToParent(Typography.Margin.largeTitleTop)))
+            .padding(left: .length(.relativeToParent(Typography.Margin.title1Top)),
+                     top: .length(.relativeToParent(Typography.Margin.title2Top)),
+                     right: .length(.relativeToParent(Typography.Margin.title2Top)),
+                     bottom: .length(.relativeToParent(Typography.Margin.title2Top)))
             .backgroundColor(.Light.ArticleWarningBackground)
             .border(width: .pixel(1), color: .Light.ArticleWarningBorder)
             .cornerRadius(uniform: .pixel(20))
         let warningStyle = ClassStyle(forClass: .markdown, withClass: .warning)
-            .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
+            .font(size: .relativeToParentFontSize(Typography.Font.Size.body))
             .foregroundColor(.Light.ArticleWarningBorder)
         
         let importantContainerStyle = ClassStyle(forClass: .importantContainer)
-            .margin(top: .length(.relativeToRoot(Typography.Margin.largeTitleTop)),
-                    bottom: .length(.relativeToRoot(Typography.Margin.largeTitleTop)))
-            .padding(left: .length(.relativeToRoot(Typography.Margin.title1Top)),
-                     top: .length(.relativeToRoot(Typography.Margin.title2Top)),
-                     right: .length(.relativeToRoot(Typography.Margin.title2Top)),
-                     bottom: .length(.relativeToRoot(Typography.Margin.title2Top)))
+            .margin(top: .length(.relativeToParent(Typography.Margin.largeTitleTop)),
+                    bottom: .length(.relativeToParent(Typography.Margin.largeTitleTop)))
+            .padding(left: .length(.relativeToParent(Typography.Margin.title1Top)),
+                     top: .length(.relativeToParent(Typography.Margin.title2Top)),
+                     right: .length(.relativeToParent(Typography.Margin.title2Top)),
+                     bottom: .length(.relativeToParent(Typography.Margin.title2Top)))
             .backgroundColor(.Light.ArticleImportantBackground)
             .border(width: .pixel(1), color: .Light.ArticleImportantBorder)
             .cornerRadius(uniform: .pixel(20))
         let importantStyle = ClassStyle(forClass: .markdown, withClass: .important)
-            .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
+            .font(size: .relativeToParentFontSize(Typography.Font.Size.body))
             .foregroundColor(.Light.ArticleImportantBorder)
 
         let linkStyle = ClassStyle(forClass: .markdown, withTag: .enclosing(.link))
@@ -155,11 +154,11 @@ public struct MarkdownStyle: CSSStyle {
             .textDecoration(.underline)
 
         let ulStyle = ClassStyle(forClass: .markdown, withTag: .enclosing(.unorderedList))
-            .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
-            .margin(left: .length(.relativeToRoot(Typography.Margin.title1Top)))
+            .font(size: .relativeToParentFontSize(Typography.Font.Size.body))
+            .margin(left: .length(.relativeToParent(Typography.Margin.title1Top)))
         let olStyle = ClassStyle(forClass: .markdown, withTag: .enclosing(.orderedList))
-            .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
-            .margin(left: .length(.relativeToRoot(Typography.Margin.title1Top)))
+            .font(size: .relativeToParentFontSize(Typography.Font.Size.body))
+            .margin(left: .length(.relativeToParent(Typography.Margin.title1Top)))
 
         let codeStyle = ClassStyle(forClass: .markdown, withTag: .enclosing(.code))
             .padding(left: .pixel(6), top: .pixel(3), right: .pixel(6), bottom: .pixel(3))

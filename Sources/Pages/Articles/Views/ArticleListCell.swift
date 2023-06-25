@@ -36,8 +36,7 @@ struct ArticleListCell: HTMLBodyContentView {
                     Link(text: article.detail.title, url: article.relativeURL)
                         .identifyBy(cssClasses: [.link])
                 }
-                .margin(top: .length(.relativeToRoot(Typography.Margin.body)),
-                        bottom: .length(.relativeToRoot(Typography.Margin.body)))
+                .margin(bottom: .length(.relativeToParent(Typography.Margin.body)))
                 
                 Headings(article.detail.intro, type: .h4)
             }
@@ -49,6 +48,6 @@ struct ArticleListCell: HTMLBodyContentView {
             detail
         }
         .identifyBy(cssClass: .gridContainer)
-        .margin(bottom: .pixel(48))
+        .margin(bottom: .length(.relativeToParent(Typography.Margin.xLargeContainer)))
     }
 }

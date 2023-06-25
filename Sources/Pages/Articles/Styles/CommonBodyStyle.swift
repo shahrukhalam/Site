@@ -7,18 +7,19 @@
 
 import HTMLDSL
 
-public struct CommonBodyStyle: CSSStyle {
-    public let key: CustomStringConvertible = Tag.empty.description
-    public let styles = [Style]()
+struct CommonBodyStyle: CSSStyle {
+    let key: CustomStringConvertible = Tag.empty.description
+    let styles = [Style]()
 
-    public var element: String
+    var element: String
 
-    public init() {
+    init(_ mediaType: MediaStyle.DeviceType) {
         let bodyStyle = TagStyle(for: .enclosing(.body))
             .padding(top: .pixel(57))
             .backgroundColor(isDarkMode ? Color.Dark.IndexBackground : Color.Light.IndexBackground)
             .foregroundColor(isDarkMode ? Color.Dark.IndexForeground : Color.Light.IndexForeground)
             .font(family: .apple([.notion]))
+            .font(size: mediaType == .wide ? .pixel(16) : .pixel(12))
 
         self.element = bodyStyle.element
     }

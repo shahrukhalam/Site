@@ -19,12 +19,11 @@ struct SectionView: HTMLBodyContentView {
         
         return Div {
             Headings(section.description.title, type: .h1)
-                .identifyBy(cssClass: .title1)
+                .identifyBy(cssClass: .title3)
                 .margin(top: .pixel(32), bottom: .pixel(24))
             Div(AnyView(tagViews))
                 .identifyBy(cssClass: .flexContainer)
         }
-        .size(width: .percentage(50))
-        .centerX()
+        .identifyBy(cssClass: .section)
     }
 }

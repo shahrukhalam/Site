@@ -40,6 +40,7 @@ extension CSSClass {
     static var sectionHeaderHero: Self { .init(stringLiteral: #function) }
     static var link: Self { .init(stringLiteral: #function) }
     static var pillLink: Self { .init(stringLiteral: #function) }
+    static var section: Self { .init(stringLiteral: #function) }
 
     // MARK: Article
     static var article: Self { .init(stringLiteral: #function) }

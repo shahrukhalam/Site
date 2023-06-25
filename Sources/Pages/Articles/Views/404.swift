@@ -5,8 +5,12 @@ private var view404CSS: some HTMLHeadContentView {
     HeadStyle {
         KickOffStyle()
         NavStyle()
-        CommonBodyStyle()
+        
+        MediaStyle(for: .wide, with: CommonBodyStyle(.wide))
+        MediaStyle(for: .small, with: CommonBodyStyle(.small))
+        
         commonStyles
+        
         MediaStyle(for: .wide, with: fontStyles)
         MediaStyle(for: .small, with: fontStylesSmall)
     }
