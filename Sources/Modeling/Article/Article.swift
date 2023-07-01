@@ -10,11 +10,13 @@ public struct Article {
         public let title: String
         public let intro: String
         public let banner: String
+        public let tags: [String]
         
-        public init(title: String, intro: String, banner: String) {
+        public init(title: String, intro: String, banner: String, tags: [String]) {
             self.title = title
             self.intro = intro
             self.banner = banner
+            self.tags = tags
         }
     }
     
@@ -22,7 +24,7 @@ public struct Article {
     public let markdown: String
     public let relativeURL: String
     public let absoluteURL: String
-    
+
     public init(detail: Detail, markdown: String, relativeURL: String, absoluteURL: String) {
         self.detail = detail
         self.markdown = markdown

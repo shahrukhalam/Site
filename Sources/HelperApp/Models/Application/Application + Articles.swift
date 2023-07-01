@@ -19,7 +19,12 @@ public extension Application {
                 let (title, intro, (_, bannerSource)) = try markdownParser.parse(markdown)
                 let url = ["/articles", tag, name].joined(separator: "/")
                 let article: Article = .init(
-                    detail: .init(title: String(title), intro: String(intro), banner: String(bannerSource)),
+                    detail: .init(
+                        title: String(title),
+                        intro: String(intro),
+                        banner: String(bannerSource),
+                        tags: []
+                    ),
                     markdown: markdown,
                     relativeURL: url,
                     absoluteURL: url
