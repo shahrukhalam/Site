@@ -92,12 +92,16 @@ public struct MarkdownStyle: CSSStyle {
             .margin(top: .length(.relativeToRoot(Typography.Margin.subheading)))
         
         let imageStyle = ClassStyle(forClass: .markdown, withTag: .selfClosing(.image))
-            .sizeFull()
-            .cornerRadius(uniform: .pixel(8))
+            .display(.flex)
+            .size(maxWidth: .percentage(100))
             .margin(
+                left: .auto,
                 top: .length(.relativeToRoot(Typography.Margin.heading1)),
+                right: .auto,
                 bottom: .length(.relativeToRoot(Typography.Margin.heading1))
             )
+            .cornerRadius(uniform: .pixel(8))
+
         let imageCreditsStyle = ClassStyle(forClass: .markdown, withClass: .imageCredits)
             .foregroundColor(Color.Dark.ActiveNavBarItem)
             .align(.center)
