@@ -22,9 +22,9 @@ private let title2Style = ClassStyle(forClass: .title2)
     .font(weight: .number(500))
 
 private let title3Style = ClassStyle(forClass: .title3)
-    .font(size: .relativeToParentFontSize(Typography.Font.Size.title3))
-    .lineHeight(.number(Typography.LineHeight.title2))
-    .margin(top: .length(.relativeToParent(Typography.Margin.body)))
+    .font(size: .relativeToRootFontSize(Typography.Font.Size.heading3))
+    .lineHeight(.number(Typography.LineHeight.subheading))
+    .margin(top: .length(.relativeToRoot(Typography.Margin.body)))
 
 private let headlineStyle = ClassStyle(forClass: .headline)
     .font(size: .pixel(20))

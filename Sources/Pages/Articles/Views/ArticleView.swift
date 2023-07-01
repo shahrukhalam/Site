@@ -24,7 +24,7 @@ struct ArticleView: HTMLBodyContentView {
                 Markdown(article.markdown)
                     .identifyBy(cssClass: .markdown)
                 share(title: article.detail.title, url: article.absoluteURL)
-                    .margin(top: .length(.relativeToParent(Typography.Margin.largeTitleTop)))
+                    .margin(top: .length(.relativeToRoot(Typography.Margin.heading1)))
             }
             .identifyBy(cssClass: .markdownContainer)
         }
@@ -34,9 +34,9 @@ struct ArticleView: HTMLBodyContentView {
 
 var shareStyle: CSSStyle {
     let pStyle = ClassStyle(forClass: .share, withTag: .enclosing(.paragraph))
-        .font(size: .relativeToParentFontSize(Typography.Font.Size.body))
+        .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
         .lineHeight(.number(Typography.LineHeight.body))
-        .margin(bottom: .length(.relativeToParent(Typography.Margin.body)))
+        .margin(bottom: .length(.relativeToRoot(Typography.Margin.body)))
 
     let linkStyle = ClassStyle(forClass: .share, withTag: .enclosing(.link))
         .foregroundColor(isDarkMode ? Color.Dark.LinkNormalForeground : Color.Light.LinkNormalForeground)

@@ -19,17 +19,17 @@ struct ArticleListStyle: CSSStyle {
             .size(width: mediaType == .wide ? .percentage(60) : .percentage(96))
             .margin(
                 left: .auto,
-                top: .length(.relativeToParent(Typography.Margin.xLargeContainer)),
+                top: .length(.relativeToRoot(Typography.Margin.title)),
                 right: .auto,
-                bottom: .length(.relativeToParent(Typography.Margin.xLargeContainer))
+                bottom: .length(.relativeToRoot(Typography.Margin.title))
             )
 
         let gridStyle = ClassStyle(forClass: .gridContainer)
             .display(.grid)
             .gridNumberOfColumns(3)
             .gridColumn(
-                dimension: mediaType == .wide ?
-                    .length(.relativeToParent(Typography.Margin.largeTitleTop)) : .length(.relativeToParent(Typography.Margin.title2Top))
+                gap: mediaType == .wide ?
+                    .length(.relativeToRoot(Typography.Margin.title)) : .length(.relativeToRoot(Typography.Margin.heading2))
             )
         let gridItem1By3 = ClassStyle(forClass: .gridItem1By3)
             .gridColumn(location: 1, size: 2)
@@ -37,16 +37,16 @@ struct ArticleListStyle: CSSStyle {
             .gridColumn(location: 2, size: 4)
             .lineHeight(.number(Typography.LineHeight.body))
         let descriptionStyle = ClassStyle(forClass: .gridItem2By3, withTag: .enclosing(.headings(.h4)))
-            .font(size: .relativeToParentFontSize(Typography.Font.Size.body))
+            .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
             .font(weight: .normal)
-            .lineHeight(.number(Typography.LineHeight.title2))
+            .lineHeight(.number(Typography.LineHeight.subheading))
             .foregroundColor(.Light.ArticleText)
             .noOfLines(mediaType == .wide ? 3 : 4)
 
         let linkStyle = ClassStyle(forClass: .articleList, withTag: .enclosing(.link))
-            .font(size: mediaType == .wide ? .relativeToParentFontSize(Typography.Font.Size.title3) : .relativeToParentFontSize(Typography.Font.Size.title4))
+            .font(size: mediaType == .wide ? .relativeToRootFontSize(Typography.Font.Size.heading3) : .relativeToRootFontSize(Typography.Font.Size.subheading))
             .font(weight: .bold)
-            .lineHeight(.number(Typography.LineHeight.title1))
+            .lineHeight(.number(Typography.LineHeight.heading))
             .foregroundColor(.Light.ArticleText)
             .textDecoration(.none)
         let linkHoverStyle = ClassStyle(.articleList, tag: .enclosing(.link), cssTag: .hover)
