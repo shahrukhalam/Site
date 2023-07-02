@@ -127,7 +127,8 @@ public struct MarkdownStyle: CSSStyle {
         let noteStyle = ClassStyle(forClass: .markdown, withClass: .note)
             .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
             .foregroundColor(.Light.ArticleNoteBorder)
-        
+            .margin(top: .pixel(0))
+
         let warningContainerStyle = ClassStyle(forClass: .warningContainer)
             .margin(
                 top: .length(.relativeToRoot(Typography.Margin.heading1)),
@@ -145,6 +146,7 @@ public struct MarkdownStyle: CSSStyle {
         let warningStyle = ClassStyle(forClass: .markdown, withClass: .warning)
             .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
             .foregroundColor(.Light.ArticleWarningBorder)
+            .margin(top: .pixel(0))
         
         let importantContainerStyle = ClassStyle(forClass: .importantContainer)
             .margin(
@@ -163,6 +165,7 @@ public struct MarkdownStyle: CSSStyle {
         let importantStyle = ClassStyle(forClass: .markdown, withClass: .important)
             .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
             .foregroundColor(.Light.ArticleImportantBorder)
+            .margin(top: .pixel(0))
 
         let linkStyle = ClassStyle(forClass: .markdown, withTag: .enclosing(.link))
             .foregroundColor(isDarkMode ? Color.Dark.LinkNormalForeground : Color.Light.LinkNormalForeground)
