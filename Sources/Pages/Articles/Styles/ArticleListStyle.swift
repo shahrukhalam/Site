@@ -16,12 +16,14 @@ struct ArticleListStyle: CSSStyle {
     init(_ mediaType: MediaStyle.DeviceType) {
         self.key = Tag.empty.description
         let containerStyle = ClassStyle(forClass: .articleList)
-            .size(width: mediaType == .wide ? .percentage(60) : .percentage(96))
+            .size(width: mediaType == .wide ? .percentage(60) : .percentage(92))
             .margin(
                 left: .auto,
-                top: .length(.relativeToRoot(Typography.Margin.title)),
+                top: mediaType == .wide ?
+                    .length(.relativeToRoot(Typography.Margin.title)) : .length(.relativeToRoot(Typography.Margin.heading1)),
                 right: .auto,
-                bottom: .length(.relativeToRoot(Typography.Margin.title))
+                bottom: mediaType == .wide ?
+                    .length(.relativeToRoot(Typography.Margin.title)) : .length(.relativeToRoot(Typography.Margin.heading1))
             )
 
         let gridStyle = ClassStyle(forClass: .gridContainer)
@@ -29,8 +31,10 @@ struct ArticleListStyle: CSSStyle {
             .gridNumberOfColumns(3)
             .gridColumn(
                 gap: mediaType == .wide ?
-                    .length(.relativeToRoot(Typography.Margin.title)) : .length(.relativeToRoot(Typography.Margin.heading2))
+                    .length(.relativeToRoot(Typography.Margin.title)) : .length(.relativeToRoot(Typography.Margin.heading3))
             )
+            .margin(bottom: mediaType == .wide ?
+                .length(.relativeToRoot(Typography.Margin.title)) : .length(.relativeToRoot(Typography.Margin.heading1)))
         let gridItem1By3 = ClassStyle(forClass: .gridItem1By3)
             .gridColumn(location: 1, size: 2)
         let gridItem2By3 = ClassStyle(forClass: .gridItem2By3)
@@ -44,7 +48,7 @@ struct ArticleListStyle: CSSStyle {
             .noOfLines(mediaType == .wide ? 3 : 4)
 
         let linkStyle = ClassStyle(forClass: .articleList, withTag: .enclosing(.link))
-            .font(size: mediaType == .wide ? .relativeToRootFontSize(Typography.Font.Size.heading3) : .relativeToRootFontSize(Typography.Font.Size.subheading))
+            .font(size: mediaType == .wide ? .relativeToRootFontSize(Typography.Font.Size.heading2) : .relativeToRootFontSize(Typography.Font.Size.subheading))
             .font(weight: .bold)
             .lineHeight(.number(Typography.LineHeight.heading))
             .foregroundColor(.Light.ArticleText)

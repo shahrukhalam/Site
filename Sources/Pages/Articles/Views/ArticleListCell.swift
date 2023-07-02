@@ -48,6 +48,5 @@ struct ArticleListCell: HTMLBodyContentView {
             detail
         }
         .identifyBy(cssClass: .gridContainer)
-        .margin(bottom: .length(.relativeToRoot(Typography.Margin.title)))
     }
 }
