@@ -42,7 +42,8 @@ let package = Package(
 )
 
 /// Local Development Setup
-/// We can set `USE_REMOTE_DEPS` in `fly.io` to fetch from Remote
+/// 
+/// We can set `CI_ENVIRONMENT` in `fly.io` to fetch from Remote
 if ProcessInfo.processInfo.environment["CI_ENVIRONMENT"] == "YES" {
     package.dependencies += [
         // 📃 A HTML page renderer for shahrukh's article website
