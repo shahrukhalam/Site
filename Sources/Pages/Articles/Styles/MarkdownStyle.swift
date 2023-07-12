@@ -190,6 +190,16 @@ public struct MarkdownStyle: CSSStyle {
             .backgroundColor(.Light.NavBarDividerColor)
         let codeStyle3 = ClassStyle(forClass: .warningContainer, withTag: .enclosing(.code))
             .backgroundColor(.Light.NavBarDividerColor)
+        
+        let videoStyle = ClassStyle(forClass: .markdown, withTag: .enclosing(.video))
+            .display(.flex)
+            .size(maxWidth: .percentage(100))
+            .margin(
+                left: .auto,
+                top: .length(.relativeToRoot(Typography.Margin.heading1)),
+                right: .auto,
+                bottom: .length(.relativeToRoot(Typography.Margin.heading1))
+            )
 
         let styles = [
             commonStyle,
@@ -213,7 +223,8 @@ public struct MarkdownStyle: CSSStyle {
             olStyle,
             codeStyle,
             codeStyle2,
-            codeStyle3
+            codeStyle3,
+            videoStyle
         ]
         self.element = styles.map { $0.element }.joined(separator: "\n")
     }
