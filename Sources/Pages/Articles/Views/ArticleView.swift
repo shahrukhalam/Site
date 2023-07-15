@@ -23,8 +23,10 @@ struct ArticleView: HTMLBodyContentView {
             Div {
                 Markdown(article.markdown)
                     .identifyBy(cssClass: .markdown)
-                share(title: article.detail.title, url: article.absoluteURL)
-                    .margin(top: .length(.relativeToRoot(Typography.Margin.heading1)))
+                if article.isSharable {
+                    share(title: article.detail.title, url: article.absoluteURL)
+                        .margin(top: .length(.relativeToRoot(Typography.Margin.heading1)))
+                }
             }
             .identifyBy(cssClass: .markdownContainer)
         }

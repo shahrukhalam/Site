@@ -27,7 +27,8 @@ public extension Application {
                     ),
                     markdown: markdown,
                     relativeURL: url,
-                    absoluteURL: url
+                    absoluteURL: url,
+                    isSharable: true
                 )
                 articles.append(article)
             }

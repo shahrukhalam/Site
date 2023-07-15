@@ -24,11 +24,13 @@ public struct Article {
     public let markdown: String
     public let relativeURL: String
     public let absoluteURL: String
+    public let isSharable: Bool
 
-    public init(detail: Detail, markdown: String, relativeURL: String, absoluteURL: String) {
+    public init(detail: Detail, markdown: String, relativeURL: String, absoluteURL: String, isSharable: Bool) {
         self.detail = detail
         self.markdown = markdown
         self.relativeURL = relativeURL
         self.absoluteURL = absoluteURL
+        self.isSharable = isSharable
     }
 }
