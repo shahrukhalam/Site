@@ -201,14 +201,25 @@ public struct MarkdownStyle: CSSStyle {
                 bottom: .length(.relativeToRoot(Typography.Margin.heading1))
             )
         
-        let iframeStyle = ClassStyle(forClass: .markdown, withTag: .enclosing(.iframe))
-            .display(.flex)
+        let iframeContainerStyle = ClassStyle(forClass: .iframeContainer)
             .margin(
                 left: .auto,
                 top: .length(.relativeToRoot(Typography.Margin.heading1)),
                 right: .auto,
                 bottom: .length(.relativeToRoot(Typography.Margin.heading1))
             )
+            .padding(
+                top: .percentage(56.25) // To have 16:9 Aspect Ratio (divide 9 by 16 = 0.5625)
+            )
+            .position(.relative)
+            .size(width: .percentage(100))
+        
+        let iframeStyle = ClassStyle(forClass: .markdown, withClass: .iframe)
+            .position(.absolute)
+            .constraint(left: .pixel(0), top: .pixel(0), right: .pixel(0), bottom: .pixel(0))
+            .sizeFull()
+            .margin()
+            .cornerRadius(uniform: .pixel(8))
 
         let styles = [
             commonStyle,
@@ -234,6 +245,7 @@ public struct MarkdownStyle: CSSStyle {
             codeStyle2,
             codeStyle3,
             videoStyle,
+            iframeContainerStyle,
             iframeStyle
         ]
         self.element = styles.map { $0.element }.joined(separator: "\n")
