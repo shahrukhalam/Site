@@ -200,6 +200,15 @@ public struct MarkdownStyle: CSSStyle {
                 right: .auto,
                 bottom: .length(.relativeToRoot(Typography.Margin.heading1))
             )
+        
+        let iframeStyle = ClassStyle(forClass: .markdown, withTag: .enclosing(.iframe))
+            .display(.flex)
+            .margin(
+                left: .auto,
+                top: .length(.relativeToRoot(Typography.Margin.heading1)),
+                right: .auto,
+                bottom: .length(.relativeToRoot(Typography.Margin.heading1))
+            )
 
         let styles = [
             commonStyle,
@@ -224,7 +233,8 @@ public struct MarkdownStyle: CSSStyle {
             codeStyle,
             codeStyle2,
             codeStyle3,
-            videoStyle
+            videoStyle,
+            iframeStyle
         ]
         self.element = styles.map { $0.element }.joined(separator: "\n")
     }
