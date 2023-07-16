@@ -176,10 +176,10 @@ public struct MarkdownStyle: CSSStyle {
 
         let ulStyle = ClassStyle(forClass: .markdown, withTag: .enclosing(.unorderedList))
             .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
-            .margin(left: .length(.relativeToRoot(Typography.Margin.heading2)))
+            .margin(left: .length(.relativeToRoot(Typography.Margin.heading1)))
         let olStyle = ClassStyle(forClass: .markdown, withTag: .enclosing(.orderedList))
             .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
-            .margin(left: .length(.relativeToRoot(Typography.Margin.heading2)))
+            .margin(left: .length(.relativeToRoot(Typography.Margin.heading1)))
 
         let codeStyle = ClassStyle(forClass: .markdown, withTag: .enclosing(.code))
             .padding(left: .pixel(6), top: .pixel(3), right: .pixel(6), bottom: .pixel(3))
