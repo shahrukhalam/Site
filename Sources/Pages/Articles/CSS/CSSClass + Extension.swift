@@ -55,6 +55,8 @@ extension CSSClass {
     static var warningContainer: Self { .init(stringLiteral: #function) }
     static var important: Self { .init(stringLiteral: #function) }
     static var importantContainer: Self { .init(stringLiteral: #function) }
+    static var tipContainer: Self { .init(stringLiteral: #function) }
+    static var tip: Self { .init(stringLiteral: #function) }
     static var iframeContainer: Self { .init(stringLiteral: #function) }
     static var iframe: Self { .init(stringLiteral: #function) }
 

@@ -166,6 +166,25 @@ public struct MarkdownStyle: CSSStyle {
             .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
             .foregroundColor(.Light.ArticleImportantBorder)
             .margin(top: .pixel(0))
+        
+        let tipContainerStyle = ClassStyle(forClass: .tipContainer)
+            .margin(
+                top: .length(.relativeToRoot(Typography.Margin.heading1)),
+                bottom: .length(.relativeToRoot(Typography.Margin.heading1))
+            )
+            .padding(
+                left: .length(.relativeToRoot(Typography.Margin.heading1)),
+                top: .length(.relativeToRoot(Typography.Margin.heading2)),
+                right: .length(.relativeToRoot(Typography.Margin.heading2)),
+                bottom: .length(.relativeToRoot(Typography.Margin.heading2))
+            )
+            .backgroundColor(.Light.ArticleTipBackground)
+            .border(width: .pixel(1), color: .Light.ArticleTipBorder)
+            .cornerRadius(uniform: .pixel(20))
+        let tipStyle = ClassStyle(forClass: .markdown, withClass: .tip)
+            .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
+            .foregroundColor(.Light.ArticleTipBorder)
+            .margin(top: .pixel(0))
 
         let linkStyle = ClassStyle(forClass: .markdown, withTag: .enclosing(.link))
             .foregroundColor(isDarkMode ? Color.Dark.LinkNormalForeground : Color.Light.LinkNormalForeground)
@@ -239,6 +258,8 @@ public struct MarkdownStyle: CSSStyle {
             warningContainerStyle,
             importantStyle,
             importantContainerStyle,
+            tipContainerStyle,
+            tipStyle,
             ulStyle,
             olStyle,
             codeStyle,

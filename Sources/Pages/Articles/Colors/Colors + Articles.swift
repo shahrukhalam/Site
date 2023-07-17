@@ -57,7 +57,10 @@ extension Color {
         static var ArticleWarningBorder: Color { .hexWithHash("#EA3422") }
         static var ArticleImportantBackground: Color { .hexWithHash("#FFFEF3") }
         static var ArticleImportantBorder: Color { .hexWithHash("#8D6F22") }
-        
+        /// `Tip` section of https://developer.apple.com/documentation/xcode/formatting-your-documentation-content
+        static var ArticleTipBackground: Color { .hexWithHash("#FBFFFF") }
+        static var ArticleTipBorder: Color { .hexWithHash("#357A77") }
+
         static var Background: Color { .html(.White) }
         static var Foreground: Color { .html(.Black) }
         static var LinkNormalForeground: Color { .rgba(red: 0, green: 102, blue: 204, alpha: 1.0) }
