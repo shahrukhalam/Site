@@ -1,8 +1,6 @@
 import Modeling
 import HTMLDSL
 
-// Test for package.swift
-
 public func indexPage(tabs: [LinkDescription], selectedIndex: Int, section: Section, meta: MetaDetail, analyticsID: String) -> some View {
     Document {
         HTML {

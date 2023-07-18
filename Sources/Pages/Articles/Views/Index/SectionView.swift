@@ -19,8 +19,11 @@ struct SectionView: HTMLBodyContentView {
         
         return Div {
             Headings(section.description.title, type: .h1)
-                .identifyBy(cssClass: .title3)
-                .margin(top: .pixel(32), bottom: .pixel(24))
+                .font(size: .relativeToRootFontSize(Typography.Font.Size.heading1))
+                .margin(
+                    top: .length(.relativeToRoot(Typography.Margin.title)),
+                    bottom: .length(.relativeToRoot(Typography.Margin.heading1))
+                )
             Div(AnyView(tagViews))
                 .identifyBy(cssClass: .flexContainer)
         }
