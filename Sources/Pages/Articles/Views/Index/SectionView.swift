@@ -21,8 +21,8 @@ struct SectionView: HTMLBodyContentView {
             Headings(section.description.title, type: .h1)
                 .font(size: .relativeToRootFontSize(Typography.Font.Size.heading1))
                 .margin(
-                    top: .length(.relativeToRoot(Typography.Margin.title)),
-                    bottom: .length(.relativeToRoot(Typography.Margin.heading1))
+                    top: .length(.relativeToRoot(Typography.Margin.heading1)),
+                    bottom: .length(.relativeToRoot(Typography.Margin.heading3))
                 )
             Div(AnyView(tagViews))
                 .identifyBy(cssClass: .flexContainer)

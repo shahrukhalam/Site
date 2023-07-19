@@ -1,7 +1,7 @@
 import Modeling
 import HTMLDSL
 
-public func indexPage(tabs: [LinkDescription], selectedIndex: Int, section: Section, meta: MetaDetail, analyticsID: String) -> some View {
+public func indexPage(tabs: [LinkDescription], selectedIndex: Int, sections: [Section], meta: MetaDetail, analyticsID: String) -> some View {
     Document {
         HTML {
             Head {
@@ -15,7 +15,10 @@ public func indexPage(tabs: [LinkDescription], selectedIndex: Int, section: Sect
             
             Body {
                 NavView(tabs: tabs, selectedIndex: selectedIndex)
-                SectionView(section: section)
+                
+                for section in sections {
+                    SectionView(section: section)
+                }
             }
         }
     }
