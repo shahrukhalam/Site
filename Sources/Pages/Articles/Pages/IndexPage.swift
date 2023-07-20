@@ -16,9 +16,15 @@ public func indexPage(tabs: [LinkDescription], selectedIndex: Int, sections: [Se
             Body {
                 NavView(tabs: tabs, selectedIndex: selectedIndex)
                 
-                for section in sections {
-                    SectionView(section: section)
+                Div {
+                    for section in sections {
+                        SectionView(section: section)
+                    }
                 }
+                .margin(
+                    top: .length(.relativeToRoot(Typography.Margin.heading3)),
+                    bottom: .length(.relativeToRoot(Typography.Margin.heading3))
+                )
             }
         }
     }

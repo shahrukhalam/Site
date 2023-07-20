@@ -19,9 +19,9 @@ struct SectionView: HTMLBodyContentView {
         
         return Div {
             Headings(section.description.title, type: .h1)
-                .font(size: .relativeToRootFontSize(Typography.Font.Size.heading1))
+                .font(size: .relativeToRootFontSize(Typography.Font.Size.heading2))
                 .margin(
-                    top: .length(.relativeToRoot(Typography.Margin.heading1)),
+                    top: .length(.relativeToRoot(Typography.Margin.title)),
                     bottom: .length(.relativeToRoot(Typography.Margin.heading3))
                 )
             Div(AnyView(tagViews))
