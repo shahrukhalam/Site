@@ -22,7 +22,7 @@ enum Typography {
         static let subheading: Float = 1.4
         static let body: Float = 1.5
     }
-
+    
     enum Font {
         enum Size {
             static let title: Float = 2.5
@@ -33,7 +33,7 @@ enum Typography {
             static let body: Float = 1
         }
     }
-
+    
     enum Margin {
         static let body: Float = 0.5
         static let title: Float = 4
@@ -49,41 +49,41 @@ public struct MarkdownStyle: CSSStyle {
     public let styles = [Style]()
     
     public var element: String
-
-    init(listImage: String) {
+    
+    init(_ mediaType: MediaStyle.DeviceType) {
         self.key = Tag.empty.description
-
+        
         let commonStyle = ClassStyle(elementsInClass: .markdown)
             .lineHeight(.number(Typography.LineHeight.body))
             .foregroundColor(.Light.ArticleText)
             .margin(top: .length(.relativeToRoot(Typography.Margin.body)))
-
+        
         let h1Style = ClassStyle(forClass: .markdown, withTag: .enclosing(.headings(.h1)))
             .font(size: .relativeToRootFontSize(Typography.Font.Size.title))
             .lineHeight(.number(Typography.LineHeight.title))
             .margin(top: .length(.relativeToRoot(Typography.Margin.title)))
-
+        
         let h2Style = ClassStyle(forClass: .markdown, withTag: .enclosing(.headings(.h2)))
             .font(size: .relativeToRootFontSize(Typography.Font.Size.heading1))
             .font(weight: .number(600))
             .lineHeight(.number(Typography.LineHeight.heading))
             .margin(top: .length(.relativeToRoot(Typography.Margin.heading1)))
-
+        
         let h3Style = ClassStyle(forClass: .markdown, withTag: .enclosing(.headings(.h3)))
             .font(size: .relativeToRootFontSize(Typography.Font.Size.heading2))
             .font(weight: .number(600))
             .lineHeight(.number(Typography.LineHeight.heading))
             .margin(top: .length(.relativeToRoot(Typography.Margin.heading2)))
-
+        
         let h4Style = ClassStyle(forClass: .markdown, withTag: .enclosing(.headings(.h4)))
             .font(size: .relativeToRootFontSize(Typography.Font.Size.heading3))
             .font(weight: .number(600))
             .lineHeight(.number(Typography.LineHeight.heading))
             .margin(top: .length(.relativeToRoot(Typography.Margin.heading3)))
-
+        
         let pStyle = ClassStyle(forClass: .markdown, withTag: .enclosing(.paragraph))
             .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
-
+        
         let introStyle = ClassStyle(forClass: .markdown, withClass: .intro)
             .font(size: .relativeToRootFontSize(Typography.Font.Size.subheading))
             .font(weight: .number(300))
@@ -101,7 +101,7 @@ public struct MarkdownStyle: CSSStyle {
                 bottom: .length(.relativeToRoot(Typography.Margin.heading1))
             )
             .cornerRadius(uniform: .pixel(8))
-
+        
         let imageCreditsStyle = ClassStyle(forClass: .markdown, withClass: .imageCredits)
             .foregroundColor(Color.Dark.ActiveNavBarItem)
             .align(.center)
@@ -128,7 +128,7 @@ public struct MarkdownStyle: CSSStyle {
             .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
             .foregroundColor(.Light.ArticleNoteBorder)
             .margin(top: .pixel(0))
-
+        
         let warningContainerStyle = ClassStyle(forClass: .warningContainer)
             .margin(
                 top: .length(.relativeToRoot(Typography.Margin.heading1)),
@@ -185,21 +185,21 @@ public struct MarkdownStyle: CSSStyle {
             .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
             .foregroundColor(.Light.ArticleTipBorder)
             .margin(top: .pixel(0))
-
+        
         let linkStyle = ClassStyle(forClass: .markdown, withTag: .enclosing(.link))
             .foregroundColor(isDarkMode ? Color.Dark.LinkNormalForeground : Color.Light.LinkNormalForeground)
             .textDecoration(.none)
         let linkHoverStyle = ClassStyle(.markdown, tag: .enclosing(.link), cssTag: .hover)
             .foregroundColor(isDarkMode ? Color.Dark.LinkNormalForeground : Color.Light.LinkNormalForeground)
             .textDecoration(.underline)
-
+        
         let ulStyle = ClassStyle(forClass: .markdown, withTag: .enclosing(.unorderedList))
             .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
             .margin(left: .length(.relativeToRoot(Typography.Margin.heading1)))
         let olStyle = ClassStyle(forClass: .markdown, withTag: .enclosing(.orderedList))
             .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
             .margin(left: .length(.relativeToRoot(Typography.Margin.heading1)))
-
+        
         let codeStyle = ClassStyle(forClass: .markdown, withTag: .enclosing(.code))
             .padding(left: .pixel(6), top: .pixel(3), right: .pixel(6), bottom: .pixel(3))
             .backgroundColor(.Light.ArticleNoteBackground)
@@ -239,7 +239,52 @@ public struct MarkdownStyle: CSSStyle {
             .sizeFull()
             .margin()
             .cornerRadius(uniform: .pixel(8))
-
+        
+        let linkedArticleContainerStyle = ClassStyle(forClass: .linkedArticleContainer)
+            .display(.grid)
+            .gridNumberOfColumns(3)
+            .gridColumn(
+                gap: mediaType == .wide ?
+                    .length(.relativeToRoot(Typography.Margin.title)) : .length(.relativeToRoot(Typography.Margin.heading3))
+            )
+            .margin(
+                top: .length(.relativeToRoot(Typography.Margin.heading3)),
+                bottom: .length(.relativeToRoot(Typography.Margin.heading3))
+            )
+        let linkedArticleImageStyle = ClassStyle(forClass: .linkedArticleContainer, withClass: .linkedArticleImage)
+            .gridColumn(location: 1, size: 2)
+            .margin()
+        let linkedArticleDetailStyle = ClassStyle(forClass: .linkedArticleDetail)
+            .gridColumn(location: 2, size: 4)
+            .lineHeight(.number(Typography.LineHeight.body))
+            .margin()
+        let linkedArticleLinkStyle = ClassStyle(forClass: .linkedArticleDetail, withTag: .enclosing(.link))
+            .font(size: mediaType == .wide ? .relativeToRootFontSize(Typography.Font.Size.heading2) : .relativeToRootFontSize(Typography.Font.Size.subheading))
+            .font(weight: .bold)
+            .lineHeight(.number(Typography.LineHeight.heading))
+            .foregroundColor(.Light.ArticleText)
+            .textDecoration(.none)
+        let linkedArticleLinkHoverStyle = ClassStyle(.linkedArticleDetail, tag: .enclosing(.link), cssTag: .hover)
+            .foregroundColor(.Light.ArticleText)
+            .textDecoration(.underline)
+        let linkedArticleDescriptionStyle = ClassStyle(forClass: .linkedArticleDetail, withTag: .enclosing(.headings(.h4)))
+            .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
+            .font(weight: .normal)
+            .lineHeight(.number(Typography.LineHeight.subheading))
+            .foregroundColor(.Light.ArticleText)
+            .noOfLines(mediaType == .wide ? 3 : 4)
+            .margin(top: .length(.relativeToRoot(Typography.Margin.body)))
+        
+        let horizontalLineStyle = ClassStyle(forClass: .markdown, withTag: .enclosing(.hr))
+            .margin(
+                top: .length(.relativeToRoot(Typography.Margin.heading3)),
+                bottom: .length(.relativeToRoot(Typography.Margin.heading3))
+            )
+        /// Comes from border color of Prism `code` block
+            .backgroundColor(.rgba(red: 209, green: 210, blue: 215, alpha: 1))
+            .size(height: .pixel(1))
+            .border(width: .pixel(0))
+        
         let styles = [
             commonStyle,
             h1Style,
@@ -267,7 +312,14 @@ public struct MarkdownStyle: CSSStyle {
             codeStyle3,
             videoStyle,
             iframeContainerStyle,
-            iframeStyle
+            iframeStyle,
+            linkedArticleContainerStyle,
+            linkedArticleImageStyle,
+            linkedArticleDetailStyle,
+            linkedArticleDescriptionStyle,
+            linkedArticleLinkStyle,
+            linkedArticleLinkHoverStyle,
+            horizontalLineStyle
         ]
         self.element = styles.map { $0.element }.joined(separator: "\n")
     }
