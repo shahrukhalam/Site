@@ -90,7 +90,7 @@ struct GridView: HTMLBodyContentView {
             
             Div {
                 Headings(detail.description.title, type: .h2)
-                    .font(size: .relativeToRootFontSize(Typography.Font.Size.heading3))
+                    .font(size: .relativeToRootFontSize(Typography.Font.Size.subheading))
                     .font(weight: .number(600))
                 
                 Headings(detail.description.subtitle, type: .h3)
