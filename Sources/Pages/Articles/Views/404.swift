@@ -36,6 +36,7 @@ public func view404(tabs: [LinkDescription], selectedIndex: Int, description: De
                             .foregroundColor(Color.Dark.Subtitle404)
                             .margin(top: .pixel(16))
                     }
+                    .margin(uniform: .pixel(20))
                 }
                 // `top`: Nav Bar (57) + normal space (20)
                 .position(.fixed, left: .pixel(20), top: .pixel(77), right: .pixel(20), bottom: .pixel(20))

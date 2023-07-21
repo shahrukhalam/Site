@@ -27,7 +27,7 @@ public struct Middleware404: AsyncMiddleware {
     
     private func description(with error: Error) -> Description {
         let reason = (error as? AbortError)?.reason ?? error.localizedDescription
-        let status = (error as? AbortError) == nil ? "" : " status: \((error as! AbortError).status.code)"
-        return .init(title: reason, subtitle: "The page can't be displayed\(status) reason: \(reason)")
+        let status = (error as? AbortError) == nil ? "" : " Status: \((error as! AbortError).status.code)"
+        return .init(title: reason, subtitle: "The page can't be displayed • \(status) • Reason: \(reason)")
     }
 }
