@@ -80,7 +80,9 @@ struct GridView: HTMLBodyContentView {
                 .accessibility(detail.image.description)
 
             Image(detail.image.url, alternateText: detail.image.description)
-                .backgroundColor(isDarkMode ? .Dark.IndexGridImageBackground : .Light.IndexGridImageBackground)
+            // TODO: Now, the background color in light mode is specific to journey
+            // Photoshop can be used
+                .backgroundColor(isDarkMode ? .Dark.IndexGridImageBackground : .hexWithHash("#161617"))
                 .size(width: .percentage(100))
                 .aspectRatio(width: detail.image.aspectRatio.width,
                              height: detail.image.aspectRatio.height)
@@ -90,14 +92,17 @@ struct GridView: HTMLBodyContentView {
                 Headings(detail.description.title, type: .h2)
                     .font(size: .relativeToRootFontSize(Typography.Font.Size.heading3))
                     .font(weight: .number(600))
-                    .margin(bottom: .length(.relativeToRoot(Typography.Margin.body)))
                 
                 Headings(detail.description.subtitle, type: .h3)
+                    .identifyBy(cssClass: .collectionDescription)
                     .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
                     .font(weight: .normal)
+                    .margin(top: .length(.relativeToRoot(Typography.Margin.body)))
                 
                 Link(text: detail.link.text, url: detail.link.url)
                     .identifyBy(cssClass: .link)
+                    .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
+                    .font(weight: .normal)
                     .display(.inlineBlock)
                     .margin(top: .length(.relativeToRoot(Typography.Margin.heading3)))
             }
