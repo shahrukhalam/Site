@@ -41,14 +41,14 @@ struct Grid: HTMLBodyContentView {
             case .highlighted:
                 let gridItemView = sectionHeaderHero(with: subsection.detail)
                     .position(.relative)
-                    .backgroundColor(isDarkMode ? Color.Dark.IndexGridBackground : Color.Light.IndexGridBackground)
+                    .backgroundColor(isDarkMode ? Color.Dark.IndexGridBackground : Color.Light.IndexSectionHeaderBackground)
                     .cornerRadius(.pixel(16))
                     .identifyBy(cssClasses: classes)
                 gridItemViewErased = AnyView(gridItemView)
             case .compact:
                 let gridItemView = GridView(model: subsection.detail)
                     .position(.relative)
-                    .backgroundColor(isDarkMode ? Color.Dark.IndexGridBackground : Color.Light.IndexGridBackground)
+                    .backgroundColor(isDarkMode ? Color.Dark.IndexGridBackground : Color.Light.IndexSectionHeaderBackground)
                     .cornerRadius(.pixel(16))
                     .identifyBy(cssClasses: classes)
                 gridItemViewErased = AnyView(gridItemView)
@@ -59,7 +59,7 @@ struct Grid: HTMLBodyContentView {
         
         return Div(AnyView(gridViews))
             .identifyBy(cssClass: .gridContainer)
-            .margin(top: .pixel(40))
+//            .margin(top: .pixel(40))
     }
 }
 

@@ -3,8 +3,8 @@ import HTMLDSL
 // MARK: Wide
 
 private let sectionViewOwnStyle = ClassStyle(forClass: .section)
-    .size(width: .percentage(50))
-    .centerX()
+//    .size(width: .percentage(50))
+//    .centerX()
 
 private let flexContainerStyle = ClassStyle(forClass: .flexContainer)
     .display(.flex)
