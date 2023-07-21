@@ -48,7 +48,7 @@ struct Grid: HTMLBodyContentView {
             case .compact:
                 let gridItemView = GridView(model: subsection.detail)
                     .position(.relative)
-                    .backgroundColor(isDarkMode ? Color.Dark.IndexGridBackground : Color.Light.IndexSectionHeaderBackground)
+                    .backgroundColor(isDarkMode ? Color.Dark.IndexGridBackground : Color.Light.ArticleNoteBackground)
                     .cornerRadius(.pixel(16))
                     .identifyBy(cssClasses: classes)
                 gridItemViewErased = AnyView(gridItemView)
@@ -88,15 +88,20 @@ struct GridView: HTMLBodyContentView {
             
             Div {
                 Headings(detail.description.title, type: .h2)
-                    .identifyBy(cssClass: .headline)
+                    .font(size: .relativeToRootFontSize(Typography.Font.Size.heading3))
+                    .font(weight: .number(600))
+                    .margin(bottom: .length(.relativeToRoot(Typography.Margin.body)))
+                
                 Headings(detail.description.subtitle, type: .h3)
-                    .identifyBy(cssClass: .subheadline)
+                    .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
+                    .font(weight: .normal)
+                
                 Link(text: detail.link.text, url: detail.link.url)
                     .identifyBy(cssClass: .link)
                     .display(.inlineBlock)
-                    .margin(top: .pixel(16))
+                    .margin(top: .length(.relativeToRoot(Typography.Margin.heading3)))
             }
-            .margin(uniform: .pixel(16))
+            .margin(uniform: .length(.relativeToRoot(Typography.Margin.heading3)))
         }
     }
 }
