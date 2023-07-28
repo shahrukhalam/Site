@@ -24,15 +24,15 @@ public func indexPage(tabs: [LinkDescription], selectedIndex: Int, sections: [Se
                         SectionView(section: section)
                     }
 
-                    Div {
-                        Headings(collection.description.title, type: .h1)
-                            .font(size: .relativeToRootFontSize(Typography.Font.Size.heading2))
-                            .margin(
-                                top: .length(.relativeToRoot(Typography.Margin.title)),
-                                bottom: .length(.relativeToRoot(Typography.Margin.heading3))
-                            )
-                        Grid(model: collection.subsections)
-                    }
+//                    Div {
+//                        Headings(collection.description.title, type: .h1)
+//                            .font(size: .relativeToRootFontSize(Typography.Font.Size.heading2))
+//                            .margin(
+//                                top: .length(.relativeToRoot(Typography.Margin.title)),
+//                                bottom: .length(.relativeToRoot(Typography.Margin.heading3))
+//                            )
+//                        Grid(model: collection.subsections)
+//                    }
                 }
                 .identifyBy(cssClass: .indexContainer)
             }
