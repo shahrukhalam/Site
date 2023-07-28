@@ -25,7 +25,10 @@ public func articleListPage(tabs: [LinkDescription], selectedIndex: Int, article
         HTML {
             Head {
                 commonMeta(meta)
+                
                 commonCSSLinks
+                CSSLink(canonical: meta.canonicalURL)
+                
                 commonCSS
                 articleListPageCSS()
                 AnalyticsScript(id: analyticsID)
