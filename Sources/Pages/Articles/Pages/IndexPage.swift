@@ -6,7 +6,10 @@ public func indexPage(tabs: [LinkDescription], selectedIndex: Int, sections: [Se
         HTML {
             Head {
                 commonMeta(meta)
+
                 commonCSSLinks
+                CSSLink(canonical: meta.canonicalURL)
+
                 commonCSS
                 indexPageCSS
 

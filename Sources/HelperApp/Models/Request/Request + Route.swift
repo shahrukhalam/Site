@@ -43,6 +43,17 @@ public extension Request {
             return scheme + "://" + fallbackHost
         }
     }
+
+    var domainHost: String {
+        get throws {
+            let scheme = isSecure ? "https" : "http"
+
+            let fallbackHost = Environment.get(.DOMAIN_HOST)
+            let host = headers.first(name: .host) ?? headers.first(name: ":authority") ?? "127.0.0.1:8080"
+
+            return scheme + "://" + (fallbackHost ?? host)
+        }
+    }
     
     var absoluteURL: String {
         get throws {
