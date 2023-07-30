@@ -79,4 +79,8 @@ extension CSSClass {
     // Flex
     static var flexContainer: Self { .init(stringLiteral: #function) }
     static var flexItem: Self { .init(stringLiteral: #function) }
+    
+    // Article Byline
+    static var bylineContainer: Self { .init(stringLiteral: #function) }
+    static var bylineItem: Self { .init(stringLiteral: #function) }
 }

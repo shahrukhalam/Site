@@ -21,6 +21,12 @@ struct ArticleView: HTMLBodyContentView {
     var body: some View {
         Div {
             Div {
+                Div {
+                    Headings(article.detail.title, type: .h1)
+                    BylineView(bylines: article.detail.bylines)
+                }
+                .identifyBy(cssClass: .markdown)
+
                 Markdown(article.markdown)
                     .identifyBy(cssClass: .markdown)
                 if article.isSharable {

@@ -13,6 +13,8 @@ func articlePageCSS(listImage: String) -> some HTMLHeadContentView {
         markdownContainerStyle(.small)
         markdownContainerStyle(.wide)
         
+        bylineStyle
+        
         MediaStyle(for: .wide, with: MarkdownStyle(.wide))
         MediaStyle(for: .small, with: MarkdownStyle(.small))
 

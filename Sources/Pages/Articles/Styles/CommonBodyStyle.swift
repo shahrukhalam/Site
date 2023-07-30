@@ -14,13 +14,16 @@ struct CommonBodyStyle: CSSStyle {
     var element: String
 
     init(_ mediaType: MediaStyle.DeviceType) {
-        let bodyStyle = TagStyle(for: .enclosing(.body))
-            .padding(top: .pixel(57))
+        let htmlStyle = TagStyle(for: .enclosing(.html))
             .backgroundColor(isDarkMode ? Color.Dark.IndexBackground : Color.Light.IndexBackground)
             .foregroundColor(isDarkMode ? Color.Dark.IndexForeground : Color.Light.IndexForeground)
             .font(family: .apple([.notion]))
-            .font(size: mediaType == .wide ? .pixel(16) : .pixel(12))
+            .font(size: mediaType == .wide ? .pixel(16) : .pixel(14))
 
-        self.element = bodyStyle.element
+        let bodyStyle = TagStyle(for: .enclosing(.body))
+            .padding(top: .pixel(57))
+
+        let styles = [htmlStyle, bodyStyle]
+        self.element = styles.map { $0.element }.joined(separator: "\n")
     }
 }

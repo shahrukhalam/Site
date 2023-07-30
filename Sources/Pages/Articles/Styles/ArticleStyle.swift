@@ -20,3 +20,12 @@ public struct ArticleStyle: CSSStyle {
         self.element = articleStyle.element
     }
 }
+
+private let bylineContainerStyle = ClassStyle(forClass: .bylineContainer)
+    .display(.flex)
+    .flexWrap()
+    .flex(columnGap: .length(.relativeToRoot(Typography.Margin.subheading)))
+    .flex(rowGap: .length(.relativeToRoot(Typography.Margin.byline)))
+
+private let bylineItemStyle = ClassStyle(forClass: .bylineItem)
+public let bylineStyle: [CSSStyle] = [bylineContainerStyle, bylineItemStyle]

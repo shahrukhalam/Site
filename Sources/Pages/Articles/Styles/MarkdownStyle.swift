@@ -31,10 +31,16 @@ enum Typography {
             static let heading3: Float = 1.25
             static let subheading: Float = 1.125
             static let body: Float = 1
+            static let byline: Float = 0.875
+        }
+        
+        enum Weight {
+            static let byline: Int = 500
         }
     }
     
     enum Margin {
+        static let byline: Float = 0.25
         static let body: Float = 0.5
         static let title: Float = 4
         static let heading1: Float = 2
