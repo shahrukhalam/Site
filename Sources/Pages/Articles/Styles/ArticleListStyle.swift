@@ -56,7 +56,12 @@ struct ArticleListStyle: CSSStyle {
         let linkHoverStyle = ClassStyle(.articleList, tag: .enclosing(.link), cssTag: .hover)
             .foregroundColor(.Light.ArticleText)
             .textDecoration(.underline)
-        let cellStyle = [gridStyle, gridItem1By3, gridItem2By3, descriptionStyle, linkStyle, linkHoverStyle]
+        let codeStyle = ClassStyle(forClass: .articleList, withTag: .enclosing(.code))
+            .padding(left: .pixel(6), top: .pixel(3), right: .pixel(6), bottom: .pixel(3))
+            .backgroundColor(.Light.ArticleNoteBackground)
+            .foregroundColor(.Light.ArticleWarningBorder)
+            .cornerRadius(uniform: .pixel(3))
+        let cellStyle = [gridStyle, gridItem1By3, gridItem2By3, descriptionStyle, linkStyle, linkHoverStyle, codeStyle]
 
         let styles: [CSSStyle] = [containerStyle] + cellStyle
         self.element = styles.map { $0.element }.joined(separator: "\n")

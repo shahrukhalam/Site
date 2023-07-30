@@ -16,13 +16,13 @@ struct BylineView: HTMLBodyContentView {
             Div {
                 switch byline {
                 case .published(let date):
-                    Paragraphs("Published on: \(date.bylineFormatted)")
+                    Paragraphs("Published on: \(date)")
                         .foregroundColor(Color.Dark.ActiveNavBarItem)
                         .font(size: .relativeToRootFontSize(Typography.Font.Size.byline))
                         .font(weight: .number(Typography.Font.Weight.byline))
                         .margin()
                 case .updated(let date):
-                    Paragraphs("Updated on: \(date.bylineFormatted)")
+                    Paragraphs("Updated on: \(date)")
                         .foregroundColor(Color.Dark.ActiveNavBarItem)
                         .font(size: .relativeToRootFontSize(Typography.Font.Size.byline))
                         .font(weight: .number(Typography.Font.Weight.byline))

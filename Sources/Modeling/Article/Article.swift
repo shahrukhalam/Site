@@ -10,8 +10,10 @@ import Foundation
 public struct Article {
     public struct Detail {
         public enum Byline {
-            case published(Date)
-            case updated(Date)
+            /// Format: Jul 28, 23 (`MMM dd, yy`)
+            case published(date: String)
+            /// Format: Jul 28, 23 (`MMM dd, yy`)
+            case updated(date: String)
             case author(name: String, url: String)
         }
         
@@ -42,13 +44,5 @@ public struct Article {
         self.relativeURL = relativeURL
         self.absoluteURL = absoluteURL
         self.isSharable = isSharable
-    }
-}
-
-public extension Date {
-    var bylineFormatted: String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMM dd, yy"
-        return dateFormatter.string(from: self)
     }
 }
