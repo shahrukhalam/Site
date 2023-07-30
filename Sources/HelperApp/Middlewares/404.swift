@@ -16,12 +16,12 @@ public struct Middleware404: AsyncMiddleware {
             let status = response.status
             let code = status.code
             if code >= HTTPResponseStatus.badRequest.code {
-                return .html(for: request, with: view404(tabs: tabs, selectedIndex: -1, description: description(with: Abort(status))))
+                return .html(for: request, with: view404(tabs: tabs, selectedIndex: -1, description: description(with: Abort(status))), status: status)
             } else {
                 return response
             }
         } catch {
-            return .html(for: request, with: view404(tabs: tabs, selectedIndex: -1, description: description(with: error)))
+            return .html(for: request, with: view404(tabs: tabs, selectedIndex: -1, description: description(with: error)), status: .badRequest)
         }
     }
     
