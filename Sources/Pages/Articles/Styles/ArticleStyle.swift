@@ -20,6 +20,9 @@ public struct ArticleStyle: CSSStyle {
                 top: .length(.relativeToRoot(Typography.Margin.title)),
                 bottom: .length(.relativeToRoot(Typography.Margin.title))
             )
+            .padding(
+                bottom: .length(.relativeToRoot(Typography.Margin.heading1))
+            )
         self.element = articleStyle.element
     }
 }

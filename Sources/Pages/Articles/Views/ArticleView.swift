@@ -8,6 +8,8 @@
 import Modeling
 import HTMLDSL
 
+/// Local: `5646122693427200-proj`
+/// Live: `5721215717081088-proj`
 let commentBox = """
     <div class="commentbox"></div>
     <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
@@ -37,7 +39,7 @@ struct ArticleView: HTMLBodyContentView {
                     .identifyBy(cssClass: .markdown)
                 if article.isSharable {
                     share(title: article.detail.title, url: article.absoluteURL)
-                        .margin(top: .length(.relativeToRoot(Typography.Margin.heading1)))
+                        .margin(top: .length(.relativeToRoot(Typography.Margin.title)))
                 }
                 
                 Div {
@@ -49,8 +51,7 @@ struct ArticleView: HTMLBodyContentView {
                     commentBox
                 }
                 .margin(
-                    top: .length(.relativeToRoot(Typography.Margin.heading1)),
-                    bottom: .length(.relativeToRoot(Typography.Margin.heading1))
+                    top: .length(.relativeToRoot(Typography.Margin.title))
                 )
             }
             .identifyBy(cssClass: .markdownContainer)
