@@ -8,6 +8,12 @@
 import Modeling
 import HTMLDSL
 
+let commentBox = """
+    <div class="commentbox"></div>
+    <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
+    <script>commentBox('5721215717081088-proj', { sortOrder: 'newest' })</script>
+"""
+
 struct ArticleView: HTMLBodyContentView {
     var tag: Tag = .empty
     var attributes = [Attribute]()
@@ -33,6 +39,19 @@ struct ArticleView: HTMLBodyContentView {
                     share(title: article.detail.title, url: article.absoluteURL)
                         .margin(top: .length(.relativeToRoot(Typography.Margin.heading1)))
                 }
+                
+                Div {
+                    Paragraphs("This is a free third party commenting service we are using for you, which needs you to sign in to post a comment, but the good bit is you can stay anonymous while commenting.")
+                        .foregroundColor(Color.Dark.ActiveNavBarItem)
+                        .font(size: .relativeToRootFontSize(Typography.Font.Size.byline))
+                        .font(weight: .number(Typography.Font.Weight.byline))
+                        .margin(bottom: .length(.relativeToRoot(Typography.Margin.byline)))
+                    commentBox
+                }
+                .margin(
+                    top: .length(.relativeToRoot(Typography.Margin.heading1)),
+                    bottom: .length(.relativeToRoot(Typography.Margin.heading1))
+                )
             }
             .identifyBy(cssClass: .markdownContainer)
         }
@@ -58,7 +77,13 @@ var shareStyle: CSSStyle {
 
 private func share(title: String, url: String) -> some HTMLBodyContentView {
     Div {
-        Paragraphs("Thanks for reading 🚀" + .lineBreak + "If you liked this article, please share it with your friends and fellow iOS Developers 🙏")
+        Paragraphs(
+            "Thanks for reading 🚀" +
+                .lineBreak +
+            "If you have questions/suggestion, please add a comment below 👁️‍🗨️" +
+                .lineBreak +
+            "If you liked this article, please share it with your friends and fellow iOS Developers 🙏"
+        )
             .foregroundColor(.Light.ArticleText)
 
         Div {
@@ -68,7 +93,14 @@ private func share(title: String, url: String) -> some HTMLBodyContentView {
                     .padding(left: .length(.relativeToRoot(Typography.Margin.body)))
             })
             .target(.newWindowOrTab)
+            .padding(
+                top: .length(.relativeToRoot(Typography.Margin.byline)),
+                bottom: .length(.relativeToRoot(Typography.Margin.byline))
+            )
         }
+        .margin(
+            top: .length(.relativeToRoot(Typography.Margin.byline))
+        )
 
         Div {
             ImageLink(url: "https://www.linkedin.com/sharing/share-offsite/?url=\(url)", content: {
@@ -77,6 +109,10 @@ private func share(title: String, url: String) -> some HTMLBodyContentView {
                     .padding(left: .length(.relativeToRoot(Typography.Margin.body)))
             })
             .target(.newWindowOrTab)
+            .padding(
+                top: .length(.relativeToRoot(Typography.Margin.byline)),
+                bottom: .length(.relativeToRoot(Typography.Margin.byline))
+            )
         }
     }
     .identifyBy(cssClass: .share)

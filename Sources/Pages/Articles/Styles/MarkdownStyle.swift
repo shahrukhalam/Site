@@ -8,13 +8,6 @@
 import Foundation
 import HTMLDSL
 
-func markdownContainerStyle(_ mediaType: MediaStyle.DeviceType) -> CSSStyle {
-    let style = ClassStyle(forClass: .markdownContainer)
-        .size(width: mediaType == .wide ? .percentage(50) : .percentage(90))
-        .margin(left: .auto, right: .auto)
-    return MediaStyle(for: mediaType, with: style)
-}
-
 enum Typography {
     enum LineHeight {
         static let title: Float = 1.2
@@ -48,6 +41,13 @@ enum Typography {
         static let heading3: Float = 1
         static let subheading: Float = 0.75
     }
+}
+
+func markdownContainerStyle(_ mediaType: MediaStyle.DeviceType) -> CSSStyle {
+    let style = ClassStyle(forClass: .markdownContainer)
+        .size(width: mediaType == .wide ? .percentage(50) : .percentage(90))
+        .margin(left: .auto, right: .auto)
+    return MediaStyle(for: mediaType, with: style)
 }
 
 public struct MarkdownStyle: CSSStyle {
