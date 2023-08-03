@@ -60,6 +60,8 @@ extension Color {
         /// `Tip` section of https://developer.apple.com/documentation/xcode/formatting-your-documentation-content
         static var ArticleTipBackground: Color { .hexWithHash("#FBFFFF") }
         static var ArticleTipBorder: Color { .hexWithHash("#357A77") }
+        
+        static var ArticleListGlassBackgroundColor: Color { .rgba(red: 250, green: 250, blue: 250, alpha: 0.6) }
 
         static var Background: Color { .html(.White) }
         static var Foreground: Color { .html(.Black) }

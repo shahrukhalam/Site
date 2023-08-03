@@ -68,6 +68,7 @@ extension CSSClass {
 
     // MARK: Article List
     static var articleList: Self { .init(stringLiteral: #function) }
+    static var articleListContainer: Self { .init(stringLiteral: #function) }
 
     // Grid
     static var gridContainer: Self { .init(stringLiteral: #function) }

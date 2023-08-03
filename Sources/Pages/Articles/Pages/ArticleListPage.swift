@@ -12,14 +12,17 @@ public func articleListPage(tabs: [LinkDescription], selectedIndex: Int, article
     let cells = articles.enumerated().map { (index, article) in
         (index == articles.count - 1) ? AnyView(ArticleListCell(article: article)) : AnyView([
             AnyView(ArticleListCell(article: article)),
-//            AnyView(commonDivider)
+            //            AnyView(commonDivider)
         ])
     }
-
+    
     let list = Div {
-        AnyView(cells)
-    }
+        Div {
+            AnyView(cells)
+        }
         .identifyBy(cssClass: .articleList)
+    }
+        .identifyBy(cssClass: .articleListContainer)
 
     return Document {
         HTML {
@@ -38,6 +41,10 @@ public func articleListPage(tabs: [LinkDescription], selectedIndex: Int, article
                 NavView(tabs: tabs, selectedIndex: selectedIndex)
                 list
             }
+            .padding(uniform: .pixel(0))
+            .sizeFull()
         }
+        .backgroundImage(path: "/images/index/wave.jpg", position: .center, size: .percentages(100))
+        .sizeFull()
     }
 }
