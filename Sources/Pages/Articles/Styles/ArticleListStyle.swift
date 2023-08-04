@@ -23,11 +23,9 @@ struct ArticleListStyle: CSSStyle {
             .size(width: mediaType == .wide ? .percentage(60) : .percentage(100))
             .margin(
                 left: mediaType == .wide ? .auto : .pixel(0),
-                top: mediaType == .wide ?
-                    .length(.relativeToRoot(Typography.Margin.title)) : .length(.relativeToRoot(Typography.Margin.heading1)),
+                top: .length(.relativeToRoot(Typography.Margin.title)),
                 right: mediaType == .wide ? .auto : .pixel(0),
-                bottom: mediaType == .wide ?
-                    .length(.relativeToRoot(Typography.Margin.title)) : .length(.relativeToRoot(Typography.Margin.heading1))
+                bottom: .length(.relativeToRoot(Typography.Margin.title))
             )
         // TODO: Hacky way as now body is 100% height for article list page
             .padding(
@@ -42,16 +40,15 @@ struct ArticleListStyle: CSSStyle {
             .gridNumberOfColumns(3)
             .gridColumn(
                 gap: mediaType == .wide ?
-                    .length(.relativeToRoot(Typography.Margin.title)) : .length(.relativeToRoot(Typography.Margin.subheading))
+                    .length(.relativeToRoot(Typography.Margin.title)) : .length(.relativeToRoot(Typography.Margin.heading2))
             )
             .margin(
-                bottom: mediaType == .wide ?
-                    .length(.relativeToRoot(Typography.Margin.title)) : .length(.relativeToRoot(Typography.Margin.heading1))
+                bottom: .length(.relativeToRoot(Typography.Margin.title))
             )
             .padding(
                 uniform: mediaType == .wide ?
                     .length(.relativeToRoot(Typography.Margin.heading3)) :
-                        .length(.relativeToRoot(Typography.Margin.body))
+                        .length(.relativeToRoot(Typography.Margin.subheading))
             )
             .backgroundColor(.Light.ArticleListGlassBackgroundColor)
             .filter(saturationInPercentage: 180, blurInPixel: 20)
