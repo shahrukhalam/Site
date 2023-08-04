@@ -50,5 +50,6 @@ public func articleListPage(tabs: [LinkDescription], selectedIndex: Int, article
             size: .cover
         )
         .sizeFull()
+        .backgroundColor(.Light.ArticleListBackgroundColor)
     }
 }

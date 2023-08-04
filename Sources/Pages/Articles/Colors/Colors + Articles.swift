@@ -62,6 +62,8 @@ extension Color {
         static var ArticleTipBorder: Color { .hexWithHash("#357A77") }
         
         static var ArticleListGlassBackgroundColor: Color { .rgba(red: 250, green: 250, blue: 250, alpha: 0.6) }
+        /// top-left color o `wave.jpg`
+        static var ArticleListBackgroundColor: Color { .hexWithHash("#8DCAF9") }
 
         static var Background: Color { .html(.White) }
         static var Foreground: Color { .html(.Black) }
