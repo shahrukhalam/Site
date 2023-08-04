@@ -20,28 +20,39 @@ struct ArticleListStyle: CSSStyle {
             .scrollVertically()
         
         let articleListStyle = ClassStyle(forClass: .articleList)
-            .size(width: mediaType == .wide ? .percentage(60) : .percentage(92))
+            .size(width: mediaType == .wide ? .percentage(60) : .percentage(100))
             .margin(
-                left: .auto,
+                left: mediaType == .wide ? .auto : .pixel(0),
                 top: mediaType == .wide ?
                     .length(.relativeToRoot(Typography.Margin.title)) : .length(.relativeToRoot(Typography.Margin.heading1)),
-                right: .auto,
+                right: mediaType == .wide ? .auto : .pixel(0),
                 bottom: mediaType == .wide ?
                     .length(.relativeToRoot(Typography.Margin.title)) : .length(.relativeToRoot(Typography.Margin.heading1))
             )
         // TODO: Hacky way as now body is 100% height for article list page
-            .padding(top: .pixel(57))
+            .padding(
+                left: mediaType == .wide ? .pixel(0) : .length(.relativeToRoot(Typography.Margin.body)),
+                top: .pixel(57),
+                right: mediaType == .wide ? .pixel(0) : .length(.relativeToRoot(Typography.Margin.body))
+            )
+            .boxSize(.borderBox)
 
         let gridStyle = ClassStyle(forClass: .gridContainer)
             .display(.grid)
             .gridNumberOfColumns(3)
             .gridColumn(
                 gap: mediaType == .wide ?
-                    .length(.relativeToRoot(Typography.Margin.title)) : .length(.relativeToRoot(Typography.Margin.heading3))
+                    .length(.relativeToRoot(Typography.Margin.title)) : .length(.relativeToRoot(Typography.Margin.subheading))
             )
-            .margin(bottom: mediaType == .wide ?
-                .length(.relativeToRoot(Typography.Margin.title)) : .length(.relativeToRoot(Typography.Margin.heading1)))
-            .padding(uniform: .length(.relativeToRoot(Typography.Margin.heading3)))
+            .margin(
+                bottom: mediaType == .wide ?
+                    .length(.relativeToRoot(Typography.Margin.title)) : .length(.relativeToRoot(Typography.Margin.heading1))
+            )
+            .padding(
+                uniform: mediaType == .wide ?
+                    .length(.relativeToRoot(Typography.Margin.heading3)) :
+                        .length(.relativeToRoot(Typography.Margin.body))
+            )
             .backgroundColor(.Light.ArticleListGlassBackgroundColor)
             .filter(saturationInPercentage: 180, blurInPixel: 20)
             .cornerRadius(uniform: .pixel(8))
