@@ -44,7 +44,11 @@ public func articleListPage(tabs: [LinkDescription], selectedIndex: Int, article
             .padding(uniform: .pixel(0))
             .sizeFull()
         }
-        .backgroundImage(path: "/images/index/wave.jpg", position: .center, size: .percentages(100))
+        .backgroundImage(
+            path: "/images/index/wave.jpg",
+            position: .center,
+            size: .cover
+        )
         .sizeFull()
     }
 }
