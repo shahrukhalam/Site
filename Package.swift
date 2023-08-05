@@ -18,11 +18,6 @@ let package = Package(
     dependencies: [
         // 💧 A server-side Swift web framework.
         .package(url: "https://github.com/vapor/vapor.git", from: "4.70.0"),
-        .package(url: "https://github.com/vapor-community/Imperial.git", from: "1.1.0"),
-        // 📂 An easy replacement of FileManager
-        .package(url: "https://github.com/kylef/PathKit.git", from: "1.0.1"),
-        // 🔖 Parsing nebulous data into well-structured data
-        .package(url: "https://github.com/pointfreeco/swift-parsing", from: "0.11.0")
     ],
     targets: [
         .target(name: "Modeling"),
@@ -31,11 +26,12 @@ let package = Package(
             name: "HelperApp",
             dependencies: [
                 .product(name: "Vapor", package: "vapor"),
-                .product(name: "Parsing", package: "swift-parsing"),
-                .product(name: "ImperialGoogle", package: "Imperial"),
-                "PathKit",
                 "Modeling",
                 "Pages"
+            ],
+            exclude: [
+                "Models/Request/Request + Analytics.swift",
+                "Models/Application/Application + Articles.swift"
             ]
         )
     ]
