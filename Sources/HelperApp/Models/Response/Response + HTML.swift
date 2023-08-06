@@ -2,7 +2,6 @@ import Vapor
 import Modeling
 import Pages
 import HTMLDSL
-import PathKit
 
 public extension Response {
     static func html<Content: HTMLDSL.View>(for request: Request, with content: Content) -> Response {
