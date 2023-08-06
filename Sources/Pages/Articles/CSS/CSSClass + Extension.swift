@@ -50,10 +50,14 @@ extension CSSClass {
     static var markdownContainer: Self { .init(stringLiteral: #function) }
     static var markdown: Self { .init(stringLiteral: #function) }
     static var intro: Self { .init(stringLiteral: #function) }
-    static var note: Self { .init(stringLiteral: #function) }
     static var imageCredits: Self { .init(stringLiteral: #function) }
-    static var dialogue: Self { .init(stringLiteral: #function) }
     static var share: Self { .init(stringLiteral: #function) }
+    
+    static var pullQuote: Self { .init(stringLiteral: #function) }
+    static var pullQuoteAttribution: Self { .init(stringLiteral: #function) }
+    static var pullQuoteContainer: Self { .init(stringLiteral: #function) }
+    static var note: Self { .init(stringLiteral: #function) }
+    static var noteContainer: Self { .init(stringLiteral: #function) }
     static var warning: Self { .init(stringLiteral: #function) }
     static var warningContainer: Self { .init(stringLiteral: #function) }
     static var important: Self { .init(stringLiteral: #function) }

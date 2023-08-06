@@ -116,7 +116,24 @@ public struct MarkdownStyle: CSSStyle {
                 bottom: .length(.relativeToRoot(Typography.Margin.heading1))
             )
         
-        let dialogueStyle = ClassStyle(forClass: .dialogue)
+        let pullQuoteContainerStyle = ClassStyle(forClass: .pullQuoteContainer)
+            .margin()
+            .font(family: .serif([.AmericanTypewriter]))
+            .display(.inlineFlex)
+            .flexDirection(.vertical)
+        let pullQuoteStyle = ClassStyle(forClass: .markdown, withClass: .pullQuote)
+            .font(size: .relativeToRootFontSize(Typography.Font.Size.heading2))
+            .font(weight: .lighter)
+            .margin()
+        let pullQuoteAttributionStyle = ClassStyle(forClass: .markdown, withClass: .pullQuoteAttribution)
+            .font(size: .relativeToRootFontSize(Typography.Font.Size.byline))
+            .font(weight: .number(Typography.Font.Weight.byline))
+            .align(.right)
+            .margin(
+                top: .length(.relativeToRoot(Typography.Margin.byline))
+            )
+        
+        let noteContainerStyle = ClassStyle(forClass: .noteContainer)
             .margin(
                 top: .length(.relativeToRoot(Typography.Margin.heading1)),
                 bottom: .length(.relativeToRoot(Typography.Margin.heading1))
@@ -211,7 +228,7 @@ public struct MarkdownStyle: CSSStyle {
             .backgroundColor(.Light.ArticleNoteBackground)
             .foregroundColor(.Light.ArticleWarningBorder)
             .cornerRadius(uniform: .pixel(3))
-        let codeStyle2 = ClassStyle(forClass: .dialogue, withTag: .enclosing(.code))
+        let codeStyle2 = ClassStyle(forClass: .noteContainer, withTag: .enclosing(.code))
             .backgroundColor(.Light.NavBarDividerColor)
         let codeStyle3 = ClassStyle(forClass: .warningContainer, withTag: .enclosing(.code))
             .backgroundColor(.Light.NavBarDividerColor)
@@ -283,8 +300,8 @@ public struct MarkdownStyle: CSSStyle {
         
         let horizontalLineStyle = ClassStyle(forClass: .markdown, withTag: .enclosing(.hr))
             .margin(
-                top: .length(.relativeToRoot(Typography.Margin.heading3)),
-                bottom: .length(.relativeToRoot(Typography.Margin.heading3))
+                top: .length(.relativeToRoot(Typography.Margin.heading1)),
+                bottom: .length(.relativeToRoot(Typography.Margin.heading1))
             )
         /// Comes from border color of Prism `code` block
             .backgroundColor(.rgba(red: 209, green: 210, blue: 215, alpha: 1))
@@ -299,10 +316,13 @@ public struct MarkdownStyle: CSSStyle {
             h4Style,
             pStyle,
             introStyle,
-            noteStyle,
             imageStyle,
             imageCreditsStyle,
-            dialogueStyle,
+            pullQuoteContainerStyle,
+            pullQuoteStyle,
+            pullQuoteAttributionStyle,
+            noteStyle,
+            noteContainerStyle,
             linkStyle,
             linkHoverStyle,
             warningStyle,
