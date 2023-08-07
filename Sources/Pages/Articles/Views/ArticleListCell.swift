@@ -27,7 +27,7 @@ struct ArticleListCell: HTMLBodyContentView {
                     .contentMode(.aspectFill)
                     .cornerRadius(.pixel(8))
             }
-                .identifyBy(cssClass: .gridItem1By3)
+                .identifyBy(cssClass: .gridItem1By3ArticleList)
         )
 
         let detail = AnyView(
@@ -40,13 +40,13 @@ struct ArticleListCell: HTMLBodyContentView {
                 
                 Headings(article.detail.intro, type: .h4)
             }
-                .identifyBy(cssClass: .gridItem2By3)
+                .identifyBy(cssClass: .gridItem2By3ArticleList)
         )
 
         return Div {
             image
             detail
         }
-        .identifyBy(cssClass: .gridContainer)
+        .identifyBy(cssClass: .gridContainerArticleList)
     }
 }

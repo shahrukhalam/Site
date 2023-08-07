@@ -8,7 +8,7 @@ var indexPageCSS: some HTMLHeadContentView {
         MediaStyle(for: .wide, with: sectionViewStyle)
         MediaStyle(for: .small, with: sectionViewStyleSmall)
 
-        MediaStyle(for: .wide, with: gridContainerStyle)
-        MediaStyle(for: .small, with: gridContainerSmallStyle)
+        MediaStyle(for: .wide, with: gridContainerStyleIndex)
+        MediaStyle(for: .small, with: gridContainerSmallStyleIndex)
     }
 }

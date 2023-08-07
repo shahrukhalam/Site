@@ -20,7 +20,7 @@ struct Grid: HTMLBodyContentView {
     
     var body: some HTMLBodyContentView {
         let gridViews = subsections.map { subsection in
-            var classes: [CSSClass] = [.gridItem]
+            var classes: [CSSClass] = [.gridItemIndex]
             switch subsection.device {
             case .small:
                 classes += [.desktopHidden]
@@ -31,7 +31,7 @@ struct Grid: HTMLBodyContentView {
             }
             switch subsection.layout {
             case .highlighted:
-                classes += [.gridItemHero]
+                classes += [.gridItemHeroIndex]
             case .compact:
                 break
             }
@@ -58,7 +58,7 @@ struct Grid: HTMLBodyContentView {
         }
         
         return Div(AnyView(gridViews))
-            .identifyBy(cssClass: .gridContainer)
+            .identifyBy(cssClass: .gridContainerIndex)
 //            .margin(top: .pixel(40))
     }
 }

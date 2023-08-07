@@ -44,6 +44,11 @@ extension CSSClass {
     static var pillLink: Self { .init(stringLiteral: #function) }
     static var section: Self { .init(stringLiteral: #function) }
     static var collectionDescription: Self { .init(stringLiteral: #function) }
+    
+    // Grid
+    static var gridContainerIndex: Self { .init(stringLiteral: #function) }
+    static var gridItemIndex: Self { .init(stringLiteral: #function) }
+    static var gridItemHeroIndex: Self { .init(stringLiteral: #function) }
 
     // MARK: Article
     static var article: Self { .init(stringLiteral: #function) }
@@ -75,11 +80,9 @@ extension CSSClass {
     static var articleListContainer: Self { .init(stringLiteral: #function) }
 
     // Grid
-    static var gridContainer: Self { .init(stringLiteral: #function) }
-    static var gridItem: Self { .init(stringLiteral: #function) }
-    static var gridItem1By3: Self { .init(stringLiteral: #function) }
-    static var gridItem2By3: Self { .init(stringLiteral: #function) }
-    static var gridItemHero: Self { .init(stringLiteral: #function) }
+    static var gridContainerArticleList: Self { .init(stringLiteral: #function) }
+    static var gridItem1By3ArticleList: Self { .init(stringLiteral: #function) }
+    static var gridItem2By3ArticleList: Self { .init(stringLiteral: #function) }
     
     // Flex
     static var flexContainer: Self { .init(stringLiteral: #function) }
