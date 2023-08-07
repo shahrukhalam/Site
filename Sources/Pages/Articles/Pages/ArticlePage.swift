@@ -19,6 +19,7 @@ public func articlePage(tabs: [LinkDescription], selectedIndex: Int, article: Ar
                 
                 commonCSS
                 articlePageCSS(listImage: listImage)
+                
                 AnalyticsScript(id: analyticsID)
                 CSSLink(path: "/css/prism-\(isDarkMode ? "dark" : "light").css")
                 CSSLink(path: "/css/prism-override-\(isDarkMode ? "dark" : "light").css")

@@ -39,3 +39,34 @@ public func indexPage(tabs: [LinkDescription], selectedIndex: Int, sections: [Se
         }
     }
 }
+
+public func about(markdown: String, tabs: [LinkDescription], selectedIndex: Int, meta: MetaDetail, analyticsID: String) -> some View {
+    Document {
+        HTML {
+            Head {
+                commonMeta(meta)
+                
+                commonCSSLinks
+                CSSLink(canonical: meta.canonicalURL)
+                
+                commonCSS
+                articlePageCSS(listImage: "")
+                
+                AnalyticsScript(id: analyticsID)
+            }
+            
+            Body {
+                NavView(tabs: tabs, selectedIndex: selectedIndex)
+                
+                Div {
+                    Div {
+                        Markdown(markdown)
+                            .identifyBy(cssClass: .markdown)
+                    }
+                    .identifyBy(cssClass: .markdownContainer)
+                }
+                .identifyBy(cssClass: .article)
+            }
+        }
+    }
+}
