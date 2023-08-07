@@ -45,8 +45,16 @@ enum Typography {
 
 func markdownContainerStyle(_ mediaType: MediaStyle.DeviceType) -> CSSStyle {
     let style = ClassStyle(forClass: .markdownContainer)
-        .size(width: mediaType == .wide ? .percentage(50) : .percentage(90))
-        .margin(left: .auto, right: .auto)
+        .size(width: mediaType == .wide ? .percentage(50) : .percentage(100))
+        .margin(
+            left: .auto,
+            right: .auto
+        )
+        .padding(
+            left: mediaType == .wide ? .pixel(0) : .length(.relativeToRoot(Typography.Margin.heading3)),
+            right: mediaType == .wide ? .pixel(0) : .length(.relativeToRoot(Typography.Margin.heading3))
+        )
+        .boxSize(.borderBox)
     return MediaStyle(for: mediaType, with: style)
 }
 
@@ -255,17 +263,38 @@ public struct MarkdownStyle: CSSStyle {
                 bottom: .length(.relativeToRoot(Typography.Margin.heading1))
             )
             .padding(
-                top: .percentage(56.25) // To have 16:9 Aspect Ratio (divide 9 by 16 = 0.5625)
+                // https://www.w3schools.com/howto/howto_css_responsive_iframes.asp
+                // To have 16:9 Aspect Ratio (divide 9 by 16 = 0.5625)
+                top: .percentage(56.25)
             )
             .position(.relative)
             .size(width: .percentage(100))
-        
+            .backgroundColor(.Light.ArticleNoteBackground)
+            .cornerRadius(uniform: .pixel(8))
         let iframeStyle = ClassStyle(forClass: .markdown, withClass: .iframe)
             .position(.absolute)
             .constraint(left: .pixel(0), top: .pixel(0), right: .pixel(0), bottom: .pixel(0))
             .sizeFull()
             .margin()
             .cornerRadius(uniform: .pixel(8))
+        let iframeContainerPodcastStyle = ClassStyle(forClass: .iframePodcastContainer)
+            .margin(
+                top: .length(.relativeToRoot(Typography.Margin.heading1)),
+                bottom: .length(.relativeToRoot(Typography.Margin.heading1))
+            )
+            .padding(
+                top: .pixel(175)
+            )
+            .position(.relative)
+            .size(width: .percentage(100))
+            .backgroundColor(.Light.ArticleNoteBackground)
+            .cornerRadius(uniform: .pixel(10))
+        let iframePodcastStyle = ClassStyle(forClass: .markdown, withClass: .iframePodcast)
+            .position(.absolute)
+            .constraint(left: .pixel(0), top: .pixel(0), right: .pixel(0), bottom: .pixel(0))
+            .sizeFull()
+            .margin()
+            .cornerRadius(uniform: .pixel(10))
         
         let linkedArticleContainerStyle = ClassStyle(forClass: .linkedArticleContainer)
             .display(.grid)
@@ -344,6 +373,8 @@ public struct MarkdownStyle: CSSStyle {
             videoStyle,
             iframeContainerStyle,
             iframeStyle,
+            iframeContainerPodcastStyle,
+            iframePodcastStyle,
             linkedArticleContainerStyle,
             linkedArticleImageStyle,
             linkedArticleDetailStyle,

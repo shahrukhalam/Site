@@ -84,8 +84,8 @@ struct GridView: HTMLBodyContentView {
             // Photoshop can be used
                 .backgroundColor(isDarkMode ? .Dark.IndexGridImageBackground : .hexWithHash("#161617"))
                 .size(width: .percentage(100))
-                .aspectRatio(width: detail.image.aspectRatio.width,
-                             height: detail.image.aspectRatio.height)
+                .aspectRatio(width: 16, height: 9)
+                .contentMode(.aspectFill)
                 .cornerRadius([.pixel(16), .pixel(16), .pixel(0), .pixel(0)])
             
             Div {
@@ -95,9 +95,9 @@ struct GridView: HTMLBodyContentView {
                 
                 Headings(detail.description.subtitle, type: .h3)
                     .identifyBy(cssClass: .collectionDescription)
-                    .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
+                    .font(size: .relativeToRootFontSize(Typography.Font.Size.byline))
                     .font(weight: .normal)
-                    .margin(top: .length(.relativeToRoot(Typography.Margin.body)))
+                    .margin(top: .length(.relativeToRoot(Typography.Margin.byline)))
                 
                 Link(text: detail.link.text, url: detail.link.url)
                     .identifyBy(cssClass: .link)

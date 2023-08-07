@@ -72,6 +72,8 @@ extension CSSClass {
     static var tip: Self { .init(stringLiteral: #function) }
     static var iframeContainer: Self { .init(stringLiteral: #function) }
     static var iframe: Self { .init(stringLiteral: #function) }
+    static var iframePodcastContainer: Self { .init(stringLiteral: #function) }
+    static var iframePodcast: Self { .init(stringLiteral: #function) }
     static var linkedArticleContainer: Self { .init(stringLiteral: #function) }
     static var linkedArticleImage: Self { .init(stringLiteral: #function) }
     static var linkedArticleDetail: Self { .init(stringLiteral: #function) }
