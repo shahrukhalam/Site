@@ -115,7 +115,11 @@ public struct MarkdownStyle: CSSStyle {
                 top: .length(.relativeToRoot(-Typography.Margin.heading2)),
                 bottom: .length(.relativeToRoot(Typography.Margin.heading1))
             )
-        
+
+        let pullQuoteCenterContainerStyle = ClassStyle(forClass: .pullQuoteCenterContainer)
+            .margin()
+            .display(.flex)
+            .flexAlign(.center)
         let pullQuoteContainerStyle = ClassStyle(forClass: .pullQuoteContainer)
             .margin()
             .font(family: .serif([.AmericanTypewriter]))
@@ -318,6 +322,7 @@ public struct MarkdownStyle: CSSStyle {
             introStyle,
             imageStyle,
             imageCreditsStyle,
+            pullQuoteCenterContainerStyle,
             pullQuoteContainerStyle,
             pullQuoteStyle,
             pullQuoteAttributionStyle,

@@ -61,6 +61,7 @@ extension CSSClass {
     static var pullQuote: Self { .init(stringLiteral: #function) }
     static var pullQuoteAttribution: Self { .init(stringLiteral: #function) }
     static var pullQuoteContainer: Self { .init(stringLiteral: #function) }
+    static var pullQuoteCenterContainer: Self { .init(stringLiteral: #function) }
     static var note: Self { .init(stringLiteral: #function) }
     static var noteContainer: Self { .init(stringLiteral: #function) }
     static var warning: Self { .init(stringLiteral: #function) }
