@@ -85,3 +85,34 @@ public func about(markdown: String, authors: [Subsection], tabs: [LinkDescriptio
         }
     }
 }
+
+public func author(markdown: String, tabs: [LinkDescription], selectedIndex: Int, meta: MetaDetail, analyticsID: String) -> some View {
+    Document {
+        HTML {
+            Head {
+                commonMeta(meta)
+
+                commonCSSLinks
+                CSSLink(canonical: meta.canonicalURL)
+
+                commonCSS
+                aboutPageCSS()
+
+                AnalyticsScript(id: analyticsID)
+            }
+
+            Body {
+                NavView(tabs: tabs, selectedIndex: selectedIndex)
+
+                Div {
+                    Div {
+                        Markdown(markdown)
+                            .identifyBy(cssClass: .markdown)
+                    }
+                    .identifyBy(cssClass: .markdownContainer)
+                }
+                .identifyBy(cssClass: .article)
+            }
+        }
+    }
+}

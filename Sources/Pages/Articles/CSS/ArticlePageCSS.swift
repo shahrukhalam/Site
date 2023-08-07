@@ -38,3 +38,14 @@ func aboutPageCSS() -> some HTMLHeadContentView {
         MediaStyle(for: .small, with: MarkdownStyle(.small))
     }
 }
+
+func authorPageCSS() -> some HTMLHeadContentView {
+    HeadStyle {
+        ArticleStyle()
+
+        markdownContainerStyle(.small)
+        markdownContainerStyle(.wide)
+        MediaStyle(for: .wide, with: MarkdownStyle(.wide))
+        MediaStyle(for: .small, with: MarkdownStyle(.small))
+    }
+}
