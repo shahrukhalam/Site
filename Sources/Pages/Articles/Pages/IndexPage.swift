@@ -40,7 +40,7 @@ public func indexPage(tabs: [LinkDescription], selectedIndex: Int, sections: [Se
     }
 }
 
-public func about(markdown: String, tabs: [LinkDescription], selectedIndex: Int, meta: MetaDetail, analyticsID: String) -> some View {
+public func about(markdown: String, authors: [Subsection], tabs: [LinkDescription], selectedIndex: Int, meta: MetaDetail, analyticsID: String) -> some View {
     Document {
         HTML {
             Head {
@@ -50,7 +50,7 @@ public func about(markdown: String, tabs: [LinkDescription], selectedIndex: Int,
                 CSSLink(canonical: meta.canonicalURL)
                 
                 commonCSS
-                articlePageCSS(listImage: "")
+                aboutPageCSS()
                 
                 AnalyticsScript(id: analyticsID)
             }
@@ -60,8 +60,23 @@ public func about(markdown: String, tabs: [LinkDescription], selectedIndex: Int,
                 
                 Div {
                     Div {
-                        Markdown(markdown)
-                            .identifyBy(cssClass: .markdown)
+                        if let markdown0 = markdown.components(separatedBy: "fire_in_the_hole_authors").first {
+                            Markdown(markdown0)
+                                .identifyBy(cssClass: .markdown)
+                        }
+
+                        Div {
+                            Grid(model: authors)
+                        }
+                        .margin(
+                            top: .length(.relativeToRoot(Typography.Margin.heading1)),
+                            bottom: .length(.relativeToRoot(Typography.Margin.heading1))
+                        )
+
+                        if let markdown1 = markdown.components(separatedBy: "fire_in_the_hole_authors").last {
+                            Markdown(markdown1)
+                                .identifyBy(cssClass: .markdown)
+                        }
                     }
                     .identifyBy(cssClass: .markdownContainer)
                 }
