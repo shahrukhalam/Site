@@ -114,7 +114,7 @@ public struct MarkdownStyle: CSSStyle {
                 right: .auto,
                 bottom: .length(.relativeToRoot(Typography.Margin.heading1))
             )
-            .cornerRadius(uniform: .pixel(8))
+            .cornerRadius(uniform: .pixel(10))
         
         let imageCreditsStyle = ClassStyle(forClass: .markdown, withClass: .imageCredits)
             .foregroundColor(Color.Dark.ActiveNavBarItem)
@@ -270,13 +270,13 @@ public struct MarkdownStyle: CSSStyle {
             .position(.relative)
             .size(width: .percentage(100))
             .backgroundColor(.Light.ArticleNoteBackground)
-            .cornerRadius(uniform: .pixel(8))
+            .cornerRadius(uniform: .pixel(10))
         let iframeStyle = ClassStyle(forClass: .markdown, withClass: .iframe)
             .position(.absolute)
             .constraint(left: .pixel(0), top: .pixel(0), right: .pixel(0), bottom: .pixel(0))
             .sizeFull()
             .margin()
-            .cornerRadius(uniform: .pixel(8))
+            .cornerRadius(uniform: .pixel(10))
         let iframeContainerPodcastStyle = ClassStyle(forClass: .iframePodcastContainer)
             .margin(
                 top: .length(.relativeToRoot(Typography.Margin.heading1)),
