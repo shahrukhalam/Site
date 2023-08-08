@@ -48,8 +48,6 @@ struct Grid: HTMLBodyContentView {
             case .compact:
                 let gridItemView = GridView(model: subsection.detail)
                     .position(.relative)
-                    .backgroundColor(isDarkMode ? Color.Dark.IndexGridBackground : Color.Light.ArticleNoteBackground)
-                    .cornerRadius(.pixel(16))
                     .identifyBy(cssClasses: classes)
                 gridItemViewErased = AnyView(gridItemView)
             }
@@ -83,11 +81,10 @@ struct GridView: HTMLBodyContentView {
             // TODO: Now, the background color in light mode is specific to journey
             // Photoshop can be used
                 .backgroundColor(isDarkMode ? .Dark.IndexGridImageBackground : .hexWithHash("#161617"))
-                .size(width: .percentage(100))
-                .aspectRatio(width: 16, height: 9)
+                .size(width: .percentage(100), height: .percentage(100))
                 .contentMode(.aspectFill)
-                .cornerRadius([.pixel(16), .pixel(16), .pixel(0), .pixel(0)])
-            
+                .cornerRadius(.pixel(16))
+
             Div {
                 Headings(detail.description.title, type: .h2)
                     .font(size: .relativeToRootFontSize(Typography.Font.Size.subheading))
@@ -101,12 +98,15 @@ struct GridView: HTMLBodyContentView {
                 
                 Link(text: detail.link.text, url: detail.link.url)
                     .identifyBy(cssClass: .link)
-                    .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
-                    .font(weight: .normal)
+                    .font(size: .relativeToRootFontSize(Typography.Font.Size.byline))
+                    .font(weight: .number(Typography.Font.Weight.byline))
                     .display(.inlineBlock)
                     .margin(top: .length(.relativeToRoot(Typography.Margin.heading3)))
             }
-            .margin(uniform: .length(.relativeToRoot(Typography.Margin.heading3)))
+            .padding(uniform: .length(.relativeToRoot(Typography.Margin.heading3)))
+            .position(.absolute, left: .pixel(0), right: .pixel(0), bottom: .pixel(0))
+            .cornerRadius([.pixel(0), .pixel(0), .pixel(16), .pixel(16)])
+            .identifyBy(cssClass: .gridDetailsContainerIndex)
         }
     }
 }

@@ -14,17 +14,20 @@ private let gridContainerOwnStyle = ClassStyle(forClass: .gridContainerIndex)
     .gridNumberOfColumns(2)
     .gridColumn(gap: 12)
     .gridRow(gap: 12)
+private let detailsContainerStyle = ClassStyle(forClass: .gridContainerIndex, withClass: .gridDetailsContainerIndex)
+    .backgroundColor(.Light.ArticleListGlassBackgroundColor)
+    .filter(saturationInPercentage: 180, blurInPixel: 20)
 private let collectionDescriptionStyle = ClassStyle(forClass: .gridContainerIndex, withClass: .collectionDescription)
     .lineHeight(.number(Typography.LineHeight.subheading))
 private let gridContainerLinkStyle = ClassStyle(.gridItemIndex, cssTag: .hover, tag: .enclosing(.link))
     .textDecoration(.underline)
-public let gridContainerStyleIndex: [CSSStyle] = [gridContainerOwnStyle, collectionDescriptionStyle, gridContainerLinkStyle]
+public let gridContainerStyleIndex: [CSSStyle] = [gridContainerOwnStyle, detailsContainerStyle, collectionDescriptionStyle, gridContainerLinkStyle]
 
 private let gridContainerSmallOwnStyle = ClassStyle(forClass: .gridContainerIndex)
     .display(.grid)
     .gridNumberOfColumns(1)
     .gridRow(gap: 12)
-public let gridContainerSmallStyleIndex: [CSSStyle] = [gridContainerSmallOwnStyle, collectionDescriptionStyle, gridContainerLinkStyle]
+public let gridContainerSmallStyleIndex: [CSSStyle] = [gridContainerSmallOwnStyle, detailsContainerStyle, collectionDescriptionStyle, gridContainerLinkStyle]
 
 public let gridHeroStyle = ClassStyle(forClass: .gridItemHeroIndex)
     .gridColumn(location: 1, size: 3)

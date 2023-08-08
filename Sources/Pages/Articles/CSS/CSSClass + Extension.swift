@@ -47,6 +47,7 @@ extension CSSClass {
     
     // Grid
     static var gridContainerIndex: Self { .init(stringLiteral: #function) }
+    static var gridDetailsContainerIndex: Self { .init(stringLiteral: #function) }
     static var gridItemIndex: Self { .init(stringLiteral: #function) }
     static var gridItemHeroIndex: Self { .init(stringLiteral: #function) }
 
