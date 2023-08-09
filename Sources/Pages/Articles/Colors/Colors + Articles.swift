@@ -9,6 +9,16 @@ import HTMLDSL
 
 var isDarkMode: Bool = false
 
+extension CSSVariable where T == Color {
+    static var index_background: Self {
+        .init(name: "color_\(#function)", value: (dark: .Dark.IndexBackground, light: .Light.IndexBackground))
+    }
+    
+    static var index_foreground: Self {
+        .init(name: "color_\(#function)", value: (dark: .Dark.IndexForeground, light: .Light.IndexForeground))
+    }
+}
+
 extension Color {
     enum Dark {
         static var NavBarColor: Color { .rgba(red: 29, green: 29, blue: 31, alpha: 0.72) }
@@ -17,8 +27,8 @@ extension Color {
         static var HoverNavBarItem: Color { .rgba(red: 41, green: 151, blue: 255, alpha: 1.0) }
         static var NavBarDividerColor: Color { .rgba(red: 76, green: 76, blue: 76, alpha: 1.0) }
         
-        static var IndexBackground: Color { .html(.Black) }
-        static var IndexForeground: Color { .html(.White) }
+        static var IndexBackground: Color { .rgba(red: 25, green: 25, blue: 25, alpha: 1) } // #191919
+        static var IndexForeground: Color { .rgba(red: 255, green: 255, blue: 255, alpha: 0.81) }
         static var IndexSectionHeaderBackground: Color { .rgba(red: 20, green: 20, blue: 21, alpha: 1.0) }
         static var IndexGridBackground: Color { .html(.Black) }
         static var IndexGridImageBackground: Color { .rgba(red: 25, green: 25, blue: 25, alpha: 1.0) }

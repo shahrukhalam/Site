@@ -10,8 +10,9 @@ import HTMLDSL
 var commonCSS: some HTMLHeadContentView {
     HeadStyle {
         KickOffStyle()
-        NavStyle()
         
+        CommonBodyStyle()
+        CommonBodyStyle(.light)
         MediaStyle(for: .wide, with: CommonBodyStyle(.wide))
         MediaStyle(for: .small, with: CommonBodyStyle(.small))
         
@@ -19,5 +20,7 @@ var commonCSS: some HTMLHeadContentView {
         
         MediaStyle(for: .wide, with: fontStyles)
         MediaStyle(for: .small, with: fontStylesSmall)
+        
+        NavStyle()
     }
 }
