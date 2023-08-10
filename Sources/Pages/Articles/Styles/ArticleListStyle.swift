@@ -18,6 +18,7 @@ struct ArticleListStyle: CSSStyle {
         
         let htmlStyle = TagStyle(for: .enclosing(.html))
             .sizeFull()
+        // TODO: fix for dark mode
             .backgroundColor(.Light.ArticleListBackgroundColor)
 
         let containerStyle = ClassStyle(forClass: .articleListContainer)
@@ -60,7 +61,7 @@ struct ArticleListStyle: CSSStyle {
                     .length(.relativeToRoot(Typography.Margin.heading3)) :
                         .length(.relativeToRoot(Typography.Margin.subheading))
             )
-            .backgroundColor(variable: .article_list_glass)
+            .backgroundVariable(.article_list_glass)
             .filter(saturationInPercentage: 180, blurInPixel: 20)
             .cornerRadius(uniform: .pixel(8))
         let gridItem1By3 = ClassStyle(forClass: .gridItem1By3ArticleList)
@@ -85,8 +86,8 @@ struct ArticleListStyle: CSSStyle {
             .textDecoration(.underline)
         let codeStyle = ClassStyle(forClass: .articleList, withTag: .enclosing(.code))
             .padding(left: .pixel(6), top: .pixel(3), right: .pixel(6), bottom: .pixel(3))
-            .backgroundColor(.Light.ArticleNoteBackground)
-            .foregroundColor(.Light.ArticleWarningBorder)
+            .backgroundVariable(.code_background)
+            .foregroundColor(variable: .code_foreground)
             .cornerRadius(uniform: .pixel(3))
         let cellStyle = [gridStyle, gridItem1By3, gridItem2By3, descriptionStyle, linkStyle, linkHoverStyle, codeStyle]
         return cellStyle

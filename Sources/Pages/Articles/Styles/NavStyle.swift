@@ -17,7 +17,7 @@ public struct NavStyle: CSSStyle {
         let navStyle = ClassStyle(forClass: .indexNav)
             .position(.fixed)
             .constraint(left: .pixel(0), top: .pixel(0), right: .pixel(0))
-            .backgroundColor(variable: .nav_bar_background)
+            .backgroundVariable(.nav_bar_background)
             .align(.center)
             .filter(saturationInPercentage: 180, blurInPixel: 20)
             .zIndex(1)
@@ -39,7 +39,7 @@ public struct NavStyle: CSSStyle {
             .foregroundColor(variable: .nav_bar_hover_item)
         
         let dividerStyle = ClassStyle(forClass: .dividerNav)
-            .backgroundColor(variable: .nav_bar_divider)
+            .backgroundVariable(.nav_bar_divider)
             .size(height: .pixel(1))
             .border(width: .pixel(0))
 

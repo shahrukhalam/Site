@@ -45,6 +45,41 @@ extension CSSVariable where T == Color {
     static var link_foreground: Self {
         .init(name: "color_\(#function)", value: (dark: .Dark.LinkNormalForeground, light: .Light.LinkNormalForeground))
     }
+    
+    static var code_background: Self {
+        .init(name: "color_\(#function)", value: (dark: .Dark.ArticleCodeBackground, light: .Light.ArticleCodeBackground))
+    }
+    
+    static var code_foreground: Self {
+        .init(name: "color_\(#function)", value: (dark: .Dark.ArticleCodeForeground, light: .Light.ArticleCodeForeground))
+    }
+    
+    static var code_block_background: Self {
+        .init(
+            name: "color_\(#function)",
+            value: (
+                /// From Notion
+                dark: .rgba(red: 255, green: 255, blue: 255, alpha: 0.03),
+                light: .rgba(red: 247, green: 246, blue: 243, alpha: 1.0)
+            )
+        )
+    }
+    
+    static var code_block_type: Self {
+        .init(name: "color_\(#function)", value: (dark: .hexWithHash("#C7B0EA"), light: .hexWithHash("#6940A4")))
+    }
+    
+    static var code_block_keyword: Self {
+        .init(name: "color_\(#function)", value: (dark: .hexWithHash("#EE81B0"), light: .hexWithHash("#A0459F")))
+    }
+    
+    static var code_block_string: Self {
+        .init(name: "color_\(#function)", value: (dark: .hexWithHash("#DF8170"), light: .hexWithHash("#C03E2A")))
+    }
+    
+    static var code_block_number: Self {
+        .init(name: "color_\(#function)", value: (dark: .hexWithHash("#D6CA86"), light: .hexWithHash("#282ACF")))
+    }
 }
 
 extension Color {
@@ -64,6 +99,9 @@ extension Color {
 //        static var ArticleBackground: Color { .rgba(red: 29, green: 29, blue: 31, alpha: 1.0) }
         static var ArticleBackground: Color { .html(.Black) }
         static var ArticleImageBorder: Color { .rgba(red: 76, green: 76, blue: 76, alpha: 1.0) }
+        /// from Notion (same in `dark` & `light` modes)
+        static var ArticleCodeBackground: Color { .rgba(red: 135, green: 131, blue: 120, alpha: 0.15) }
+        static var ArticleCodeForeground: Color { .rgba(red: 235, green: 87, blue: 87, alpha: 1.0) }
 
         static var ArticleListGlassBackgroundColor: Color { .rgba(red: 29, green: 29, blue: 31, alpha: 0.6) }
 
@@ -91,6 +129,10 @@ extension Color {
         static var ArticleBackground: Color { .html(.White) }
         static var ArticleImageBorder: Color { .rgba(red: 139, green: 139, blue: 139, alpha: 1.0) }
         static var ArticleText: Color { .rgba(red: 55, green: 53, blue: 47, alpha: 1) }
+        /// from Notion (same in `dark` & `light` modes)
+        static var ArticleCodeBackground: Color { .rgba(red: 135, green: 131, blue: 120, alpha: 0.15) }
+        static var ArticleCodeForeground: Color { .rgba(red: 235, green: 87, blue: 87, alpha: 1.0) }
+
         /// `Note` section of https://developer.apple.com/documentation/swift/swift-standard-library
         static var ArticleNoteBackground: Color { .rgba(red: 245, green: 245, blue: 247, alpha: 1.0) }
         static var ArticleNoteBorder: Color { .rgba(red: 105, green: 105, blue: 105, alpha: 1.0) }

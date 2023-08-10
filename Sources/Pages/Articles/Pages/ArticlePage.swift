@@ -8,6 +8,14 @@
 import Modeling
 import HTMLDSL
 
+private var prismCSSLinks: some HTMLContentView {
+    AnyView([
+        CSSLink(path: "/css/prism-dark.css"),
+        CSSLink(path: "/css/prism-light.css"),
+        CSSLink(path: "/css/prism-override.css")
+    ])
+}
+
 public func articlePage(tabs: [LinkDescription], selectedIndex: Int, article: Article, meta: MetaDetail, listImage: String, analyticsID: String) -> some View {
     Document {
         HTML {
@@ -21,14 +29,13 @@ public func articlePage(tabs: [LinkDescription], selectedIndex: Int, article: Ar
                 articlePageCSS(listImage: listImage)
                 
                 AnalyticsScript(id: analyticsID)
-                CSSLink(path: "/css/prism-\(isDarkMode ? "dark" : "light").css")
-                CSSLink(path: "/css/prism-override-\(isDarkMode ? "dark" : "light").css")
+                prismCSSLinks
             }
             
             Body {
                 NavView(tabs: tabs, selectedIndex: selectedIndex)
                 ArticleView(article)
-                Script(url: "/js/prism-\(isDarkMode ? "dark" : "light").js")
+                Script(url: "/js/prism.js")
             }
         }
     }

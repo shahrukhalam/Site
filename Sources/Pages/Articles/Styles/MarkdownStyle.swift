@@ -237,12 +237,14 @@ public struct MarkdownStyle: CSSStyle {
         
         let codeStyle = ClassStyle(forClass: .markdown, withTag: .enclosing(.code))
             .padding(left: .pixel(6), top: .pixel(3), right: .pixel(6), bottom: .pixel(3))
-            .backgroundColor(.Light.ArticleNoteBackground)
-            .foregroundColor(.Light.ArticleWarningBorder)
+            .backgroundVariable(.code_background)
+            .foregroundColor(variable: .code_foreground)
             .cornerRadius(uniform: .pixel(3))
         let codeStyle2 = ClassStyle(forClass: .noteContainer, withTag: .enclosing(.code))
+        // TODO: Fix for dark mode
             .backgroundColor(.Light.NavBarDividerColor)
         let codeStyle3 = ClassStyle(forClass: .warningContainer, withTag: .enclosing(.code))
+        // TODO: Fix for dark mode
             .backgroundColor(.Light.NavBarDividerColor)
         
         let videoStyle = ClassStyle(forClass: .markdown, withTag: .enclosing(.video))
