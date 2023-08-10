@@ -11,10 +11,10 @@ var commonCSS: some HTMLHeadContentView {
     HeadStyle {
         KickOffStyle()
         
-        CommonBodyStyle()
-        CommonBodyStyle(.light)
-        MediaStyle(for: .wide, with: CommonBodyStyle(.wide))
-        MediaStyle(for: .small, with: CommonBodyStyle(.small))
+        RootStyle()
+        RootStyle(.light) /// Default is `dark` mode
+        MediaStyle(for: .wide, with: RootStyle(.wide))
+        MediaStyle(for: .small, with: RootStyle(.small))
         
         commonStyles
         

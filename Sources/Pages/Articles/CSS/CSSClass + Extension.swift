@@ -34,6 +34,7 @@ extension CSSClass {
     static var indexNav: Self { .init(stringLiteral: #function) }
     static var activeLink: Self { .init(stringLiteral: #function) }
     static var inactiveLink: Self { .init(stringLiteral: #function) }
+    static var dividerNav: Self { .init(stringLiteral: #function) }
 
     static var sectionHeader: Self { .init(stringLiteral: #function) }
     static var sectionHeaderContent: Self { .init(stringLiteral: #function) }

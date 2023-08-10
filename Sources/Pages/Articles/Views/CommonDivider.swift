@@ -9,7 +9,5 @@ import HTMLDSL
 
 var commonDivider: some HTMLBodyContentView {
     Divider()
-        .backgroundColor(isDarkMode ? Color.Dark.NavBarDividerColor : Color.Light.NavBarDividerColor)
-        .size(height: .pixel(1))
-        .border(width: .pixel(0))
+        .identifyBy(cssClass: .dividerNav)
 }

@@ -17,7 +17,7 @@ public struct NavStyle: CSSStyle {
         let navStyle = ClassStyle(forClass: .indexNav)
             .position(.fixed)
             .constraint(left: .pixel(0), top: .pixel(0), right: .pixel(0))
-            .backgroundColor(isDarkMode ? Color.Dark.NavBarColor : Color.Light.NavBarColor)
+            .backgroundColor(variable: .nav_bar_background)
             .align(.center)
             .filter(saturationInPercentage: 180, blurInPixel: 20)
             .zIndex(1)
@@ -29,16 +29,21 @@ public struct NavStyle: CSSStyle {
             .font(size: .percentage(125))
         
         let activeLinkStyle = ClassStyle(forClass: .activeLink)
-            .foregroundColor(isDarkMode ? Color.Dark.ActiveNavBarItem : Color.Light.ActiveNavBarItem)
+            .foregroundColor(variable: .nav_bar_active_item)
             .pointer(.none)
         
         let inactiveLinkStyle = ClassStyle(forClass: .inactiveLink)
-            .foregroundColor(isDarkMode ? Color.Dark.InactiveNavBarItem : Color.Light.InactiveNavBarItem)
-        
+            .foregroundColor(variable: .nav_bar_inactive_item)
+
         let hoverLinkStyle = TagStyle(for: .enclosing(.link), with: .hover)
-            .foregroundColor(isDarkMode ? Color.Dark.HoverNavBarItem : Color.Light.HoverNavBarItem)
+            .foregroundColor(variable: .nav_bar_hover_item)
         
-        let classStyles = [navStyle, linkStyle, activeLinkStyle, inactiveLinkStyle]
+        let dividerStyle = ClassStyle(forClass: .dividerNav)
+            .backgroundColor(variable: .nav_bar_divider)
+            .size(height: .pixel(1))
+            .border(width: .pixel(0))
+
+        let classStyles = [navStyle, linkStyle, activeLinkStyle, inactiveLinkStyle, dividerStyle]
             .map { $0.element }
         let tagStyles = [hoverLinkStyle].map { $0.element }
         let allStyles = classStyles + tagStyles

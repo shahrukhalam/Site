@@ -7,7 +7,7 @@
 
 import HTMLDSL
 
-struct CommonBodyStyle: CSSStyle {
+struct RootStyle: CSSStyle {
     let key: CustomStringConvertible = Tag.empty.description
     let styles = [Style]()
 
@@ -17,6 +17,11 @@ struct CommonBodyStyle: CSSStyle {
         let htmlStyle = TagStyle(for: .enclosing(.html))
             .variable(color: .index_background, scheme: .dark)
             .variable(color: .index_foreground, scheme: .dark)
+            .variable(color: .nav_bar_background, scheme: .dark)
+            .variable(color: .nav_bar_active_item, scheme: .dark)
+            .variable(color: .nav_bar_inactive_item, scheme: .dark)
+            .variable(color: .nav_bar_hover_item, scheme: .dark)
+            .variable(color: .nav_bar_divider, scheme: .dark)
             .font(family: .apple([.notion]))
         let bodyStyle = TagStyle(for: .enclosing(.body))
             .backgroundColor(variable: .index_background)
@@ -38,6 +43,11 @@ struct CommonBodyStyle: CSSStyle {
         let htmlColorSchemeStyle = TagStyle(for: .enclosing(.html))
             .variable(color: .index_background, scheme: colorSchemeConverted)
             .variable(color: .index_foreground, scheme: colorSchemeConverted)
+            .variable(color: .nav_bar_background, scheme: colorSchemeConverted)
+            .variable(color: .nav_bar_active_item, scheme: colorSchemeConverted)
+            .variable(color: .nav_bar_inactive_item, scheme: colorSchemeConverted)
+            .variable(color: .nav_bar_hover_item, scheme: colorSchemeConverted)
+            .variable(color: .nav_bar_divider, scheme: colorSchemeConverted)
         let htmlColorSchemeMediaStyle = MediaStyle(for: colorScheme, with: htmlColorSchemeStyle)
 
         self.element = htmlColorSchemeMediaStyle.element
