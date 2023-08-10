@@ -64,16 +64,19 @@ var shareStyle: CSSStyle {
     let pStyle = ClassStyle(forClass: .share, withTag: .enclosing(.paragraph))
         .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
         .lineHeight(.number(Typography.LineHeight.body))
+        .foregroundColor(variable: .index_foreground)
 
     let linkStyle = ClassStyle(forClass: .share, withTag: .enclosing(.link))
         .display(.inlineFlex)
         .flexDistribute(.center)
-        .foregroundColor(isDarkMode ? Color.Dark.LinkNormalForeground : Color.Light.LinkNormalForeground)
+        .foregroundColor(variable: .link_foreground)
         .textDecoration(.none)
     let linkHoverStyle = ClassStyle(.share, tag: .enclosing(.link), cssTag: .hover)
-        .foregroundColor(isDarkMode ? Color.Dark.LinkNormalForeground : Color.Light.LinkNormalForeground)
+        .foregroundColor(variable: .link_foreground)
         .textDecoration(.underline)
-    return [pStyle, linkStyle, linkHoverStyle]
+    let pLinkStyle = ClassStyle(parent1: .share, parent12: .enclosing(.link), child: .enclosing(.paragraph))
+        .foregroundColor(variable: .link_foreground)
+    return [pStyle, linkStyle, linkHoverStyle, pLinkStyle]
 }
 
 private func share(title: String, url: String) -> some HTMLBodyContentView {
@@ -85,7 +88,6 @@ private func share(title: String, url: String) -> some HTMLBodyContentView {
                 .lineBreak +
             "If you liked this article, please share it with your friends and fellow iOS Developers 🙏"
         )
-            .foregroundColor(.Light.ArticleText)
 
         Div {
             ImageLink(url: "https://twitter.com/intent/tweet?text=I recommend \(title) by Shahrukh Alam \(url)", content: {

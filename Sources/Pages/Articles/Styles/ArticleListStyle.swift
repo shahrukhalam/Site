@@ -40,6 +40,11 @@ struct ArticleListStyle: CSSStyle {
             )
             .boxSize(.borderBox)
 
+        let styles: [CSSStyle] = [htmlStyle, containerStyle, articleListStyle] + Self.cellStyle(mediaType)
+        self.element = styles.map { $0.element }.joined(separator: "\n")
+    }
+
+    static func cellStyle(_ mediaType: MediaStyle.DeviceType) -> [CSSStyle] {
         let gridStyle = ClassStyle(forClass: .gridContainerArticleList)
             .display(.grid)
             .gridNumberOfColumns(3)
@@ -84,8 +89,6 @@ struct ArticleListStyle: CSSStyle {
             .foregroundColor(.Light.ArticleWarningBorder)
             .cornerRadius(uniform: .pixel(3))
         let cellStyle = [gridStyle, gridItem1By3, gridItem2By3, descriptionStyle, linkStyle, linkHoverStyle, codeStyle]
-
-        let styles: [CSSStyle] = [htmlStyle, containerStyle, articleListStyle] + cellStyle
-        self.element = styles.map { $0.element }.joined(separator: "\n")
+        return cellStyle
     }
 }

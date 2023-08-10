@@ -19,9 +19,9 @@ func articlePageCSS(listImage: String) -> some HTMLHeadContentView {
         MediaStyle(for: .small, with: MarkdownStyle(.small))
 
         shareStyle
-        
-        MediaStyle(for: .wide, with: ArticleListStyle(.wide))
-        MediaStyle(for: .small, with: ArticleListStyle(.small))
+
+        MediaStyle(for: .wide, with: ArticleListStyle.cellStyle(.wide))
+        MediaStyle(for: .small, with: ArticleListStyle.cellStyle(.small))
     }
 }
 

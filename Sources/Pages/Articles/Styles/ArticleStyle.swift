@@ -15,7 +15,6 @@ public struct ArticleStyle: CSSStyle {
     
     public init() {
         let articleStyle = ClassStyle(forClass: .article)
-            .backgroundColor(isDarkMode ? Color.Dark.ArticleBackground : Color.Light.ArticleBackground)
             .margin(
                 top: .length(.relativeToRoot(Typography.Margin.title)),
                 bottom: .length(.relativeToRoot(Typography.Margin.title))

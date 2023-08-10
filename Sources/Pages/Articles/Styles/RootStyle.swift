@@ -23,6 +23,7 @@ struct RootStyle: CSSStyle {
             .variable(color: .nav_bar_hover_item, scheme: .dark)
             .variable(color: .nav_bar_divider, scheme: .dark)
             .variable(color: .article_list_glass, scheme: .dark)
+            .variable(color: .link_foreground, scheme: .dark)
             .font(family: .apple([.notion]))
         let bodyStyle = TagStyle(for: .enclosing(.body))
             .backgroundColor(variable: .index_background)
@@ -50,6 +51,7 @@ struct RootStyle: CSSStyle {
             .variable(color: .nav_bar_hover_item, scheme: colorSchemeConverted)
             .variable(color: .nav_bar_divider, scheme: colorSchemeConverted)
             .variable(color: .article_list_glass, scheme: colorSchemeConverted)
+            .variable(color: .link_foreground, scheme: colorSchemeConverted)
         let htmlColorSchemeMediaStyle = MediaStyle(for: colorScheme, with: htmlColorSchemeStyle)
 
         self.element = htmlColorSchemeMediaStyle.element

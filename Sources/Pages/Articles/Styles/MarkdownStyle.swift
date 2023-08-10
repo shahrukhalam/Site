@@ -69,7 +69,7 @@ public struct MarkdownStyle: CSSStyle {
         
         let commonStyle = ClassStyle(elementsInClass: .markdown)
             .lineHeight(.number(Typography.LineHeight.body))
-            .foregroundColor(.Light.ArticleText)
+            .foregroundColor(variable: .index_foreground)
             .margin(top: .length(.relativeToRoot(Typography.Margin.body)))
         
         let h1Style = ClassStyle(forClass: .markdown, withTag: .enclosing(.headings(.h1)))
@@ -318,16 +318,16 @@ public struct MarkdownStyle: CSSStyle {
             .font(size: mediaType == .wide ? .relativeToRootFontSize(Typography.Font.Size.heading2) : .relativeToRootFontSize(Typography.Font.Size.subheading))
             .font(weight: .bold)
             .lineHeight(.number(Typography.LineHeight.heading))
-            .foregroundColor(.Light.ArticleText)
+            .foregroundColor(variable: .index_foreground)
             .textDecoration(.none)
         let linkedArticleLinkHoverStyle = ClassStyle(.linkedArticleDetail, tag: .enclosing(.link), cssTag: .hover)
-            .foregroundColor(.Light.ArticleText)
+            .foregroundColor(variable: .index_foreground)
             .textDecoration(.underline)
         let linkedArticleDescriptionStyle = ClassStyle(forClass: .linkedArticleDetail, withTag: .enclosing(.headings(.h4)))
             .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
             .font(weight: .normal)
             .lineHeight(.number(Typography.LineHeight.subheading))
-            .foregroundColor(.Light.ArticleText)
+            .foregroundColor(variable: .index_foreground)
             .noOfLines(mediaType == .wide ? 3 : 4)
             .margin(top: .length(.relativeToRoot(Typography.Margin.body)))
         
