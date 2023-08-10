@@ -15,6 +15,11 @@ struct ArticleListStyle: CSSStyle {
 
     init(_ mediaType: MediaStyle.DeviceType) {
         self.key = Tag.empty.description
+        
+        let htmlStyle = TagStyle(for: .enclosing(.html))
+            .sizeFull()
+            .backgroundColor(.Light.ArticleListBackgroundColor)
+
         let containerStyle = ClassStyle(forClass: .articleListContainer)
             .sizeFull()
             .scrollVertically()
@@ -50,7 +55,7 @@ struct ArticleListStyle: CSSStyle {
                     .length(.relativeToRoot(Typography.Margin.heading3)) :
                         .length(.relativeToRoot(Typography.Margin.subheading))
             )
-            .backgroundColor(.Light.ArticleListGlassBackgroundColor)
+            .backgroundColor(variable: .article_list_glass)
             .filter(saturationInPercentage: 180, blurInPixel: 20)
             .cornerRadius(uniform: .pixel(8))
         let gridItem1By3 = ClassStyle(forClass: .gridItem1By3ArticleList)
@@ -68,10 +73,10 @@ struct ArticleListStyle: CSSStyle {
             .font(size: mediaType == .wide ? .relativeToRootFontSize(Typography.Font.Size.heading2) : .relativeToRootFontSize(Typography.Font.Size.subheading))
             .font(weight: .bold)
             .lineHeight(.number(Typography.LineHeight.heading))
-            .foregroundColor(.Light.IndexForeground)
+            .foregroundColor(variable: .index_foreground)
             .textDecoration(.none)
         let linkHoverStyle = ClassStyle(.articleList, tag: .enclosing(.link), cssTag: .hover)
-            .foregroundColor(.Light.IndexForeground)
+            .foregroundColor(variable: .index_foreground)
             .textDecoration(.underline)
         let codeStyle = ClassStyle(forClass: .articleList, withTag: .enclosing(.code))
             .padding(left: .pixel(6), top: .pixel(3), right: .pixel(6), bottom: .pixel(3))
@@ -80,7 +85,7 @@ struct ArticleListStyle: CSSStyle {
             .cornerRadius(uniform: .pixel(3))
         let cellStyle = [gridStyle, gridItem1By3, gridItem2By3, descriptionStyle, linkStyle, linkHoverStyle, codeStyle]
 
-        let styles: [CSSStyle] = [containerStyle, articleListStyle] + cellStyle
+        let styles: [CSSStyle] = [htmlStyle, containerStyle, articleListStyle] + cellStyle
         self.element = styles.map { $0.element }.joined(separator: "\n")
     }
 }

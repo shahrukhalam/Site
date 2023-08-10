@@ -37,6 +37,10 @@ extension CSSVariable where T == Color {
     static var nav_bar_divider: Self {
         .init(name: "color_\(#function)", value: (dark: .Dark.NavBarDividerColor, light: .Light.NavBarDividerColor))
     }
+    
+    static var article_list_glass: Self {
+        .init(name: "color_\(#function)", value: (dark: .Dark.ArticleListGlassBackgroundColor, light: .Light.ArticleListGlassBackgroundColor))
+    }
 }
 
 extension Color {
@@ -56,6 +60,8 @@ extension Color {
 //        static var ArticleBackground: Color { .rgba(red: 29, green: 29, blue: 31, alpha: 1.0) }
         static var ArticleBackground: Color { .html(.Black) }
         static var ArticleImageBorder: Color { .rgba(red: 76, green: 76, blue: 76, alpha: 1.0) }
+
+        static var ArticleListGlassBackgroundColor: Color { .rgba(red: 29, green: 29, blue: 31, alpha: 0.6) }
 
         static var Background: Color { .html(.Black) }
         static var Foreground: Color { .html(.White) }

@@ -43,13 +43,12 @@ public func articleListPage(tabs: [LinkDescription], selectedIndex: Int, article
             }
             .padding(uniform: .pixel(0))
             .sizeFull()
+            .backgroundColor(.transparent)
         }
         .backgroundImage(
             path: "/images/index/wave.jpg",
             position: .center,
             size: .cover
         )
-        .sizeFull()
-        .backgroundColor(.Light.ArticleListBackgroundColor)
     }
 }
