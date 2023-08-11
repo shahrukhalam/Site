@@ -39,7 +39,7 @@ enum Typography {
         static let heading1: Float = 2
         static let heading2: Float = 1.5
         static let heading3: Float = 1
-        static let subheading: Float = 0.75
+        static let subheading: Float = 0.625
     }
 }
 
@@ -114,7 +114,7 @@ public struct MarkdownStyle: CSSStyle {
                 right: .auto,
                 bottom: .length(.relativeToRoot(Typography.Margin.heading1))
             )
-            .cornerRadius(uniform: .pixel(10))
+            .cornerRadius(uniform: .length(.relativeToRoot(Typography.Margin.subheading)))
         
         let imageCreditsStyle = ClassStyle(forClass: .markdown, withClass: .imageCredits)
             .foregroundColor(Color.Dark.ActiveNavBarItem)
