@@ -39,6 +39,9 @@ struct RootStyle: CSSStyle {
             .variable(color: .important_border, scheme: .dark)
             .variable(color: .tip_background, scheme: .dark)
             .variable(color: .tip_border, scheme: .dark)
+            .variable(color: .background_404, scheme: .dark)
+            .variable(color: .title_404, scheme: .dark)
+            .variable(color: .subtitle_404, scheme: .dark)
             .font(family: .apple([.notion]))
         let bodyStyle = TagStyle(for: .enclosing(.body))
             .backgroundVariable(.index_background)
@@ -82,6 +85,9 @@ struct RootStyle: CSSStyle {
             .variable(color: .important_border, scheme: colorSchemeConverted)
             .variable(color: .tip_background, scheme: colorSchemeConverted)
             .variable(color: .tip_border, scheme: colorSchemeConverted)
+            .variable(color: .background_404, scheme: colorSchemeConverted)
+            .variable(color: .title_404, scheme: colorSchemeConverted)
+            .variable(color: .subtitle_404, scheme: colorSchemeConverted)
         let htmlColorSchemeMediaStyle = MediaStyle(for: colorScheme, with: htmlColorSchemeStyle)
 
         self.element = htmlColorSchemeMediaStyle.element

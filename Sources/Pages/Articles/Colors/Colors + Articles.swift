@@ -112,6 +112,18 @@ extension CSSVariable where T == Color {
     static var tip_border: Self {
         .init(name: "color_\(#function)", value: (dark: .Dark.ArticleTipBorder, light: .Light.ArticleTipBorder))
     }
+
+    static var background_404: Self {
+        .init(name: "color_\(#function)", value: (dark: .Dark.Background404, light: .Light.Background404))
+    }
+
+    static var title_404: Self {
+        .init(name: "color_\(#function)", value: (dark: .Dark.Title404, light: .Light.Title404))
+    }
+
+    static var subtitle_404: Self {
+        .init(name: "color_\(#function)", value: (dark: .Dark.Subtitle404, light: .Light.Subtitle404))
+    }
 }
 
 extension Color {
@@ -150,7 +162,8 @@ extension Color {
         static var Background: Color { .html(.Black) }
         static var Foreground: Color { .html(.White) }
         static var LinkNormalForeground: Color { .rgba(red: 41, green: 151, blue: 255, alpha: 1.0) }
-        
+
+        static var Background404: Color { .Dark.ArticleCodeBackground }
         static var Title404: Color { .rgba(red: 133, green: 133, blue: 133, alpha: 1.0) }
         static var Subtitle404: Color { .rgba(red: 110, green: 110, blue: 110, alpha: 1.0) }
     }
@@ -192,6 +205,10 @@ extension Color {
 
         static var Background: Color { .html(.White) }
         static var Foreground: Color { .html(.Black) }
-        static var LinkNormalForeground: Color { .rgba(red: 0, green: 102, blue: 204, alpha: 1.0) } // ✅
+        static var LinkNormalForeground: Color { .rgba(red: 0, green: 102, blue: 204, alpha: 1.0) }
+
+        static var Background404: Color { .Light.ArticleCodeBackground }
+        static var Title404: Color { .rgba(red: 133, green: 133, blue: 133, alpha: 1.0) }
+        static var Subtitle404: Color { .rgba(red: 110, green: 110, blue: 110, alpha: 1.0) }
     }
 }

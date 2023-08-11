@@ -96,4 +96,9 @@ extension CSSClass {
     // Article Byline
     static var bylineContainer: Self { .init(stringLiteral: #function) }
     static var bylineItem: Self { .init(stringLiteral: #function) }
+
+    // MARK: 404
+    static var container404: Self { .init(stringLiteral: #function) }
+    static var title404: Self { .init(stringLiteral: #function) }
+    static var subtitle404: Self { .init(stringLiteral: #function) }
 }
