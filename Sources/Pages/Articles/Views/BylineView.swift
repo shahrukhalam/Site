@@ -17,22 +17,22 @@ struct BylineView: HTMLBodyContentView {
                 switch byline {
                 case .published(let date):
                     Paragraphs("Published on: \(date)")
-                        .foregroundColor(Color.Dark.ActiveNavBarItem)
                         .font(size: .relativeToRootFontSize(Typography.Font.Size.byline))
                         .font(weight: .number(Typography.Font.Weight.byline))
                         .margin()
+                        .identifyBy(cssClass: .bylineParagraph)
                 case .updated(let date):
                     Paragraphs("Updated on: \(date)")
-                        .foregroundColor(Color.Dark.ActiveNavBarItem)
                         .font(size: .relativeToRootFontSize(Typography.Font.Size.byline))
                         .font(weight: .number(Typography.Font.Weight.byline))
                         .margin()
+                        .identifyBy(cssClass: .bylineParagraph)
                 case let .author(name, url):
                     ParagraphsLink("Author: ", linkText: name, url: url)
-                        .foregroundColor(Color.Dark.ActiveNavBarItem)
                         .font(size: .relativeToRootFontSize(Typography.Font.Size.byline))
                         .font(weight: .number(Typography.Font.Weight.byline))
                         .margin()
+                        .identifyBy(cssClass: .bylineParagraph)
                 }
             }
             .identifyBy(cssClass: .bylineItem)

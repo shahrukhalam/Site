@@ -34,12 +34,12 @@ private let imageHalfWidth = ClassStyle(forClass: .imageHalfWidth)
     .size(width: .percentage(50))
 
 private let linkStyle = ClassStyle(forClass: .link)
-    .foregroundColor(isDarkMode ? Color.Dark.LinkNormalForeground : Color.Light.LinkNormalForeground)
+    .foregroundVariable(.link_foreground)
     .font(size: .percentage(100))
     .textDecoration(.none)
 
 private let linkHoverStyle = ClassStyle(forClass: .link, withCSSTag: .hover)
-    .foregroundColor(isDarkMode ? Color.Dark.LinkNormalForeground : Color.Light.LinkNormalForeground)
+    .foregroundVariable(.link_foreground)
     .textDecoration(.underline)
 
 private let pillLinkStyle = ClassStyle(forClass: .pillLink)

@@ -44,10 +44,10 @@ struct ArticleView: HTMLBodyContentView {
                 
                 Div {
                     Paragraphs("This is a free third party commenting service we are using for you, which needs you to sign in to post a comment, but the good bit is you can stay anonymous while commenting.")
-                        .foregroundColor(Color.Dark.ActiveNavBarItem)
                         .font(size: .relativeToRootFontSize(Typography.Font.Size.byline))
                         .font(weight: .number(Typography.Font.Weight.byline))
                         .margin(bottom: .length(.relativeToRoot(Typography.Margin.byline)))
+                        .identifyBy(cssClass: .commentBoxDisclosure)
                     commentBox
                 }
                 .margin(
@@ -58,6 +58,12 @@ struct ArticleView: HTMLBodyContentView {
         }
         .identifyBy(cssClass: .article)
     }
+}
+
+var commentBoxDisclosureStyle: CSSStyle {
+    let pStyle = ClassStyle(forClass: .commentBoxDisclosure)
+        .foregroundVariable(.nav_bar_active_item)
+    return pStyle
 }
 
 var shareStyle: CSSStyle {

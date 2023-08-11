@@ -80,6 +80,9 @@ extension CSSClass {
     static var linkedArticleImage: Self { .init(stringLiteral: #function) }
     static var linkedArticleDetail: Self { .init(stringLiteral: #function) }
 
+    static var commentBoxDisclosure: Self { .init(stringLiteral: #function) }
+    static var bylineParagraph: Self { .init(stringLiteral: #function) }
+
     // MARK: Article List
     static var articleList: Self { .init(stringLiteral: #function) }
     static var articleListContainer: Self { .init(stringLiteral: #function) }

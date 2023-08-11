@@ -32,5 +32,8 @@ private let bylineContainerStyle = ClassStyle(forClass: .bylineContainer)
     .flex(columnGap: .length(.relativeToRoot(Typography.Margin.subheading)))
     .flex(rowGap: .length(.relativeToRoot(Typography.Margin.byline)))
 
+private let bylineParagraphStyle = ClassStyle(forClass: .bylineParagraph)
+        .foregroundVariable(.nav_bar_active_item)
+
 private let bylineItemStyle = ClassStyle(forClass: .bylineItem)
-public let bylineStyle: [CSSStyle] = [bylineContainerStyle, bylineItemStyle]
+public let bylineStyle: [CSSStyle] = [bylineContainerStyle, bylineParagraphStyle, bylineItemStyle]
