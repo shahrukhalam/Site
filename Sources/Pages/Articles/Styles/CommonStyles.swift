@@ -43,14 +43,14 @@ private let linkHoverStyle = ClassStyle(forClass: .link, withCSSTag: .hover)
     .textDecoration(.underline)
 
 private let pillLinkStyle = ClassStyle(forClass: .pillLink)
-    .foregroundColor(isDarkMode ? Color.Dark.LinkNormalForeground : Color.Light.LinkNormalForeground)
+    .foregroundVariable(.link_foreground)
     .font(size: .percentage(100))
     .textDecoration(.none)
-    .border(color: isDarkMode ? Color.Dark.LinkNormalForeground : Color.Light.LinkNormalForeground)
+    .border(color: .variable(CSSVariable<Color>.link_foreground.name))
 
 private let pillLinkHoverStyle = ClassStyle(forClass: .pillLink, withCSSTag: .hover)
-    .foregroundColor(isDarkMode ? Color.Dark.IndexBackground : Color.Light.IndexBackground)
-    .backgroundColor(isDarkMode ? Color.Dark.LinkNormalForeground : Color.Light.LinkNormalForeground)
+    .foregroundVariable(.index_background)
+    .backgroundVariable(.link_foreground)
 
 private let desktopHiddenStyle = MediaStyle(for: .wide,
                                             with: ClassStyle(forClass: .desktopHidden).display(.none))

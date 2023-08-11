@@ -69,7 +69,7 @@ public struct MarkdownStyle: CSSStyle {
         
         let commonStyle = ClassStyle(elementsInClass: .markdown)
             .lineHeight(.number(Typography.LineHeight.body))
-            .foregroundColor(variable: .index_foreground)
+            .foregroundVariable(.index_foreground)
             .margin(top: .length(.relativeToRoot(Typography.Margin.body)))
         
         let h1Style = ClassStyle(forClass: .markdown, withTag: .enclosing(.headings(.h1)))
@@ -102,7 +102,7 @@ public struct MarkdownStyle: CSSStyle {
             .font(size: .relativeToRootFontSize(Typography.Font.Size.subheading))
             .font(weight: .number(300))
             .lineHeight(.number(Typography.LineHeight.subheading))
-            .foregroundColor(.Light.ArticleNoteBorder)
+            .foregroundVariable(.note_border)
             .margin(top: .length(.relativeToRoot(Typography.Margin.subheading)))
         
         let imageStyle = ClassStyle(forClass: .markdown, withTag: .selfClosing(.image))
@@ -117,7 +117,7 @@ public struct MarkdownStyle: CSSStyle {
             .cornerRadius(uniform: .length(.relativeToRoot(Typography.Margin.subheading)))
         
         let imageCreditsStyle = ClassStyle(forClass: .markdown, withClass: .imageCredits)
-            .foregroundColor(Color.Dark.ActiveNavBarItem)
+            .foregroundVariable(.nav_bar_active_item)
             .align(.center)
             .margin(
                 top: .length(.relativeToRoot(-Typography.Margin.heading2)),
@@ -156,12 +156,12 @@ public struct MarkdownStyle: CSSStyle {
                 right: .length(.relativeToRoot(Typography.Margin.heading2)),
                 bottom: .length(.relativeToRoot(Typography.Margin.heading2))
             )
-            .backgroundColor(.Light.ArticleNoteBackground)
+            .backgroundVariable(.note_background)
             .border(width: .pixel(1), color: .Light.ArticleNoteBorder)
             .cornerRadius(uniform: .pixel(20))
         let noteStyle = ClassStyle(forClass: .markdown, withClass: .note)
             .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
-            .foregroundColor(.Light.ArticleNoteBorder)
+            .foregroundVariable(.note_border)
             .margin(top: .pixel(0))
         
         let warningContainerStyle = ClassStyle(forClass: .warningContainer)
@@ -175,12 +175,12 @@ public struct MarkdownStyle: CSSStyle {
                 right: .length(.relativeToRoot(Typography.Margin.heading2)),
                 bottom: .length(.relativeToRoot(Typography.Margin.heading2))
             )
-            .backgroundColor(.Light.ArticleWarningBackground)
+            .backgroundVariable(.warning_background)
             .border(width: .pixel(1), color: .Light.ArticleWarningBorder)
             .cornerRadius(uniform: .pixel(20))
         let warningStyle = ClassStyle(forClass: .markdown, withClass: .warning)
             .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
-            .foregroundColor(.Light.ArticleWarningBorder)
+            .foregroundVariable(.warning_border)
             .margin(top: .pixel(0))
         
         let importantContainerStyle = ClassStyle(forClass: .importantContainer)
@@ -194,12 +194,12 @@ public struct MarkdownStyle: CSSStyle {
                 right: .length(.relativeToRoot(Typography.Margin.heading2)),
                 bottom: .length(.relativeToRoot(Typography.Margin.heading2))
             )
-            .backgroundColor(.Light.ArticleImportantBackground)
+            .backgroundVariable(.important_background)
             .border(width: .pixel(1), color: .Light.ArticleImportantBorder)
             .cornerRadius(uniform: .pixel(20))
         let importantStyle = ClassStyle(forClass: .markdown, withClass: .important)
             .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
-            .foregroundColor(.Light.ArticleImportantBorder)
+            .foregroundVariable(.important_border)
             .margin(top: .pixel(0))
         
         let tipContainerStyle = ClassStyle(forClass: .tipContainer)
@@ -213,19 +213,19 @@ public struct MarkdownStyle: CSSStyle {
                 right: .length(.relativeToRoot(Typography.Margin.heading2)),
                 bottom: .length(.relativeToRoot(Typography.Margin.heading2))
             )
-            .backgroundColor(.Light.ArticleTipBackground)
+            .backgroundVariable(.tip_background)
             .border(width: .pixel(1), color: .Light.ArticleTipBorder)
             .cornerRadius(uniform: .pixel(20))
         let tipStyle = ClassStyle(forClass: .markdown, withClass: .tip)
             .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
-            .foregroundColor(.Light.ArticleTipBorder)
+            .foregroundVariable(.tip_border)
             .margin(top: .pixel(0))
         
         let linkStyle = ClassStyle(forClass: .markdown, withTag: .enclosing(.link))
-            .foregroundColor(isDarkMode ? Color.Dark.LinkNormalForeground : Color.Light.LinkNormalForeground)
+            .foregroundVariable(.link_foreground)
             .textDecoration(.none)
         let linkHoverStyle = ClassStyle(.markdown, tag: .enclosing(.link), cssTag: .hover)
-            .foregroundColor(isDarkMode ? Color.Dark.LinkNormalForeground : Color.Light.LinkNormalForeground)
+            .foregroundVariable(.link_foreground)
             .textDecoration(.underline)
         
         let ulStyle = ClassStyle(forClass: .markdown, withTag: .enclosing(.unorderedList))
@@ -238,14 +238,8 @@ public struct MarkdownStyle: CSSStyle {
         let codeStyle = ClassStyle(forClass: .markdown, withTag: .enclosing(.code))
             .padding(left: .pixel(6), top: .pixel(3), right: .pixel(6), bottom: .pixel(3))
             .backgroundVariable(.code_background)
-            .foregroundColor(variable: .code_foreground)
+            .foregroundVariable(.code_foreground)
             .cornerRadius(uniform: .pixel(3))
-        let codeStyle2 = ClassStyle(forClass: .noteContainer, withTag: .enclosing(.code))
-        // TODO: Fix for dark mode
-            .backgroundColor(.Light.NavBarDividerColor)
-        let codeStyle3 = ClassStyle(forClass: .warningContainer, withTag: .enclosing(.code))
-        // TODO: Fix for dark mode
-            .backgroundColor(.Light.NavBarDividerColor)
         
         let videoStyle = ClassStyle(forClass: .markdown, withTag: .enclosing(.video))
             .display(.flex)
@@ -271,7 +265,7 @@ public struct MarkdownStyle: CSSStyle {
             )
             .position(.relative)
             .size(width: .percentage(100))
-            .backgroundColor(.Light.ArticleNoteBackground)
+            .backgroundVariable(.note_background)
             .cornerRadius(uniform: .pixel(10))
         let iframeStyle = ClassStyle(forClass: .markdown, withClass: .iframe)
             .position(.absolute)
@@ -289,7 +283,7 @@ public struct MarkdownStyle: CSSStyle {
             )
             .position(.relative)
             .size(width: .percentage(100))
-            .backgroundColor(.Light.ArticleNoteBackground)
+            .backgroundVariable(.note_background)
             .cornerRadius(uniform: .pixel(10))
         let iframePodcastStyle = ClassStyle(forClass: .markdown, withClass: .iframePodcast)
             .position(.absolute)
@@ -320,16 +314,16 @@ public struct MarkdownStyle: CSSStyle {
             .font(size: mediaType == .wide ? .relativeToRootFontSize(Typography.Font.Size.heading2) : .relativeToRootFontSize(Typography.Font.Size.subheading))
             .font(weight: .bold)
             .lineHeight(.number(Typography.LineHeight.heading))
-            .foregroundColor(variable: .index_foreground)
+            .foregroundVariable(.index_foreground)
             .textDecoration(.none)
         let linkedArticleLinkHoverStyle = ClassStyle(.linkedArticleDetail, tag: .enclosing(.link), cssTag: .hover)
-            .foregroundColor(variable: .index_foreground)
+            .foregroundVariable(.index_foreground)
             .textDecoration(.underline)
         let linkedArticleDescriptionStyle = ClassStyle(forClass: .linkedArticleDetail, withTag: .enclosing(.headings(.h4)))
             .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
             .font(weight: .normal)
             .lineHeight(.number(Typography.LineHeight.subheading))
-            .foregroundColor(variable: .index_foreground)
+            .foregroundVariable(.index_foreground)
             .noOfLines(mediaType == .wide ? 3 : 4)
             .margin(top: .length(.relativeToRoot(Typography.Margin.body)))
         
@@ -338,8 +332,7 @@ public struct MarkdownStyle: CSSStyle {
                 top: .length(.relativeToRoot(Typography.Margin.heading1)),
                 bottom: .length(.relativeToRoot(Typography.Margin.heading1))
             )
-        /// Comes from border color of Prism `code` block
-            .backgroundColor(.rgba(red: 209, green: 210, blue: 215, alpha: 1))
+            .backgroundVariable(.nav_bar_divider)
             .size(height: .pixel(1))
             .border(width: .pixel(0))
         
@@ -370,8 +363,6 @@ public struct MarkdownStyle: CSSStyle {
             ulStyle,
             olStyle,
             codeStyle,
-            codeStyle2,
-            codeStyle3,
             videoStyle,
             iframeContainerStyle,
             iframeStyle,

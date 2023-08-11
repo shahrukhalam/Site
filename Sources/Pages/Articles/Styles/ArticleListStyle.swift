@@ -79,15 +79,15 @@ struct ArticleListStyle: CSSStyle {
             .font(size: mediaType == .wide ? .relativeToRootFontSize(Typography.Font.Size.heading2) : .relativeToRootFontSize(Typography.Font.Size.subheading))
             .font(weight: .bold)
             .lineHeight(.number(Typography.LineHeight.heading))
-            .foregroundColor(variable: .index_foreground)
+            .foregroundVariable(.index_foreground)
             .textDecoration(.none)
         let linkHoverStyle = ClassStyle(.articleList, tag: .enclosing(.link), cssTag: .hover)
-            .foregroundColor(variable: .index_foreground)
+            .foregroundVariable(.index_foreground)
             .textDecoration(.underline)
         let codeStyle = ClassStyle(forClass: .articleList, withTag: .enclosing(.code))
             .padding(left: .pixel(6), top: .pixel(3), right: .pixel(6), bottom: .pixel(3))
             .backgroundVariable(.code_background)
-            .foregroundColor(variable: .code_foreground)
+            .foregroundVariable(.code_foreground)
             .cornerRadius(uniform: .pixel(3))
         let cellStyle = [gridStyle, gridItem1By3, gridItem2By3, descriptionStyle, linkStyle, linkHoverStyle, codeStyle]
         return cellStyle

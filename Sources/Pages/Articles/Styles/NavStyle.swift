@@ -29,14 +29,14 @@ public struct NavStyle: CSSStyle {
             .font(size: .percentage(125))
         
         let activeLinkStyle = ClassStyle(forClass: .activeLink)
-            .foregroundColor(variable: .nav_bar_active_item)
+            .foregroundVariable(.nav_bar_active_item)
             .pointer(.none)
         
         let inactiveLinkStyle = ClassStyle(forClass: .inactiveLink)
-            .foregroundColor(variable: .nav_bar_inactive_item)
+            .foregroundVariable(.nav_bar_inactive_item)
 
         let hoverLinkStyle = TagStyle(for: .enclosing(.link), with: .hover)
-            .foregroundColor(variable: .nav_bar_hover_item)
+            .foregroundVariable(.nav_bar_hover_item)
         
         let dividerStyle = ClassStyle(forClass: .dividerNav)
             .backgroundVariable(.nav_bar_divider)

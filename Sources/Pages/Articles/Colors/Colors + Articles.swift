@@ -80,6 +80,38 @@ extension CSSVariable where T == Color {
     static var code_block_number: Self {
         .init(name: "color_\(#function)", value: (dark: .hexWithHash("#D6CA86"), light: .hexWithHash("#282ACF")))
     }
+
+    static var note_background: Self {
+        .init(name: "color_\(#function)", value: (dark: .Dark.ArticleNoteBackground, light: .Light.ArticleNoteBackground))
+    }
+
+    static var note_border: Self {
+        .init(name: "color_\(#function)", value: (dark: .Dark.ArticleNoteBorder, light: .Light.ArticleNoteBorder))
+    }
+
+    static var warning_background: Self {
+        .init(name: "color_\(#function)", value: (dark: .Dark.ArticleWarningBackground, light: .Light.ArticleWarningBackground))
+    }
+
+    static var warning_border: Self {
+        .init(name: "color_\(#function)", value: (dark: .Dark.ArticleWarningBorder, light: .Light.ArticleWarningBorder))
+    }
+
+    static var important_background: Self {
+        .init(name: "color_\(#function)", value: (dark: .Dark.ArticleImportantBackground, light: .Light.ArticleImportantBackground))
+    }
+
+    static var important_border: Self {
+        .init(name: "color_\(#function)", value: (dark: .Dark.ArticleImportantBorder, light: .Light.ArticleImportantBorder))
+    }
+
+    static var tip_background: Self {
+        .init(name: "color_\(#function)", value: (dark: .Dark.ArticleTipBackground, light: .Light.ArticleTipBackground))
+    }
+
+    static var tip_border: Self {
+        .init(name: "color_\(#function)", value: (dark: .Dark.ArticleTipBorder, light: .Light.ArticleTipBorder))
+    }
 }
 
 extension Color {
@@ -102,6 +134,16 @@ extension Color {
         /// from Notion (same in `dark` & `light` modes)
         static var ArticleCodeBackground: Color { .rgba(red: 135, green: 131, blue: 120, alpha: 0.15) }
         static var ArticleCodeForeground: Color { .rgba(red: 235, green: 87, blue: 87, alpha: 1.0) }
+        /// `Note` section of https://developer.apple.com/documentation/swift/swift-standard-library
+        static var ArticleNoteBackground: Color { .hexWithHash("#323232") }
+        static var ArticleNoteBorder: Color { .hexWithHash("#9A9A9C") }
+        static var ArticleWarningBackground: Color { .hexWithHash("#2D0402") }
+        static var ArticleWarningBorder: Color { .hexWithHash("#D4504B") }
+        static var ArticleImportantBackground: Color { .hexWithHash("#2A2005") }
+        static var ArticleImportantBorder: Color { .hexWithHash("#9E853D") }
+        /// `Tip` section of https://developer.apple.com/documentation/xcode/formatting-your-documentation-content
+        static var ArticleTipBackground: Color { .hexWithHash("#0F2C2A") }
+        static var ArticleTipBorder: Color { .hexWithHash("#64B7B5") }
 
         static var ArticleListGlassBackgroundColor: Color { .rgba(red: 29, green: 29, blue: 31, alpha: 0.6) }
 
