@@ -18,8 +18,7 @@ struct ArticleListStyle: CSSStyle {
         
         let htmlStyle = TagStyle(for: .enclosing(.html))
             .sizeFull()
-        // TODO: fix for dark mode
-            .backgroundColor(.Light.ArticleListBackgroundColor)
+            .backgroundVariable(.article_list_background)
 
         let containerStyle = ClassStyle(forClass: .articleListContainer)
             .sizeFull()

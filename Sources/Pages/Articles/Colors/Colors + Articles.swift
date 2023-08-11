@@ -41,6 +41,10 @@ extension CSSVariable where T == Color {
     static var article_list_glass: Self {
         .init(name: "color_\(#function)", value: (dark: .Dark.ArticleListGlassBackgroundColor, light: .Light.ArticleListGlassBackgroundColor))
     }
+    
+    static var article_list_background: Self {
+        .init(name: "color_\(#function)", value: (dark: .Dark.ArticleListBackgroundColor, light: .Light.ArticleListBackgroundColor))
+    }
 
     static var link_foreground: Self {
         .init(name: "color_\(#function)", value: (dark: .Dark.LinkNormalForeground, light: .Light.LinkNormalForeground))
@@ -158,6 +162,8 @@ extension Color {
         static var ArticleTipBorder: Color { .hexWithHash("#64B7B5") }
 
         static var ArticleListGlassBackgroundColor: Color { .rgba(red: 29, green: 29, blue: 31, alpha: 0.6) }
+        /// top-left color of `wave.jpg`
+        static var ArticleListBackgroundColor: Color { .hexWithHash("#1A1A3E") }
 
         static var Background: Color { .html(.Black) }
         static var Foreground: Color { .html(.White) }
@@ -200,7 +206,7 @@ extension Color {
         static var ArticleTipBorder: Color { .hexWithHash("#357A77") }
         
         static var ArticleListGlassBackgroundColor: Color { .rgba(red: 250, green: 250, blue: 250, alpha: 0.6) }
-        /// top-left color o `wave.jpg`
+        /// top-left color of `wave_light.jpg`
         static var ArticleListBackgroundColor: Color { .hexWithHash("#8DCAF9") }
 
         static var Background: Color { .html(.White) }

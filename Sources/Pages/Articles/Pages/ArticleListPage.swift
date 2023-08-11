@@ -45,10 +45,5 @@ public func articleListPage(tabs: [LinkDescription], selectedIndex: Int, article
             .sizeFull()
             .backgroundColor(.transparent)
         }
-        .backgroundImage(
-            path: "/images/index/wave.jpg",
-            position: .center,
-            size: .cover
-        )
     }
 }
