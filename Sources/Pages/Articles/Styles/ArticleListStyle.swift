@@ -69,27 +69,24 @@ struct ArticleListStyle: CSSStyle {
             .gridColumn(location: 2, size: 4)
             .lineHeight(.number(Typography.LineHeight.body))
         let descriptionStyle = ClassStyle(forClass: .gridItem2By3ArticleList, withTag: .enclosing(.headings(.h4)))
-            .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
+            .font(size: mediaType == .small ? .relativeToRootFontSize(Typography.Font.Size.byline) : .relativeToRootFontSize(Typography.Font.Size.body))
             .font(weight: .normal)
             .lineHeight(.number(Typography.LineHeight.subheading))
             .noOfLines(mediaType == .wide ? 3 : 4)
+            .margin(top: mediaType == .small ? .length(.relativeToRoot(Typography.Margin.byline)) : .length(.relativeToRoot(Typography.Margin.body)))
 
         let linkStyle = ClassStyle(forClass: .articleList, withTag: .enclosing(.link))
-            .font(size: mediaType == .wide ? .relativeToRootFontSize(Typography.Font.Size.heading2) : .relativeToRootFontSize(Typography.Font.Size.subheading))
+            .font(size: mediaType == .small ? .relativeToRootFontSize(Typography.Font.Size.body) : .relativeToRootFontSize(Typography.Font.Size.heading2))
             .font(weight: .bold)
-            .lineHeight(.number(Typography.LineHeight.heading))
+            .lineHeight(mediaType == .small ? .number(Typography.LineHeight.title) : .number(Typography.LineHeight.heading))
             .foregroundVariable(.index_foreground)
             .textDecoration(.none)
         let linkHoverStyle = ClassStyle(.articleList, tag: .enclosing(.link), cssTag: .hover)
             .foregroundVariable(.index_foreground)
             .textDecoration(.underline)
         let codeStyle = ClassStyle(forClass: .articleList, withTag: .enclosing(.code))
-            .padding(
-                left: .pixel(6),
-                top: mediaType == .small ? .pixel(1) : .pixel(3),
-                right: .pixel(6),
-                bottom: mediaType == .small ? .pixel(1) : .pixel(3)
-            )
+            .font(size: mediaType == .wide ? .relativeToRootFontSize(Typography.Font.Size.subheading) : .relativeToRootFontSize(Typography.Font.Size.byline))
+            .padding(left: .pixel(6), top: .pixel(3), right: .pixel(6), bottom: .pixel(3))
             .backgroundVariable(.code_background)
             .foregroundVariable(.code_foreground)
             .cornerRadius(uniform: .pixel(3))

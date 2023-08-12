@@ -36,7 +36,6 @@ struct ArticleListCell: HTMLBodyContentView {
                     Link(text: article.detail.title, url: article.relativeURL)
                         .identifyBy(cssClasses: [.link])
                 }
-                .margin(bottom: .length(.relativeToRoot(Typography.Margin.body)))
                 
                 Headings(article.detail.intro, type: .h4)
             }
