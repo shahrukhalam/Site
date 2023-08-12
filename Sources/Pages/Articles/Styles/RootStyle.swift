@@ -54,7 +54,7 @@ struct RootStyle: CSSStyle {
 
     init(_ mediaType: MediaStyle.DeviceType) {
         let htmlStyle = TagStyle(for: .enclosing(.html))
-            .font(size: mediaType == .wide ? .pixel(16) : .pixel(14))
+            .font(size: mediaType == .wide ? .pixel(16) : .pixel(16))
         
         self.element = htmlStyle.element
     }

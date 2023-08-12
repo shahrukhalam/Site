@@ -84,7 +84,12 @@ struct ArticleListStyle: CSSStyle {
             .foregroundVariable(.index_foreground)
             .textDecoration(.underline)
         let codeStyle = ClassStyle(forClass: .articleList, withTag: .enclosing(.code))
-            .padding(left: .pixel(6), top: .pixel(3), right: .pixel(6), bottom: .pixel(3))
+            .padding(
+                left: .pixel(6),
+                top: mediaType == .small ? .pixel(1) : .pixel(3),
+                right: .pixel(6),
+                bottom: mediaType == .small ? .pixel(1) : .pixel(3)
+            )
             .backgroundVariable(.code_background)
             .foregroundVariable(.code_foreground)
             .cornerRadius(uniform: .pixel(3))

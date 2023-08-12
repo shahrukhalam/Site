@@ -236,7 +236,12 @@ public struct MarkdownStyle: CSSStyle {
             .margin(left: .length(.relativeToRoot(Typography.Margin.heading1)))
         
         let codeStyle = ClassStyle(forClass: .markdown, withTag: .enclosing(.code))
-            .padding(left: .pixel(6), top: .pixel(3), right: .pixel(6), bottom: .pixel(3))
+            .padding(
+                left: .pixel(6),
+                top: mediaType == .small ? .pixel(2) : .pixel(3),
+                right: .pixel(6),
+                bottom: mediaType == .small ? .pixel(2) : .pixel(3)
+            )
             .backgroundVariable(.code_background)
             .foregroundVariable(.code_foreground)
             .cornerRadius(uniform: .pixel(3))
