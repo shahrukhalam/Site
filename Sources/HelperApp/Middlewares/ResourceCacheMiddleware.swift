@@ -7,7 +7,7 @@ public struct ResourceCacheMiddleware: AsyncMiddleware {
         let response = try await next.respond(to: request)
         
         try! request.application.liveRun {
-            if !request.relativeURL.contains("rss") {
+            if !request.relativeURL.contains("feed") {
                 response.headers.cacheControl = .init(isPublic: true, maxAge: 604800) // A week
             }
         }
