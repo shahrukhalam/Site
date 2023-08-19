@@ -9,14 +9,6 @@ import Foundation
 
 public struct Article {
     public struct Detail {
-        public enum Byline {
-            /// Format: Jul 28, 23 (`MMM dd, yy`)
-            case published(date: String)
-            /// Format: Jul 28, 23 (`MMM dd, yy`)
-            case updated(date: String)
-            case author(name: String, url: String)
-        }
-        
         public let title: String
         public let intro: String
         public let banner: String
@@ -44,5 +36,35 @@ public struct Article {
         self.relativeURL = relativeURL
         self.absoluteURL = absoluteURL
         self.isSharable = isSharable
+    }
+}
+
+public extension Article.Detail {
+    enum Byline {
+        /// Format: Jul 28, 23 (`MMM dd, yy`)
+        case published(date: String)
+        /// Format: Jul 28, 23 (`MMM dd, yy`)
+        case updated(date: String)
+        case author(name: String, url: String)
+    }
+    
+    struct SubSectionTag: Codable, Equatable {
+        public init(name: String, systemImageIOS: String) {
+            self.name = name
+            self.systemImageIOS = systemImageIOS
+        }
+        
+        public let name: String
+        public let systemImageIOS: String
+    }
+    
+    struct SectionTag {
+        public init(name: String, subsections: [Article.Detail.SubSectionTag]) {
+            self.name = name
+            self.subsections = subsections
+        }
+        
+        public let name: String
+        public let subsections: [SubSectionTag]
     }
 }
