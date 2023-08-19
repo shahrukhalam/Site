@@ -71,4 +71,16 @@ public extension Article.Detail {
         public let name: String
         public let subsections: [SubsectionTag]
     }
+    
+    struct Lite: Codable, Equatable, Identifiable {
+        public var id: UUID { .init() }
+
+        public let title: String
+        public let banner: String
+        
+        public init(title: String, banner: String) {
+            self.title = title
+            self.banner = banner
+        }
+    }
 }
