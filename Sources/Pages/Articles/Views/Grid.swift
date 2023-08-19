@@ -48,6 +48,7 @@ struct Grid: HTMLBodyContentView {
             case .compact:
                 let gridItemView = GridView(model: subsection.detail)
                     .position(.relative)
+                    .aspectRatio(width: 5, height: 4)
                     .identifyBy(cssClasses: classes)
                 gridItemViewErased = AnyView(gridItemView)
             }
@@ -81,6 +82,7 @@ struct GridView: HTMLBodyContentView {
             // TODO: Now, the background color in light mode is specific to journey
             // Photoshop can be used
                 .backgroundColor(isDarkMode ? .Dark.IndexGridImageBackground : .hexWithHash("#161617"))
+                .position(.absolute)
                 .size(width: .percentage(100), height: .percentage(100))
                 .contentMode(.aspectFill)
                 .cornerRadius(.pixel(16))
