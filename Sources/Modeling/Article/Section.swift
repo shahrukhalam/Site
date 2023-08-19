@@ -1,8 +1,6 @@
 import Foundation
 
-public struct Section: Codable, Equatable, Identifiable {
-    public var id: UUID { .init() }
-    
+public struct Section {
     public let description: Description
     public let subsections: [Subsection]
 

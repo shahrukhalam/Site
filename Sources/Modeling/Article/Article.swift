@@ -48,7 +48,9 @@ public extension Article.Detail {
         case author(name: String, url: String)
     }
     
-    struct SubSectionTag: Codable, Equatable {
+    struct SubsectionTag: Codable, Equatable, Identifiable {
+        public var id: UUID { .init() }
+
         public init(name: String, systemImageIOS: String) {
             self.name = name
             self.systemImageIOS = systemImageIOS
@@ -58,13 +60,15 @@ public extension Article.Detail {
         public let systemImageIOS: String
     }
     
-    struct SectionTag {
-        public init(name: String, subsections: [Article.Detail.SubSectionTag]) {
+    struct SectionTag: Codable, Equatable, Identifiable {
+        public var id: UUID { .init() }
+
+        public init(name: String, subsections: [Article.Detail.SubsectionTag]) {
             self.name = name
             self.subsections = subsections
         }
         
         public let name: String
-        public let subsections: [SubSectionTag]
+        public let subsections: [SubsectionTag]
     }
 }
