@@ -79,10 +79,12 @@ public extension Article.Detail {
 
         public let title: String
         public let banner: String
+        public let url: String
         
-        public init(title: String, banner: String) {
+        public init(title: String, banner: String, url: String) {
             self.title = title
             self.banner = banner
+            self.url = url
         }
     }
 }
