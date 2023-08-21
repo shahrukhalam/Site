@@ -51,12 +51,14 @@ public extension Article.Detail {
     struct SubsectionTag: Codable, Equatable, Identifiable {
         public var id: UUID { .init() }
 
-        public init(name: String, systemImageIOS: String) {
+        public init(name: String, route: String, systemImageIOS: String) {
             self.name = name
+            self.route = route
             self.systemImageIOS = systemImageIOS
         }
         
         public let name: String
+        public let route: String
         public let systemImageIOS: String
     }
     
