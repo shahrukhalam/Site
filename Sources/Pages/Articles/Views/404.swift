@@ -12,11 +12,11 @@ private var view404CSS: some HTMLHeadContentView {
     }
 }
 
-public func view404(tabs: [LinkDescription], selectedIndex: Int, description: Description) -> some View {
+public func view404(tabs: [LinkDescription], selectedIndex: Int, description: Description, isApp: Bool) -> some View {
     Document {
         HTML {
             Head {
-                commonCSS
+                commonCSS(isApp: isApp)
                 view404CSS
             }
             

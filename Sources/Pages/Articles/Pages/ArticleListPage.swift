@@ -32,7 +32,7 @@ public func articleListPage(tabs: [LinkDescription], selectedIndex: Int, article
                 commonCSSLinks
                 CSSLink(canonical: meta.canonicalURL)
                 
-                commonCSS
+                commonCSS(isApp: false)
                 articleListPageCSS()
                 AnalyticsScript(id: analyticsID)
             }

@@ -10,7 +10,7 @@ public func indexPage(tabs: [LinkDescription], selectedIndex: Int, sections: [Se
                 commonCSSLinks
                 CSSLink(canonical: meta.canonicalURL)
 
-                commonCSS
+                commonCSS(isApp: false)
                 indexPageCSS
 
                 AnalyticsScript(id: analyticsID)
@@ -49,7 +49,7 @@ public func about(markdown: String, authors: [Subsection], tabs: [LinkDescriptio
                 commonCSSLinks
                 CSSLink(canonical: meta.canonicalURL)
                 
-                commonCSS
+                commonCSS(isApp: false)
                 aboutPageCSS()
                 
                 AnalyticsScript(id: analyticsID)
@@ -95,7 +95,7 @@ public func author(markdown: String, tabs: [LinkDescription], selectedIndex: Int
                 commonCSSLinks
                 CSSLink(canonical: meta.canonicalURL)
 
-                commonCSS
+                commonCSS(isApp: false)
                 aboutPageCSS()
 
                 AnalyticsScript(id: analyticsID)

@@ -7,11 +7,11 @@
 
 import HTMLDSL
 
-var commonCSS: some HTMLHeadContentView {
+func commonCSS(isApp: Bool) -> some HTMLHeadContentView {
     HeadStyle {
         KickOffStyle()
         
-        RootStyle()
+        RootStyle(isApp: isApp)
         RootStyle(.light) /// Default is `dark` mode
         MediaStyle(for: .wide, with: RootStyle(.wide))
         MediaStyle(for: .small, with: RootStyle(.small))

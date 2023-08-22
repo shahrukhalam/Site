@@ -16,7 +16,7 @@ private var prismCSSLinks: some HTMLContentView {
     ])
 }
 
-public func articlePage(tabs: [LinkDescription], selectedIndex: Int, article: Article, meta: MetaDetail, listImage: String, analyticsID: String) -> some View {
+public func articlePage(tabs: [LinkDescription], selectedIndex: Int, article: Article, meta: MetaDetail, listImage: String, analyticsID: String, isApp: Bool) -> some View {
     Document {
         HTML {
             Head {
@@ -25,7 +25,7 @@ public func articlePage(tabs: [LinkDescription], selectedIndex: Int, article: Ar
                 commonCSSLinks
                 CSSLink(canonical: meta.canonicalURL)
                 
-                commonCSS
+                commonCSS(isApp: isApp)
                 articlePageCSS(listImage: listImage)
                 
                 AnalyticsScript(id: analyticsID)
@@ -33,7 +33,10 @@ public func articlePage(tabs: [LinkDescription], selectedIndex: Int, article: Ar
             }
             
             Body {
-                NavView(tabs: tabs, selectedIndex: selectedIndex)
+                if !isApp {
+                    NavView(tabs: tabs, selectedIndex: selectedIndex)
+                }
+                
                 ArticleView(article)
                 Script(url: "/js/prism.js")
             }

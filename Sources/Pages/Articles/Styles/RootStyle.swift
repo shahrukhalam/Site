@@ -13,7 +13,7 @@ struct RootStyle: CSSStyle {
 
     var element: String
     
-    init() {
+    init(isApp: Bool) {
         let htmlStyle = TagStyle(for: .enclosing(.html))
             .variable(color: .index_background, scheme: .dark)
             .variable(color: .index_foreground, scheme: .dark)
@@ -47,7 +47,7 @@ struct RootStyle: CSSStyle {
         let bodyStyle = TagStyle(for: .enclosing(.body))
             .backgroundVariable(.index_background)
             .foregroundVariable(.index_foreground)
-            .padding(top: .pixel(57))
+            .padding(top: isApp ? .pixel(0) : .pixel(57))
         let styles = [htmlStyle, bodyStyle]
         self.element = styles.map { $0.element }.joined(separator: "\n")
     }
