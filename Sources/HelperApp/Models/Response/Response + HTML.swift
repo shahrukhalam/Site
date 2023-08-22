@@ -27,8 +27,8 @@ public extension Response {
         return response
     }
     
-    static func article(for request: Request, article: Article, with meta: MetaDetail, tabs: [LinkDescription], listImage: String, analyticsID: String) throws -> Response {
-        return .html(for: request, with: articlePage(tabs: tabs, selectedIndex: 1, article: article, meta: meta, listImage: listImage, analyticsID: analyticsID, isApp: request.isApp))
+    static func article(for request: Request, article: Article, with meta: MetaDetail, tabs: [LinkDescription], listImage: String, analyticsID: String, isApp: Bool) throws -> Response {
+        return .html(for: request, with: articlePage(tabs: tabs, selectedIndex: 1, article: article, meta: meta, listImage: listImage, analyticsID: analyticsID, isApp: isApp))
     }
     
     static func articles(for request: Request, articles: [Article], with meta: MetaDetail, tabs: [LinkDescription], analyticsID: String) throws -> Response {
