@@ -20,7 +20,7 @@ public func articlePage(tabs: [LinkDescription], selectedIndex: Int, article: Ar
     Document {
         HTML {
             Head {
-                commonMeta(meta)
+                commonMeta(meta, isApp: isApp)
                 
                 commonCSSLinks
                 CSSLink(canonical: meta.canonicalURL)
