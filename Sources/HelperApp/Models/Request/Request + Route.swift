@@ -30,28 +30,34 @@ public extension Request {
 
     var baseURL: String {
         get throws {
-            let scheme = isSecure ? "https" : "http"
+            let scheme = isSecure ? "https://" : "http://"
+            
             let host = headers.first(name: .host) ?? headers.first(name: ":authority")
             guard host == nil else {
-                return scheme + "://" + host!
+                return scheme + host!
             }
             
             guard let fallbackHost = Environment.get(.DOMAIN_HOST) else {
                 throw RequestError.domainHostNotAvailable
             }
             
-            return scheme + "://" + fallbackHost
+            return scheme + fallbackHost
         }
     }
 
     var domainHost: String {
         get throws {
-            let scheme = isSecure ? "https" : "http"
+            let scheme = isSecure ? "https://" : "http://"
+            
+            guard application.environment.isRelease else {
+                return scheme + "127.0.0.1:8080"
+            }
+            
+            guard let host = Environment.get(.DOMAIN_HOST) else {
+                throw RequestError.domainHostNotAvailable
+            }
 
-            let fallbackHost = Environment.get(.DOMAIN_HOST)
-            let host = headers.first(name: .host) ?? headers.first(name: ":authority") ?? "127.0.0.1:8080"
-
-            return scheme + "://" + (fallbackHost ?? host)
+            return scheme + host
         }
     }
     
