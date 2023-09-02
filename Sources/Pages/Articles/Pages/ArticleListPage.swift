@@ -30,7 +30,6 @@ public func articleListPage(tabs: [LinkDescription], selectedIndex: Int, article
                 commonMeta(meta)
                 
                 commonCSSLinks
-                CSSLink(canonical: meta.canonicalURL)
                 
                 commonCSS(isApp: false)
                 articleListPageCSS()

@@ -23,7 +23,6 @@ public func articlePage(tabs: [LinkDescription], selectedIndex: Int, article: Ar
                 commonMeta(meta, isApp: isApp)
                 
                 commonCSSLinks
-                CSSLink(canonical: meta.canonicalURL)
                 
                 commonCSS(isApp: isApp)
                 articlePageCSS(listImage: listImage)
