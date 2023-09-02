@@ -15,15 +15,19 @@ struct RootStyle: CSSStyle {
     
     init(isApp: Bool) {
         let htmlStyle = TagStyle(for: .enclosing(.html))
+        // Index
             .variable(color: .index_background, scheme: .dark)
             .variable(color: .index_foreground, scheme: .dark)
+        // Nav Bar
             .variable(color: .nav_bar_background, scheme: .dark)
             .variable(color: .nav_bar_active_item, scheme: .dark)
             .variable(color: .nav_bar_inactive_item, scheme: .dark)
             .variable(color: .nav_bar_hover_item, scheme: .dark)
             .variable(color: .nav_bar_divider, scheme: .dark)
+        // Articles List
             .variable(color: .article_list_glass, scheme: .dark)
             .variable(color: .article_list_background, scheme: .dark)
+        // Article
             .variable(color: .link_foreground, scheme: .dark)
             .variable(color: .code_background, scheme: .dark)
             .variable(color: .code_foreground, scheme: .dark)
@@ -40,9 +44,11 @@ struct RootStyle: CSSStyle {
             .variable(color: .important_border, scheme: .dark)
             .variable(color: .tip_background, scheme: .dark)
             .variable(color: .tip_border, scheme: .dark)
+        // 404
             .variable(color: .background_404, scheme: .dark)
             .variable(color: .title_404, scheme: .dark)
             .variable(color: .subtitle_404, scheme: .dark)
+        // Font
             .font(family: .apple([.notion]))
         let bodyStyle = TagStyle(for: .enclosing(.body))
             .backgroundVariable(.index_background)
@@ -62,15 +68,19 @@ struct RootStyle: CSSStyle {
     init(_ colorScheme: MediaStyle.ColorScheme) {
         let colorSchemeConverted: HTMLDSL.ColorScheme = colorScheme == .light ? .light : .dark
         let htmlColorSchemeStyle = TagStyle(for: .enclosing(.html))
+        // Index
             .variable(color: .index_background, scheme: colorSchemeConverted)
             .variable(color: .index_foreground, scheme: colorSchemeConverted)
+        // Nav Bar
             .variable(color: .nav_bar_background, scheme: colorSchemeConverted)
             .variable(color: .nav_bar_active_item, scheme: colorSchemeConverted)
             .variable(color: .nav_bar_inactive_item, scheme: colorSchemeConverted)
             .variable(color: .nav_bar_hover_item, scheme: colorSchemeConverted)
             .variable(color: .nav_bar_divider, scheme: colorSchemeConverted)
+        // Articles List
             .variable(color: .article_list_glass, scheme: colorSchemeConverted)
             .variable(color: .article_list_background, scheme: colorSchemeConverted)
+        // Article
             .variable(color: .link_foreground, scheme: colorSchemeConverted)
             .variable(color: .code_background, scheme: colorSchemeConverted)
             .variable(color: .code_foreground, scheme: colorSchemeConverted)
@@ -87,6 +97,7 @@ struct RootStyle: CSSStyle {
             .variable(color: .important_border, scheme: colorSchemeConverted)
             .variable(color: .tip_background, scheme: colorSchemeConverted)
             .variable(color: .tip_border, scheme: colorSchemeConverted)
+        // 404
             .variable(color: .background_404, scheme: colorSchemeConverted)
             .variable(color: .title_404, scheme: colorSchemeConverted)
             .variable(color: .subtitle_404, scheme: colorSchemeConverted)

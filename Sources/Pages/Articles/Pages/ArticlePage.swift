@@ -30,6 +30,7 @@ public func articlePage(tabs: [LinkDescription], selectedIndex: Int, article: Ar
                 if let analyticsID = analyticsID {
                     AnalyticsScript(id: analyticsID)
                 }
+                
                 prismCSSLinks
             }
             

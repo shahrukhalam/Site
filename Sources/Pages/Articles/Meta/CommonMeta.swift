@@ -28,6 +28,7 @@ private func htmlMeta(description: String, isApp: Bool) -> some HTMLHeadContentV
     
     return AnyView([
         Meta(.characterSet(.utf8)),
+        // TODO: Fix by actual Author
         Meta(.name(.author, content: "Shahrukh Alam")),
         Meta(.name(.description, content: description)),
         viewPort
