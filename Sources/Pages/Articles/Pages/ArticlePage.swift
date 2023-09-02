@@ -16,7 +16,7 @@ private var prismCSSLinks: some HTMLContentView {
     ])
 }
 
-public func articlePage(tabs: [LinkDescription], selectedIndex: Int, article: Article, meta: MetaDetail, listImage: String, analyticsID: String, isApp: Bool) -> some View {
+public func articlePage(tabs: [LinkDescription], selectedIndex: Int, article: Article, meta: MetaDetail, listImage: String, analyticsID: String?, isApp: Bool) -> some View {
     Document {
         HTML {
             Head {
@@ -28,7 +28,9 @@ public func articlePage(tabs: [LinkDescription], selectedIndex: Int, article: Ar
                 commonCSS(isApp: isApp)
                 articlePageCSS(listImage: listImage)
                 
-                AnalyticsScript(id: analyticsID)
+                if let analyticsID = analyticsID {
+                    AnalyticsScript(id: analyticsID)
+                }
                 prismCSSLinks
             }
             

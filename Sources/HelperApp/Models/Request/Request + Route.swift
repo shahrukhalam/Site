@@ -83,4 +83,6 @@ public extension Request {
 
         return false
     }
+    
+    var isRelease: Bool { application.environment.isRelease }
 }

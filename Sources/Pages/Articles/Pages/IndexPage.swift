@@ -1,7 +1,7 @@
 import Modeling
 import HTMLDSL
 
-public func indexPage(tabs: [LinkDescription], selectedIndex: Int, sections: [Section], collection: Section, meta: MetaDetail, analyticsID: String) -> some View {
+public func indexPage(tabs: [LinkDescription], selectedIndex: Int, sections: [Section], collection: Section, meta: MetaDetail, analyticsID: String?) -> some View {
     Document {
         HTML {
             Head {
@@ -13,7 +13,9 @@ public func indexPage(tabs: [LinkDescription], selectedIndex: Int, sections: [Se
                 commonCSS(isApp: false)
                 indexPageCSS
 
-                AnalyticsScript(id: analyticsID)
+                if let analyticsID = analyticsID {
+                    AnalyticsScript(id: analyticsID)
+                }
             }
             
             Body {
@@ -40,7 +42,7 @@ public func indexPage(tabs: [LinkDescription], selectedIndex: Int, sections: [Se
     }
 }
 
-public func about(markdown: String, authors: [Subsection], tabs: [LinkDescription], selectedIndex: Int, meta: MetaDetail, analyticsID: String) -> some View {
+public func about(markdown: String, authors: [Subsection], tabs: [LinkDescription], selectedIndex: Int, meta: MetaDetail, analyticsID: String?) -> some View {
     Document {
         HTML {
             Head {
@@ -52,7 +54,9 @@ public func about(markdown: String, authors: [Subsection], tabs: [LinkDescriptio
                 commonCSS(isApp: false)
                 aboutPageCSS()
                 
-                AnalyticsScript(id: analyticsID)
+                if let analyticsID = analyticsID {
+                    AnalyticsScript(id: analyticsID)
+                }
             }
             
             Body {
@@ -86,7 +90,7 @@ public func about(markdown: String, authors: [Subsection], tabs: [LinkDescriptio
     }
 }
 
-public func author(markdown: String, tabs: [LinkDescription], selectedIndex: Int, meta: MetaDetail, analyticsID: String) -> some View {
+public func author(markdown: String, tabs: [LinkDescription], selectedIndex: Int, meta: MetaDetail, analyticsID: String?) -> some View {
     Document {
         HTML {
             Head {
@@ -98,7 +102,9 @@ public func author(markdown: String, tabs: [LinkDescription], selectedIndex: Int
                 commonCSS(isApp: false)
                 aboutPageCSS()
 
-                AnalyticsScript(id: analyticsID)
+                if let analyticsID = analyticsID {
+                    AnalyticsScript(id: analyticsID)
+                }
             }
 
             Body {

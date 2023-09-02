@@ -8,7 +8,7 @@
 import HTMLDSL
 import Modeling
 
-public func articleListPage(tabs: [LinkDescription], selectedIndex: Int, articles: [Article], meta: MetaDetail, analyticsID: String) -> some View {
+public func articleListPage(tabs: [LinkDescription], selectedIndex: Int, articles: [Article], meta: MetaDetail, analyticsID: String?) -> some View {
     let cells = articles.enumerated().map { (index, article) in
         (index == articles.count - 1) ? AnyView(ArticleListCell(article: article)) : AnyView([
             AnyView(ArticleListCell(article: article)),
@@ -34,7 +34,10 @@ public func articleListPage(tabs: [LinkDescription], selectedIndex: Int, article
                 
                 commonCSS(isApp: false)
                 articleListPageCSS()
-                AnalyticsScript(id: analyticsID)
+                
+                if let analyticsID = analyticsID {
+                    AnalyticsScript(id: analyticsID)
+                }
             }
 
             Body {
