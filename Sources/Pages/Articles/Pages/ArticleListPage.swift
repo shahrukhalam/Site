@@ -31,7 +31,7 @@ public func articleListPage(tabs: [LinkDescription], selectedIndex: Int, article
                 
                 commonCSSLinks
                 
-                commonCSS(isApp: false)
+                commonCSS(page: .articleList, isApp: false)
                 articleListPageCSS()
                 
                 if let analyticsID = analyticsID {

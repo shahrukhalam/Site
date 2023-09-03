@@ -21,14 +21,6 @@ struct Grid: HTMLBodyContentView {
     var body: some HTMLBodyContentView {
         let gridViews = subsections.map { subsection in
             var classes: [CSSClass] = [.gridItemIndex]
-            switch subsection.device {
-            case .small:
-                classes += [.desktopHidden]
-            case .wide:
-                classes += [.mobileHidden]
-            case .all:
-                break
-            }
             switch subsection.layout {
             case .highlighted:
                 classes += [.gridItemHeroIndex]
@@ -39,12 +31,7 @@ struct Grid: HTMLBodyContentView {
             let gridItemViewErased: AnyView
             switch subsection.layout {
             case .highlighted:
-                let gridItemView = sectionHeaderHero(with: subsection.detail)
-                    .position(.relative)
-                    .backgroundColor(isDarkMode ? Color.Dark.IndexGridBackground : Color.Light.IndexSectionHeaderBackground)
-                    .cornerRadius(.pixel(16))
-                    .identifyBy(cssClasses: classes)
-                gridItemViewErased = AnyView(gridItemView)
+                fatalError("Highlighted layout is no longer supported")
             case .compact:
                 let gridItemView = GridView(model: subsection.detail)
                     .position(.relative)
@@ -58,7 +45,6 @@ struct Grid: HTMLBodyContentView {
         
         return Div(AnyView(gridViews))
             .identifyBy(cssClass: .gridContainerIndex)
-//            .margin(top: .pixel(40))
     }
 }
 

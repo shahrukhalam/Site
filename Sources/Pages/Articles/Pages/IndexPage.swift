@@ -9,7 +9,7 @@ public func indexPage(tabs: [LinkDescription], selectedIndex: Int, sections: [Se
 
                 commonCSSLinks
 
-                commonCSS(isApp: false)
+                commonCSS(page: .home, isApp: false)
                 indexPageCSS
 
                 if let analyticsID = analyticsID {
@@ -49,7 +49,7 @@ public func about(markdown: String, authors: [Subsection], tabs: [LinkDescriptio
                 
                 commonCSSLinks
                 
-                commonCSS(isApp: false)
+                commonCSS(page: .about, isApp: false)
                 aboutPageCSS()
                 
                 if let analyticsID = analyticsID {
@@ -96,7 +96,7 @@ public func author(markdown: String, tabs: [LinkDescription], selectedIndex: Int
 
                 commonCSSLinks
 
-                commonCSS(isApp: false)
+                commonCSS(page: .author, isApp: false)
                 aboutPageCSS()
 
                 if let analyticsID = analyticsID {
