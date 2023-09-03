@@ -26,9 +26,13 @@ private let pillLinkHoverStyle = ClassStyle(forClass: .pillLink, withCSSTag: .ho
     .foregroundVariable(.index_background)
     .backgroundVariable(.link_foreground)
 
-public let commonStyles: [CSSStyle] = [
-    linkStyle,
-    linkHoverStyle,
-    pillLinkStyle,
-    pillLinkHoverStyle,
-]
+func commonStyles(page: Page) -> some CSSStyle {
+    switch page {
+    case .home:
+        return AnyStyle(contents: [linkStyle, linkHoverStyle, pillLinkStyle, pillLinkHoverStyle])
+    case .article, .about, .author:
+        return AnyStyle(contents: [linkStyle, linkHoverStyle])
+    case .articleList, ._404:
+        return AnyStyle(contents: [])
+    }
+}

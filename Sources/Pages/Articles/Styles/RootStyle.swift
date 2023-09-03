@@ -55,27 +55,13 @@ extension CSSStyle {
     
     func article(colorScheme: HTMLDSL.ColorScheme) -> CSSStyle {
         self
-            .index(colorScheme: colorScheme)
+            .articleLite(colorScheme: colorScheme)
             .navBar(colorScheme: colorScheme)
-            .link(colorScheme: colorScheme)
-            .code(colorScheme: colorScheme)
-            .variable(color: .code_block_background, scheme: colorScheme)
-            .variable(color: .code_block_type, scheme: colorScheme)
-            .variable(color: .code_block_keyword, scheme: colorScheme)
-            .variable(color: .code_block_string, scheme: colorScheme)
-            .variable(color: .code_block_number, scheme: colorScheme)
-            .variable(color: .note_background, scheme: colorScheme)
-            .variable(color: .note_border, scheme: colorScheme)
-            .variable(color: .warning_background, scheme: colorScheme)
-            .variable(color: .warning_border, scheme: colorScheme)
-            .variable(color: .important_background, scheme: colorScheme)
-            .variable(color: .important_border, scheme: colorScheme)
-            .variable(color: .tip_background, scheme: colorScheme)
-            .variable(color: .tip_border, scheme: colorScheme)
     }
     
     func articleLite(colorScheme: HTMLDSL.ColorScheme) -> CSSStyle {
         self
+            .index(colorScheme: colorScheme)
             .link(colorScheme: colorScheme)
             .code(colorScheme: colorScheme)
             .variable(color: .code_block_background, scheme: colorScheme)

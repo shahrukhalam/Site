@@ -7,20 +7,26 @@
 
 import HTMLDSL
 
-func commonCSS(isApp: Bool) -> some HTMLHeadContentView {
+func commonCSS(page: Page, isApp: Bool) -> some HTMLHeadContentView {
     HeadStyle {
         KickOffStyle()
+
+        RootStyle(page: page, colorScheme: .dark, isApp: isApp)
+        RootStyle(page: page, colorScheme: .light, isApp: isApp)
+        BodyStyle(isApp: isApp)
         
-        RootStyle(isApp: isApp)
-        RootStyle(.light) /// Default is `dark` mode
-        MediaStyle(for: .wide, with: RootStyle(.wide))
-        MediaStyle(for: .small, with: RootStyle(.small))
+        commonStyles(page: page)
         
-        commonStyles
-        
-        MediaStyle(for: .wide, with: fontStyles)
-        MediaStyle(for: .small, with: fontStylesSmall)
-        
-        NavStyle()
+        switch page {
+        case .home, .articleList, ._404:
+            NavStyle()
+        case .article, .about, .author:
+            switch isApp {
+            case false:
+                NavStyle()
+            case true:
+                EmptyStyle()
+            }
+        }
     }
 }

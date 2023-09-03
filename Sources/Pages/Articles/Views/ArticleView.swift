@@ -60,13 +60,13 @@ struct ArticleView: HTMLBodyContentView {
     }
 }
 
-var commentBoxDisclosureStyle: CSSStyle {
+var commentBoxDisclosureStyle: some CSSStyle {
     let pStyle = ClassStyle(forClass: .commentBoxDisclosure)
         .foregroundVariable(.nav_bar_active_item)
     return pStyle
 }
 
-var shareStyle: CSSStyle {
+var shareStyle: some CSSStyle {
     let pStyle = ClassStyle(forClass: .share, withTag: .enclosing(.paragraph))
         .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
         .lineHeight(.number(Typography.LineHeight.body))

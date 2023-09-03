@@ -43,7 +43,7 @@ enum Typography {
     }
 }
 
-func markdownContainerStyle(_ mediaType: MediaStyle.DeviceType) -> CSSStyle {
+func markdownContainerStyle(_ mediaType: MediaStyle.DeviceType) -> some CSSStyle {
     let style = ClassStyle(forClass: .markdownContainer)
         .size(width: mediaType == .wide ? .percentage(50) : .percentage(100))
         .margin(
