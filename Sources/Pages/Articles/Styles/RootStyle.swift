@@ -77,6 +77,7 @@ extension CSSStyle {
             .variable(color: .important_border, scheme: colorScheme)
             .variable(color: .tip_background, scheme: colorScheme)
             .variable(color: .tip_border, scheme: colorScheme)
+            .variable(color: .table_border, scheme: colorScheme)
     }
     
     private func code(colorScheme: HTMLDSL.ColorScheme) -> CSSStyle {

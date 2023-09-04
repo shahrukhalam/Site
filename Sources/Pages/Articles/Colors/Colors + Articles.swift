@@ -116,6 +116,10 @@ extension CSSVariable where T == Color {
     static var tip_border: Self {
         .init(name: "color_\(#function)", value: (dark: .Dark.ArticleTipBorder, light: .Light.ArticleTipBorder))
     }
+    
+    static var table_border: Self {
+        .init(name: "color_\(#function)", value: (dark: .Dark.ArticleTableBorder, light: .Light.ArticleTableBorder))
+    }
 
     static var background_404: Self {
         .init(name: "color_\(#function)", value: (dark: .Dark.Background404, light: .Light.Background404))
@@ -160,6 +164,7 @@ extension Color {
         /// `Tip` section of https://developer.apple.com/documentation/xcode/formatting-your-documentation-content
         static var ArticleTipBackground: Color { .hexWithHash("#0F2C2A") }
         static var ArticleTipBorder: Color { .hexWithHash("#64B7B5") }
+        static var ArticleTableBorder: Color { .rgba(red: 47, green: 47, blue: 47, alpha: 1) }
 
         static var ArticleListGlassBackgroundColor: Color { .rgba(red: 29, green: 29, blue: 31, alpha: 0.6) }
         /// top-left color of `wave.jpg`
@@ -204,6 +209,7 @@ extension Color {
         /// `Tip` section of https://developer.apple.com/documentation/xcode/formatting-your-documentation-content
         static var ArticleTipBackground: Color { .hexWithHash("#FBFFFF") }
         static var ArticleTipBorder: Color { .hexWithHash("#357A77") }
+        static var ArticleTableBorder: Color { .rgba(red: 233, green: 233, blue: 231, alpha: 1) }
         
         static var ArticleListGlassBackgroundColor: Color { .rgba(red: 250, green: 250, blue: 250, alpha: 0.6) }
         /// top-left color of `wave_light.jpg`

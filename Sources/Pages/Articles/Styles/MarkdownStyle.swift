@@ -348,6 +348,29 @@ public struct MarkdownStyle: CSSStyle {
             .size(height: .pixel(1))
             .border(width: .pixel(0))
         
+        let tableStyle = ClassStyle(forClass: .markdown, withTag: .enclosing(.table))
+            .size(width: .percentage(100))
+            .margin(top: .length(.relativeToRoot(Typography.Margin.heading3)))
+        
+        let tableBorderStyle = ClassStyle(
+            tags: [
+                .enclosing(.table),
+                .enclosing(.tableHeader),
+                .enclosing(.tableData)
+            ]
+        )
+            .border(width: .pixel(1), color: .variable(CSSVariable.table_border.name))
+            .borderCollapse()
+        
+        let tableElementsStyle = ClassStyle(
+            tags: [
+                .enclosing(.tableHeader),
+                .enclosing(.tableData)
+            ]
+        )
+            .padding(uniform: .length(.relativeToRoot(Typography.Margin.body)))
+            .align(.left)
+        
         let styles = [
             commonStyle,
             h1Style,
@@ -386,7 +409,10 @@ public struct MarkdownStyle: CSSStyle {
             linkedArticleDescriptionStyle,
             linkedArticleLinkStyle,
             linkedArticleLinkHoverStyle,
-            horizontalLineStyle
+            horizontalLineStyle,
+            tableStyle,
+            tableBorderStyle,
+            tableElementsStyle
         ]
         self.element = styles.map { $0.element }.joined(separator: "\n")
     }
