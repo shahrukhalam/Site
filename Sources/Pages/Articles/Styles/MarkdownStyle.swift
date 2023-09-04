@@ -247,7 +247,7 @@ public struct MarkdownStyle: CSSStyle {
             
             let codeStyle = ClassStyle(
                 parent1: .markdown,
-                parent12: .enclosing(.paragraph),
+                notParent12: .enclosing(.pre),
                 child: .enclosing(.code)
             )
                 .padding(
@@ -423,7 +423,7 @@ public struct MarkdownStyle: CSSStyle {
         case .small:
             let codeStyle = ClassStyle(
                 parent1: .markdown,
-                parent12: .enclosing(.paragraph),
+                notParent12: .enclosing(.pre),
                 child: .enclosing(.code)
             )
                 .padding(
