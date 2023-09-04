@@ -43,19 +43,26 @@ enum Typography {
     }
 }
 
+@StyleBuilder
 func markdownContainerStyle(_ mediaType: MediaStyle.DeviceType) -> some CSSStyle {
-    let style = ClassStyle(forClass: .markdownContainer)
-        .size(width: mediaType == .wide ? .percentage(50) : .percentage(100))
-        .margin(
-            left: .auto,
-            right: .auto
+    switch mediaType {
+    case .wide:
+        ClassStyle(forClass: .markdownContainer)
+            .size(width: .percentage(50))
+            .margin(left: .auto, right: .auto)
+            .boxSize(.borderBox)
+        
+    case .small:
+        MediaStyle(
+            for: mediaType,
+            with: ClassStyle(forClass: .markdownContainer)
+                .size(width: .percentage(100))
+                .padding(
+                    left: .length(.relativeToRoot(Typography.Margin.heading3)),
+                    right: .length(.relativeToRoot(Typography.Margin.heading3))
+                )
         )
-        .padding(
-            left: mediaType == .wide ? .pixel(0) : .length(.relativeToRoot(Typography.Margin.heading3)),
-            right: mediaType == .wide ? .pixel(0) : .length(.relativeToRoot(Typography.Margin.heading3))
-        )
-        .boxSize(.borderBox)
-    return MediaStyle(for: mediaType, with: style)
+    }
 }
 
 public struct MarkdownStyle: CSSStyle {

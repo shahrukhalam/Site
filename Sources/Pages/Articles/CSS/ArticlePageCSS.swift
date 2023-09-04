@@ -10,8 +10,8 @@ import HTMLDSL
 func articlePageCSS(listImage: String) -> some HTMLHeadContentView {
     HeadStyle {
         ArticleStyle()
-        markdownContainerStyle(.small)
         markdownContainerStyle(.wide)
+        markdownContainerStyle(.small)
 
         bylineStyle
 
