@@ -245,7 +245,11 @@ public struct MarkdownStyle: CSSStyle {
                 .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
                 .margin(left: .length(.relativeToRoot(Typography.Margin.heading1)))
             
-            let codeStyle = ClassStyle(forClass: .markdown, withTag: .enclosing(.code))
+            let codeStyle = ClassStyle(
+                parent1: .markdown,
+                parent12: .enclosing(.paragraph),
+                child: .enclosing(.code)
+            )
                 .padding(
                     left: .pixel(6),
                     top: .pixel(3),
@@ -417,7 +421,11 @@ public struct MarkdownStyle: CSSStyle {
                 tableElementsStyle
             ]
         case .small:
-            let codeStyle = ClassStyle(forClass: .markdown, withTag: .enclosing(.code))
+            let codeStyle = ClassStyle(
+                parent1: .markdown,
+                parent12: .enclosing(.paragraph),
+                child: .enclosing(.code)
+            )
                 .padding(
                     left: .pixel(6),
                     top: .pixel(2),
