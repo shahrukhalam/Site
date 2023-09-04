@@ -15,8 +15,8 @@ func articlePageCSS(listImage: String) -> some HTMLHeadContentView {
 
         bylineStyle
 
-        MediaStyle(for: .wide, with: MarkdownStyle(.wide))
-        MediaStyle(for: .small, with: MarkdownStyle(.small))
+        MarkdownStyle(.wide)
+        MarkdownStyle(.small)
 
         shareStyle
         commentBoxDisclosureStyle
