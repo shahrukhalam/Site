@@ -21,8 +21,8 @@ func articlePageCSS(listImage: String) -> some HTMLHeadContentView {
         shareStyle
         commentBoxDisclosureStyle
 
-        MediaStyle(for: .wide, with: ArticleListStyle.cellStyle(.wide))
-        MediaStyle(for: .small, with: ArticleListStyle.cellStyle(.small))
+        ArticleListStyle.cellStyle(.wide)
+        ArticleListStyle.cellStyle(.small)
     }
 }
 
