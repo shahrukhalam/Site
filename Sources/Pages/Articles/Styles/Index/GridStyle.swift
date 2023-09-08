@@ -24,10 +24,8 @@ private let gridContainerLinkStyle = ClassStyle(.gridItemIndex, cssTag: .hover, 
 public let gridContainerStyleIndex: [CSSStyle] = [gridContainerOwnStyle, detailsContainerStyle, collectionDescriptionStyle, gridContainerLinkStyle]
 
 private let gridContainerSmallOwnStyle = ClassStyle(forClass: .gridContainerIndex)
-    .display(.grid)
     .gridNumberOfColumns(1)
-    .gridRow(gap: 12)
-public let gridContainerSmallStyleIndex: [CSSStyle] = [gridContainerSmallOwnStyle, detailsContainerStyle, collectionDescriptionStyle, gridContainerLinkStyle]
+public let gridContainerSmallStyleIndex: [CSSStyle] = [gridContainerSmallOwnStyle]
 
 public let gridHeroStyle = ClassStyle(forClass: .gridItemHeroIndex)
     .gridColumn(location: 1, size: 3)

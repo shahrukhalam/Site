@@ -10,17 +10,24 @@ import HTMLDSL
 func articlePageCSS(listImage: String) -> some HTMLHeadContentView {
     HeadStyle {
         ArticleStyle()
+        
+        /// the order is important
+        /// `wide` first, then `small`
         markdownContainerStyle(.wide)
         markdownContainerStyle(.small)
 
         bylineStyle
 
+        /// the order is important
+        /// `wide` first, then `small`
         MarkdownStyle(.wide)
         MarkdownStyle(.small)
 
         shareStyle
         commentBoxDisclosureStyle
 
+        /// the order is important
+        /// `wide` first, then `small`
         ArticleListStyle.cellStyle(.wide)
         ArticleListStyle.cellStyle(.small)
     }
@@ -28,15 +35,21 @@ func articlePageCSS(listImage: String) -> some HTMLHeadContentView {
 
 func aboutPageCSS() -> some HTMLHeadContentView {
     HeadStyle {
-        MediaStyle(for: .wide, with: gridContainerStyleIndex)
+        /// the order is important
+        /// `wide` first, then `small`
+        gridContainerStyleIndex
         MediaStyle(for: .small, with: gridContainerSmallStyleIndex)
 
         ArticleStyle()
 
-        markdownContainerStyle(.small)
+        /// the order is important
+        /// `wide` first, then `small`
         markdownContainerStyle(.wide)
-        MediaStyle(for: .wide, with: MarkdownStyle(.wide))
-        MediaStyle(for: .small, with: MarkdownStyle(.small))
+        markdownContainerStyle(.small)
+        /// the order is important
+        /// `wide` first, then `small`
+        MarkdownStyle(.wide)
+        MarkdownStyle(.small)
     }
 }
 
@@ -44,9 +57,13 @@ func authorPageCSS() -> some HTMLHeadContentView {
     HeadStyle {
         ArticleStyle()
 
-        markdownContainerStyle(.small)
+        /// the order is important
+        /// `wide` first, then `small`
         markdownContainerStyle(.wide)
-        MediaStyle(for: .wide, with: MarkdownStyle(.wide))
-        MediaStyle(for: .small, with: MarkdownStyle(.small))
+        markdownContainerStyle(.small)
+        /// the order is important
+        /// `wide` first, then `small`
+        MarkdownStyle(.wide)
+        MarkdownStyle(.small)
     }
 }

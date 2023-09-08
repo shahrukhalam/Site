@@ -2,13 +2,12 @@ import HTMLDSL
 
 var indexPageCSS: some HTMLHeadContentView {
     HeadStyle {
-        MediaStyle(for: .wide, with: indexContainerStyle)
+        indexContainerStyle
         MediaStyle(for: .small, with: indexContainerStyleSmall)
 
-        MediaStyle(for: .wide, with: sectionViewStyle)
-        MediaStyle(for: .small, with: sectionViewStyleSmall)
+        sectionViewStyle
 
-        MediaStyle(for: .wide, with: gridContainerStyleIndex)
+        gridContainerStyleIndex
         MediaStyle(for: .small, with: gridContainerSmallStyleIndex)
     }
 }

@@ -16,31 +16,49 @@ struct ArticleListStyle: CSSStyle {
     init(_ mediaType: MediaStyle.DeviceType) {
         self.key = Tag.empty.description
         
-        let htmlStyle = TagStyle(for: .enclosing(.html))
-            .sizeFull()
-            .backgroundVariable(.article_list_background)
-
-        let containerStyle = ClassStyle(forClass: .articleListContainer)
-            .sizeFull()
-            .scrollVertically()
+        let styles: [CSSStyle]
+        switch mediaType {
+        case .wide:
+            let htmlStyle = TagStyle(for: .enclosing(.html))
+                .sizeFull()
+                .backgroundVariable(.article_list_background)
+            
+            let containerStyle = ClassStyle(forClass: .articleListContainer)
+                .sizeFull()
+                .scrollVertically()
+            
+            let articleListStyle = ClassStyle(forClass: .articleList)
+                .size(width: .percentage(60))
+                .margin(
+                    left: .auto,
+                    top: .length(.relativeToRoot(Typography.Margin.title)),
+                    right: .auto,
+                    bottom: .length(.relativeToRoot(Typography.Margin.title))
+                )
+                .padding(
+                    top: .pixel(57)
+                )
+                .boxSize(.borderBox)
+            
+            styles = [htmlStyle, containerStyle, articleListStyle] + Self.cellStyle(mediaType)
+        case .small:
+            let articleListStyle = ClassStyle(forClass: .articleList)
+                .size(width: .percentage(100))
+                .margin(
+                    top: .length(.relativeToRoot(Typography.Margin.title)),
+                    bottom: .length(.relativeToRoot(Typography.Margin.title))
+                )
+                .padding(
+                    left: .length(.relativeToRoot(Typography.Margin.body)),
+                    top: .pixel(57),
+                    right: .length(.relativeToRoot(Typography.Margin.body))
+                )
+            
+            let articleListMediaStyle = MediaStyle(for: .small, with: articleListStyle)
+            
+            styles = [articleListMediaStyle] + Self.cellStyle(mediaType)
+        }
         
-        let articleListStyle = ClassStyle(forClass: .articleList)
-            .size(width: mediaType == .wide ? .percentage(60) : .percentage(100))
-            .margin(
-                left: mediaType == .wide ? .auto : .pixel(0),
-                top: .length(.relativeToRoot(Typography.Margin.title)),
-                right: mediaType == .wide ? .auto : .pixel(0),
-                bottom: .length(.relativeToRoot(Typography.Margin.title))
-            )
-        // TODO: Hacky way as now body is 100% height for article list page
-            .padding(
-                left: mediaType == .wide ? .pixel(0) : .length(.relativeToRoot(Typography.Margin.body)),
-                top: .pixel(57),
-                right: mediaType == .wide ? .pixel(0) : .length(.relativeToRoot(Typography.Margin.body))
-            )
-            .boxSize(.borderBox)
-
-        let styles: [CSSStyle] = [htmlStyle, containerStyle, articleListStyle] + Self.cellStyle(mediaType)
         self.element = styles.map { $0.element }.joined(separator: "\n")
     }
 

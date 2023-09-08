@@ -12,8 +12,8 @@ func articleListPageCSS() -> some HTMLHeadContentView {
         htmlDarkStyle
         htmlLightMediaStyle
         
-        MediaStyle(for: .wide, with: ArticleListStyle(.wide))
-        MediaStyle(for: .small, with: ArticleListStyle(.small))
+        ArticleListStyle(.wide)
+        ArticleListStyle(.small)
     }
 }
 
