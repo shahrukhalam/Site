@@ -23,6 +23,7 @@ struct NavView: HTMLBodyContentView {
     var body: some View {
         let tabViews = tabs.enumerated().map { (index, tab) in
             Link(text: tab.text, url: tab.url)
+                .target(.sameWindowOrTab)
                 .identifyBy(cssClass: selectedIndex == index ? .activeLink : .inactiveLink)
         }
         
