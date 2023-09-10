@@ -26,13 +26,13 @@ public struct ArticleStyle: CSSStyle {
     }
 }
 
-private let bylineContainerStyle = ClassStyle(forClass: .bylineContainer)
+private let bylineContainerStyle = ClassStyle(forClass: .markdown, withClass: .bylineContainer)
     .display(.flex)
     .flexWrap()
     .flex(columnGap: .length(.relativeToRoot(Typography.Margin.subheading)))
     .flex(rowGap: .length(.relativeToRoot(Typography.Margin.byline)))
 
-private let bylineParagraphStyle = ClassStyle(forClass: .bylineParagraph)
+private let bylineParagraphStyle = ClassStyle(forClass: .markdown, withClass: .bylineParagraph)
         .foregroundVariable(.nav_bar_active_item)
 
 private let bylineItemStyle = ClassStyle(forClass: .bylineItem)
