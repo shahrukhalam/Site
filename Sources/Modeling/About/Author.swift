@@ -22,6 +22,12 @@ public struct Author {
     }
 
     public let detail: Detail
+    public let url: String
+    
+    public init(detail: Author.Detail, url: String) {
+        self.detail = detail
+        self.url = url
+    }
 }
 
 extension Author.Detail.Role: CustomStringConvertible {
