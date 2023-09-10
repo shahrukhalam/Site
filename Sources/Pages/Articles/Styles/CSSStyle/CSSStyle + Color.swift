@@ -64,6 +64,14 @@ extension CSSStyle {
             .variable(color: .table_border, scheme: colorScheme)
     }
     
+    func about(colorScheme: HTMLDSL.ColorScheme) -> CSSStyle {
+        self
+            .articleLite(colorScheme: colorScheme)
+            .navBar(colorScheme: colorScheme)
+            .variable(color: .article_list_glass, scheme: colorScheme)
+            .variable(color: .article_list_background, scheme: colorScheme)
+    }
+    
     private func code(colorScheme: HTMLDSL.ColorScheme) -> CSSStyle {
         self
             .variable(color: .code_background, scheme: colorScheme)

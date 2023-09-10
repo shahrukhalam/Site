@@ -23,10 +23,12 @@ struct RootStyle: CSSStyle {
         case .home:
             htmlStyle = htmlTagStyle
                 .home(colorScheme: htmlColorScheme)
+            
         case .articleList:
             htmlStyle = htmlTagStyle
                 .articlesList(colorScheme: htmlColorScheme)
-        case .article, .about, .author:
+            
+        case .article, .author:
             switch isApp {
             case false:
                 htmlStyle = htmlTagStyle
@@ -35,6 +37,11 @@ struct RootStyle: CSSStyle {
                 htmlStyle = htmlTagStyle
                     .articleLite(colorScheme: htmlColorScheme)
             }
+            
+        case .about:
+                htmlStyle = htmlTagStyle
+                    .about(colorScheme: htmlColorScheme)
+            
         case ._404:
             htmlStyle = htmlTagStyle
                 ._404(colorScheme: htmlColorScheme)
