@@ -33,6 +33,10 @@ func articlePageCSS(listImage: String) -> some HTMLHeadContentView {
     }
 }
 
+var openLinkInNewTabCSS: some HTMLHeadContentView {
+    AnyView("<base target=\"_blank\">")
+}
+
 func aboutPageCSS() -> some HTMLHeadContentView {
     HeadStyle {
         /// the order is important

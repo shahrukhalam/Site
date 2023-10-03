@@ -29,7 +29,9 @@ public func articlePage(tabs: [LinkDescription], selectedIndex: Int, article: Ar
                 prismCSSLinks
                 
                 commonCSS(page: .article, isApp: isApp)
-                "<base target=\"_blank\">"
+                if !isApp {
+                    openLinkInNewTabCSS
+                }
                 articlePageCSS(listImage: listImage)
                 
                 if let analyticsID = analyticsID {
