@@ -119,3 +119,35 @@ public func author(markdown: String, tabs: [LinkDescription], selectedIndex: Int
         }
     }
 }
+
+public func support(markdown: String, tabs: [LinkDescription], selectedIndex: Int, meta: MetaDetail, analyticsID: String?) -> some View {
+    Document {
+        HTML {
+            Head {
+                commonMeta(meta)
+                
+                commonCSSLinks
+                
+                commonCSS(page: .about, isApp: false)
+                supportPageCSS()
+                
+                if let analyticsID = analyticsID {
+                    AnalyticsScript(id: analyticsID)
+                }
+            }
+            
+            Body {
+                NavView(tabs: tabs, selectedIndex: selectedIndex)
+                
+                Div {
+                    Div {
+                        Markdown(markdown)
+                            .identifyBy(cssClass: .markdown)
+                    }
+                    .identifyBy(cssClass: .markdownContainer)
+                }
+                .identifyBy(cssClass: .article)
+            }
+        }
+    }
+}

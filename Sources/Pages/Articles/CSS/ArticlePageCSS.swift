@@ -57,6 +57,21 @@ func aboutPageCSS() -> some HTMLHeadContentView {
     }
 }
 
+func supportPageCSS() -> some HTMLHeadContentView {
+    HeadStyle {
+        ArticleStyle()
+
+        /// the order is important
+        /// `wide` first, then `small`
+        markdownContainerStyle(.wide)
+        markdownContainerStyle(.small)
+        /// the order is important
+        /// `wide` first, then `small`
+        MarkdownStyle(.wide)
+        MarkdownStyle(.small)
+    }
+}
+
 func authorPageCSS() -> some HTMLHeadContentView {
     HeadStyle {
         ArticleStyle()
