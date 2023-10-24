@@ -269,6 +269,7 @@ public struct MarkdownStyle: CSSStyle {
                     right: .auto,
                     bottom: .length(.relativeToRoot(Typography.Margin.heading1))
                 )
+                .cornerRadius(uniform: .length(.relativeToRoot(Typography.Margin.subheading)))
             
             let iframeContainerStyle = ClassStyle(forClass: .iframeContainer)
                 .margin(
