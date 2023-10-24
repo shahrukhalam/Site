@@ -92,7 +92,7 @@ private func share(title: String, url: String) -> some HTMLBodyContentView {
                 .lineBreak +
             "If you have questions/suggestion, please add a comment below 👁️‍🗨️" +
                 .lineBreak +
-            "If you liked this article, please share it with your friends and fellow iOS Developers 🙏"
+            "If you liked this article, please share it with your friends and fellow Developers 🙏"
         )
 
         Div {
