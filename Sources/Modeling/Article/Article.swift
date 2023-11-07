@@ -49,16 +49,14 @@ public extension Article.Detail {
     }
     
     struct SubsectionTag: Codable, Equatable, Identifiable {
-        public var id: UUID { .init() }
-
-        public init(name: String, route: String, systemImageIOS: String) {
+        public init(id: String, name: String, systemImageIOS: String) {
             self.name = name
-            self.route = route
+            self.id = id
             self.systemImageIOS = systemImageIOS
         }
         
+        public let id: String
         public let name: String
-        public let route: String
         public let systemImageIOS: String
     }
     
