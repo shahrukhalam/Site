@@ -19,8 +19,12 @@ public func indexPage(tabs: [LinkDescription], selectedIndex: Int, sections: [Se
             
             Body {
                 NavView(tabs: tabs, selectedIndex: selectedIndex)
-                
+                                
                 Div {
+                    Image("/images/promotion/diwali.gif", alternateText: "Happy Diwali")
+                        .size(width: .percentage(100))
+                        .cornerRadius(.length(.relativeToRoot(Typography.Margin.body)))
+                    
                     for section in sections {
                         SectionView(section: section)
                     }
