@@ -24,6 +24,7 @@ public func indexPage(tabs: [LinkDescription], selectedIndex: Int, sections: [Se
                     Image("/images/promotion/diwali.gif", alternateText: "Happy Diwali")
                         .size(width: .percentage(100))
                         .cornerRadius(.length(.relativeToRoot(Typography.Margin.body)))
+                        .border(sides: [.top, .right], color: .variable(CSSVariable.nav_bar_divider.name))
                     
                     for section in sections {
                         SectionView(section: section)
