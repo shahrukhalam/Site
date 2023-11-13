@@ -30,9 +30,11 @@ public let createdOnParser = Parse {
 
 public let tagsParser = Parse {
     "Tags: "
-    Prefix { $0 != "\n" }
-        .map(.string)
-        .map { $0.split(separator: ", ") }
+    Many {
+        Prefix { $0 != "," && $0 != "\n" }
+    } separator: {
+        ", "
+    }
 }
 
 public let estimatedTimeParser = Parse {
