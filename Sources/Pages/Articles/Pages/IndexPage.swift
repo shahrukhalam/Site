@@ -64,7 +64,7 @@ func footer() -> some HTMLContentView {
                         .identifyBy(cssClass: .footerLink)
                     Link(text: "Support", url: "/support")
                         .identifyBy(cssClass: .footerLink)
-                    Link(text: "Privacy Policy", url: "/privacy/app")
+                    Link(text: "Privacy", url: "/privacy/app")
                         .identifyBy(cssClass: .footerLink)
                 }
                 .identifyBy(cssClass: .footerFlexContainerY)
@@ -87,9 +87,7 @@ func footer() -> some HTMLContentView {
                 bottom: .length(.relativeToRoot(Typography.Margin.heading3))
             )
         }
-        .identifyBy(cssClass: .footerFlexContainerY)
-        .size(width: .percentage(50))
-        .margin(left: .auto, right: .auto)
+        .identifyBy(cssClass: .footerFlexOuterContainerY)
     }
     .identifyBy(cssClass: .footerContainer)
 }
