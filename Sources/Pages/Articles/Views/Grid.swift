@@ -60,18 +60,15 @@ struct GridView: HTMLBodyContentView {
     
     var body: some HTMLBodyContentView {
         Div {
-            Link(text: .empty, url: detail.link.url)
-                .position(.absolute, left: .pixel(0), top: .pixel(0), right: .pixel(0), bottom: .pixel(0))
-                .accessibility(detail.image.description)
-
             Image(detail.image.url, alternateText: detail.image.description)
-            // TODO: Now, the background color in light mode is specific to journey
-            // Photoshop can be used
-                .backgroundColor(isDarkMode ? .Dark.IndexGridImageBackground : .hexWithHash("#161617"))
                 .position(.absolute)
                 .size(width: .percentage(100), height: .percentage(100))
                 .contentMode(.aspectFill)
                 .cornerRadius(.pixel(16))
+            
+            Link(text: .empty, url: detail.link.url)
+                .position(.absolute, left: .pixel(0), top: .pixel(0), right: .pixel(0), bottom: .pixel(0))
+                .accessibility(detail.image.description)
 
             Div {
                 Headings(detail.description.title, type: .h2)
