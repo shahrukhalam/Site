@@ -22,6 +22,9 @@ public struct ArticleStyle: CSSStyle {
             .padding(
                 bottom: .length(.relativeToRoot(Typography.Margin.heading1))
             )
+            /// To make footer stay at the bottom
+            /// https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/
+            .flex(value: 1)
         self.element = articleStyle.element
     }
 }
