@@ -55,6 +55,9 @@ func footer() -> some HTMLContentView {
                         .identifyBy(cssClass: .footerLink)
                 }
                 .identifyBy(cssClass: .footerFlexContainerY)
+                .margin(
+                    left: .length(.relativeToRoot(Typography.Margin.body))
+                )
                 
                 Div {
                     Paragraphs("More")
@@ -68,6 +71,9 @@ func footer() -> some HTMLContentView {
                         .identifyBy(cssClass: .footerLink)
                 }
                 .identifyBy(cssClass: .footerFlexContainerY)
+                .margin(
+                    right: .length(.relativeToRoot(Typography.Margin.body))
+                )
             }
             .identifyBy(cssClass: .footerFlexContainerX)
             .margin(
@@ -83,7 +89,9 @@ func footer() -> some HTMLContentView {
             }
             .identifyBy(cssClass: .footerFlexContainerX)
             .margin(
+                left: .length(.relativeToRoot(Typography.Margin.body)),
                 top: .length(.relativeToRoot(Typography.Margin.body)),
+                right: .length(.relativeToRoot(Typography.Margin.body)),
                 bottom: .length(.relativeToRoot(Typography.Margin.heading3))
             )
         }

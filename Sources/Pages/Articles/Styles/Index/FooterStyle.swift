@@ -24,5 +24,5 @@ private let footerLinkStyle = ClassStyle(forClass: .footerLink)
 private let footerLinkHoverStyle = ClassStyle(forClass: .footerLink, withCSSTag: .hover)
     .foregroundVariable(.nav_bar_inactive_item)
 private let footerFlexOuterContainerYSmall = ClassStyle(forClass: .footerFlexOuterContainerY)
-    .size(width: .percentage(90))
+    .size(width: .percentage(96))
 public let footerStyle: [CSSStyle] = [footerContainer, footerFlexContainerX, footerFlexOuterContainerY, MediaStyle(for: .small, with: footerFlexOuterContainerYSmall), footerFlexContainerY, footerLinkStyle, footerLinkHoverStyle]
