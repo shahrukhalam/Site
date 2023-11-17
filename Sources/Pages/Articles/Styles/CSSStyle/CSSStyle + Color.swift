@@ -6,6 +6,7 @@ extension CSSStyle {
             .index(colorScheme: colorScheme)
             .navBar(colorScheme: colorScheme)
             .link(colorScheme: colorScheme)
+            .footer(colorScheme: colorScheme)
     }
     
     private func index(colorScheme: HTMLDSL.ColorScheme) -> CSSStyle {
@@ -26,6 +27,11 @@ extension CSSStyle {
             .variable(color: .nav_bar_inactive_item, scheme: colorScheme)
             .variable(color: .nav_bar_hover_item, scheme: colorScheme)
             .variable(color: .nav_bar_divider, scheme: colorScheme)
+    }
+    
+    private func footer(colorScheme: HTMLDSL.ColorScheme) -> CSSStyle {
+        self
+            .variable(color: .code_block_background, scheme: colorScheme)
     }
     
     func articlesList(colorScheme: HTMLDSL.ColorScheme) -> CSSStyle {

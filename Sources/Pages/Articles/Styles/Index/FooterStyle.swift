@@ -1,0 +1,20 @@
+import HTMLDSL
+
+private let footerContainer = ClassStyle(forClass: .footerContainer)
+    .constraint(left: .pixel(0), right: .pixel(0), bottom: .pixel(0))
+    .backgroundVariable(.code_block_background)
+    .foregroundVariable(.nav_bar_active_item)
+private let footerFlexContainerX = ClassStyle(forClass: .footerFlexContainerX)
+    .display(.flex)
+    .flexDistribute(.spaceBetween)
+private let footerFlexContainerY = ClassStyle(forClass: .footerFlexContainerY)
+    .display(.flex)
+    .flexDirection(.vertical)
+    .flex(gap: .length(.relativeToRoot(Typography.Margin.body)))
+private let footerLinkStyle = ClassStyle(forClass: .footerLink)
+    .foregroundVariable(.nav_bar_active_item)
+    .font(size: .relativeToRootFontSize(Typography.Font.Size.byline))
+    .textDecoration(.none)
+private let footerLinkHoverStyle = ClassStyle(forClass: .footerLink, withCSSTag: .hover)
+    .foregroundVariable(.nav_bar_inactive_item)
+public let footerStyle: [CSSStyle] = [footerContainer, footerFlexContainerX, footerFlexContainerY, footerLinkStyle, footerLinkHoverStyle]

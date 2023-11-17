@@ -12,19 +12,9 @@ public let indexContainerStyle = ClassStyle(forClass: .indexContainer)
 public let indexContainerStyleSmall = ClassStyle(forClass: .indexContainer)
     .size(width: .percentage(90))
 
-
-
-
-
-// MARK: Wide
-
-private let sectionViewOwnStyle = ClassStyle(forClass: .section)
-
+/// Section & Tags
 private let flexContainerStyle = ClassStyle(forClass: .flexContainer)
     .display(.flex)
     .flexWrap()
     .flex(gap: .length(.relativeToRoot(Typography.Margin.subheading)))
-
-private let flexItemStyle = ClassStyle(forClass: .flexItem)
-
 public let sectionViewStyle: [CSSStyle] = [flexContainerStyle]

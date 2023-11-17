@@ -28,5 +28,7 @@ func commonCSS(page: Page, isApp: Bool) -> some HTMLHeadContentView {
                 EmptyStyle()
             }
         }
+        
+        footerStyle
     }
 }
