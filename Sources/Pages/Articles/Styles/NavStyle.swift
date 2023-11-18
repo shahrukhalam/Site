@@ -26,7 +26,7 @@ public struct NavStyle: CSSStyle {
             .padding(uniform: .pixel(16))
             .display(.inlineBlock)
             .textDecoration(.none)
-            .font(size: .percentage(125))
+            .font(size: .relativeToRootFontSize(Typography.Font.Size.byline))
         
         let activeLinkStyle = ClassStyle(forClass: .activeLink)
             .foregroundVariable(.nav_bar_active_item)

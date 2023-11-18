@@ -21,13 +21,7 @@ public func indexPage(tabs: [LinkDescription], selectedIndex: Int, sections: [Se
                 NavView(tabs: tabs, selectedIndex: selectedIndex)
                 
                 Div {
-                    Image("/images/promotion/diwali.gif", alternateText: "Happy Diwali")
-                        .size(width: .percentage(100))
-                        .cornerRadius(.length(.relativeToRoot(Typography.Margin.body)))
-                        .border(sides: [.top, .right], color: .variable(CSSVariable.nav_bar_divider.name))
-                        .margin(
-                            top: .length(.relativeToRoot(Typography.Margin.title))
-                        )
+                    promotion()
                     
                     for section in sections {
                         SectionView(section: section)
@@ -39,6 +33,13 @@ public func indexPage(tabs: [LinkDescription], selectedIndex: Int, sections: [Se
             }
         }
     }
+}
+
+func promotion() -> some HTMLContentView {
+    Image("/images/promotion/diwali.gif", alternateText: "Happy Diwali")
+        .size(width: .percentage(100))
+        .cornerRadius(.length(.relativeToRoot(Typography.Margin.body)))
+        .border(sides: [.top, .right], color: .variable(CSSVariable.nav_bar_divider.name))
 }
 
 func footer() -> some HTMLContentView {
