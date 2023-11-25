@@ -75,7 +75,7 @@ func footerView(_ footer: Footer) -> some HTMLContentView {
             commonDivider
             
             Div {
-                Paragraphs("Copyright © 2023 Swift Published. All rights reserved.")
+                Paragraphs(footer.copyright)
                     .font(size: .relativeToRootFontSize(Typography.Font.Size.byline))
             }
             .identifyBy(cssClass: .footerFlexContainerX)

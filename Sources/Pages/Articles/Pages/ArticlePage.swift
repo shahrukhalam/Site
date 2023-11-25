@@ -8,7 +8,7 @@
 import Modeling
 import HTMLDSL
 
-private var prismCSSLinks: some HTMLContentView {
+private var prismCSSLinks: some HTMLHeadContentView {
     AnyView([
         /// Loading CSS based on any `media` query expression
         /// seems to be out of specification for the media attribute.
@@ -19,14 +19,17 @@ private var prismCSSLinks: some HTMLContentView {
     ])
 }
 
-public func articlePage(tabs: [LinkDescription], selectedIndex: Int, article: Article, meta: MetaDetail, listImage: String, analyticsID: String?, isApp: Bool) -> some View {
+public func articlePage(site: Site, tabs: [LinkDescription], selectedIndex: Int, article: Article, meta: MetaDetail, listImage: String, analyticsID: String?, isApp: Bool) -> some View {
     Document {
         HTML {
             Head {
                 commonMeta(meta, isApp: isApp)
                 
                 commonCSSLinks
-                prismCSSLinks
+                
+                if case .ios = site {
+                    prismCSSLinks
+                }
                 
                 commonCSS(page: .article, isApp: isApp)
                 if !isApp {
@@ -45,7 +48,10 @@ public func articlePage(tabs: [LinkDescription], selectedIndex: Int, article: Ar
                 }
                 
                 ArticleView(article)
-                Script(url: "/js/prism.js")
+                
+                if case .ios = site {
+                    Script(url: "/js/prism.js")
+                }
             }
         }
     }

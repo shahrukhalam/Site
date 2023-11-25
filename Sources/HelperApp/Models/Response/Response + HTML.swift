@@ -29,6 +29,7 @@ public extension Response {
     
     static func article(
         for request: Request,
+        site: Site,
         article: Article,
         with meta: MetaDetail,
         tabs: [LinkDescription],
@@ -39,6 +40,7 @@ public extension Response {
         .html(
             for: request,
             with: articlePage(
+                site: site,
                 tabs: tabs,
                 selectedIndex: 1,
                 article: article,
