@@ -1,7 +1,7 @@
 import Modeling
 import HTMLDSL
 
-public func indexPage(tabs: [LinkDescription], selectedIndex: Int, sections: [Section], collection: Section, meta: MetaDetail, analyticsID: String?) -> some View {
+public func indexPage(tabs: [LinkDescription], selectedIndex: Int, promotions: [ImageDescription] = [], sections: [Section], collections: [Section] = [], footer: Footer, meta: MetaDetail, analyticsID: String?) -> some View {
     Document {
         HTML {
             Head {
@@ -21,7 +21,9 @@ public func indexPage(tabs: [LinkDescription], selectedIndex: Int, sections: [Se
                 NavView(tabs: tabs, selectedIndex: selectedIndex)
                 
                 Div {
-                    promotion()
+                    for promotion in promotions {
+                        promotionView(promotion)
+                    }
                     
                     for section in sections {
                         SectionView(section: section)
@@ -29,52 +31,40 @@ public func indexPage(tabs: [LinkDescription], selectedIndex: Int, sections: [Se
                 }
                 .identifyBy(cssClass: .indexContainer)
                 
-                footer()
+                footerView(footer)
             }
         }
     }
 }
 
-func promotion() -> some HTMLContentView {
-    Image("/images/promotion/diwali.gif", alternateText: "Happy Diwali")
-        .size(width: .percentage(100))
-        .cornerRadius(.length(.relativeToRoot(Typography.Margin.body)))
-        .border(sides: [.top, .right], color: .variable(CSSVariable.nav_bar_divider.name))
+func promotionView(_ image: ImageDescription) -> AnyView {
+    AnyView(
+        Image(image.url, alternateText: image.description)
+            .size(width: .percentage(100))
+            .cornerRadius(.length(.relativeToRoot(Typography.Margin.body)))
+            .border(sides: [.top, .right], color: .variable(CSSVariable.nav_bar_divider.name))
+    )
 }
 
-func footer() -> some HTMLContentView {
+func footerView(_ footer: Footer) -> some HTMLContentView {
     Div {
         Div {
             Div {
-                Div {
-                    Paragraphs("Content")
-                        .font(size: .relativeToRootFontSize(Typography.Font.Size.byline))
-                        .font(weight: .number(600))
-                    Link(text: "Home", url: "/")
-                        .identifyBy(cssClass: .footerLink)
-                    Link(text: "Articles", url: "/articles")
-                        .identifyBy(cssClass: .footerLink)
+                for section in footer.sections {
+                    Div {
+                        Paragraphs(section.name)
+                            .font(size: .relativeToRootFontSize(Typography.Font.Size.byline))
+                            .font(weight: .number(600))
+                        for subsection in section.subsections {
+                            Link(text: subsection.text, url: subsection.url)
+                                .identifyBy(cssClass: .footerLink)
+                        }
+                    }
+                    .identifyBy(cssClass: .footerFlexContainerY)
+                    .margin(
+                        left: .length(.relativeToRoot(Typography.Margin.body))
+                    )
                 }
-                .identifyBy(cssClass: .footerFlexContainerY)
-                .margin(
-                    left: .length(.relativeToRoot(Typography.Margin.body))
-                )
-                
-                Div {
-                    Paragraphs("More")
-                        .font(size: .relativeToRootFontSize(Typography.Font.Size.byline))
-                        .font(weight: .number(600))
-                    Link(text: "About", url: "/about")
-                        .identifyBy(cssClass: .footerLink)
-                    Link(text: "Support", url: "/support")
-                        .identifyBy(cssClass: .footerLink)
-                    Link(text: "Privacy", url: "/privacy/app")
-                        .identifyBy(cssClass: .footerLink)
-                }
-                .identifyBy(cssClass: .footerFlexContainerY)
-                .margin(
-                    right: .length(.relativeToRoot(Typography.Margin.body))
-                )
             }
             .identifyBy(cssClass: .footerFlexContainerX)
             .margin(
@@ -101,7 +91,7 @@ func footer() -> some HTMLContentView {
     .identifyBy(cssClass: .footerContainer)
 }
 
-public func about(markdown: String, authors: [Subsection], tabs: [LinkDescription], selectedIndex: Int, meta: MetaDetail, analyticsID: String?) -> some View {
+public func about(markdown: String, authors: [Subsection], tabs: [LinkDescription], selectedIndex: Int, footer: Footer, meta: MetaDetail, analyticsID: String?) -> some View {
     Document {
         HTML {
             Head {
@@ -144,13 +134,13 @@ public func about(markdown: String, authors: [Subsection], tabs: [LinkDescriptio
                 }
                 .identifyBy(cssClass: .article)
                 
-                footer()
+                footerView(footer)
             }
         }
     }
 }
 
-public func author(markdown: String, tabs: [LinkDescription], selectedIndex: Int, meta: MetaDetail, analyticsID: String?) -> some View {
+public func author(markdown: String, tabs: [LinkDescription], selectedIndex: Int, footer: Footer, meta: MetaDetail, analyticsID: String?) -> some View {
     Document {
         HTML {
             Head {
@@ -178,13 +168,13 @@ public func author(markdown: String, tabs: [LinkDescription], selectedIndex: Int
                 }
                 .identifyBy(cssClass: .article)
                 
-                footer()
+                footerView(footer)
             }
         }
     }
 }
 
-public func support(markdown: String, tabs: [LinkDescription], selectedIndex: Int, meta: MetaDetail, analyticsID: String?) -> some View {
+public func support(markdown: String, tabs: [LinkDescription], selectedIndex: Int, footer: Footer, meta: MetaDetail, analyticsID: String?) -> some View {
     Document {
         HTML {
             Head {
@@ -212,7 +202,7 @@ public func support(markdown: String, tabs: [LinkDescription], selectedIndex: In
                 }
                 .identifyBy(cssClass: .article)
                 
-                footer()
+                footerView(footer)
             }
         }
     }
