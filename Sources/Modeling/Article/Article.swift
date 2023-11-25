@@ -11,11 +11,11 @@ public struct Article {
     public struct Detail {
         public let title: String
         public let intro: String
-        public let banner: String
+        public let banner: ImageDescription
         public let tags: [String]
         public let bylines: [Byline]
         
-        public init(title: String, intro: String, banner: String, tags: [String], bylines: [Byline] = []) {
+        public init(title: String, intro: String, banner: ImageDescription, tags: [String], bylines: [Byline] = []) {
             self.title = title
             self.intro = intro
             self.banner = banner

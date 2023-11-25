@@ -21,7 +21,7 @@ struct ArticleListCell: HTMLBodyContentView {
     var body: some View {
         let image = AnyView(
             Div {
-                Image(article.detail.banner, alternateText: "Swift logo")
+                Image(article.detail.banner.url, alternateText: article.detail.banner.description)
                     .size(width: .percentage(100))
                     .aspectRatio(width: 16, height: 9)
                     .contentMode(.aspectFill)
