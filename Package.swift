@@ -17,6 +17,7 @@ let package = Package(
     dependencies: [
         // 💧 A server-side Swift web framework.
         .package(url: "https://github.com/vapor/vapor.git", from: "4.70.0"),
+        .package(url: "https://github.com/pointfreeco/swift-parsing", from: "0.13.0")
     ],
     targets: [
         .target(name: "Modeling"),
@@ -25,6 +26,7 @@ let package = Package(
             name: "HelperApp",
             dependencies: [
                 .product(name: "Vapor", package: "vapor"),
+                .product(name: "Parsing", package: "swift-parsing"),
                 "Modeling",
                 "Pages"
             ],
