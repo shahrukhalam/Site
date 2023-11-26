@@ -98,6 +98,7 @@ private func share(title: String, url: String) -> some HTMLBodyContentView {
         Div {
             ImageLink(url: "https://twitter.com/intent/tweet?text=I recommend \(title) by Shahrukh Alam \(url)", content: {
                 Image("/images/articles/twitter.png", alternateText: "twitter icon")
+                    .contentMode(.aspectFit)
                 Paragraphs("Share this article on Twitter")
                     .padding(left: .length(.relativeToRoot(Typography.Margin.body)))
             })
@@ -114,6 +115,7 @@ private func share(title: String, url: String) -> some HTMLBodyContentView {
         Div {
             ImageLink(url: "https://www.linkedin.com/sharing/share-offsite/?url=\(url)", content: {
                 Image("/images/articles/linkedin.png", alternateText: "linkedin icon")
+                    .contentMode(.aspectFit)
                 Paragraphs("Share this article on Linkedin")
                     .padding(left: .length(.relativeToRoot(Typography.Margin.body)))
             })
