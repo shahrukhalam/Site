@@ -19,7 +19,7 @@ private var prismCSSLinks: some HTMLHeadContentView {
     ])
 }
 
-public func articlePage(site: Site, tabs: [LinkDescription], selectedIndex: Int, article: Article, meta: MetaDetail, listImage: String, analyticsID: String?, isApp: Bool) -> some View {
+public func articlePage(site: Site, tabs: [LinkDescription], selectedIndex: Int, article: Article, meta: MetaDetail, analyticsID: String?, isApp: Bool) -> some View {
     Document {
         HTML {
             Head {
@@ -35,7 +35,7 @@ public func articlePage(site: Site, tabs: [LinkDescription], selectedIndex: Int,
                 if !isApp {
                     openLinkInNewTabCSS
                 }
-                articlePageCSS(listImage: listImage)
+                articlePageCSS()
                 
                 if let analyticsID = analyticsID {
                     AnalyticsScript(id: analyticsID)

@@ -7,7 +7,7 @@
 
 import HTMLDSL
 
-func articlePageCSS(listImage: String) -> some HTMLHeadContentView {
+func articlePageCSS() -> some HTMLHeadContentView {
     HeadStyle {
         ArticleStyle()
         

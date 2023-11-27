@@ -33,7 +33,6 @@ public extension Response {
         article: Article,
         with meta: MetaDetail,
         tabs: [LinkDescription],
-        listImage: String,
         analyticsID: String?,
         isApp: Bool
     ) throws -> Response {
@@ -45,7 +44,6 @@ public extension Response {
                 selectedIndex: -1,
                 article: article,
                 meta: meta,
-                listImage: listImage,
                 analyticsID: analyticsID,
                 isApp: isApp
             )
