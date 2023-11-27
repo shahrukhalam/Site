@@ -36,7 +36,7 @@ struct ArticleListStyle: CSSStyle {
                     bottom: .length(.relativeToRoot(Typography.Margin.title))
                 )
                 .padding(
-                    top: .pixel(57)
+                    top: .pixel(NavStyle.height)
                 )
                 .boxSize(.borderBox)
             
@@ -50,7 +50,7 @@ struct ArticleListStyle: CSSStyle {
                 )
                 .padding(
                     left: .length(.relativeToRoot(Typography.Margin.body)),
-                    top: .pixel(57),
+                    top: .pixel(NavStyle.height),
                     right: .length(.relativeToRoot(Typography.Margin.body))
                 )
             

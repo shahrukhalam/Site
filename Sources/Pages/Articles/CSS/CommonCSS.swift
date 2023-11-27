@@ -13,8 +13,14 @@ func commonCSS(page: Page, isApp: Bool) -> some HTMLHeadContentView {
 
         RootStyle(page: page, colorScheme: .dark, isApp: isApp)
         RootStyle(page: page, colorScheme: .light, isApp: isApp)
-        BodyStyle(isApp: isApp)
-        
+
+        switch page {
+        case .home, .about, .author, ._404:
+            BodyStyle(isApp: isApp, isFooterEnabled: true)
+        case .articleList, .article:
+            BodyStyle(isApp: isApp, isFooterEnabled: false)
+        }
+
         commonStyles(page: page)
         
         switch page {

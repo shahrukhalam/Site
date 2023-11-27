@@ -42,7 +42,7 @@ public extension Response {
             with: articlePage(
                 site: site,
                 tabs: tabs,
-                selectedIndex: 1,
+                selectedIndex: -1,
                 article: article,
                 meta: meta,
                 listImage: listImage,

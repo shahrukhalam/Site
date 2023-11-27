@@ -8,6 +8,8 @@
 import HTMLDSL
 
 public struct NavStyle: CSSStyle {
+    public static let height: Float = 49.5
+
     public let key: CustomStringConvertible = Tag.empty.description
     public let styles = [Style]()
     
