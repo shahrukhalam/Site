@@ -61,14 +61,13 @@ func footerView(_ footer: Footer) -> some HTMLContentView {
                         }
                     }
                     .identifyBy(cssClass: .footerFlexContainerY)
-                    .margin(
-                        left: .length(.relativeToRoot(Typography.Margin.body))
-                    )
                 }
             }
             .identifyBy(cssClass: .footerFlexContainerX)
             .margin(
+                left: .length(.relativeToRoot(Typography.Margin.body)),
                 top: .length(.relativeToRoot(Typography.Margin.heading3)),
+                right: .length(.relativeToRoot(Typography.Margin.body)),
                 bottom: .length(.relativeToRoot(Typography.Margin.body))
             )
             
