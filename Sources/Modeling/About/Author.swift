@@ -16,8 +16,7 @@ public struct Author {
             }
 
             public static let creator: Role = .init(rawValue: 1 << 0)
-            public static let marketeer: Role = .init(rawValue: 1 << 1)
-            public static let author: Role = .init(rawValue: 1 << 2)
+            public static let author: Role = .init(rawValue: 1 << 1)
         }
     }
 
@@ -35,14 +34,10 @@ extension Author.Detail.Role: CustomStringConvertible {
         switch self {
         case .creator:
             return "creator"
-        case .marketeer:
-            return "marketeer"
         case .author:
             return "author"
         case [.creator, .author]:
             return "creator & author"
-        case [.marketeer, .author]:
-            return "marketeer & author"
         default:
             fatalError("Unexpected Role at this point")
         }
