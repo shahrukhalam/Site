@@ -7,7 +7,7 @@
 
 import HTMLDSL
 
-func articlePageCSS() -> some HTMLHeadContentView {
+public func articlePageCSS() -> some HTMLHeadContentView {
     HeadStyle {
         ArticleStyle()
         
@@ -33,7 +33,7 @@ func articlePageCSS() -> some HTMLHeadContentView {
     }
 }
 
-var openLinkInNewTabCSS: some HTMLHeadContentView {
+public var openLinkInNewTabCSS: some HTMLHeadContentView {
     AnyView("<base target=\"_blank\">")
 }
 

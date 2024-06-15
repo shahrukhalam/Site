@@ -27,19 +27,6 @@ public extension Response {
         return response
     }
 
-    static func html(for request: Request, with content: String) -> Response {
-        let response = Response()
-
-        response.headers.contentType = .html
-        try! request.application.liveRun {
-            response.headers.cacheControl = .init(isPublic: true, maxAge: 31536000) // A year
-        }
-
-        response.body = .init(string: content)
-
-        return response
-    }
-
     static func article(
         for request: Request,
         site: Site,
@@ -62,7 +49,7 @@ public extension Response {
             )
         )
     }
-    
+
     static func articles(
         for request: Request,
         articles: [Article],

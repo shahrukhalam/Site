@@ -7,7 +7,7 @@
 
 import HTMLDSL
 
-func commonCSS(page: Page, isApp: Bool) -> some HTMLHeadContentView {
+public func commonCSS(page: Page, isApp: Bool) -> some HTMLHeadContentView {
     HeadStyle {
         KickOffStyle()
 

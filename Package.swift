@@ -12,16 +12,25 @@ let package = Package(
     products: [
         .library(name: "Modeling", targets: ["Modeling"]),
         .library(name: "Pages", targets: ["Pages"]),
+        .library(name: "NotionPages", targets: ["NotionPages"]),
         .library(name: "HelperApp", targets: ["HelperApp"])
     ],
     dependencies: [
         // 💧 A server-side Swift web framework.
         .package(url: "https://github.com/vapor/vapor.git", from: "4.70.0"),
-        .package(url: "https://github.com/pointfreeco/swift-parsing", from: "0.13.0")
+        .package(url: "https://github.com/pointfreeco/swift-parsing", from: "0.13.0"),
+        .package(path: "../swift-notion-parsing")
     ],
     targets: [
         .target(name: "Modeling"),
         .target(name: "Pages", dependencies: ["Modeling", "HTMLDSL"]),
+        .target(
+            name: "NotionPages", 
+            dependencies: [
+                .product(name: "NotionParsing", package: "swift-notion-parsing"),
+                "Pages"
+            ]
+        ),
         .target(
             name: "HelperApp",
             dependencies: [

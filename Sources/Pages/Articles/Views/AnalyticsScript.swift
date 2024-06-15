@@ -7,17 +7,17 @@
 
 import HTMLDSL
 
-struct AnalyticsScript: HTMLHeadContentView {
-    let tag: Tag = .empty
-    var attributes: [Attribute] = []
+public struct AnalyticsScript: HTMLHeadContentView {
+    public let tag: Tag = .empty
+    public var attributes: [Attribute] = []
 
     private let id: String
 
-    init(id: String) {
+    public init(id: String) {
         self.id = id
     }
     
-    var body: String {
+    public var body: String {
         """
         <!-- Google tag (gtag.js) -->
         <script defer src="https://www.googletagmanager.com/gtag/js?id=G-\(id)"></script>

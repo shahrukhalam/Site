@@ -8,7 +8,7 @@
 import Foundation
 import HTMLDSL
 
-enum Typography {
+public enum Typography {
     enum LineHeight {
         static let title: Float = 1.2
         static let heading: Float = 1.3
@@ -16,26 +16,26 @@ enum Typography {
         static let body: Float = 1.5
     }
     
-    enum Font {
-        enum Size {
+    public enum Font {
+        public enum Size {
             static let title: Float = 2.5
             static let heading1: Float = 1.875
             static let heading2: Float = 1.5
             static let heading3: Float = 1.25
             static let subheading: Float = 1.125
             static let body: Float = 1
-            static let byline: Float = 0.875
+            public static let byline: Float = 0.875
         }
         
-        enum Weight {
-            static let byline: Int = 500
+        public enum Weight {
+            public static let byline: Int = 500
         }
     }
     
-    enum Margin {
-        static let byline: Float = 0.25
+    public enum Margin {
+        public static let byline: Float = 0.25
         static let body: Float = 0.5
-        static let title: Float = 4
+        public static let title: Float = 4
         static let heading1: Float = 2
         static let heading2: Float = 1.5
         static let heading3: Float = 1

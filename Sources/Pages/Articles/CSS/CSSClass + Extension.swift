@@ -44,9 +44,9 @@ extension CSSClass {
     static var gridItemHeroIndex: Self { .init(stringLiteral: #function) }
     
     // MARK: Article
-    static var article: Self { .init(stringLiteral: #function) }
-    static var markdownContainer: Self { .init(stringLiteral: #function) }
-    static var markdown: Self { .init(stringLiteral: #function) }
+    public static var article: Self { .init(stringLiteral: #function) }
+    public static var markdownContainer: Self { .init(stringLiteral: #function) }
+    public static var markdown: Self { .init(stringLiteral: #function) }
     static var intro: Self { .init(stringLiteral: #function) }
     static var imageCredits: Self { .init(stringLiteral: #function) }
     static var share: Self { .init(stringLiteral: #function) }
@@ -71,7 +71,7 @@ extension CSSClass {
     static var linkedArticleImage: Self { .init(stringLiteral: #function) }
     static var linkedArticleDetail: Self { .init(stringLiteral: #function) }
     
-    static var commentBoxDisclosure: Self { .init(stringLiteral: #function) }
+    public static var commentBoxDisclosure: Self { .init(stringLiteral: #function) }
     static var bylineParagraph: Self { .init(stringLiteral: #function) }
     
     // MARK: Article List

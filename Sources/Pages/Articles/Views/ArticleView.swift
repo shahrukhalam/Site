@@ -10,7 +10,7 @@ import HTMLDSL
 
 /// Local: `5646122693427200-proj`
 /// Live: `5721215717081088-proj`
-let commentBox = """
+public let commentBox = """
     <div class="commentbox"></div>
     <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
     <script>commentBox('5721215717081088-proj', { sortOrder: 'newest', textColor: 'grey' })</script>
@@ -85,7 +85,7 @@ var shareStyle: some CSSStyle {
     return [pStyle, linkStyle, linkHoverStyle, pLinkStyle]
 }
 
-private func share(title: String, url: String) -> some HTMLBodyContentView {
+public func share(title: String, url: String) -> some HTMLBodyContentView {
     Div {
         Paragraphs(
             "Thanks for reading 🚀" +

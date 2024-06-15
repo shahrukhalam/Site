@@ -1,4 +1,4 @@
-enum Page {
+public enum Page {
     case home
     case articleList
     case article

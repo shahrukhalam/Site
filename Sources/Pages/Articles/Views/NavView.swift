@@ -8,19 +8,19 @@
 import HTMLDSL
 import Modeling
 
-struct NavView: HTMLBodyContentView {
-    var tag: Tag = .empty
-    var attributes = [Attribute]()
-    
+public struct NavView: HTMLBodyContentView {
+    public var tag: Tag = .empty
+    public var attributes = [Attribute]()
+
     private let tabs: [LinkDescription]
     private let selectedIndex: Int
     
-    init(tabs: [LinkDescription], selectedIndex: Int) {
+    public init(tabs: [LinkDescription], selectedIndex: Int) {
         self.tabs = tabs
         self.selectedIndex = selectedIndex
     }
     
-    var body: some View {
+    public var body: some View {
         let tabViews = tabs.enumerated().map { (index, tab) in
             Link(text: tab.text, url: tab.url)
                 .target(.sameWindowOrTab)

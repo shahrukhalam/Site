@@ -8,7 +8,7 @@
 import Modeling
 import HTMLDSL
 
-func commonMeta(_ meta: MetaDetail, isApp: Bool = false) -> some HTMLHeadContentView {
+public func commonMeta(_ meta: MetaDetail, isApp: Bool = false) -> some HTMLHeadContentView {
     AnyView([
         AnyView(Title(meta.title)),
         AnyView(htmlMeta(description: meta.description, isIndexable: meta.isIndexable, isApp: isApp)),
