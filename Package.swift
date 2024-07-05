@@ -16,6 +16,7 @@ let package = Package(
         .library(name: "HelperApp", targets: ["HelperApp"])
     ],
     dependencies: [
+        .package(path: "../swift-notion-html"),
         // 💧 A server-side Swift web framework.
         .package(url: "https://github.com/vapor/vapor.git", from: "4.70.0"),
         .package(url: "https://github.com/pointfreeco/swift-parsing", from: "0.13.0")
@@ -27,6 +28,7 @@ let package = Package(
             name: "NotionPages", 
             dependencies: [
                 .product(name: "NotionParsing", package: "swift-notion-parsing"),
+                .product(name: "NotionHTML", package: "swift-notion-html"),
                 "Pages"
             ]
         ),
