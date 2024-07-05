@@ -5,8 +5,9 @@
 //  Created by Shahrukh Alam on 15/06/24.
 //
 
-import NotionParsing
 import HTMLDSL
+import NotionParsing
+import NotionHTML
 import Pages
 
 struct ArticleView: HTMLBodyContentView {
@@ -14,32 +15,18 @@ struct ArticleView: HTMLBodyContentView {
     var attributes = [Attribute]()
 
     private let page: NotionParsing.Page
+    private let pageBody: any HTMLBodyContentView
 
-    init(_ page: NotionParsing.Page) {
+    init(_ page: NotionParsing.Page) throws {
         self.page = page
+        self.pageBody = try htmlBody(for: page)
     }
 
     var body: some View {
         Div {
             Div {
                 Div {
-                    Headings(
-                        page.properties.title.richTexts.map(\.type.description).joined(), 
-                        type: .h1
-                    )
-//                    BylineView(bylines: article.detail.bylines)
-                }
-                .identifyBy(cssClass: .markdown)
-
-                Div {
-                    for block in page.content?.blocks ?? [] {
-                        switch block.type {
-                        case .paragraph(let paragraph):
-                            Paragraphs(richTexts: paragraph.richTexts)
-                        case .bulletedListItem:
-                            preconditionFailure("Not Handled")
-                        }
-                    }
+                    AnyView(pageBody)
                 }
                 .identifyBy(cssClass: .markdown)
 

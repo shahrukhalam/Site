@@ -10,8 +10,18 @@ import HTMLDSL
 import Modeling
 import Pages
 
-public func articlePage(site: Site, tabs: [LinkDescription], selectedIndex: Int, page: NotionParsing.Page, meta: MetaDetail, analyticsID: String?, isApp: Bool) -> some View {
-    Document {
+public func articlePage(
+    site: Site,
+    tabs: [LinkDescription],
+    selectedIndex: Int,
+    page: NotionParsing.Page,
+    meta: MetaDetail,
+    analyticsID: String?,
+    isApp: Bool
+) throws -> some View {
+    let articleView = try ArticleView(page)
+
+    return Document {
         HTML {
             Head {
                 commonMeta(meta, isApp: isApp)
@@ -38,7 +48,7 @@ public func articlePage(site: Site, tabs: [LinkDescription], selectedIndex: Int,
                     NavView(tabs: tabs, selectedIndex: selectedIndex)
                 }
 
-                ArticleView(page)
+                articleView
 
                 if case .ios = site {
                     Script(url: "/js/prism.js")
