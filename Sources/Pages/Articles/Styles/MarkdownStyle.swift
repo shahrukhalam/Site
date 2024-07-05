@@ -9,21 +9,21 @@ import Foundation
 import HTMLDSL
 
 public enum Typography {
-    enum LineHeight {
-        static let title: Float = 1.2
-        static let heading: Float = 1.3
+    public enum LineHeight {
+        public static let title: Float = 1.2
+        public static let heading: Float = 1.3
         static let subheading: Float = 1.4
-        static let body: Float = 1.5
+        public static let body: Float = 1.5
     }
     
     public enum Font {
         public enum Size {
-            static let title: Float = 2.5
-            static let heading1: Float = 1.875
-            static let heading2: Float = 1.5
-            static let heading3: Float = 1.25
+            public static let title: Float = 2.5
+            public static let heading1: Float = 1.875
+            public static let heading2: Float = 1.5
+            public static let heading3: Float = 1.25
             static let subheading: Float = 1.125
-            static let body: Float = 1
+            public static let body: Float = 1
             public static let byline: Float = 0.875
         }
         
@@ -34,20 +34,20 @@ public enum Typography {
     
     public enum Margin {
         public static let byline: Float = 0.25
-        static let body: Float = 0.5
+        public static let body: Float = 0.5
         public static let title: Float = 4
-        static let heading1: Float = 2
-        static let heading2: Float = 1.5
-        static let heading3: Float = 1
-        static let subheading: Float = 0.625
+        public static let heading1: Float = 2
+        public static let heading2: Float = 1.5
+        public static let heading3: Float = 1
+        public static let subheading: Float = 0.625
     }
 }
 
 @StyleBuilder
-func markdownContainerStyle(_ mediaType: MediaStyle.DeviceType) -> some CSSStyle {
+public func articleContainerStyle(_ mediaType: MediaStyle.DeviceType) -> some CSSStyle {
     switch mediaType {
     case .wide:
-        ClassStyle(forClass: .markdownContainer)
+        ClassStyle(forClass: .articleContainer)
             .size(width: .percentage(50))
             .margin(left: .auto, right: .auto)
             .boxSize(.borderBox)
@@ -55,7 +55,7 @@ func markdownContainerStyle(_ mediaType: MediaStyle.DeviceType) -> some CSSStyle
     case .small:
         MediaStyle(
             for: mediaType,
-            with: ClassStyle(forClass: .markdownContainer)
+            with: ClassStyle(forClass: .articleContainer)
                 .size(width: .percentage(100))
                 .padding(
                     left: .length(.relativeToRoot(Typography.Margin.heading3)),

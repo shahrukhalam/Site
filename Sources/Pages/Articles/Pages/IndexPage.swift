@@ -129,7 +129,7 @@ public func about(markdown: String, authors: [Subsection], tabs: [LinkDescriptio
                                 .identifyBy(cssClass: .markdown)
                         }
                     }
-                    .identifyBy(cssClass: .markdownContainer)
+                    .identifyBy(cssClass: .articleContainer)
                 }
                 .identifyBy(cssClass: .article)
                 
@@ -163,7 +163,7 @@ public func author(markdown: String, tabs: [LinkDescription], selectedIndex: Int
                         Markdown(markdown)
                             .identifyBy(cssClass: .markdown)
                     }
-                    .identifyBy(cssClass: .markdownContainer)
+                    .identifyBy(cssClass: .articleContainer)
                 }
                 .identifyBy(cssClass: .article)
                 
@@ -197,7 +197,7 @@ public func support(markdown: String, tabs: [LinkDescription], selectedIndex: In
                         Markdown(markdown)
                             .identifyBy(cssClass: .markdown)
                     }
-                    .identifyBy(cssClass: .markdownContainer)
+                    .identifyBy(cssClass: .articleContainer)
                 }
                 .identifyBy(cssClass: .article)
                 

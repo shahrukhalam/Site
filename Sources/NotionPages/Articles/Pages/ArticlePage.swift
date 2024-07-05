@@ -36,7 +36,7 @@ public func articlePage(
                 if !isApp {
                     openLinkInNewTabCSS
                 }
-                articlePageCSS()
+                notionPageCSS()
 
                 if let analyticsID = analyticsID {
                     AnalyticsScript(id: analyticsID)

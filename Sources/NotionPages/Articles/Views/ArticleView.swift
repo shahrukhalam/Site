@@ -25,10 +25,7 @@ struct ArticleView: HTMLBodyContentView {
     var body: some View {
         Div {
             Div {
-                Div {
-                    AnyView(pageBody)
-                }
-                .identifyBy(cssClass: .markdown)
+                pageBody
 
 //                if article.isSharable {
                     share(title: "article.detail.title", url: "article.absoluteURL")
@@ -47,7 +44,7 @@ struct ArticleView: HTMLBodyContentView {
                     top: .length(.relativeToRoot(Typography.Margin.title))
                 )
             }
-            .identifyBy(cssClass: .markdownContainer)
+            .identifyBy(cssClass: .articleContainer)
         }
         .identifyBy(cssClass: .article)
     }

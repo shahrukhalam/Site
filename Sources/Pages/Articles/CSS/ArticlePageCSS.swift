@@ -13,8 +13,8 @@ public func articlePageCSS() -> some HTMLHeadContentView {
         
         /// the order is important
         /// `wide` first, then `small`
-        markdownContainerStyle(.wide)
-        markdownContainerStyle(.small)
+        articleContainerStyle(.wide)
+        articleContainerStyle(.small)
 
         bylineStyle
 
@@ -48,8 +48,8 @@ func aboutPageCSS() -> some HTMLHeadContentView {
 
         /// the order is important
         /// `wide` first, then `small`
-        markdownContainerStyle(.wide)
-        markdownContainerStyle(.small)
+        articleContainerStyle(.wide)
+        articleContainerStyle(.small)
         /// the order is important
         /// `wide` first, then `small`
         MarkdownStyle(.wide)
@@ -63,8 +63,8 @@ func supportPageCSS() -> some HTMLHeadContentView {
 
         /// the order is important
         /// `wide` first, then `small`
-        markdownContainerStyle(.wide)
-        markdownContainerStyle(.small)
+        articleContainerStyle(.wide)
+        articleContainerStyle(.small)
         /// the order is important
         /// `wide` first, then `small`
         MarkdownStyle(.wide)
@@ -78,8 +78,8 @@ func authorPageCSS() -> some HTMLHeadContentView {
 
         /// the order is important
         /// `wide` first, then `small`
-        markdownContainerStyle(.wide)
-        markdownContainerStyle(.small)
+        articleContainerStyle(.wide)
+        articleContainerStyle(.small)
         /// the order is important
         /// `wide` first, then `small`
         MarkdownStyle(.wide)

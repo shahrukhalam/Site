@@ -45,7 +45,7 @@ extension CSSClass {
     
     // MARK: Article
     public static var article: Self { .init(stringLiteral: #function) }
-    public static var markdownContainer: Self { .init(stringLiteral: #function) }
+    public static var articleContainer: Self { .init(stringLiteral: #function) }
     public static var markdown: Self { .init(stringLiteral: #function) }
     static var intro: Self { .init(stringLiteral: #function) }
     static var imageCredits: Self { .init(stringLiteral: #function) }

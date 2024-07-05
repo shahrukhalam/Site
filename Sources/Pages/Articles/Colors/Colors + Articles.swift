@@ -9,7 +9,7 @@ import HTMLDSL
 
 var isDarkMode: Bool = false
 
-extension CSSVariable where T == Color {
+public extension CSSVariable where T == Color {
     static var index_background: Self {
         .init(name: "color_\(#function)", value: (dark: .Dark.IndexBackground, light: .Light.IndexBackground))
     }

@@ -54,19 +54,19 @@ struct ArticleView: HTMLBodyContentView {
                     top: .length(.relativeToRoot(Typography.Margin.title))
                 )
             }
-            .identifyBy(cssClass: .markdownContainer)
+            .identifyBy(cssClass: .articleContainer)
         }
         .identifyBy(cssClass: .article)
     }
 }
 
-var commentBoxDisclosureStyle: some CSSStyle {
+public var commentBoxDisclosureStyle: some CSSStyle {
     let pStyle = ClassStyle(forClass: .commentBoxDisclosure)
         .foregroundVariable(.nav_bar_active_item)
     return pStyle
 }
 
-var shareStyle: some CSSStyle {
+public var shareStyle: some CSSStyle {
     let pStyle = ClassStyle(forClass: .share, withTag: .enclosing(.paragraph))
         .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
         .lineHeight(.number(Typography.LineHeight.body))
