@@ -19,9 +19,7 @@ public func articlePage(
     analyticsID: String?,
     isApp: Bool
 ) throws -> some View {
-    let articleView = try ArticleView(page)
-
-    return Document {
+    Document {
         HTML {
             Head {
                 commonMeta(meta, isApp: isApp)
@@ -48,7 +46,7 @@ public func articlePage(
                     NavView(tabs: tabs, selectedIndex: selectedIndex)
                 }
 
-                articleView
+                ArticleView(page)
 
                 if case .ios = site {
                     Script(url: "/js/prism.js")

@@ -15,17 +15,15 @@ struct ArticleView: HTMLBodyContentView {
     var attributes = [Attribute]()
 
     private let page: NotionParsing.Page
-    private let pageBody: any HTMLBodyContentView
 
-    init(_ page: NotionParsing.Page) throws {
+    init(_ page: NotionParsing.Page) {
         self.page = page
-        self.pageBody = try htmlBody(for: page)
     }
 
     var body: some View {
         Div {
             Div {
-                pageBody
+                htmlBody(for: page)
 
 //                if article.isSharable {
                     share(title: "article.detail.title", url: "article.absoluteURL")
