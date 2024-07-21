@@ -48,6 +48,14 @@ struct NotionStyle: CSSStyle {
             let pStyle = ClassStyle(forClass: .notion(.page), withTag: .enclosing(.paragraph))
                 .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
 
+            let captionStyle = ClassStyle(forClass: .notion(.page), withClass: .notion(.caption))
+                .foregroundVariable(.nav_bar_active_item)
+                .align(.center)
+                .margin(
+                    top: .length(.relativeToRoot(-Typography.Margin.heading2)),
+                    bottom: .length(.relativeToRoot(Typography.Margin.heading1))
+                )
+
             let linkStyle = ClassStyle(forClass: .notion(.page), withTag: .enclosing(.link))
                 .foregroundVariable(.link_foreground)
                 .textDecoration(.none)
@@ -67,13 +75,31 @@ struct NotionStyle: CSSStyle {
                     bottom: .length(.relativeToRoot(Typography.Margin.heading1))
                 )
                 .cornerRadius(uniform: .length(.relativeToRoot(Typography.Margin.subheading)))
-            let imageCaptionStyle = ClassStyle(forClass: .notion(.page), withClass: .notion(.caption))
-                .foregroundVariable(.nav_bar_active_item)
-                .align(.center)
+
+            // MARK: Video
+
+            let videoIframeContainerStyle = ClassStyle(forClass: .notion(.video_iframe_container))
                 .margin(
-                    top: .length(.relativeToRoot(-Typography.Margin.heading2)),
+                    left: .auto,
+                    top: .length(.relativeToRoot(Typography.Margin.heading1)),
+                    right: .auto,
                     bottom: .length(.relativeToRoot(Typography.Margin.heading1))
                 )
+                .padding(
+                    // https://www.w3schools.com/howto/howto_css_responsive_iframes.asp
+                    // To have 16:9 Aspect Ratio (divide 9 by 16 = 0.5625)
+                    top: .percentage(56.25)
+                )
+                .position(.relative)
+                .size(width: .percentage(100))
+                .backgroundVariable(.note_background)
+                .cornerRadius(uniform: .pixel(10))
+            let videoIframeStyle = ClassStyle(forClass: .notion(.page), withClass: .notion(.video_iframe))
+                .position(.absolute)
+                .constraint(left: .pixel(0), top: .pixel(0), right: .pixel(0), bottom: .pixel(0))
+                .sizeFull()
+                .margin()
+                .cornerRadius(uniform: .pixel(10))
 
             styles = [
                 commonStyle,
@@ -82,10 +108,12 @@ struct NotionStyle: CSSStyle {
                 h3Style,
                 h4Style,
                 pStyle,
+                captionStyle,
                 linkStyle,
                 linkHoverStyle,
                 imageStyle,
-                imageCaptionStyle
+                videoIframeContainerStyle,
+                videoIframeStyle
             ]
         case .small:
             let mediaStyles: CSSStyle = [
