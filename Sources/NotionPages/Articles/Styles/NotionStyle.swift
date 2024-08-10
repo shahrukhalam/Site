@@ -115,8 +115,43 @@ struct NotionStyle: CSSStyle {
                 .margin()
                 .cornerRadius(uniform: .pixel(10))
 
+            // MARK: Divider
+
+            let dividerStyle = ClassStyle(forClass: .notion(.page), withTag: .enclosing(.hr))
+                .margin(
+                    top: .length(.relativeToRoot(Typography.Margin.heading1)),
+                    bottom: .length(.relativeToRoot(Typography.Margin.heading1))
+                )
+                .backgroundVariable(.nav_bar_divider)
+                .size(height: .pixel(1))
+                .border(width: .pixel(0))
+
+            // MARK: Quote
+
+            let quoteAndAuthorContainerStyle = ClassStyle(forClass: .notion(.quote_author_container))
+                .margin()
+                .display(.flex)
+                .flexAlign(.center)
+            let quoteContainerStyle = ClassStyle(forClass: .notion(.quote_container))
+                .margin()
+                .font(family: .serif([.AmericanTypewriter]))
+                .display(.inlineFlex)
+                .flexDirection(.vertical)
+            let quoteStyle = ClassStyle(forClass: .notion(.page), withClass: .notion(.quote))
+                .font(size: .relativeToRootFontSize(Typography.Font.Size.heading2))
+                .font(weight: .lighter)
+                .margin()
+            let quoteAuthorStyle = ClassStyle(forClass: .notion(.page), withClass: .notion(.quote_author))
+                .font(size: .relativeToRootFontSize(Typography.Font.Size.byline))
+                .font(weight: .number(Typography.Font.Weight.byline))
+                .align(.right)
+                .margin(
+                    top: .length(.relativeToRoot(Typography.Margin.byline))
+                )
+
             styles = [
                 commonStyle,
+                dividerStyle,
                 h1Style,
                 h2Style,
                 h3Style,
@@ -128,7 +163,11 @@ struct NotionStyle: CSSStyle {
                 captionStyle,
                 linkStyle,
                 linkHoverStyle,
-                imageStyle
+                imageStyle,
+                quoteAndAuthorContainerStyle,
+                quoteContainerStyle,
+                quoteStyle,
+                quoteAuthorStyle
             ]
         case .small:
             let mediaStyles: CSSStyle = [
