@@ -149,7 +149,25 @@ struct NotionStyle: CSSStyle {
                     top: .length(.relativeToRoot(Typography.Margin.byline))
                 )
 
+            // MARK: Code
+
+            let codeStyle = ClassStyle(
+                parent1: .notion(.page),
+                notParent12: .enclosing(.pre),
+                child: .enclosing(.code)
+            )
+                .padding(
+                    left: .pixel(6),
+                    top: .pixel(3),
+                    right: .pixel(6),
+                    bottom: .pixel(3)
+                )
+                .backgroundVariable(.code_background)
+                .foregroundVariable(.code_foreground)
+                .cornerRadius(uniform: .pixel(3))
+
             styles = [
+                codeStyle,
                 commonStyle,
                 dividerStyle,
                 h1Style,
@@ -170,7 +188,22 @@ struct NotionStyle: CSSStyle {
                 quoteAuthorStyle
             ]
         case .small:
+            // MARK: Code
+
+            let codeStyle = ClassStyle(
+                parent1: .notion(.page),
+                notParent12: .enclosing(.pre),
+                child: .enclosing(.code)
+            )
+                .padding(
+                    left: .pixel(6),
+                    top: .pixel(2),
+                    right: .pixel(6),
+                    bottom: .pixel(2)
+                )
+
             let mediaStyles: CSSStyle = [
+                codeStyle
             ]
 
             styles = [MediaStyle(for: .small, with: mediaStyles)]
