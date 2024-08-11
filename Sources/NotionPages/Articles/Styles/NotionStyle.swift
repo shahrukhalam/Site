@@ -193,11 +193,31 @@ struct NotionStyle: CSSStyle {
             let calloutNoteStyle = ClassStyle(forClass: .notion(.page), withClass: .notion(.callout_note))
                 .foregroundVariable(.note_border)
 
+            // MARK: Callout/Important
+
+            let calloutImportantContainerStyle = ClassStyle(forClass: .notion(.callout_important_container))
+                .backgroundVariable(.important_background)
+                .border(width: .pixel(1), color: Color.variable(CSSVariable.important_border.name))
+            let calloutImportantStyle = ClassStyle(forClass: .notion(.page), withClass: .notion(.callout_important))
+                .foregroundVariable(.important_border)
+
+            // MARK: Callout/Warning
+
+            let calloutWarningContainerStyle = ClassStyle(forClass: .notion(.callout_warning_container))
+                .backgroundVariable(.warning_background)
+                .border(width: .pixel(1), color: Color.variable(CSSVariable.warning_border.name))
+            let calloutWarningStyle = ClassStyle(forClass: .notion(.page), withClass: .notion(.callout_warning))
+                .foregroundVariable(.warning_border)
+
             styles = [
                 calloutContainerStyle,
                 calloutStyle,
                 calloutNoteContainerStyle,
                 calloutNoteStyle,
+                calloutImportantContainerStyle,
+                calloutImportantStyle,
+                calloutWarningContainerStyle,
+                calloutWarningStyle,
                 codeStyle,
                 commonStyle,
                 dividerStyle,
