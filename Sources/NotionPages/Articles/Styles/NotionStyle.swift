@@ -166,7 +166,38 @@ struct NotionStyle: CSSStyle {
                 .foregroundVariable(.code_foreground)
                 .cornerRadius(uniform: .pixel(3))
 
+            // MARK: Callout
+
+            let calloutContainerStyle = ClassStyle(forClass: .notion(.callout_container))
+                .margin(
+                    top: .length(.relativeToRoot(Typography.Margin.heading1)),
+                    bottom: .length(.relativeToRoot(Typography.Margin.heading1))
+                )
+                .padding(
+                    left: .length(.relativeToRoot(Typography.Margin.heading1)),
+                    top: .length(.relativeToRoot(Typography.Margin.heading2)),
+                    right: .length(.relativeToRoot(Typography.Margin.heading2)),
+                    bottom: .length(.relativeToRoot(Typography.Margin.heading2))
+                )
+                .cornerRadius(uniform: .pixel(20))
+
+            let calloutStyle = ClassStyle(forClass: .notion(.page), withClass: .notion(.callout))
+                .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
+                .margin(top: .pixel(0))
+
+            // MARK: Callout/Note
+
+            let calloutNoteContainerStyle = ClassStyle(forClass: .notion(.callout_note_container))
+                .backgroundVariable(.note_background)
+                .border(width: .pixel(1), color: Color.variable(CSSVariable.note_border.name))
+            let calloutNoteStyle = ClassStyle(forClass: .notion(.page), withClass: .notion(.callout_note))
+                .foregroundVariable(.note_border)
+
             styles = [
+                calloutContainerStyle,
+                calloutStyle,
+                calloutNoteContainerStyle,
+                calloutNoteStyle,
                 codeStyle,
                 commonStyle,
                 dividerStyle,
