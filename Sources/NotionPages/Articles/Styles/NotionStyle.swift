@@ -168,7 +168,7 @@ struct NotionStyle: CSSStyle {
 
             // MARK: Callout
 
-            let calloutContainerStyle = ClassStyle(forClass: .notion(.callout_container))
+            let calloutContainerStyle = ClassStyle(forClass: .notion(.page), withClass: .notion(.callout_container))
                 .margin(
                     top: .length(.relativeToRoot(Typography.Margin.heading1)),
                     bottom: .length(.relativeToRoot(Typography.Margin.heading1))
