@@ -6,6 +6,7 @@
 //
 
 import HTMLDSL
+import Modeling
 import NotionParsing
 import NotionHTML
 import Pages
@@ -15,9 +16,11 @@ struct ArticleView: HTMLBodyContentView {
     var attributes = [Attribute]()
 
     private let page: NotionParsing.Page
+    private let meta: MetaDetail
 
-    init(_ page: NotionParsing.Page) {
+    init(_ page: NotionParsing.Page, meta: MetaDetail) {
         self.page = page
+        self.meta = meta
     }
 
     var body: some View {
@@ -25,10 +28,8 @@ struct ArticleView: HTMLBodyContentView {
             Div {
                 htmlBody(for: page)
 
-//                if article.isSharable {
-                    share(title: "article.detail.title", url: "article.absoluteURL")
-                        .margin(top: .length(.relativeToRoot(Typography.Margin.title)))
-//                }
+                share(title: meta.title, url: meta.absoluteURL)
+                    .margin(top: .length(.relativeToRoot(Typography.Margin.title)))
 
                 Div {
                     Paragraphs("This is a free third party commenting service we are using for you, which needs you to sign in to post a comment, but the good bit is you can stay anonymous while commenting.")

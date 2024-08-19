@@ -46,7 +46,7 @@ public func articlePage(
                     NavView(tabs: tabs, selectedIndex: selectedIndex)
                 }
 
-                ArticleView(page)
+                ArticleView(page, meta: meta)
 
                 if case .ios = site {
                     Script(url: "/js/prism.js")
