@@ -119,7 +119,7 @@ struct NotionStyle: CSSStyle {
 
             let dividerStyle = ClassStyle(forClass: .notion(.page), withTag: .enclosing(.hr))
                 .margin(
-                    top: .length(.relativeToRoot(Typography.Margin.heading1)),
+                    top: .length(.relativeToRoot(Typography.Margin.heading3)),
                     bottom: .length(.relativeToRoot(Typography.Margin.heading1))
                 )
                 .backgroundVariable(.nav_bar_divider)
