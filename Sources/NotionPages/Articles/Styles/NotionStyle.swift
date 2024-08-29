@@ -208,6 +208,12 @@ struct NotionStyle: CSSStyle {
                 .border(width: .pixel(1), color: Color.variable(CSSVariable.warning_border.name))
             let calloutWarningStyle = ClassStyle(forClass: .notion(.page), withClass: .notion(.callout_warning))
                 .foregroundVariable(.warning_border)
+            
+            // MARK: List
+            
+            let ulStyle = ClassStyle(forClass: .notion(.page), withTag: .enclosing(.unorderedList))
+                .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
+                .margin(left: .length(.relativeToRoot(Typography.Margin.heading1)))
 
             styles = [
                 calloutContainerStyle,
@@ -236,7 +242,8 @@ struct NotionStyle: CSSStyle {
                 quoteAndAuthorContainerStyle,
                 quoteContainerStyle,
                 quoteStyle,
-                quoteAuthorStyle
+                quoteAuthorStyle,
+                ulStyle
             ]
         case .small:
             // MARK: Code
