@@ -17,7 +17,6 @@ struct NotionStyle: CSSStyle {
 
             let commonStyle = ClassStyle(elementsInClass: .notion(.page))
                 .lineHeight(.number(Typography.LineHeight.body))
-                .foregroundVariable(.index_foreground)
                 .margin(top: .length(.relativeToRoot(Typography.Margin.body)))
 
             // MARK: Text
