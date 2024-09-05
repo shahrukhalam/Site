@@ -1,17 +1,4 @@
-//
-//  CSSClass + Extension.swift
-//  
-//
-//  Created by Shahrukh Alam on 04/01/2023.
-//
-
-import HTMLDSL
-
 extension CSSClass {
-    // MARK: Common
-    
-    static var link: Self { .init(stringLiteral: #function) }
-    
     // Flex
     static var flexContainer: Self { .init(stringLiteral: #function) }
     static var flexItem: Self { .init(stringLiteral: #function) }
@@ -21,21 +8,9 @@ extension CSSClass {
     static var bylineItem: Self { .init(stringLiteral: #function) }
     
     // MARK: Index
-    static var indexNav: Self { .init(stringLiteral: #function) }
-    static var activeLink: Self { .init(stringLiteral: #function) }
-    static var inactiveLink: Self { .init(stringLiteral: #function) }
-    static var dividerNav: Self { .init(stringLiteral: #function) }
-    
     static var indexContainer: Self { .init(stringLiteral: #function) }
-    static var pillLink: Self { .init(stringLiteral: #function) }
     static var section: Self { .init(stringLiteral: #function) }
     static var collectionDescription: Self { .init(stringLiteral: #function) }
-    
-    static var footerContainer: Self { .init(stringLiteral: #function) }
-    static var footerFlexContainerX: Self { .init(stringLiteral: #function) }
-    static var footerFlexOuterContainerY: Self { .init(stringLiteral: #function) }
-    static var footerFlexContainerY: Self { .init(stringLiteral: #function) }
-    static var footerLink: Self { .init(stringLiteral: #function) }
     
     // Grid
     static var gridContainerIndex: Self { .init(stringLiteral: #function) }

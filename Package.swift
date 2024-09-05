@@ -10,6 +10,7 @@ let package = Package(
         .macOS(.v13)
     ],
     products: [
+        .library(name: "FoundationPages", targets: ["FoundationPages"]),
         .library(name: "Modeling", targets: ["Modeling"]),
         .library(name: "Pages", targets: ["Pages"]),
         .library(name: "NotionPages", targets: ["NotionPages"]),
@@ -22,13 +23,25 @@ let package = Package(
     ],
     targets: [
         .target(name: "Modeling"),
-        .target(name: "Pages", dependencies: ["Modeling", "HTMLDSL"]),
         .target(
-            name: "NotionPages", 
+            name: "FoundationPages",
             dependencies: [
+                "HTMLDSL",
+                "Modeling"
+            ]
+        ),
+        .target(
+            name: "NotionPages",
+            dependencies: [
+                "FoundationPages",
                 .product(name: "NotionParsing", package: "swift-notion-parsing"),
-                .product(name: "NotionHTML", package: "swift-notion-html"),
-                "Pages"
+                .product(name: "NotionHTML", package: "swift-notion-html")
+            ]
+        ),
+        .target(
+            name: "Pages",
+            dependencies: [
+                "FoundationPages"
             ]
         ),
         .target(
