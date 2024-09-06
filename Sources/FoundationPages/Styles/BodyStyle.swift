@@ -1,10 +1,10 @@
-struct BodyStyle: CSSStyle {
-    let key: CustomStringConvertible = Tag.empty.description
-    let styles = [Style]()
+public struct BodyStyle: CSSStyle {
+    public let key: CustomStringConvertible = Tag.empty.description
+    public let styles = [Style]()
+
+    public var element: String
     
-    var element: String
-    
-    init(isApp: Bool, isFooterEnabled: Bool) {
+    public init(isApp: Bool, isFooterEnabled: Bool) {
         var bodyStyle: CSSStyle
 
         bodyStyle = TagStyle(for: .enclosing(.body))

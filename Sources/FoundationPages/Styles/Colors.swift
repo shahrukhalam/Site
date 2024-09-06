@@ -1,14 +1,3 @@
-//
-//  Colors + Articles.swift
-//  
-//
-//  Created by Shahrukh Alam on 08/08/22.
-//
-
-import HTMLDSL
-
-var isDarkMode: Bool = false
-
 public extension CSSVariable where T == Color {
     static var index_background: Self {
         .init(name: "color_\(#function)", value: (dark: .Dark.IndexBackground, light: .Light.IndexBackground))
@@ -134,7 +123,7 @@ public extension CSSVariable where T == Color {
     }
 }
 
-public extension Color {
+extension Color {
     enum Dark {
         static var NavBarColor: Color { .rgba(red: 29, green: 29, blue: 31, alpha: 0.72) }
         static var ActiveNavBarItem: Color { .rgba(red: 245, green: 245, blue: 247, alpha: 0.5) }
