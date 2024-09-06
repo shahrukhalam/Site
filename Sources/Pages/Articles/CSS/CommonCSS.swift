@@ -1,4 +1,4 @@
-func commonCSS(page: NotionPage, isApp: Bool) -> some HTMLHeadContentView {
+func commonCSS(page: Page, isApp: Bool) -> some HTMLHeadContentView {
     HeadStyle {
         KickOffStyle()
 
@@ -6,18 +6,18 @@ func commonCSS(page: NotionPage, isApp: Bool) -> some HTMLHeadContentView {
         RootStyle(page: page, colorScheme: .light, isApp: isApp)
 
         switch page {
-        case ._404:
+        case .home, .about, .author, ._404:
             BodyStyle(isApp: isApp, isFooterEnabled: true)
-        case .article:
+        case .articleList, .article:
             BodyStyle(isApp: isApp, isFooterEnabled: false)
         }
 
         commonStyles(page: page)
 
         switch page {
-        case ._404:
+        case .home, .articleList, ._404:
             NavStyle()
-        case .article:
+        case .article, .about, .author:
             switch isApp {
             case false:
                 NavStyle()

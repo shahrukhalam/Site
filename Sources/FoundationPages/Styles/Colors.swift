@@ -168,7 +168,7 @@ extension Color {
         static var Subtitle404: Color { .rgba(red: 110, green: 110, blue: 110, alpha: 1.0) }
     }
     
-    enum Light {
+    public enum Light {
         static var NavBarColor: Color { .rgba(red: 250, green: 250, blue: 250, alpha: 0.8) }
         static var ActiveNavBarItem: Color { .rgba(red: 0, green: 0, blue: 0, alpha: 0.56) } // ✅
         static var InactiveNavBarItem: Color { .rgba(red: 0, green: 0, blue: 0, alpha: 0.88) } // ✅

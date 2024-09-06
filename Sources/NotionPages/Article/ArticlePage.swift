@@ -18,7 +18,7 @@ public func articlePage(
                     prismCSSLinks
                 }
 
-                commonCSS(isApp: isApp)
+                commonCSS(page: .article, isApp: isApp)
                 if !isApp {
                     openLinkInNewTabCSS
                 }

@@ -7,6 +7,11 @@ private let linkHoverStyle = ClassStyle(forClass: .link, withCSSTag: .hover)
     .foregroundVariable(.link_foreground)
     .textDecoration(.underline)
 
-func commonStyles() -> some CSSStyle {
-    [linkStyle, linkHoverStyle]
+func commonStyles(page: NotionPage) -> some CSSStyle {
+    switch page {
+    case .article:
+        return AnyStyle(contents: [linkStyle, linkHoverStyle])
+    case ._404:
+        return AnyStyle(contents: [])
+    }
 }

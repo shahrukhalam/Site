@@ -1,4 +1,12 @@
 extension CSSStyle {
+    func home(colorScheme: HTMLDSL.ColorScheme) -> CSSStyle {
+        self
+            .index(colorScheme: colorScheme)
+            .navBar(colorScheme: colorScheme)
+            .link(colorScheme: colorScheme)
+            .footer(colorScheme: colorScheme)
+    }
+
     private func index(colorScheme: HTMLDSL.ColorScheme) -> CSSStyle {
         self
             .variable(color: .index_background, scheme: colorScheme)
@@ -18,13 +26,27 @@ extension CSSStyle {
             .variable(color: .nav_bar_hover_item, scheme: colorScheme)
             .variable(color: .nav_bar_divider, scheme: colorScheme)
     }
-    
+
+    private func footer(colorScheme: HTMLDSL.ColorScheme) -> CSSStyle {
+        self
+            .variable(color: .code_block_background, scheme: colorScheme)
+    }
+
+    func articlesList(colorScheme: HTMLDSL.ColorScheme) -> CSSStyle {
+        self
+            .index(colorScheme: colorScheme)
+            .navBar(colorScheme: colorScheme)
+            .code(colorScheme: colorScheme)
+            .variable(color: .article_list_glass, scheme: colorScheme)
+            .variable(color: .article_list_background, scheme: colorScheme)
+    }
+
     func article(colorScheme: HTMLDSL.ColorScheme) -> CSSStyle {
         self
             .articleLite(colorScheme: colorScheme)
             .navBar(colorScheme: colorScheme)
     }
-    
+
     func articleLite(colorScheme: HTMLDSL.ColorScheme) -> CSSStyle {
         self
             .index(colorScheme: colorScheme)
@@ -45,13 +67,21 @@ extension CSSStyle {
             .variable(color: .tip_border, scheme: colorScheme)
             .variable(color: .table_border, scheme: colorScheme)
     }
-    
+
+    func about(colorScheme: HTMLDSL.ColorScheme) -> CSSStyle {
+        self
+            .articleLite(colorScheme: colorScheme)
+            .navBar(colorScheme: colorScheme)
+            .variable(color: .article_list_glass, scheme: colorScheme)
+            .variable(color: .article_list_background, scheme: colorScheme)
+    }
+
     private func code(colorScheme: HTMLDSL.ColorScheme) -> CSSStyle {
         self
             .variable(color: .code_background, scheme: colorScheme)
             .variable(color: .code_foreground, scheme: colorScheme)
     }
-    
+
     func _404(colorScheme: HTMLDSL.ColorScheme) -> CSSStyle {
         self
             .index(colorScheme: colorScheme)

@@ -4,14 +4,22 @@ struct RootStyle: CSSStyle {
 
     var element: String
 
-    init(page: NotionPage, colorScheme: MediaStyle.ColorScheme, isApp: Bool) {
+    init(page: Page, colorScheme: MediaStyle.ColorScheme, isApp: Bool) {
         let htmlColorScheme: HTMLDSL.ColorScheme = colorScheme == .light ? .light : .dark
 
         let htmlTagStyle = TagStyle(for: .enclosing(.html))
         var htmlStyle: CSSStyle
 
         switch page {
-        case .article:
+        case .home:
+            htmlStyle = htmlTagStyle
+                .home(colorScheme: htmlColorScheme)
+
+        case .articleList:
+            htmlStyle = htmlTagStyle
+                .articlesList(colorScheme: htmlColorScheme)
+
+        case .article, .author:
             switch isApp {
             case false:
                 htmlStyle = htmlTagStyle
@@ -21,6 +29,9 @@ struct RootStyle: CSSStyle {
                     .articleLite(colorScheme: htmlColorScheme)
             }
 
+        case .about:
+                htmlStyle = htmlTagStyle
+                    .about(colorScheme: htmlColorScheme)
 
         case ._404:
             htmlStyle = htmlTagStyle

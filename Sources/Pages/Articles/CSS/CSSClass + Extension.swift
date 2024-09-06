@@ -1,4 +1,8 @@
 extension CSSClass {
+    // Links
+    static var link: Self { .init(stringLiteral: #function) }
+    static var pillLink: Self { .init(stringLiteral: #function) }
+
     // Flex
     static var flexContainer: Self { .init(stringLiteral: #function) }
     static var flexItem: Self { .init(stringLiteral: #function) }
