@@ -204,7 +204,15 @@ struct ArticleContentStyle: CSSStyle {
                 .border(width: .pixel(1), color: Color.variable(CSSVariable.warning_border.name))
             let calloutWarningStyle = ClassStyle(forClass: .notion(.page), withClass: .notion(.callout_warning))
                 .foregroundVariable(.warning_border)
-            
+
+            // MARK: Callout/Tip
+
+            let calloutTipContainerStyle = ClassStyle(forClass: .notion(.callout_tip_container))
+                .backgroundVariable(.tip_background)
+                .border(width: .pixel(1), color: Color.variable(CSSVariable.tip_border.name))
+            let calloutTipStyle = ClassStyle(forClass: .notion(.page), withClass: .notion(.callout_tip))
+                .foregroundVariable(.tip_border)
+
             // MARK: List
             
             let ulStyle = ClassStyle(forClass: .notion(.page), withTag: .enclosing(.unorderedList))
@@ -220,6 +228,8 @@ struct ArticleContentStyle: CSSStyle {
                 calloutImportantStyle,
                 calloutWarningContainerStyle,
                 calloutWarningStyle,
+                calloutTipContainerStyle,
+                calloutTipStyle,
                 codeStyle,
                 commonStyle,
                 dividerStyle,
