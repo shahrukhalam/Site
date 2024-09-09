@@ -63,7 +63,7 @@ struct ArticleContentStyle: CSSStyle {
 
             let imageStyle = ClassStyle(forClass: .notion(.page), withTag: .selfClosing(.image))
                 .display(.flex)
-                .size(maxWidth: .percentage(100))
+                .size(maxWidth: .percentage(100), maxHeight: .percentageViewPortWidth(50))
                 .margin(
                     left: .auto,
                     top: .length(.relativeToRoot(Typography.Margin.heading1)),
@@ -153,14 +153,14 @@ struct ArticleContentStyle: CSSStyle {
                 child: .enclosing(.code)
             )
                 .padding(
-                    left: .pixel(6),
-                    top: .pixel(3),
-                    right: .pixel(6),
-                    bottom: .pixel(3)
+                    left: .pixel(4),
+                    top: .pixel(2),
+                    right: .pixel(4),
+                    bottom: .pixel(2)
                 )
                 .backgroundVariable(.code_background)
                 .foregroundVariable(.code_foreground)
-                .cornerRadius(uniform: .pixel(3))
+                .cornerRadius(uniform: .pixel(2))
 
             // MARK: Callout
 
@@ -252,22 +252,13 @@ struct ArticleContentStyle: CSSStyle {
                 ulStyle
             ]
         case .small:
-            // MARK: Code
+            // MARK: Image
 
-            let codeStyle = ClassStyle(
-                parent1: .notion(.page),
-                notParent12: .enclosing(.pre),
-                child: .enclosing(.code)
-            )
-                .padding(
-                    left: .pixel(6),
-                    top: .pixel(2),
-                    right: .pixel(6),
-                    bottom: .pixel(2)
-                )
+            let imageStyle = ClassStyle(forClass: .notion(.page), withTag: .selfClosing(.image))
+                .size(maxWidth: .percentage(100), maxHeight: .percentageViewPortWidth(100))
 
             let mediaStyles: CSSStyle = [
-                codeStyle
+                imageStyle
             ]
 
             styles = [MediaStyle(for: .small, with: mediaStyles)]
