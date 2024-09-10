@@ -219,6 +219,10 @@ struct ArticleContentStyle: CSSStyle {
                 .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
                 .margin(left: .length(.relativeToRoot(Typography.Margin.heading1)))
 
+            let olStyle = ClassStyle(forClass: .notion(.page), withTag: .enclosing(.orderedList))
+                .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
+                .margin(left: .length(.relativeToRoot(Typography.Margin.heading1)))
+
             styles = [
                 calloutContainerStyle,
                 calloutStyle,
@@ -249,7 +253,8 @@ struct ArticleContentStyle: CSSStyle {
                 quoteContainerStyle,
                 quoteStyle,
                 quoteAuthorStyle,
-                ulStyle
+                ulStyle,
+                olStyle
             ]
         case .small:
             // MARK: Image
