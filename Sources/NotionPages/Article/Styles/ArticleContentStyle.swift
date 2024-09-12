@@ -72,6 +72,23 @@ struct ArticleContentStyle: CSSStyle {
                 )
                 .cornerRadius(uniform: .length(.relativeToRoot(Typography.Margin.subheading)))
 
+            // MARK: Video
+
+            let videoStyle = ClassStyle(forClass: .notion(.page), withTag: .enclosing(.video))
+                .display(.flex)
+                .size(
+                    minHeight: .percentageViewPortWidth(10),
+                    maxWidth: .percentage(100),
+                    maxHeight: .percentageViewPortWidth(50)
+                )
+                .margin(
+                    left: .auto,
+                    top: .length(.relativeToRoot(Typography.Margin.heading1)),
+                    right: .auto,
+                    bottom: .length(.relativeToRoot(Typography.Margin.heading1))
+                )
+                .cornerRadius(uniform: .length(.relativeToRoot(Typography.Margin.subheading)))
+
             // MARK: iFrame
 
             let iframeContainerStyle = ClassStyle(forClass: .notion(.iframe_container))
@@ -148,9 +165,7 @@ struct ArticleContentStyle: CSSStyle {
             // MARK: Code
 
             let codeStyle = ClassStyle(
-                parent1: .notion(.page),
-                notParent12: .enclosing(.pre),
-                child: .enclosing(.code)
+                forClass: .notion(.code_inline)
             )
                 .padding(
                     left: .pixel(4),
@@ -249,6 +264,7 @@ struct ArticleContentStyle: CSSStyle {
                 linkStyle,
                 linkHoverStyle,
                 imageStyle,
+                videoStyle,
                 quoteAndAuthorContainerStyle,
                 quoteContainerStyle,
                 quoteStyle,
@@ -262,8 +278,18 @@ struct ArticleContentStyle: CSSStyle {
             let imageStyle = ClassStyle(forClass: .notion(.page), withTag: .selfClosing(.image))
                 .size(maxWidth: .percentage(100), maxHeight: .percentageViewPortWidth(100))
 
+            // MARK: Video
+
+            let videoStyle = ClassStyle(forClass: .notion(.page), withTag: .enclosing(.video))
+                .size(
+                    minHeight: .percentageViewPortWidth(25),
+                    maxWidth: .percentage(100),
+                    maxHeight: .percentageViewPortWidth(100)
+                )
+
             let mediaStyles: CSSStyle = [
-                imageStyle
+                imageStyle,
+                videoStyle
             ]
 
             styles = [MediaStyle(for: .small, with: mediaStyles)]
