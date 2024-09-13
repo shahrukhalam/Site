@@ -4,16 +4,18 @@ struct ArticleView: HTMLBodyContentView {
 
     private let page: NotionParsing.Page
     private let meta: MetaDetail
+    private let htmlConfig: NotionHTML.Config
 
-    init(_ page: NotionParsing.Page, meta: MetaDetail) {
+    init(_ page: NotionParsing.Page, meta: MetaDetail, htmlConfig: NotionHTML.Config) {
         self.page = page
         self.meta = meta
+        self.htmlConfig = htmlConfig
     }
 
     var body: some View {
         Div {
             Div {
-                htmlBody(for: page)
+                htmlBody(for: page, with: htmlConfig)
 
                 share(title: meta.title, url: meta.absoluteURL)
                     .margin(top: .length(.relativeToRoot(Typography.Margin.title)))
