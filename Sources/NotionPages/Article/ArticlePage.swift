@@ -4,6 +4,7 @@ public func articlePage(
     selectedIndex: Int,
     page: NotionParsing.Page,
     meta: MetaDetail,
+    bylines: [Article.Detail.Byline],
     htmlConfig: NotionHTML.Config,
     analyticsID: String?,
     isApp: Bool
@@ -35,7 +36,7 @@ public func articlePage(
                     NavView(tabs: tabs, selectedIndex: selectedIndex)
                 }
 
-                ArticleView(page, meta: meta, htmlConfig: htmlConfig)
+                ArticleView(page, meta: meta, bylines: bylines, htmlConfig: htmlConfig)
 
                 if case .ios = site {
                     Script(url: "/js/prism.js")

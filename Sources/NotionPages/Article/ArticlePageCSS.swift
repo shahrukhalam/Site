@@ -7,6 +7,8 @@ func articlePageCSS() -> some HTMLHeadContentView {
         articleContainerStyle(.wide)
         articleContainerStyle(.small)
 
+        bylineStyle
+
         /// the order is important
         /// `wide` first, then `small`
         ArticleContentStyle(.wide)

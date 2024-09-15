@@ -4,17 +4,30 @@ struct ArticleView: HTMLBodyContentView {
 
     private let page: NotionParsing.Page
     private let meta: MetaDetail
+    private let bylines: [Article.Detail.Byline]
     private let htmlConfig: NotionHTML.Config
 
-    init(_ page: NotionParsing.Page, meta: MetaDetail, htmlConfig: NotionHTML.Config) {
+    init(_ page: NotionParsing.Page, meta: MetaDetail, bylines: [Article.Detail.Byline], htmlConfig: NotionHTML.Config) {
         self.page = page
         self.meta = meta
+        self.bylines = bylines
         self.htmlConfig = htmlConfig
     }
 
     var body: some View {
         Div {
             Div {
+                Div {
+                    Headings(
+                        richTexts: page.properties.articleTitle?.richTexts ?? page.properties.title.richTexts,
+                        type: .h1
+                    )
+                    .identifyBy(cssClass: .notion(.title))
+
+                    BylineView(bylines: bylines)
+                }
+                .identifyBy(cssClass: .notion(.page))
+
                 htmlBody(for: page, with: htmlConfig)
 
                 share(title: meta.title, url: meta.absoluteURL)
