@@ -20,10 +20,12 @@ public struct Author {
         }
     }
 
+    public let id: String
     public let detail: Detail
     public let url: String
-    
-    public init(detail: Author.Detail, url: String) {
+
+    public init(id: String, detail: Author.Detail, url: String) {
+        self.id = id
         self.detail = detail
         self.url = url
     }
