@@ -19,7 +19,8 @@ struct ArticleView: HTMLBodyContentView {
             Div {
                 Div {
                     Headings(
-                        richTexts: page.properties.articleTitle?.richTexts ?? page.properties.title.richTexts,
+                        richTexts: (page.properties.articleTitle?.richTexts.isEmpty != true) ? page.properties.articleTitle!.richTexts : page.properties.title.richTexts
+                        ,
                         type: .h1
                     )
                     .identifyBy(cssClass: .notion(.title))
