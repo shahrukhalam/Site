@@ -44,6 +44,13 @@ struct ArticleContentStyle: CSSStyle {
             let pStyle = ClassStyle(forClass: .notion(.page), withTag: .enclosing(.paragraph))
                 .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
 
+            let introStyle = ClassStyle(forClass: .notion(.page), withClass: .notion(.intro))
+                .font(size: .relativeToRootFontSize(Typography.Font.Size.subheading))
+                .font(weight: .number(300))
+                .lineHeight(.number(Typography.LineHeight.subheading))
+                .foregroundVariable(.note_border)
+                .margin(top: .length(.relativeToRoot(Typography.Margin.subheading)))
+
             let captionStyle = ClassStyle(forClass: .notion(.page), withClass: .notion(.caption))
                 .foregroundVariable(.nav_bar_active_item)
                 .align(.center)
@@ -259,6 +266,7 @@ struct ArticleContentStyle: CSSStyle {
                 iframeContainerStyle,
                 iframeContainerStyleForPodcast,
                 iframeStyle,
+                introStyle,
                 pStyle,
                 captionStyle,
                 linkStyle,
