@@ -184,9 +184,9 @@ struct ArticleContentStyle: CSSStyle {
                 .foregroundVariable(.code_foreground)
                 .cornerRadius(uniform: .pixel(2))
 
-            // MARK: Callout
+            // MARK: Toggle
 
-            let calloutContainerStyle = ClassStyle(forClass: .notion(.page), withClass: .notion(.callout_container))
+            let toggleContainerStyle = ClassStyle(forClass: .notion(.page), withClass: .notion(.toggle_container))
                 .margin(
                     top: .length(.relativeToRoot(Typography.Margin.heading1)),
                     bottom: .length(.relativeToRoot(Typography.Margin.heading1))
@@ -199,44 +199,44 @@ struct ArticleContentStyle: CSSStyle {
                 )
                 .cornerRadius(uniform: .pixel(20))
 
-            let calloutStyle = ClassStyle(forClass: .notion(.page), withClass: .notion(.callout))
+            let toggleStyle = ClassStyle(forClass: .notion(.page), withClass: .notion(.toggle))
                 .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
                 .margin(top: .pixel(0))
 
-            // MARK: Callout/Note
+            // MARK: Toggle/Note
 
-            let calloutNoteContainerStyle = ClassStyle(forClass: .notion(.callout_note_container))
+            let toggleNoteContainerStyle = ClassStyle(forClass: .notion(.toggle_note_container))
                 .backgroundVariable(.note_background)
                 .border(width: .pixel(1), color: Color.variable(CSSVariable.note_border.name))
-            let calloutNoteStyle = ClassStyle(forClass: .notion(.page), withClass: .notion(.callout_note))
+            let toggleNoteStyle = ClassStyle(forClass: .notion(.page), withClass: .notion(.toggle_note))
                 .foregroundVariable(.note_border)
 
-            // MARK: Callout/Important
+            // MARK: Toggle/Important
 
-            let calloutImportantContainerStyle = ClassStyle(forClass: .notion(.callout_important_container))
+            let toggleImportantContainerStyle = ClassStyle(forClass: .notion(.toggle_important_container))
                 .backgroundVariable(.important_background)
                 .border(width: .pixel(1), color: Color.variable(CSSVariable.important_border.name))
-            let calloutImportantStyle = ClassStyle(forClass: .notion(.page), withClass: .notion(.callout_important))
+            let toggleImportantStyle = ClassStyle(forClass: .notion(.page), withClass: .notion(.toggle_important))
                 .foregroundVariable(.important_border)
 
-            // MARK: Callout/Warning
+            // MARK: Toggle/Warning
 
-            let calloutWarningContainerStyle = ClassStyle(forClass: .notion(.callout_warning_container))
+            let toggleWarningContainerStyle = ClassStyle(forClass: .notion(.toggle_warning_container))
                 .backgroundVariable(.warning_background)
                 .border(width: .pixel(1), color: Color.variable(CSSVariable.warning_border.name))
-            let calloutWarningStyle = ClassStyle(forClass: .notion(.page), withClass: .notion(.callout_warning))
+            let toggleWarningStyle = ClassStyle(forClass: .notion(.page), withClass: .notion(.toggle_warning))
                 .foregroundVariable(.warning_border)
 
-            // MARK: Callout/Tip
+            // MARK: Toggle/Tip
 
-            let calloutTipContainerStyle = ClassStyle(forClass: .notion(.callout_tip_container))
+            let toggleTipContainerStyle = ClassStyle(forClass: .notion(.toggle_tip_container))
                 .backgroundVariable(.tip_background)
                 .border(width: .pixel(1), color: Color.variable(CSSVariable.tip_border.name))
-            let calloutTipStyle = ClassStyle(forClass: .notion(.page), withClass: .notion(.callout_tip))
+            let toggleTipStyle = ClassStyle(forClass: .notion(.page), withClass: .notion(.toggle_tip))
                 .foregroundVariable(.tip_border)
 
             // MARK: List
-            
+
             let ulStyle = ClassStyle(forClass: .notion(.page), withTag: .enclosing(.unorderedList))
                 .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
                 .margin(left: .length(.relativeToRoot(Typography.Margin.heading1)))
@@ -246,16 +246,16 @@ struct ArticleContentStyle: CSSStyle {
                 .margin(left: .length(.relativeToRoot(Typography.Margin.heading1)))
 
             styles = [
-                calloutContainerStyle,
-                calloutStyle,
-                calloutNoteContainerStyle,
-                calloutNoteStyle,
-                calloutImportantContainerStyle,
-                calloutImportantStyle,
-                calloutWarningContainerStyle,
-                calloutWarningStyle,
-                calloutTipContainerStyle,
-                calloutTipStyle,
+                toggleContainerStyle,
+                toggleStyle,
+                toggleNoteContainerStyle,
+                toggleNoteStyle,
+                toggleImportantContainerStyle,
+                toggleImportantStyle,
+                toggleWarningContainerStyle,
+                toggleWarningStyle,
+                toggleTipContainerStyle,
+                toggleTipStyle,
                 codeStyle,
                 commonStyle,
                 dividerStyle,
