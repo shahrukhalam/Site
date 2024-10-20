@@ -43,6 +43,8 @@ struct ArticleContentStyle: CSSStyle {
 
             let pStyle = ClassStyle(forClass: .notion(.page), withTag: .enclosing(.paragraph))
                 .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
+            let pFirstChildStyle = ClassStyle(.notion(.page), tag: .enclosing(.paragraph), cssTag: .first_child)
+                .margin(top: .pixel(0))
 
             let introStyle = ClassStyle(forClass: .notion(.page), withClass: .notion(.intro))
                 .font(size: .relativeToRootFontSize(Typography.Font.Size.subheading))
@@ -184,6 +186,23 @@ struct ArticleContentStyle: CSSStyle {
                 .foregroundVariable(.code_foreground)
                 .cornerRadius(uniform: .pixel(2))
 
+            // MARK: Callout
+
+            let calloutStyle = ClassStyle(forClass: .notion(.callout))
+                .padding(uniform: .length(.relativeToRoot(0.75)))
+                .backgroundVariable(.code_background)
+                .display(.flex)
+                .flex(gap: .length(.relativeToRoot(0.75)))
+                .cornerRadius(uniform: .length(.relativeToRoot(Typography.Margin.byline)))
+
+            let calloutEmojiStyle = ClassStyle(forClass: .notion(.page), withClass: .notion(.callout_emoji))
+                .font(size: .relativeToRootFontSize(1.35))
+
+            let calloutContentContainerStyle = ClassStyle(forClass: .notion(.page), withClass: .notion(.callout_content_container))
+                .display(.flex)
+                .flexAlign(.center)
+                .margin(top: .pixel(0))
+
             // MARK: Toggle
 
             let toggleContainerStyle = ClassStyle(forClass: .notion(.page), withClass: .notion(.toggle_container))
@@ -256,6 +275,9 @@ struct ArticleContentStyle: CSSStyle {
                 toggleWarningStyle,
                 toggleTipContainerStyle,
                 toggleTipStyle,
+                calloutStyle,
+                calloutEmojiStyle,
+                calloutContentContainerStyle,
                 codeStyle,
                 commonStyle,
                 dividerStyle,
@@ -268,6 +290,7 @@ struct ArticleContentStyle: CSSStyle {
                 iframeStyle,
                 introStyle,
                 pStyle,
+                pFirstChildStyle,
                 captionStyle,
                 linkStyle,
                 linkHoverStyle,
