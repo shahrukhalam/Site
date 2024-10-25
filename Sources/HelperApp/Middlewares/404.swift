@@ -21,6 +21,20 @@ public struct Middleware404: AsyncMiddleware {
                 return response
             }
         } catch {
+            let log: String
+            if let debuggableError = error as? DebuggableError {
+                log = """
+                ID: \(debuggableError.fullIdentifier)
+                Reason: \(debuggableError.reason)
+                File: \(debuggableError.source?.file ?? "")
+                Function: \(debuggableError.source?.function ?? "")
+                Line: \(debuggableError.source?.line.description ?? "")
+                """
+            } else {
+                log = error.localizedDescription
+            }
+            request.logger.warning("\(log)")
+
             return .html(for: request, with: view404(tabs: tabs, selectedIndex: -1, description: description(with: error), isApp: request.isApp), status: .badRequest)
         }
     }
