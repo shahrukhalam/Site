@@ -296,7 +296,7 @@ struct ArticleContentStyle: CSSStyle {
                 .display(.inlineBlock)
                 .font(size: .percentage(100))
                 .textDecoration(.none)
-                .foregroundVariable(.index_foreground)
+                .foregroundColor(Color.Dark.Foreground)
                 .backgroundVariable(.link_foreground)
                 .margin(top: .length(.relativeToRoot(Typography.Margin.heading3)))
                 .padding(
@@ -309,7 +309,7 @@ struct ArticleContentStyle: CSSStyle {
 
             let sponsorCTAHoverStyle = ClassStyle(forClass: .notion(.page), withClass: .borderedProminentLink, tag: .hover)
                 .textDecoration(.none)
-                .foregroundVariable(.index_foreground)
+                .foregroundColor(Color.Dark.Foreground)
                 .backgroundVariable(.important_border)
 
             styles = [

@@ -124,7 +124,7 @@ public extension CSSVariable where T == Color {
 }
 
 extension Color {
-    enum Dark {
+    public enum Dark {
         static var NavBarColor: Color { .rgba(red: 29, green: 29, blue: 31, alpha: 0.72) }
         static var ActiveNavBarItem: Color { .rgba(red: 245, green: 245, blue: 247, alpha: 0.5) }
         static var InactiveNavBarItem: Color { .rgba(red: 255, green: 255, blue: 255, alpha: 0.88) }
@@ -160,7 +160,7 @@ extension Color {
         static var ArticleListBackgroundColor: Color { .hexWithHash("#1A1A3E") }
 
         static var Background: Color { .html(.Black) }
-        static var Foreground: Color { .html(.White) }
+        public static var Foreground: Color { .html(.White) }
         static var LinkNormalForeground: Color { .rgba(red: 41, green: 151, blue: 255, alpha: 1.0) }
 
         static var Background404: Color { .Dark.ArticleCodeBackground }
