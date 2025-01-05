@@ -1,3 +1,7 @@
+import FoundationPages
+import HTMLDSL
+import NotionParsing
+
 struct ArticleContentStyle: CSSStyle {
     let key: CustomStringConvertible
     let styles = [Style]()
@@ -60,6 +64,8 @@ struct ArticleContentStyle: CSSStyle {
                     top: .length(.relativeToRoot(-Typography.Margin.heading2)),
                     bottom: .length(.relativeToRoot(Typography.Margin.heading1))
                 )
+
+            // MARK Link
 
             let linkStyle = ClassStyle(forClass: .notion(.page), withTag: .enclosing(.link))
                 .foregroundVariable(.link_foreground)
@@ -264,6 +270,51 @@ struct ArticleContentStyle: CSSStyle {
                 .font(size: .relativeToRootFontSize(Typography.Font.Size.body))
                 .margin(left: .length(.relativeToRoot(Typography.Margin.heading1)))
 
+            // MARK: Sponsor
+
+            let sponsorContainerStyle = ClassStyle(forClass: .sponsorContainer)
+                .display(.grid)
+                .gridNumberOfColumns(3)
+                .gridColumn(
+                    gap: .length(.relativeToRoot(Typography.Margin.title))
+                )
+                .margin(
+                    top: .length(.relativeToRoot(Typography.Margin.heading3)),
+                    bottom: .length(.relativeToRoot(Typography.Margin.heading3))
+                )
+            let sponsorImageStyle = ClassStyle(forClass: .sponsorContainer, withClass: .sponsorImage)
+                .gridColumn(location: 1, size: 2)
+                .margin()
+                .size(width: .percentage(100))
+                .aspectRatio(width: 1, height: 1)
+                .contentMode(.aspectFit)
+            let sponsorDetailStyle = ClassStyle(forClass: .sponsorDetail)
+                .gridColumn(location: 2, size: 4)
+                .lineHeight(.number(Typography.LineHeight.body))
+                .margin()
+            let sponsorTitleStyle = ClassStyle(forClass: .sponsorTitle)
+                .font(weight: .bold)
+
+            let sponsorCTAStyle = ClassStyle(forClass: .notion(.page), withClass: .borderedProminentLink)
+                .display(.inlineBlock)
+                .font(size: .percentage(100))
+                .textDecoration(.none)
+                .foregroundVariable(.index_foreground)
+                .backgroundVariable(.link_foreground)
+                .margin(top: .length(.relativeToRoot(Typography.Margin.heading3)))
+                .padding(
+                    left: .length(.relativeToRoot(Typography.Margin.heading3)),
+                    top: .length(.relativeToRoot(Typography.Margin.body)),
+                    right: .length(.relativeToRoot(Typography.Margin.heading3)),
+                    bottom: .length(.relativeToRoot(Typography.Margin.body))
+                )
+                .cornerRadius(uniform: .length(.relativeToRoot(Typography.Margin.body)))
+
+            let sponsorCTAHoverStyle = ClassStyle(forClass: .notion(.page), withClass: .borderedProminentLink, tag: .hover)
+                .textDecoration(.none)
+                .foregroundVariable(.index_foreground)
+                .backgroundVariable(.important_border)
+
             styles = [
                 toggleContainerStyle,
                 toggleStyle,
@@ -301,7 +352,13 @@ struct ArticleContentStyle: CSSStyle {
                 quoteStyle,
                 quoteAuthorStyle,
                 ulStyle,
-                olStyle
+                olStyle,
+                sponsorContainerStyle,
+                sponsorImageStyle,
+                sponsorDetailStyle,
+                sponsorTitleStyle,
+                sponsorCTAStyle,
+                sponsorCTAHoverStyle
             ]
         case .small:
             // MARK: Image
@@ -318,9 +375,17 @@ struct ArticleContentStyle: CSSStyle {
                     maxHeight: .percentageViewPortWidth(100)
                 )
 
+            // MARK: Sponsor
+
+            let sponsorContainerStyle = ClassStyle(forClass: .sponsorContainer)
+                .gridColumn(
+                    gap: .length(.relativeToRoot(Typography.Margin.heading3))
+                )
+
             let mediaStyles: CSSStyle = [
                 imageStyle,
-                videoStyle
+                videoStyle,
+                sponsorContainerStyle
             ]
 
             styles = [MediaStyle(for: .small, with: mediaStyles)]
