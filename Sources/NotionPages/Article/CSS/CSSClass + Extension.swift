@@ -12,7 +12,6 @@ extension CSSClass {
     static var sponsorContainer: Self { .init(stringLiteral: #function) }
     static var sponsorImage: Self { .init(stringLiteral: #function) }
     static var sponsorDetail: Self { .init(stringLiteral: #function) }
-    static var sponsorTitle: Self { .init(stringLiteral: #function) }
     static var share: Self { .init(stringLiteral: #function) }
     static var commentBoxDisclosure: Self { .init(stringLiteral: #function) }
 }

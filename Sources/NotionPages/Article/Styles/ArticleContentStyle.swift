@@ -290,10 +290,7 @@ struct ArticleContentStyle: CSSStyle {
                 .contentMode(.aspectFit)
             let sponsorDetailStyle = ClassStyle(forClass: .sponsorDetail)
                 .gridColumn(location: 2, size: 4)
-                .lineHeight(.number(Typography.LineHeight.body))
                 .margin()
-            let sponsorTitleStyle = ClassStyle(forClass: .sponsorTitle)
-                .font(weight: .bold)
 
             let sponsorCTAStyle = ClassStyle(forClass: .notion(.page), withClass: .borderedProminentLink)
                 .display(.inlineBlock)
@@ -356,7 +353,6 @@ struct ArticleContentStyle: CSSStyle {
                 sponsorContainerStyle,
                 sponsorImageStyle,
                 sponsorDetailStyle,
-                sponsorTitleStyle,
                 sponsorCTAStyle,
                 sponsorCTAHoverStyle
             ]
@@ -378,14 +374,24 @@ struct ArticleContentStyle: CSSStyle {
             // MARK: Sponsor
 
             let sponsorContainerStyle = ClassStyle(forClass: .sponsorContainer)
-                .gridColumn(
-                    gap: .length(.relativeToRoot(Typography.Margin.heading3))
+                .gridNumberOfColumns(1)
+                .gridRow(gap: .length(.relativeToRoot(Typography.Margin.body)))
+                .margin(
+                    top: .length(.relativeToRoot(Typography.Margin.body)),
+                    bottom: .length(.relativeToRoot(Typography.Margin.body))
                 )
+            let sponsorImageStyle = ClassStyle(forClass: .sponsorContainer, withClass: .sponsorImage)
+                .gridColumn(location: 1, size: 2)
+                .size(maxWidth: .percentage(33))
+            let sponsorDetailStyle = ClassStyle(forClass: .sponsorDetail)
+                .gridColumn(location: 1, size: 2)
 
             let mediaStyles: CSSStyle = [
                 imageStyle,
                 videoStyle,
-                sponsorContainerStyle
+                sponsorContainerStyle,
+                sponsorImageStyle,
+                sponsorDetailStyle
             ]
 
             styles = [MediaStyle(for: .small, with: mediaStyles)]

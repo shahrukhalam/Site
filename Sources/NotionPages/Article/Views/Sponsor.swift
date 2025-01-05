@@ -25,10 +25,10 @@ public struct Sponsor: HTMLBodyContentView {
                     .identifyBy(cssClass: .sponsorImage)
 
                     Div {
-                        Paragraphs(sponsor.properties.title.richTexts.plainTexts)
-                            .identifyBy(cssClass: .sponsorTitle)
+                        Paragraphs(richTexts: sponsor.properties.title.richTexts)
+                            .font(weight: .semiBold)
 
-                        Paragraphs(sponsor.properties.description.richTexts.plainTexts)
+                        Paragraphs(richTexts: sponsor.properties.description.richTexts)
 
                         Link(
                             text: sponsor.properties.cta.richTexts.plainTexts,
