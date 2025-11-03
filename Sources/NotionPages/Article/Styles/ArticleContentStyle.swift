@@ -312,6 +312,38 @@ struct ArticleContentStyle: CSSStyle {
                 .foregroundColor(Color.Dark.Foreground)
                 .backgroundVariable(.important_border)
 
+            // MARK: Table
+
+            let tableContainerStyle = ClassStyle(forClass: .notion(.table_container))
+                .size(width: .percentage(100))
+                .margin(top: .length(.relativeToRoot(Typography.Margin.heading3)))
+
+            let tableStyle = ClassStyle(
+                forClass: .notion(.table_container),
+                withTag: .enclosing(.table)
+            )
+                .size(width: .percentage(100))
+                .borderCollapse()
+
+            let tableBorderStyle = ClassStyle(
+                tags: [
+                    .enclosing(.table),
+                    .enclosing(.tableHeader),
+                    .enclosing(.tableData)
+                ]
+            )
+                .border(width: .pixel(1), color: .variable(CSSVariable.table_border.name))
+
+            let tableHeaderStyle = ClassStyle(forClass: .notion(.page), withClass: .notion(.table_header))
+                .padding(uniform: .length(.relativeToRoot(Typography.Margin.body)))
+                .align(.left)
+                .font(weight: .number(600))
+                .backgroundVariable(.code_background)
+
+            let tableCellStyle = ClassStyle(forClass: .notion(.page), withClass: .notion(.table_cell))
+                .padding(uniform: .length(.relativeToRoot(Typography.Margin.body)))
+                .align(.left)
+
             styles = [
                 toggleContainerStyle,
                 toggleStyle,
@@ -350,6 +382,11 @@ struct ArticleContentStyle: CSSStyle {
                 quoteAuthorStyle,
                 ulStyle,
                 olStyle,
+                tableContainerStyle,
+                tableStyle,
+                tableBorderStyle,
+                tableHeaderStyle,
+                tableCellStyle,
                 sponsorContainerStyle,
                 sponsorImageStyle,
                 sponsorDetailStyle,
