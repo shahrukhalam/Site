@@ -8,29 +8,38 @@
 import HTMLDSL
 
 public func articlePageCSS() -> some HTMLHeadContentView {
-    HeadStyle {
-        ArticleStyle()
-        
-        /// the order is important
-        /// `wide` first, then `small`
-        articleContainerStyle(.wide)
-        articleContainerStyle(.small)
+    AnyView([
+        HeadStyle {
+            ArticleStyle()
+            
+            /// the order is important
+            /// `wide` first, then `small`
+            articleContainerStyle(.wide)
+            articleContainerStyle(.small)
 
-        bylineStyle
+            bylineStyle
 
-        /// the order is important
-        /// `wide` first, then `small`
-        MarkdownStyle(.wide)
-        MarkdownStyle(.small)
+            /// the order is important
+            /// `wide` first, then `small`
+            MarkdownStyle(.wide)
+            MarkdownStyle(.small)
 
-        shareStyle
-        commentBoxDisclosureStyle
+            shareStyle
+            commentBoxDisclosureStyle
 
-        /// the order is important
-        /// `wide` first, then `small`
-        ArticleListStyle.cellStyle(.wide)
-        ArticleListStyle.cellStyle(.small)
-    }
+            /// the order is important
+            /// `wide` first, then `small`
+            ArticleListStyle.cellStyle(.wide)
+            ArticleListStyle.cellStyle(.small)
+        }
+    ])
+}
+
+struct RawArticleCSSStyle: CSSStyle {
+    let css: String
+    var key: CustomStringConvertible { "" }
+    var styles: [Style] { [] }
+    var element: String { css }
 }
 
 public var openLinkInNewTabCSS: some HTMLHeadContentView {
