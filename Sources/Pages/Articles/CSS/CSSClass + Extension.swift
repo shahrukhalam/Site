@@ -65,4 +65,62 @@ extension CSSClass {
     static var container404: Self { .init(stringLiteral: #function) }
     static var title404: Self { .init(stringLiteral: #function) }
     static var subtitle404: Self { .init(stringLiteral: #function) }
+    
+    // MARK: Home Page Enhancements
+    static var contentWithSidebar: Self { .init(stringLiteral: #function) }
+    static var mainContent: Self { .init(stringLiteral: #function) }
+    static var sidebarContent: Self { .init(stringLiteral: #function) }
+    static var newsletterSection: Self { .init(stringLiteral: #function) }
+    static var newsletterContent: Self { .init(stringLiteral: #function) }
+    static var newsletterButton: Self { .init(stringLiteral: #function) }
+    static var recentArticlesSection: Self { .init(stringLiteral: #function) }
+    static var popularArticlesSection: Self { .init(stringLiteral: #function) }
+    static var articlesTwoColumns: Self { .init(stringLiteral: #function) }
+    static var articlesColumn: Self { .init(stringLiteral: #function) }
+    static var articlesGrid: Self { .init(stringLiteral: #function) }
+    static var articlesGridTwoColumns: Self { .init(stringLiteral: #function) }
+    static var articleCard: Self { .init(stringLiteral: #function) }
+    static var articleCardLink: Self { .init(stringLiteral: #function) }
+    static var articleCardImage: Self { .init(stringLiteral: #function) }
+    static var articleCardContent: Self { .init(stringLiteral: #function) }
+    static var articleCardTitle: Self { .init(stringLiteral: #function) }
+    static var articleCardIntro: Self { .init(stringLiteral: #function) }
+    static var upcomingEventsSection: Self { .init(stringLiteral: #function) }
+    static var eventsGrid: Self { .init(stringLiteral: #function) }
+    static var eventCard: Self { .init(stringLiteral: #function) }
+    static var eventCardLink: Self { .init(stringLiteral: #function) }
+    static var eventCardTitle: Self { .init(stringLiteral: #function) }
+    static var eventCardMeta: Self { .init(stringLiteral: #function) }
+    static var eventCardDescription: Self { .init(stringLiteral: #function) }
+    static var sponsorSection: Self { .init(stringLiteral: #function) }
+    static var sponsorLink: Self { .init(stringLiteral: #function) }
+    static var sponsorLogo: Self { .init(stringLiteral: #function) }
+    static var sponsorDescription: Self { .init(stringLiteral: #function) }
+    static var homeTagsSection: Self { .init(stringLiteral: #function) }
+    static var homeTagsGrid: Self { .init(stringLiteral: #function) }
+    static var homeTagLink: Self { .init(stringLiteral: #function) }
+    
+    // MARK: Authors Index
+    static var authorsGrid: Self { .init(stringLiteral: #function) }
+    static var authorCard: Self { .init(stringLiteral: #function) }
+    static var authorCardLink: Self { .init(stringLiteral: #function) }
+    static var authorCardImageContainer: Self { .init(stringLiteral: #function) }
+    static var authorCardImage: Self { .init(stringLiteral: #function) }
+    static var authorCardContent: Self { .init(stringLiteral: #function) }
+    static var authorCardName: Self { .init(stringLiteral: #function) }
+    static var authorCardRole: Self { .init(stringLiteral: #function) }
+    
+    // MARK: Articles Page Search and Tags
+    static var articlesPageWrapper: Self { .init(stringLiteral: #function) }
+    static var articleSearchSection: Self { .init(stringLiteral: #function) }
+    static var articleSearchContainer: Self { .init(stringLiteral: #function) }
+    static var articleSearchInput: Self { .init(stringLiteral: #function) }
+    static var articleSearchResults: Self { .init(stringLiteral: #function) }
+    static var articleSearchResultsContainer: Self { .init(stringLiteral: #function) }
+    static var articlesContentWithSidebar: Self { .init(stringLiteral: #function) }
+    static var articlesSidebar: Self { .init(stringLiteral: #function) }
+    static var tagsSection: Self { .init(stringLiteral: #function) }
+    static var tagsContainer: Self { .init(stringLiteral: #function) }
+    static var tagLink: Self { .init(stringLiteral: #function) }
+    static var tagLinkActive: Self { .init(stringLiteral: #function) }
 }
