@@ -20,7 +20,7 @@ func articleListPageCSS() -> some HTMLHeadContentView {
         .articlesPageWrapper { max-width: 1200px; margin: 0 auto; padding: 2rem 1rem; padding-top: 5rem; }
         
         /* Search Container - Full width at top */
-        .articleSearchContainer { width: 100%; margin-bottom: 2rem; }
+        .articleSearchContainer { width: 100%; margin-bottom: 1rem; }
         .articleSearchInput { width: 100%; padding: 1rem; font-size: 1rem; border: 2px solid #e2e8f0; border-radius: 0.5rem; background: white; color: #2d3748; box-sizing: border-box; }
         .articleSearchInput:focus { outline: none; border-color: #667eea; box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1); }
         
@@ -28,6 +28,9 @@ func articleListPageCSS() -> some HTMLHeadContentView {
         .articlesContentWithSidebar { display: flex; gap: 2rem; align-items: flex-start; }
         .articleListContainer { flex: 1; min-width: 0; overflow: hidden; }
         .articlesSidebar { flex: 0 0 250px; width: 250px; }
+        
+        /* Override article list width to be full width within container */
+        .articlesPageWrapper .articleList { width: 100% !important; margin-left: 0 !important; margin-right: 0 !important; padding-top: 0 !important; }
         
         /* Search Results - Inside article list container */
         .articleSearchResults { display: none; width: 100%; box-sizing: border-box; }
