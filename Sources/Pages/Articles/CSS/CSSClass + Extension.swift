@@ -112,7 +112,6 @@ extension CSSClass {
     
     // MARK: Articles Page Search and Tags
     static var articlesPageWrapper: Self { .init(stringLiteral: #function) }
-    static var articleSearchSection: Self { .init(stringLiteral: #function) }
     static var articleSearchContainer: Self { .init(stringLiteral: #function) }
     static var articleSearchInput: Self { .init(stringLiteral: #function) }
     static var articleSearchResults: Self { .init(stringLiteral: #function) }

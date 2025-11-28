@@ -40,29 +40,28 @@ public func articleListPage(tabs: [LinkDescription], selectedIndex: Int, article
                 
                 // Main wrapper
                 Div {
-                    // Search and Filter Section
+                    // Search input at the top
                     Div {
-                        Div {
-                            AnyView("""
-                            <input type="text" id="articleSearch" class="articleSearchInput" placeholder="Search articles by title or tags..." />
-                            """)
-                        }
-                        .identifyBy(cssClass: .articleSearchContainer)
-                        
-                        Div {
-                            Div {
-                                AnyView("<!-- Search results will be populated here by JavaScript -->")
-                            }
-                            .identifyBy(cssClass: .articleSearchResultsContainer)
-                        }
-                        .identifyBy(cssClass: .articleSearchResults)
+                        AnyView("""
+                        <input type="text" id="articleSearch" class="articleSearchInput" placeholder="Search articles by title or tags..." />
+                        """)
                     }
-                    .identifyBy(cssClass: .articleSearchSection)
+                    .identifyBy(cssClass: .articleSearchContainer)
                     
                     // Main content with sidebar
                     Div {
-                        // Article list
+                        // Article list container
                         Div {
+                            // Search results (hidden by default, shown when searching)
+                            Div {
+                                Div {
+                                    AnyView("<!-- Search results will be populated here by JavaScript -->")
+                                }
+                                .identifyBy(cssClass: .articleSearchResultsContainer)
+                            }
+                            .identifyBy(cssClass: .articleSearchResults)
+                            
+                            // Main article list
                             Div {
                                 AnyView(articles.map { article in
                                     ArticleListCell(article: article)
@@ -213,19 +212,15 @@ func combinedArticleScript(articles: [Article]) -> String {
             const filtered = filterArticles();
             
             if (currentSearchQuery !== '') {
-                // Show search results
+                // Show search results, hide main article list
                 searchResults.style.display = 'block';
                 searchResultsContainer.innerHTML = filtered.map(renderArticle).join('');
-                
-                // Hide main article list
-                articleList.parentElement.style.display = 'none';
+                articleList.style.display = 'none';
             } else {
-                // Hide search results
+                // Hide search results, show main article list
                 searchResults.style.display = 'none';
                 searchResultsContainer.innerHTML = '';
-                
-                // Show main article list (filtered by tag if active)
-                articleList.parentElement.style.display = '';
+                articleList.style.display = '';
                 updateMainList();
             }
         }
